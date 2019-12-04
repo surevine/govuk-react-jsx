@@ -29,6 +29,7 @@
   "homepage": "https://github.com/andymantell/govuk-react-jsx#readme",
   "dependencies": {
     "css-loader": "^3.2.1",
+    "file-loader": "^5.0.2",
     "govuk-frontend": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

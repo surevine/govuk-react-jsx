@@ -1,6 +1,5 @@
 const path = require('path')
 
-// Export a function. Accept the base config as the only param.
 module.exports = async ({ config, mode }) => {
   // `mode` has a value of 'DEVELOPMENT' or 'PRODUCTION'
   // You can change the configuration based on that.
@@ -10,13 +9,21 @@ module.exports = async ({ config, mode }) => {
     rule => !rule.test.test('.scss')
   )
 
-  // Make whatever fine-grained changes you need
   config.module.rules.push({
     test: /\.scss$/,
     loaders: ['style-loader', 'css-loader', 'sass-loader'],
     include: path.resolve(__dirname, '../')
   })
 
-  // Return the altered config
+  config.module.rules.push({
+    test: /\.(png|jpg|gif|woff|svg|woff2)$/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {}
+      }
+    ]
+  })
+
   return config
 }
