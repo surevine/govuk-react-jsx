@@ -28,7 +28,15 @@
   },
   "homepage": "https://github.com/andymantell/govuk-react-jsx#readme",
   "dependencies": {
+    "css-loader": "^3.2.1",
+    "govuk-frontend": "^3.1.0",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "sass": "^1.23.7",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
     "webpack": "4.41.0"
   },
   "devDependencies": {
