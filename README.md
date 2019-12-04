@@ -9,3 +9,6 @@
 - Sort out CSS - are we importing it here? Or just documenting that people need to import it themselves?
 - Documentation
 - Additional things like the base template?
+- Additional examples from local yaml files
+- Tests
+- Demos of buttons with click events, input elements with change events etc

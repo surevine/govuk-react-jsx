@@ -7,12 +7,5 @@ import examples from '../../../../.cache/govuk-frontend-examples/button.yaml'
 const stories = storiesOf('button', module)
 
 for (const [index, example] of Object.entries(examples.examples)) {
-  stories.add(example.name, () => (
-    <>
-      {example.description && (
-        <p className="govuk-body">{example.description}</p>
-      )}
-      <Button {...example.data} />
-    </>
-  ))
+  stories.add(example.name, () => <Button {...example.data} />)
 }
