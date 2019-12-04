@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import ButtonJS from 'govuk-frontend/govuk/components/button/button'
-import Link from '../../utils/Link'
+import Link from '../../../utils/Link'
 
 function Button(props) {
   const buttonRef = React.createRef()

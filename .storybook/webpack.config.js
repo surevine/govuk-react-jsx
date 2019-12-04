@@ -9,12 +9,14 @@ module.exports = async ({ config, mode }) => {
     rule => !rule.test.test('.scss')
   )
 
+  // SCSS
   config.module.rules.push({
     test: /\.scss$/,
     loaders: ['style-loader', 'css-loader', 'sass-loader'],
     include: path.resolve(__dirname, '../')
   })
 
+  // Fonts and images
   config.module.rules.push({
     test: /\.(png|jpg|gif|woff|svg|woff2)$/,
     use: [
@@ -23,6 +25,12 @@ module.exports = async ({ config, mode }) => {
         options: {}
       }
     ]
+  })
+
+  // Yaml examples
+  config.module.rules.push({
+    test: /\.yaml$/,
+    loaders: ['json-loader', 'yaml-loader']
   })
 
   return config
