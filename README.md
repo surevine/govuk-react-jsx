@@ -1,6 +1,6 @@
 # govuk-react-jsx
 
-View demo at https://andymantell.github.io/govuk-react-jsx/?path=/story/accordion--default
+View demo at https://andymantell.github.io/govuk-react-jsx/
 
 - Stop using the attributes param of govuk nunjucks (It should just spread any additional props into the element below)
 - Switch to className instead of classes (Again, mirroring the govuk nunjucks too closely just isnt helpful)
