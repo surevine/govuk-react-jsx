@@ -1,6 +1,6 @@
 {
   "name": "@andymantell/govuk-react-jsx",
-  "version": "0.0.1-alpha.1",
+  "version": "PACKAGE_VERSION",
   "description": "",
   "main": "govuk/components/index.js",
   "scripts": {},

@@ -14,7 +14,8 @@
     "start": "npm run storybook",
     "lint": "prettier --check '**/*.js'",
     "deploy-demo": "npm run build-storybook && gh-pages -d storybook-static",
-    "build": "./scripts/build.sh"
+    "build": "./scripts/build.sh",
+    "publish-local": "./scripts/publish-local.sh"
   },
   "repository": {
     "type": "git",
