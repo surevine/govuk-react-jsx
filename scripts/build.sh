@@ -7,5 +7,3 @@ babel build-temp -d dist
 rm -rf build-temp
 
 cp publish.package.json dist/package.json
-
-npm publish dist
