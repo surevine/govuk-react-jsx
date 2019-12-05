@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --notify --verbose",
     "storybook": "start-storybook -p 6006",
     "fetch-examples": "node scripts/fetch-govuk-frontend-examples.js",
     "prestorybook": "npm run fetch-examples",
     "prebuild-storybook": "npm run fetch-examples",
+    "pretest": "npm run fetch-examples",
     "build-storybook": "build-storybook",
     "start": "npm run storybook",
     "lint": "prettier --check '**/*.js'",
@@ -32,8 +33,13 @@
   },
   "homepage": "https://github.com/andymantell/govuk-react-jsx#readme",
   "dependencies": {
+    "@markedjs/html-differ": "^3.0.0",
+    "@starptech/prettyhtml": "^0.10.0",
     "deep-iterator": "^1.1.0",
+    "ent": "^2.2.0",
     "govuk-frontend": "3.1.0",
+    "jest": "^24.9.0",
+    "nunjucks": "^3.2.0",
     "react": "^16.12.0",
     "react-html-parser": "^2.0.2",
     "react-router": "^5.1.2",
@@ -51,15 +57,13 @@
     "gh-pages": "^2.1.1",
     "glob": "^7.1.6",
     "js-yaml": "^3.13.1",
-    "json-loader": "^0.5.7",
     "mkdirp": "^0.5.1",
     "prettier": "^1.19.1",
     "prop-types": "^15.7.2",
-    "sass-loader": "^8.0.0",
     "sass": "^1.23.7",
+    "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1",
     "sync-request": "^6.1.0",
-    "webpack": "4.41.0",
-    "yaml-loader": "^0.5.0"
+    "webpack": "4.41.0"
   }
 }

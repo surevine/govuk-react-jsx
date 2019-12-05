@@ -1,10 +1,13 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import BackLink from '.'
-import examples from '../../../../.cache/govuk-frontend-examples/back-link.yaml'
+import examples from './examples'
+import processExampleData from '../../../../utils/processExampleData'
 
 const stories = storiesOf('back-link', module)
 
-for (const [index, example] of Object.entries(examples.examples)) {
+for (const [index, example] of Object.entries(
+  processExampleData(examples.examples)
+)) {
   stories.add(example.name, () => <BackLink {...example.data} />)
 }

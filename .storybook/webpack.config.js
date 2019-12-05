@@ -27,11 +27,5 @@ module.exports = async ({ config, mode }) => {
     ]
   })
 
-  // Yaml examples
-  config.module.rules.push({
-    test: /\.yaml$/,
-    loaders: ['json-loader', 'yaml-loader']
-  })
-
   return config
 }

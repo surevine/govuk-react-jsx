@@ -8,7 +8,7 @@ const glob = require('glob')
 function fetchExample(name) {
   // Collect examples from govuk-frontend on github
   const govukPackage = require('govuk-frontend/package.json')
-  const cachePath = `.cache/govuk-frontend-examples/${name}.yaml`
+  const cachePath = `.cache/govuk-frontend-examples/${name}.json`
   let govExamples
 
   const response = request(
@@ -17,10 +17,10 @@ function fetchExample(name) {
   )
   const data = response.getBody('utf8')
 
-  mkdirp.sync(path.dirname(cachePath))
-  fs.writeFileSync(cachePath, data)
-
   govExamples = yaml.safeLoad(data)
+
+  mkdirp.sync(path.dirname(cachePath))
+  fs.writeFileSync(cachePath, JSON.stringify(govExamples))
 
   // Merge in any local examples
 

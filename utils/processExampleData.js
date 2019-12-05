@@ -11,9 +11,5 @@ function htmlToJsx(data) {
 }
 
 export default function processExampleData(data) {
-  const children = []
-
-  data = htmlToJsx(data)
-
-  return [data, children]
+  return htmlToJsx(data)
 }
