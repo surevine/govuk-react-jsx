@@ -9,5 +9,5 @@
 - Documentation
 - Additional things like the base template?
 - Additional examples from local yaml files
-- Tests
+- Tests - particularly around interacting with components (Can we pull in from govuk-frontend somehow?)
 - Demos of buttons with click events, input elements with change events etc
