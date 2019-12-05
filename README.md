@@ -11,3 +11,4 @@
 - Additional examples from local yaml files
 - Tests - particularly around interacting with components (Can we pull in from govuk-frontend somehow?)
 - Demos of buttons with click events, input elements with change events etc
+- Some kind of management around git tags and package versions?

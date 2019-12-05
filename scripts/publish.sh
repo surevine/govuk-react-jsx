@@ -6,6 +6,6 @@ copy src/**/index.js src/utils/*.js build-temp
 babel build-temp -d dist
 rm -rf build-temp
 
-cp package.json dist
+cp publish.package.json dist/package.json
 
 npm publish dist
