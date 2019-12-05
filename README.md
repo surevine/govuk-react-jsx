@@ -1,5 +1,7 @@
 # govuk-react-jsx
 
+View demo at https://andymantell.github.io/govuk-react-jsx/?path=/story/accordion--default
+
 - Stop using the attributes param of govuk nunjucks (It should just spread any additional props into the element below)
 - Switch to className instead of classes (Again, mirroring the govuk nunjucks too closely just isnt helpful)
 - Consider general structure of props vs params - do we restructure? Or maybe create React-like adapters
