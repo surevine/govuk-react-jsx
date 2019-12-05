@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm run storybook-build
+      - run: npm run build-storybook
       - uses: maxheld83/ghpages@v0.2.1
         env:
           BUILD_DIR: storybook-static
