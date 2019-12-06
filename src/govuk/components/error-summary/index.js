@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+import ErrorSummaryJS from 'govuk-frontend/govuk/components/error-summary/error-summary'
 
 function ErrorSummary(props) {
+  const errorSummaryRef = React.createRef()
+  useEffect(() => {
+    new ErrorSummaryJS(errorSummaryRef.current).init()
+  }, [])
+
   let description
   if (props.descriptionHtml || props.descriptionText) {
     description = <p>{props.descriptionHtml || props.descriptionText}</p>
   }
+
   return (
     <div
       className={`govuk-error-summary ${props.classes}`}
@@ -14,6 +21,7 @@ function ErrorSummary(props) {
       tabIndex="-1"
       {...props.attributes}
       data-module="govuk-error-summary"
+      ref={errorSummaryRef}
     >
       <h2 className="govuk-error-summary__title" id="error-summary-title">
         {props.titleHtml || props.titleText}
