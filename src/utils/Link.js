@@ -48,4 +48,6 @@ function forwardRef(props, ref) {
 
 forwardRef.displayName = 'LinkWithRef'
 
-export default React.forwardRef(forwardRef)
+const LinkWithRef = React.forwardRef(forwardRef)
+
+export { LinkWithRef as Link }

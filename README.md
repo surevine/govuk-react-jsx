@@ -17,3 +17,5 @@ View demo at https://andymantell.github.io/govuk-react-jsx/
 - Additional tests around interacting with components (Can we pull in from govuk-frontend somehow?)
 - Demos of buttons with click events, input elements with change events etc
 - Some kind of management around git tags and package versions?
+- Error Summary JS?
+- Remove ignoreAttributes: ['style'] from nunjucks diffing code

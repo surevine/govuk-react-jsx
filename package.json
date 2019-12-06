@@ -17,6 +17,11 @@
     "build": "./scripts/build.sh",
     "publish-local": "./scripts/publish-local.sh"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "govuk/assets/images/govuk-logotype-crown.png": "<rootDir>/tests/mocks/govukHeaderCrown.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andymantell/govuk-react-jsx.git"

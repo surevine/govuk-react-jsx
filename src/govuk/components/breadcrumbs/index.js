@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from '../../../utils/Link'
+import { Link } from '../../../utils/Link'
 
 function Breadcrumbs(props) {
   const breadcrumbs = props.items.map((item, index) =>

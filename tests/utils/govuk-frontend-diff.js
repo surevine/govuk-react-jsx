@@ -21,6 +21,7 @@ const withRouter = function(WrappedComponent) {
 
 const htmlDiffer = new HtmlDiffer({
   ignoreAttributes: [
+    'style', // TODO: Remove this
     'disabled', // Because React sets disabled as an empty attribute but the nunjucks does not
     'src' // Because paths to images aren't something that need to be the same between react and nunjucks
   ],
