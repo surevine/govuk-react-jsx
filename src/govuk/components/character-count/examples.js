@@ -2,7 +2,7 @@ import examples from '../../../../.cache/govuk-frontend-examples/character-count
 
 // Insert additional examples here if desired
 
-// Example to exercise https://github.com/alphagov/govuk-frontend/pull/1553
+// See https://github.com/alphagov/govuk-frontend/pull/1553
 examples.examples.push({
   name: 'with form group',
   data: {

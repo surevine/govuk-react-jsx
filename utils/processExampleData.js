@@ -3,7 +3,7 @@ import ReactHtmlParser from 'react-html-parser'
 
 function htmlToJsx(data) {
   for (let { parent, value, key } of deepIterator(data, { onlyLeaves: true })) {
-    if (key === 'html') {
+    if (key === 'html' && value) {
       parent[key] = ReactHtmlParser(value)
     }
   }
