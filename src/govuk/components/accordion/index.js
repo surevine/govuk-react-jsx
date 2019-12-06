@@ -72,4 +72,4 @@ Accordion.propTypes = {
   items: PropTypes.array
 }
 
-export default Accordion
+export { Accordion }

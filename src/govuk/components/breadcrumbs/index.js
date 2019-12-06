@@ -46,4 +46,4 @@ Breadcrumbs.propTypes = {
   items: PropTypes.array
 }
 
-export default Breadcrumbs
+export { Breadcrumbs }

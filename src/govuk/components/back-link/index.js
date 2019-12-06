@@ -32,4 +32,4 @@ BackLink.propTypes = {
   to: PropTypes.string
 }
 
-export default BackLink
+export { BackLink }
