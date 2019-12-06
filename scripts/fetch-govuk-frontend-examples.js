@@ -1,6 +1,5 @@
 const yaml = require('js-yaml')
 const fs = require('fs')
-const request = require('request')
 const mkdirp = require('mkdirp')
 const path = require('path')
 const glob = require('glob')
