@@ -1,8 +1,15 @@
-import { configure, addDecorator } from '@storybook/react'
+import { configure, addDecorator, addParameters } from '@storybook/react'
 import { jsxDecorator } from 'storybook-addon-jsx'
+import theme from './theme'
 import './styles.scss'
 
 addDecorator(jsxDecorator)
+
+addParameters({
+  options: {
+    theme: theme
+  }
+})
 
 // automatically import all files called stories.js
 configure(
