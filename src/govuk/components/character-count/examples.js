@@ -4,7 +4,7 @@ import examples from '../../../../.cache/govuk-frontend-examples/character-count
 
 // See https://github.com/alphagov/govuk-frontend/pull/1553
 examples.examples.push({
-  name: 'with form group',
+  name: 'with classes on the form group',
   data: {
     name: 'more-detail',
     id: 'more-detail',
