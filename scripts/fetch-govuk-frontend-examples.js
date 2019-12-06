@@ -1,9 +1,18 @@
 const yaml = require('js-yaml')
 const fs = require('fs')
-const request = require('sync-request')
 const mkdirp = require('mkdirp')
 const path = require('path')
 const glob = require('glob')
+const got = require('got')
+const cliProgress = require('cli-progress')
+
+const fetchExamplesProgress = new cliProgress.SingleBar(
+  {
+    format:
+      'Fetching examples from govuk-frontend GitHub {bar} {percentage}% | ETA: {eta}s | {value}/{total}'
+  },
+  cliProgress.Presets.shades_classic
+)
 
 function fetchExample(name) {
   // Collect examples from govuk-frontend on github
@@ -11,41 +20,43 @@ function fetchExample(name) {
   const cachePath = `.cache/govuk-frontend-examples/${name}.json`
   let govExamples
 
-  const response = request(
-    'GET',
+  return got(
     `https://raw.githubusercontent.com/alphagov/govuk-frontend/v${govukPackage.version}/src/govuk/components/${name}/${name}.yaml`
   )
-  const data = response.getBody('utf8')
+    .then(response => response.body)
+    .then(data => yaml.safeLoad(data))
+    .then(govExamples => {
+      return new Promise(function(resolve, reject) {
+        mkdirp.sync(path.dirname(cachePath))
+        fs.writeFile(cachePath, JSON.stringify(govExamples), err => {
+          if (err) {
+            console.error(err)
+            reject(err)
+          }
 
-  govExamples = yaml.safeLoad(data)
+          fetchExamplesProgress.increment()
 
-  mkdirp.sync(path.dirname(cachePath))
-  fs.writeFileSync(cachePath, JSON.stringify(govExamples))
-
-  // Merge in any local examples
-
-  //   const localExampleFilename = `tests/extra-cases/${name}.yaml`
-  //   if (fs.existsSync(localExampleFilename)) {
-  //     const localExamples = yaml.safeLoad(
-  //       fs.readFileSync(localExampleFilename, { encoding: 'utf8' })
-  //     )
-
-  //     return {
-  //       examples: govExamples.examples.concat(localExamples.examples)
-  //     }
-  //   } else {
-  //     return govExamples
-  //   }
-
-  return govExamples
+          resolve(govExamples)
+        })
+      })
+    })
 }
 
 function fetchExamples() {
-  const componentNames = glob
-    .sync('src/govuk/components/*/index.js')
-    .map(value => path.dirname(path.relative('src/govuk/components', value)))
+  components = glob.sync('src/govuk/components/*/index.js')
 
-  componentExamples = componentNames.map(fetchExample)
+  fetchExamplesProgress.start(components.length, 0)
+
+  const promises = components
+    .map(value => path.dirname(path.relative('src/govuk/components', value)))
+    .map(fetchExample)
+
+  return Promise.all(promises)
+    .then(function(examples) {
+      fetchExamplesProgress.stop()
+      return examples
+    })
+    .catch(err => console.log(err))
 }
 
 fetchExamples()

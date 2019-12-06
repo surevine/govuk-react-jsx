@@ -33,6 +33,7 @@ function CharacterCount(props) {
         errorMessage={props.errorMessage}
         attributes={props.attributes}
         describedBy={characterCountInfoClass}
+        formGroup={props.formGroup}
       />
       <span
         id={characterCountInfoClass}

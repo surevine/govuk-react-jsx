@@ -28,7 +28,9 @@ function Checkboxes(props) {
   }
 
   // Find out if we have any conditional items
-  const isConditional = !!props.items.find(item => item.conditional)
+  const isConditional = !!props.items.find(
+    item => item.conditional && item.conditional.html
+  )
   const hasFieldset = !!props.fieldset
 
   if (props.errorMessage) {
@@ -54,7 +56,10 @@ function Checkboxes(props) {
             ? item.id
             : `${idPrefix}${index === 0 ? '' : idSuffix}`
           const name = item.name ? item.name : props.name
-          const conditionalId = item.conditional ? `conditional-${id}` : null
+          const conditionalId =
+            item.conditional && item.conditional.html
+              ? `conditional-${id}`
+              : null
           const itemHintId = `${id}-item-hint`
 
           let itemDescribedBy = ''
@@ -97,7 +102,7 @@ function Checkboxes(props) {
                 )}
               </div>
 
-              {item.conditional ? (
+              {item.conditional && item.conditional.html ? (
                 <div
                   className={`govuk-checkboxes__conditional ${
                     item.checked ? '' : 'govuk-checkboxes__conditional--hidden'
