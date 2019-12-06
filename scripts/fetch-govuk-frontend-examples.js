@@ -11,6 +11,8 @@ function fetchExample(name) {
   const cachePath = `.cache/govuk-frontend-examples/${name}.json`
   let govExamples
 
+  console.log('Fetching', name, 'example from GitHub')
+
   const response = request(
     'GET',
     `https://raw.githubusercontent.com/alphagov/govuk-frontend/v${govukPackage.version}/src/govuk/components/${name}/${name}.yaml`
@@ -21,21 +23,6 @@ function fetchExample(name) {
 
   mkdirp.sync(path.dirname(cachePath))
   fs.writeFileSync(cachePath, JSON.stringify(govExamples))
-
-  // Merge in any local examples
-
-  //   const localExampleFilename = `tests/extra-cases/${name}.yaml`
-  //   if (fs.existsSync(localExampleFilename)) {
-  //     const localExamples = yaml.safeLoad(
-  //       fs.readFileSync(localExampleFilename, { encoding: 'utf8' })
-  //     )
-
-  //     return {
-  //       examples: govExamples.examples.concat(localExamples.examples)
-  //     }
-  //   } else {
-  //     return govExamples
-  //   }
 
   return govExamples
 }
