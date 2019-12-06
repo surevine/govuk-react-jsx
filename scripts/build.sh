@@ -6,7 +6,5 @@ copy src/**/index.js src/utils/*.js build-temp
 babel build-temp -d dist
 rm -rf build-temp
 
-# cp scripts/publish.package.json dist/package.json
-
 PACKAGE_VERSION=$(node -p "require('./package.json').version")
-sed "s/PACKAGE_VERSION/${PACKAGE_VERSION}/g" scripts/publish.package.json > dist/package.json
+sed "s/PACKAGE_VERSION/${PACKAGE_VERSION}/g" scripts/package.json > dist/package.json
