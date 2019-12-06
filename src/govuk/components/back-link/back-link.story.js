@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import BackLink from '.'
+import { BackLink } from '.'
 import examples from './examples'
 import processExampleData from '../../../../utils/processExampleData'
 
