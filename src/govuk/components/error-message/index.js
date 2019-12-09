@@ -10,7 +10,7 @@ function ErrorMessage(props) {
   }
 
   return (
-    <span className={`govuk-error-message ${className}`} {...attributes}>
+    <span className={`govuk-error-message ${className || ''}`} {...attributes}>
       {visuallyHiddenTextComponent}
       {html || text}
     </span>

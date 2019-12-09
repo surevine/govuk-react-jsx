@@ -9,14 +9,14 @@ function FileUpload(props) {
     errorMessage,
     formGroup,
     hint,
-    id,
     label,
     describedBy,
+    id,
     ...attributes
   } = props
   let hintComponent
   let errorMessageComponent
-  let describedByValue = describedBy
+  let describedByValue = describedBy || ''
 
   if (hint) {
     const hintId = `${props.id}-hint`
@@ -39,7 +39,8 @@ function FileUpload(props) {
       {hintComponent}
       {errorMessageComponent}
       <input
-        className={`govuk-file-upload ${className}${
+        id={id}
+        className={`govuk-file-upload ${className || ''}${
           errorMessage ? ' govuk-file-upload--error' : ''
         }`}
         type="file"

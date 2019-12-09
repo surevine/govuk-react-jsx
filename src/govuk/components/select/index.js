@@ -16,7 +16,7 @@ function Select(props) {
     ...attributes
   } = props
 
-  let describedByValue = describedBy
+  let describedByValue = describedBy || ''
   let hintComponent
   let errorMessageComponent
 
@@ -31,6 +31,9 @@ function Select(props) {
     describedByValue += ` ${errorId}`
     errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
   }
+
+  const selectedItem = props.items.find(item => item.selected === true)
+  const value = selectedItem ? selectedItem.value : null
 
   const options = items.map((option, index) => (
     <option
@@ -52,10 +55,11 @@ function Select(props) {
       {hintComponent}
       {errorMessageComponent}
       <select
-        className={`govuk-select ${className}${
+        className={`govuk-select ${className || ''}${
           errorMessage ? ' govuk-select--error' : ''
         }`}
         id={id}
+        value={value}
         aria-describedby={describedByValue || null}
         {...attributes}
       >

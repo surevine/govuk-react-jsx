@@ -1,11 +1,11 @@
 import React from 'react'
 
 function Fieldset(props) {
-  const { legend, className, describedBy, children, ...attributes } = props
+  const { legend, className, children, ...attributes } = props
   let legendComponent
   if (legend.html || legend.text) {
     legendComponent = (
-      <legend className={`govuk-fieldset__legend ${legend.className}`}>
+      <legend className={`govuk-fieldset__legend ${legend.className || ''}`}>
         {legend.isPageHeading ? (
           <h1 className="govuk-fieldset__heading">
             {legend.html || legend.text}
@@ -18,7 +18,7 @@ function Fieldset(props) {
   }
 
   return (
-    <fieldset className={`govuk-fieldset ${className}`} {...attributes}>
+    <fieldset className={`govuk-fieldset ${className || ''}`} {...attributes}>
       {legendComponent}
       {children}
     </fieldset>

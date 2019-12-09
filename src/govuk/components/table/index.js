@@ -54,7 +54,7 @@ function Table(props) {
   }
 
   return (
-    <table className={`govuk-table ${className}`} {...attributes}>
+    <table className={`govuk-table ${className || ''}`} {...attributes}>
       {captionComponent}
       {headComponent}
 

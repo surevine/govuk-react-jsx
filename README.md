@@ -18,3 +18,6 @@ View demo at https://andymantell.github.io/govuk-react-jsx/
 - Look for guarded access to deep object properties and replace with optional chaining
 - get rid of proptypes
 - Document that selected property of select items no longer exists (And add test for it)
+- Sort out react data processing better so that we don't need a weird defaultValue in summary list
+- Why does hot reloading sometimes break the data processing, such that html comes out as [object Object]?
+- lack of onChange handler is causing select element to throw warning because it is read only

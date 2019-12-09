@@ -4,7 +4,7 @@ import { Tag } from '../'
 function PhaseBanner(props) {
   const { className, tag, html, text, ...attributes } = props
   return (
-    <div className={`govuk-phase-banner ${className}`} {...attributes}>
+    <div className={`govuk-phase-banner ${className || ''}`} {...attributes}>
       <p className="govuk-phase-banner__content">
         <Tag
           {...tag}

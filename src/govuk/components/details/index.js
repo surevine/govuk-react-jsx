@@ -11,7 +11,7 @@ function Details(props) {
   } = props
   return (
     <details
-      className={`govuk-details ${className}`}
+      className={`govuk-details ${className || ''}`}
       {...attributes}
       data-module="govuk-details"
     >

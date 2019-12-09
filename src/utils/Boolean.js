@@ -16,12 +16,13 @@ function Boolean(props) {
     idPrefix,
     items,
     controlType,
+    name,
     ...attributes
   } = props
 
   const controlRef = React.createRef()
   const idPrefixValue = idPrefix ? idPrefix : name
-  let describedBy = fieldset && fieldset.describedBy ? fieldset.describedBy : ''
+  let describedBy = fieldset?.describedBy ? fieldset.describedBy : ''
   let hintComponent
   let errorMessageComponent
 
@@ -40,15 +41,11 @@ function Boolean(props) {
     const hintId = `${idPrefixValue}-hint`
     describedBy += ` ${hintId}`
 
-    hintComponent = (
-      <Hint id={hintId} {...hint} aria-describedby={describedBy} />
-    )
+    hintComponent = <Hint id={hintId} {...hint} />
   }
 
   // Find out if we have any conditional items
-  const isConditional = !!items.find(
-    item => item.conditional && item.conditional.html
-  )
+  const isConditional = !!items.find(item => item.conditional?.html)
   const hasFieldset = !!props.fieldset
 
   if (errorMessage) {
@@ -63,7 +60,11 @@ function Boolean(props) {
       {errorMessageComponent}
 
       <div
-        className={`govuk-${controlType} ${className}`}
+        className={`govuk-${controlType} ${
+          controlType === 'radios' && isConditional
+            ? `govuk-${controlType}--conditional`
+            : ''
+        } ${className || ''}`}
         {...attributes}
         ref={controlRef}
         data-module={isConditional ? `govuk-${controlType}` : null}
@@ -72,6 +73,7 @@ function Boolean(props) {
           const {
             id,
             text,
+            html,
             hint: itemHint,
             conditional: itemConditional,
             ...itemAttributes
@@ -81,7 +83,7 @@ function Boolean(props) {
           const idValue = id
             ? id
             : `${idPrefixValue}${index === 0 ? '' : idSuffix}`
-          const name = item.name ? item.name : name
+          const nameValue = item.name ? item.name : name
           const conditionalId = itemConditional?.html
             ? `conditional-${idValue}`
             : null
@@ -114,7 +116,7 @@ function Boolean(props) {
                 <input
                   className={`govuk-${controlType}__input`}
                   id={idValue}
-                  name={name}
+                  name={nameValue}
                   type={controlType === 'radios' ? 'radio' : 'checkbox'}
                   data-aria-controls={conditionalId}
                   aria-describedby={itemDescribedBy || null}
@@ -122,6 +124,7 @@ function Boolean(props) {
                 />
                 <Label
                   text={text}
+                  html={html}
                   className={`govuk-${controlType}__label`}
                   htmlFor={idValue}
                 />
@@ -161,10 +164,10 @@ function Boolean(props) {
     <div
       className={`govuk-form-group${
         errorMessage ? ' govuk-form-group--error' : ''
-      } ${(formGroup && formGroup.className) || ''}`}
+      } ${formGroup?.className || ''}`}
     >
       {hasFieldset ? (
-        <Fieldset describedBy={describedBy} {...fieldset}>
+        <Fieldset aria-describedby={describedBy.trim() || null} {...fieldset}>
           {innerHtml}
         </Fieldset>
       ) : (

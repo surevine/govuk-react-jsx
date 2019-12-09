@@ -5,7 +5,6 @@ import { ErrorMessage } from '../'
 
 function Input(props) {
   const {
-    autoComplete,
     className,
     'aria-describedby': describedBy,
     errorMessage,
@@ -16,7 +15,7 @@ function Input(props) {
     ...attributes
   } = props
 
-  let describedByValue = describedBy
+  let describedByValue = describedBy || ''
   let hintComponent
   let errorMessageComponent
 

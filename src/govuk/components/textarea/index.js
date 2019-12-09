@@ -42,9 +42,10 @@ function Textarea(props) {
       {hintComponent}
       {errorMessageComponent}
       <textarea
+        id={id}
         className={`govuk-textarea${
           errorMessage ? ' govuk-textarea--error' : ''
-        } ${className}`}
+        } ${className || ''}`}
         aria-describedby={describedByValue.trim() || null}
         {...attributes}
       />

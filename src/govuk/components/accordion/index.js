@@ -50,7 +50,7 @@ function Accordion(props) {
   return (
     <div
       {...attributes}
-      className={`govuk-accordion ${className}`}
+      className={`govuk-accordion ${className || ''}`}
       data-module="govuk-accordion"
       ref={accordionRef}
     >

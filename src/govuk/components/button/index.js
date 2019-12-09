@@ -6,7 +6,6 @@ function Button(props) {
   const {
     element,
     href,
-
     to,
     isStartButton,
     disabled,
@@ -18,6 +17,7 @@ function Button(props) {
     text,
     ...attributes
   } = props
+
   const buttonRef = React.createRef()
   let el = ''
   let buttonAttributes = {
@@ -58,7 +58,7 @@ function Button(props) {
   }
 
   const commonAttributes = {
-    className: `govuk-button ${className}${
+    className: `govuk-button ${className || ''}${
       disabled ? ' govuk-button--disabled' : ''
     } ${isStartButton ? 'govuk-button--start' : ''}`,
     ref: buttonRef

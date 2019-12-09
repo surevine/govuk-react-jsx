@@ -11,7 +11,7 @@ function Tabs(props) {
   }, [])
 
   const tabContent = items.map((item, index) => {
-    const { id: itemId, label: itemLabel, ...itemAttributes } = item
+    const { id: itemId, label, panel, ...itemAttributes } = item
 
     return (
       <li
@@ -25,7 +25,7 @@ function Tabs(props) {
           href={`#${itemId ? itemId : `${idPrefix}-${index}`}`}
           {...itemAttributes}
         >
-          {itemLabel}
+          {label}
         </a>
       </li>
     )
@@ -34,7 +34,7 @@ function Tabs(props) {
   const tabs = <ul className="govuk-tabs__list">{tabContent}</ul>
 
   const panels = items.map((item, index) => {
-    const { id: itemId, panel, ...itemAttributes } = item
+    const { id: itemId, panel, label, ...itemAttributes } = item
 
     return (
       <section
@@ -53,7 +53,7 @@ function Tabs(props) {
   return (
     <div
       id={id}
-      className={`govuk-tabs ${className}`}
+      className={`govuk-tabs ${className || ''}`}
       {...attributes}
       data-module="govuk-tabs"
       ref={tabsRef}

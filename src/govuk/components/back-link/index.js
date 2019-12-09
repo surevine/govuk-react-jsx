@@ -8,7 +8,7 @@ function BackLink(props) {
   return (
     <Link
       {...attributes}
-      className={`govuk-back-link ${className}`}
+      className={`govuk-back-link ${className || ''}`}
       href={href}
       to={to}
     >

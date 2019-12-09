@@ -32,6 +32,7 @@ function CharacterCount(props) {
       <Textarea
         id={id}
         {...attributes}
+        errorMessage={errorMessage}
         className={`govuk-js-character-count ${className || ''}${
           errorMessage ? ' govuk-textarea--error' : ''
         }`}

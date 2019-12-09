@@ -4,7 +4,7 @@ function WarningText(props) {
   const { className, iconFallbackText, html, text, ...attributes } = props
 
   return (
-    <div className={`govuk-warning-text ${className}`} {...attributes}>
+    <div className={`govuk-warning-text ${className || ''}`} {...attributes}>
       <span className="govuk-warning-text__icon" aria-hidden="true">
         !
       </span>

@@ -16,7 +16,7 @@ function Panel(props) {
 
   return (
     <div
-      className={`govuk-panel govuk-panel--confirmation ${className}`}
+      className={`govuk-panel govuk-panel--confirmation ${className || ''}`}
       {...attributes}
     >
       <HeadingLevel className="govuk-panel__title">

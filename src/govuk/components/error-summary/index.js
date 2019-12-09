@@ -23,7 +23,7 @@ function ErrorSummary(props) {
 
   return (
     <div
-      className={`govuk-error-summary ${className}`}
+      className={`govuk-error-summary ${className || ''}`}
       aria-labelledby="error-summary-title"
       role="alert"
       tabIndex="-1"

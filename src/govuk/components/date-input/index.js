@@ -14,10 +14,11 @@ function DateInput(props) {
     id,
     items,
     namePrefix,
+    name,
     ...attributes
   } = props
 
-  let describedBy = fieldset?.describedBy
+  let describedBy = fieldset?.describedBy || ''
   let hintComponent
   let errorMessageComponent
   let dateInputItems = []
@@ -65,7 +66,7 @@ function DateInput(props) {
             : item.name.charAt(0).toUpperCase() + item.name.slice(1),
           className: 'govuk-date-input__label'
         }}
-        id={item.id ? item.id : `${id}-${name}`}
+        id={item.id ? item.id : `${id}-${item.name}`}
         className={`govuk-date-input__input ${item.className || ''}`}
         name={props.namePrefix ? `${props.namePrefix}-${item.name}` : item.name}
         type="number"
@@ -77,7 +78,11 @@ function DateInput(props) {
     <>
       {hintComponent}
       {errorMessageComponent}
-      <div className={`govuk-date-input ${className}`} {...attributes} id={id}>
+      <div
+        className={`govuk-date-input ${className || ''}`}
+        {...attributes}
+        id={id}
+      >
         {itemComponents}
       </div>
     </>
@@ -87,10 +92,10 @@ function DateInput(props) {
     <div
       className={`govuk-form-group${
         errorMessage ? ' govuk-form-group--error' : ''
-      } ${formGroup?.className}`}
+      } ${formGroup?.className || ''}`}
     >
       {props.fieldset ? (
-        <Fieldset describedBy={describedBy} role="group" {...fieldset}>
+        <Fieldset aria-describedby={describedBy} role="group" {...fieldset}>
           {innerHtml}
         </Fieldset>
       ) : (

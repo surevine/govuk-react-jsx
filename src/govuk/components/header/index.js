@@ -55,7 +55,8 @@ function Header(props) {
             <nav>
               <ul
                 id="navigation"
-                className={`govuk-header__navigation${navigationClassName}`}
+                className={`govuk-header__navigation ${navigationClassName ||
+                  ''}`}
                 aria-label="Top Level Navigation"
               >
                 {navigation.map((item, index) => {
@@ -77,7 +78,7 @@ function Header(props) {
                       }`}
                     >
                       <Link
-                        className={`govuk-header__link ${itemClassName}`}
+                        className={`govuk-header__link ${itemClassName || ''}`}
                         {...itemAttributes}
                       >
                         {itemText}
@@ -95,7 +96,7 @@ function Header(props) {
 
   return (
     <header
-      className={`govuk-header ${className}`}
+      className={`govuk-header ${className || ''}`}
       role="banner"
       data-module="govuk-header"
       {...attributes}

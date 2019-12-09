@@ -8,7 +8,7 @@ function Label(props) {
     //
     // eslint-disable-next-line jsx-a11y/label-has-for
     <label
-      className={`govuk-label ${className}`}
+      className={`govuk-label ${className || ''}`}
       {...attributes}
       htmlFor={htmlFor}
     >

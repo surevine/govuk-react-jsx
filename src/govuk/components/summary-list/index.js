@@ -76,20 +76,19 @@ function SummaryList(props) {
   )
 
   return (
-    <dl className={`govuk-summary-list ${className}`} {...attributes}>
+    <dl className={`govuk-summary-list ${className || ''}`} {...attributes}>
       {rows.map((row, index) => (
         <div
           key={row.reactListKey || index}
           className={`govuk-summary-list__row ${row.className || ''}`}
         >
-          <dt className={`govuk-summary-list__key ${row.key?.className || ''}`}>
+          <dt className={`govuk-summary-list__key ${row.key.className || ''}`}>
             {row.key.html || row.key.text}
           </dt>
           <dd
-            className={`govuk-summary-list__value ${row.value?.className ||
-              ''}`}
+            className={`govuk-summary-list__value ${row.value.className || ''}`}
           >
-            {row.value?.html || row.value?.text}
+            {row.value.html || row.value.text}
           </dd>
 
           {actions(row, anyRowHasActions)}
