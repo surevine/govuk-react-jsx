@@ -1,11 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from '../../../utils/Link'
 
 function Footer(props) {
   const {
     className,
-    containerClassname,
+    containerClassName,
     meta,
     navigation,
     ...attributes
@@ -92,7 +91,7 @@ function Footer(props) {
                     key={item.reactListKey || index}
                   >
                     <Link
-                      classes={`govuk-footer__link ${itemClassName}`}
+                      className={`govuk-footer__link ${itemClassName || ''}`}
                       {...itemAttributes}
                     >
                       {itemText}
@@ -115,11 +114,11 @@ function Footer(props) {
 
   return (
     <footer
-      className={`govuk-footer ${className}`}
+      className={`govuk-footer ${className || ''}`}
       role="contentinfo"
       {...attributes}
     >
-      <div className={`govuk-width-container ${containerClassName}`}>
+      <div className={`govuk-width-container ${containerClassName || ''}`}>
         {navigationComponent}
         <div className="govuk-footer__meta">
           <div className="govuk-footer__meta-item govuk-footer__meta-item--grow">

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function Label(props) {
   const { className, htmlFor, html, text, isPageHeading, ...attributes } = props

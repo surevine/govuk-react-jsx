@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from '../../../utils/Link'
 
 function BackLink(props) {
@@ -21,13 +20,6 @@ function BackLink(props) {
 BackLink.defaultProps = {
   href: '/',
   text: 'Back'
-}
-
-BackLink.propTypes = {
-  href: PropTypes.string,
-  html: PropTypes.node,
-  text: PropTypes.node,
-  to: PropTypes.string
 }
 
 export { BackLink }

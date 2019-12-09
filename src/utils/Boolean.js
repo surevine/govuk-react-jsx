@@ -99,7 +99,10 @@ function Boolean(props) {
 
           if (item.divider) {
             return (
-              <div key={key} className={`govuk-${controlType}__divider`}>
+              <div
+                key={item.reactListKey || index}
+                className={`govuk-${controlType}__divider`}
+              >
                 {item.divider}
               </div>
             )

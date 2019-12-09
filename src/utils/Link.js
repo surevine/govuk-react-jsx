@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link as ReactRouterLink } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 function Link(props) {
   const { children, to, href, forwardedRef, ...attributes } = props
@@ -21,16 +20,6 @@ function Link(props) {
 
 Link.defaultProps = {
   forwardedRef: null
-}
-
-Link.propTypes = {
-  children: PropTypes.node.isRequired,
-  to: PropTypes.string,
-  href: PropTypes.string,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
-  ])
 }
 
 function forwardRef(props, ref) {

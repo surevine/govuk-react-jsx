@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import AccordionJS from 'govuk-frontend/govuk/components/accordion/accordion'
 
 function Accordion(props) {
@@ -58,12 +57,6 @@ function Accordion(props) {
       {innerHtml}
     </div>
   )
-}
-
-Accordion.propTypes = {
-  className: PropTypes.string,
-  headingLevel: PropTypes.string,
-  items: PropTypes.array
 }
 
 export { Accordion }

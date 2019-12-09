@@ -40,7 +40,7 @@ function Input(props) {
         errorMessage ? 'govuk-form-group--error' : ''
       } `}
     >
-      <Label {...label} for={props.id} />
+      <Label {...label} htmlFor={props.id} />
       {hintComponent}
       {errorMessageComponent}
       <input

@@ -4,7 +4,7 @@ import ReactHtmlParser from 'react-html-parser'
 const propReplacements = {
   classes: 'className',
   describedBy: 'aria-describedby',
-  containerClasses: 'containerClassname',
+  containerClasses: 'containerClassName',
   navigationClasses: 'navigationClassName',
   autocomplete: 'autoComplete',
   for: 'htmlFor',

@@ -12,32 +12,31 @@ function Textarea(props) {
     formGroup,
     hint,
     label,
+    id,
     ...attributes
   } = props
 
-  let { describedByValue } = describedBy
+  let describedByValue = describedBy
   let hintComponent
   let errorMessageComponent
 
-  if (props.hint) {
-    const hintId = `${props.id}-hint`
+  if (hint) {
+    const hintId = `${id}-hint`
     describedByValue += ` ${hintId}`
-    hintComponent = <Hint id={hintId} {...props.hint} />
+    hintComponent = <Hint id={hintId} {...hint} />
   }
 
-  if (props.errorMessage) {
-    const errorId = props.id ? `${props.id}-error` : ''
+  if (errorMessage) {
+    const errorId = id ? `${id}-error` : ''
     describedByValue += ` ${errorId}`
-    errorMessageComponent = (
-      <ErrorMessage id={errorId} {...props.errorMessage} />
-    )
+    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
   }
 
   return (
     <div
       className={`govuk-form-group${
         errorMessage ? ' govuk-form-group--error' : ''
-      } ${formGroup?.classes || ''}`}
+      } ${formGroup?.className || ''}`}
     >
       <Label {...label} htmlFor={id} />
       {hintComponent}
@@ -54,7 +53,7 @@ function Textarea(props) {
 }
 
 Textarea.defaultProps = {
-  describedBy: '',
+  'aria-describedby': '',
   rows: 5
 }
 

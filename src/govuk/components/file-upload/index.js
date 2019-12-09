@@ -35,7 +35,7 @@ function FileUpload(props) {
         errorMessage ? ' govuk-form-group--error' : ''
       } ${formGroup?.className || ''}`}
     >
-      <Label {...label} for={id} />
+      <Label {...label} htmlFor={id} />
       {hintComponent}
       {errorMessageComponent}
       <input

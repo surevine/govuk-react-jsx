@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Hint } from '../'
 import { ErrorMessage } from '../'
 import { Fieldset } from '../'
@@ -40,17 +39,17 @@ function DateInput(props) {
     dateInputItems = [
       {
         name: 'day',
-        classes: 'govuk-input--width-2',
+        className: 'govuk-input--width-2',
         type: 'text'
       },
       {
         name: 'month',
-        classes: 'govuk-input--width-2',
+        className: 'govuk-input--width-2',
         type: 'text'
       },
       {
         name: 'year',
-        classes: 'govuk-input--width-4',
+        className: 'govuk-input--width-4',
         type: 'text'
       }
     ]
@@ -88,7 +87,7 @@ function DateInput(props) {
     <div
       className={`govuk-form-group${
         errorMessage ? ' govuk-form-group--error' : ''
-      } ${formGroup?.classes}`}
+      } ${formGroup?.className}`}
     >
       {props.fieldset ? (
         <Fieldset describedBy={describedBy} role="group" {...fieldset}>
@@ -99,17 +98,6 @@ function DateInput(props) {
       )}
     </div>
   )
-}
-
-DateInput.propTypes = {
-  classes: PropTypes.string,
-  errorMessage: PropTypes.object,
-  fieldset: PropTypes.object,
-  formGroup: PropTypes.object,
-  hint: PropTypes.object,
-  id: PropTypes.string,
-  items: PropTypes.array,
-  namePrefix: PropTypes.string
 }
 
 export { DateInput }

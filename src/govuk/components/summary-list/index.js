@@ -38,7 +38,7 @@ function actions(row, anyRowHasActions) {
     <ActionLink key={action.reactListKey || index} {...action} />
   ))
 
-  if (row.actions.items.length) {
+  if (row.actions?.items.length) {
     return (
       <dd
         className={`govuk-summary-list__actions ${row.actions.className || ''}`}

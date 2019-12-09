@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Tag } from '../'
 
 function PhaseBanner(props) {
@@ -9,7 +8,7 @@ function PhaseBanner(props) {
       <p className="govuk-phase-banner__content">
         <Tag
           {...tag}
-          classes={`govuk-phase-banner__content__tag ${tag?.classes || ''}`}
+          className={`govuk-phase-banner__content__tag ${tag?.className || ''}`}
         />
 
         <span className="govuk-phase-banner__text">{html || text}</span>

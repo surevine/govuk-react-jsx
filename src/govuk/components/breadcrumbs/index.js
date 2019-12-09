@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from '../../../utils/Link'
 
 function Breadcrumbs(props) {
@@ -10,7 +9,7 @@ function Breadcrumbs(props) {
         key={item.reactListKey || index}
         className="govuk-breadcrumbs__list-item"
       >
-        <Link classes="govuk-breadcrumbs__link" {...item}>
+        <Link className="govuk-breadcrumbs__link" {...item}>
           {item.html || item.text}
         </Link>
       </li>
@@ -30,15 +29,6 @@ function Breadcrumbs(props) {
       <ol className="govuk-breadcrumbs__list">{breadcrumbs}</ol>
     </div>
   )
-}
-
-Breadcrumbs.defaultProps = {
-  classes: ''
-}
-
-Breadcrumbs.propTypes = {
-  classes: PropTypes.string,
-  items: PropTypes.array
 }
 
 export { Breadcrumbs }
