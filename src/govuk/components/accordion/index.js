@@ -4,14 +4,15 @@ import AccordionJS from 'govuk-frontend/govuk/components/accordion/accordion'
 
 function Accordion(props) {
   const accordionRef = React.createRef()
+  const { headingLevel, items, className, ...attributes } = props
 
   useEffect(() => {
     new AccordionJS(accordionRef.current).init()
   }, [])
 
-  const HeadingLevel = props.headingLevel ? `h${props.headingLevel}` : 'h2'
+  const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h2'
 
-  const innerHtml = props.items.map((item, index) => (
+  const innerHtml = items.map((item, index) => (
     <div
       key={item.reactListKey || index}
       className={`govuk-accordion__section ${
@@ -49,10 +50,9 @@ function Accordion(props) {
   ))
   return (
     <div
-      className={`govuk-accordion ${props.classes}`}
+      {...attributes}
+      className={`govuk-accordion ${className}`}
       data-module="govuk-accordion"
-      id={props.id}
-      {...props.attributes}
       ref={accordionRef}
     >
       {innerHtml}
@@ -60,15 +60,9 @@ function Accordion(props) {
   )
 }
 
-Accordion.defaultProps = {
-  classes: ''
-}
-
 Accordion.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
+  className: PropTypes.string,
   headingLevel: PropTypes.string,
-  id: PropTypes.string,
   items: PropTypes.array
 }
 

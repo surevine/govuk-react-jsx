@@ -3,18 +3,14 @@ import PropTypes from 'prop-types'
 import { Link } from '../../../utils/Link'
 
 function Breadcrumbs(props) {
-  const breadcrumbs = props.items.map((item, index) =>
+  const { items, className, ...attributes } = props
+  const breadcrumbs = items.map((item, index) =>
     item.href || item.to ? (
       <li
         key={item.reactListKey || index}
         className="govuk-breadcrumbs__list-item"
       >
-        <Link
-          classes="govuk-breadcrumbs__link"
-          attributes={item.attributes}
-          href={item.href}
-          to={item.to}
-        >
+        <Link classes="govuk-breadcrumbs__link" {...item}>
           {item.html || item.text}
         </Link>
       </li>
@@ -30,7 +26,7 @@ function Breadcrumbs(props) {
   )
 
   return (
-    <div className={`govuk-breadcrumbs ${props.classes}`} {...props.attributes}>
+    <div className={`govuk-breadcrumbs ${className}`} {...attributes}>
       <ol className="govuk-breadcrumbs__list">{breadcrumbs}</ol>
     </div>
   )
@@ -41,7 +37,6 @@ Breadcrumbs.defaultProps = {
 }
 
 Breadcrumbs.propTypes = {
-  attributes: PropTypes.object,
   classes: PropTypes.string,
   items: PropTypes.array
 }

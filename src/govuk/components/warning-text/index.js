@@ -1,36 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function WarningText(props) {
+  const { className, iconFallbackText, html, text, ...attributes } = props
+
   return (
-    <div
-      className={`govuk-warning-text ${props.classes}`}
-      {...props.attributes}
-    >
+    <div className={`govuk-warning-text ${className}`} {...attributes}>
       <span className="govuk-warning-text__icon" aria-hidden="true">
         !
       </span>
       <strong className="govuk-warning-text__text">
         <span className="govuk-warning-text__assistive">
-          {props.iconFallbackText}
+          {iconFallbackText}
         </span>
-        {props.html || props.text}
+        {html || text}
       </strong>
     </div>
   )
-}
-
-WarningText.defaultProps = {
-  classes: '',
-  attributes: {}
-}
-
-WarningText.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  html: PropTypes.node,
-  iconFallbackText: PropTypes.node.isRequired,
-  text: PropTypes.node
 }
 
 export { WarningText }

@@ -1,38 +1,24 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function ErrorMessage(props) {
-  let visuallyHiddenText
+  const { className, html, text, visuallyHiddenText, ...attributes } = props
+  let visuallyHiddenTextComponent
   if (props.visuallyHiddenText) {
-    visuallyHiddenText = (
-      <span className="govuk-visually-hidden">{props.visuallyHiddenText}</span>
+    visuallyHiddenTextComponent = (
+      <span className="govuk-visually-hidden">{visuallyHiddenText}</span>
     )
   }
 
   return (
-    <span
-      id={props.id}
-      className={`govuk-error-message ${props.classes}`}
-      {...props.attributes}
-    >
-      {visuallyHiddenText}
-      {props.html || props.text}
+    <span className={`govuk-error-message ${className}`} {...attributes}>
+      {visuallyHiddenTextComponent}
+      {html || text}
     </span>
   )
 }
 
 ErrorMessage.defaultProps = {
-  visuallyHiddenText: 'Error:',
-  classes: ''
-}
-
-ErrorMessage.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  html: PropTypes.node,
-  id: PropTypes.string,
-  text: PropTypes.node,
-  visuallyHiddenText: PropTypes.node
+  visuallyHiddenText: 'Error:'
 }
 
 export { ErrorMessage }

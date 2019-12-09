@@ -1,23 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function Hint(props) {
+  const { id, className, html, text, ...attributes } = props
   return (
-    <span id={props.id} className={`govuk-hint ${props.classes}`}>
-      {props.html || props.text}
+    <span className={`govuk-hint ${className}`} {...attributes}>
+      {html || text}
     </span>
   )
 }
-
-Hint.defaultProps = {
-  classes: ''
-}
-
-Hint.propTypes = {
-  classes: PropTypes.string,
-  html: PropTypes.node,
-  id: PropTypes.string,
-  text: PropTypes.node
-}
-
 export { Hint }

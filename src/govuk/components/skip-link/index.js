@@ -1,29 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function SkipLink(props) {
+  const { href, className, html, text, ...attributes } = props
   return (
-    <a
-      href={props.href}
-      className={`govuk-skip-link ${props.classes}`}
-      {...props.attributes}
-    >
-      {props.html || props.text}
+    <a href={href} className={`govuk-skip-link ${className}`} {...attributes}>
+      {html || text}
     </a>
   )
 }
 
 SkipLink.defaultProps = {
-  href: '#content',
-  classes: ''
-}
-
-SkipLink.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  href: PropTypes.string,
-  html: PropTypes.node,
-  text: PropTypes.node
+  href: '#content'
 }
 
 export { SkipLink }

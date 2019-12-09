@@ -3,37 +3,28 @@ import { Link as ReactRouterLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 function Link(props) {
-  const { children, classes, attributes, to, href, forwardedRef } = props
+  const { children, to, href, forwardedRef, ...attributes } = props
 
   if (to) {
     return (
-      <ReactRouterLink
-        innerRef={forwardedRef}
-        to={to}
-        className={classes}
-        {...attributes}
-      >
+      <ReactRouterLink innerRef={forwardedRef} to={to} {...attributes}>
         {children}
       </ReactRouterLink>
     )
   }
   return (
-    <a ref={forwardedRef} href={href} className={classes} {...attributes}>
+    <a ref={forwardedRef} href={href} {...attributes}>
       {children}
     </a>
   )
 }
 
 Link.defaultProps = {
-  classes: '',
-  forwardedRef: null,
-  attributes: {}
+  forwardedRef: null
 }
 
 Link.propTypes = {
   children: PropTypes.node.isRequired,
-  classes: PropTypes.string,
-  attributes: PropTypes.object,
   to: PropTypes.string,
   href: PropTypes.string,
   forwardedRef: PropTypes.oneOfType([

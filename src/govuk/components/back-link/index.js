@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 import { Link } from '../../../utils/Link'
 
 function BackLink(props) {
-  const contents = props.html || props.text
+  const { html, text, href, to, className, ...attributes } = props
+  const contents = html || text
 
   return (
     <Link
-      classes={`govuk-back-link ${props.classes}`}
-      attributes={props.attributes}
-      href={props.href}
-      to={props.to}
+      {...attributes}
+      className={`govuk-back-link ${className}`}
+      href={href}
+      to={to}
     >
       {contents}
     </Link>
@@ -19,13 +20,10 @@ function BackLink(props) {
 
 BackLink.defaultProps = {
   href: '/',
-  text: 'Back',
-  classes: ''
+  text: 'Back'
 }
 
 BackLink.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
   href: PropTypes.string,
   html: PropTypes.node,
   text: PropTypes.node,

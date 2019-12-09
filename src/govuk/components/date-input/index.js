@@ -6,27 +6,36 @@ import { Fieldset } from '../'
 import { Input } from '../'
 
 function DateInput(props) {
-  let describedBy =
-    props.fieldset && props.fieldset.describedBy
-      ? props.fieldset.describedBy
-      : ''
-  let hint
-  let errorMessage
+  const {
+    className,
+    errorMessage,
+    fieldset,
+    formGroup,
+    hint,
+    id,
+    items,
+    namePrefix,
+    ...attributes
+  } = props
+
+  let describedBy = fieldset?.describedBy
+  let hintComponent
+  let errorMessageComponent
   let dateInputItems = []
 
-  if (props.hint) {
-    const hintId = `${props.id}-hint`
+  if (hint) {
+    const hintId = `${id}-hint`
     describedBy += ` ${hintId}`
-    hint = <Hint id={hintId} {...props.hint} />
+    hintComponent = <Hint id={hintId} {...hint} />
   }
 
-  if (props.errorMessage) {
-    const errorId = props.id ? `${props.id}-error` : ''
+  if (errorMessage) {
+    const errorId = id ? `${id}-error` : ''
     describedBy += ` ${errorId}`
-    errorMessage = <ErrorMessage id={errorId} {...props.errorMessage} />
+    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
   }
-  if (props.items) {
-    dateInputItems = props.items
+  if (items) {
+    dateInputItems = items
   } else {
     dateInputItems = [
       {
@@ -47,36 +56,30 @@ function DateInput(props) {
     ]
   }
 
-  const items = dateInputItems.map((item, index) => (
+  const itemComponents = dateInputItems.map((item, index) => (
     <div key={item.reactListKey || index} className="govuk-date-input__item">
       <Input
+        {...item}
         label={{
           text: item.label
             ? item.label.charAt(0).toUpperCase() + item.label.slice(1)
             : item.name.charAt(0).toUpperCase() + item.name.slice(1),
-          classes: 'govuk-date-input__label'
+          className: 'govuk-date-input__label'
         }}
-        id={item.id ? item.id : `${props.id}-${item.name}`}
-        classes={`govuk-date-input__input ${item.classes || ''}`}
+        id={item.id ? item.id : `${id}-${name}`}
+        className={`govuk-date-input__input ${item.className || ''}`}
         name={props.namePrefix ? `${props.namePrefix}-${item.name}` : item.name}
-        value={item.value}
         type="number"
-        autocomplete={item.autocomplete}
         pattern={item.pattern ? item.pattern : '[0-9]*'}
-        attributes={item.attributes}
       />
     </div>
   ))
   const innerHtml = (
     <>
-      {hint}
-      {errorMessage}
-      <div
-        className={`govuk-date-input ${props.classes}`}
-        {...props.attributes}
-        id={props.id}
-      >
-        {items}
+      {hintComponent}
+      {errorMessageComponent}
+      <div className={`govuk-date-input ${className}`} {...attributes} id={id}>
+        {itemComponents}
       </div>
     </>
   )
@@ -84,17 +87,11 @@ function DateInput(props) {
   return (
     <div
       className={`govuk-form-group${
-        props.errorMessage ? ' govuk-form-group--error' : ''
-      } ${(props.formGroup && props.formGroup.classes) || ''}`}
+        errorMessage ? ' govuk-form-group--error' : ''
+      } ${formGroup?.classes}`}
     >
       {props.fieldset ? (
-        <Fieldset
-          describedBy={describedBy}
-          classes={props.fieldset.classes}
-          role="group"
-          attributes={props.fieldset.attributes}
-          legend={props.fieldset.legend}
-        >
+        <Fieldset describedBy={describedBy} role="group" {...fieldset}>
           {innerHtml}
         </Fieldset>
       ) : (
@@ -104,12 +101,7 @@ function DateInput(props) {
   )
 }
 
-DateInput.defaultProps = {
-  classes: ''
-}
-
 DateInput.propTypes = {
-  attributes: PropTypes.object,
   classes: PropTypes.string,
   errorMessage: PropTypes.object,
   fieldset: PropTypes.object,

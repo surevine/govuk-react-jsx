@@ -1,23 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function Tag(props) {
+  const { html, text, className, ...attributes } = props
+
   return (
-    <strong className={`govuk-tag ${props.classes}`} {...props.attributes}>
-      {props.html || props.text}
+    <strong className={`govuk-tag ${className}`} {...attributes}>
+      {html || text}
     </strong>
   )
-}
-
-Tag.defaultProps = {
-  classes: ''
-}
-
-Tag.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  html: PropTypes.node,
-  text: PropTypes.node
 }
 
 export { Tag }

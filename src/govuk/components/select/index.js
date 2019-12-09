@@ -1,30 +1,38 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Label } from '../'
 import { Hint } from '../'
 import { ErrorMessage } from '../'
 
 function Select(props) {
-  let { describedBy } = props
-  let hint
-  let errorMessage
+  const {
+    className,
+    'aria-describedby': describedBy,
+    errorMessage,
+    formGroup,
+    hint,
+    id,
+    items,
+    label,
+    ...attributes
+  } = props
 
-  if (props.hint) {
-    const hintId = `${props.id}-hint`
-    describedBy += ` ${hintId}`
-    hint = <Hint id={hintId} {...props.hint} />
+  let describedByValue = describedBy
+  let hintComponent
+  let errorMessageComponent
+
+  if (hint) {
+    const hintId = `${id}-hint`
+    describedByValue += ` ${hintId}`
+    hintComponent = <Hint id={hintId} {...hint} />
   }
 
-  if (props.errorMessage) {
-    const errorId = props.id ? `${props.id}-error` : ''
-    describedBy += ` ${errorId}`
-    errorMessage = <ErrorMessage id={errorId} {...props.errorMessage} />
+  if (errorMessage) {
+    const errorId = id ? `${id}-error` : ''
+    describedByValue += ` ${errorId}`
+    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
   }
 
-  const selectedItem = props.items.find(item => item.selected === true)
-  const defaultValue = selectedItem ? selectedItem.value : null
-
-  const options = props.items.map((option, index) => (
+  const options = items.map((option, index) => (
     <option
       key={option.reactListKey || index}
       value={option.value}
@@ -37,44 +45,24 @@ function Select(props) {
   return (
     <div
       className={`govuk-form-group${
-        props.errorMessage ? ' govuk-form-group--error' : ''
-      } ${(props.formGroup && props.formGroup.classes) || ''}`}
+        errorMessage ? ' govuk-form-group--error' : ''
+      } ${formGroup?.className || ''}`}
     >
-      <Label {...props.label} for={props.id} />
-      {hint}
-      {errorMessage}
+      <Label {...label} htmlFor={id} />
+      {hintComponent}
+      {errorMessageComponent}
       <select
-        className={`govuk-select ${props.classes}${
-          props.errorMessage ? ' govuk-select--error' : ''
+        className={`govuk-select ${className}${
+          errorMessage ? ' govuk-select--error' : ''
         }`}
-        id={props.id}
-        name={props.name}
-        defaultValue={defaultValue}
-        aria-describedby={describedBy.trim() || null}
-        {...props.attributes}
+        id={id}
+        aria-describedby={describedByValue || null}
+        {...attributes}
       >
         {options}
       </select>
     </div>
   )
-}
-
-Select.defaultProps = {
-  describedBy: '',
-  classes: ''
-}
-
-Select.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  describedBy: PropTypes.string,
-  errorMessage: PropTypes.object,
-  formGroup: PropTypes.object,
-  hint: PropTypes.object,
-  id: PropTypes.string,
-  items: PropTypes.array,
-  label: PropTypes.object,
-  name: PropTypes.string
 }
 
 export { Select }

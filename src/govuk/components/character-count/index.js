@@ -4,6 +4,14 @@ import CharacterCountJS from 'govuk-frontend/govuk/components/character-count/ch
 import { Textarea } from '../'
 
 function CharacterCount(props) {
+  const {
+    className,
+    maxlength,
+    threshold,
+    maxwords,
+    errorMessage,
+    ...attributes
+  } = props
   const characterCountRef = React.createRef()
   const characterCountInfoClass = `${props.id}-info`
 
@@ -15,45 +23,31 @@ function CharacterCount(props) {
     <div
       className="govuk-character-count"
       data-module="govuk-character-count"
-      data-maxlength={props.maxlength}
-      data-threshold={props.threshold}
-      data-maxwords={props.maxwords}
+      data-maxlength={maxlength}
+      data-threshold={threshold}
+      data-maxwords={maxwords}
       ref={characterCountRef}
     >
       <Textarea
-        id={props.id}
-        name={props.name}
-        rows={props.rows}
-        value={props.value}
-        classes={`govuk-js-character-count ${props.classes}${
-          props.errorMessage ? ' govuk-textarea--error' : ''
+        {...attributes}
+        className={`govuk-js-character-count ${className}${
+          errorMessage ? ' govuk-textarea--error' : ''
         }`}
-        label={props.label}
-        hint={props.hint}
-        errorMessage={props.errorMessage}
-        attributes={props.attributes}
         describedBy={characterCountInfoClass}
-        formGroup={props.formGroup}
       />
       <span
         id={characterCountInfoClass}
         className="govuk-hint govuk-character-count__message"
         aria-live="polite"
       >
-        You can enter up to {props.maxlength || props.maxwords}{' '}
-        {props.maxwords ? 'words' : 'characters'}
+        You can enter up to {maxlength || maxwords}{' '}
+        {maxwords ? 'words' : 'characters'}
       </span>
     </div>
   )
 }
 
-CharacterCount.defaultProps = {
-  classes: ''
-}
-
 CharacterCount.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
   errorMessage: PropTypes.object,
   hint: PropTypes.object,
   id: PropTypes.string,

@@ -3,14 +3,22 @@ import PropTypes from 'prop-types'
 import { Link } from '../../../utils/Link'
 
 function Footer(props) {
-  let navigation
-  let meta
+  const {
+    className,
+    containerClassname,
+    meta,
+    navigation,
+    ...attributes
+  } = props
 
-  if (props.navigation) {
-    navigation = (
+  let navigationComponent
+  let metaComponent
+
+  if (navigation) {
+    navigationComponent = (
       <>
         <div className="govuk-footer__navigation">
-          {props.navigation.map((nav, navIndex) => (
+          {navigation.map((nav, navIndex) => (
             <div
               className="govuk-footer__section"
               key={nav.reactListKey || navIndex}
@@ -26,22 +34,29 @@ function Footer(props) {
                       : ''
                   }`}
                 >
-                  {nav.items.map((item, index) => (
-                    <React.Fragment key={item.reactListKey || index}>
-                      {(item.href || item.to) && item.text && (
-                        <li className="govuk-footer__list-item">
-                          <Link
-                            classes={`govuk-footer__link ${item.classes || ''}`}
-                            to={item.to}
-                            href={item.href}
-                            {...item.attributes}
-                          >
-                            {item.text}
-                          </Link>
-                        </li>
-                      )}
-                    </React.Fragment>
-                  ))}
+                  {nav.items.map((item, index) => {
+                    const {
+                      className: itemClassName,
+                      text: itemText,
+                      reactListKey,
+                      ...itemAttributes
+                    } = item
+                    return (
+                      <React.Fragment key={reactListKey || index}>
+                        {(item.href || item.to) && item.text && (
+                          <li className="govuk-footer__list-item">
+                            <Link
+                              className={`govuk-footer__link ${itemClassName ||
+                                ''}`}
+                              {...itemAttributes}
+                            >
+                              {itemText}
+                            </Link>
+                          </li>
+                        )}
+                      </React.Fragment>
+                    )
+                  })}
                 </ul>
               )}
             </div>
@@ -52,40 +67,46 @@ function Footer(props) {
     )
   }
 
-  if (props.meta) {
-    meta = (
+  if (meta) {
+    metaComponent = (
       <>
         <h2 className="govuk-visually-hidden">
-          {props.meta.visuallyHiddenTitle
-            ? props.meta.visuallyHiddenTitle
+          {meta.visuallyHiddenTitle
+            ? meta.visuallyHiddenTitle
             : 'Support links'}
         </h2>
 
-        {props.meta.items && (
+        {meta.items && (
           <>
             <ul className="govuk-footer__inline-list">
-              {props.meta.items.map((item, index) => (
-                <li
-                  className="govuk-footer__inline-list-item"
-                  key={item.reactListKey || index}
-                >
-                  <Link
-                    classes={`govuk-footer__link ${item.classes || ''}`}
-                    to={item.to}
-                    href={item.href}
-                    {...item.attributes}
+              {meta.items.map((item, index) => {
+                const {
+                  className: itemClassName,
+                  text: itemText,
+                  ...itemAttributes
+                } = item
+
+                return (
+                  <li
+                    className="govuk-footer__inline-list-item"
+                    key={item.reactListKey || index}
                   >
-                    {item.text}
-                  </Link>
-                </li>
-              ))}
+                    <Link
+                      classes={`govuk-footer__link ${itemClassName}`}
+                      {...itemAttributes}
+                    >
+                      {itemText}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </>
         )}
 
-        {(props.meta.text || props.meta.html) && (
+        {(meta.text || meta.html) && (
           <div className="govuk-footer__meta-custom">
-            {props.meta.html || props.meta.text}
+            {meta.html || meta.text}
           </div>
         )}
       </>
@@ -94,19 +115,15 @@ function Footer(props) {
 
   return (
     <footer
-      className={`govuk-footer ${props.classes}`}
+      className={`govuk-footer ${className}`}
       role="contentinfo"
-      {...props.attributes}
+      {...attributes}
     >
-      <div
-        className={`govuk-width-container ${
-          props.containerClasses ? props.containerClasses : ''
-        }`}
-      >
-        {navigation}
+      <div className={`govuk-width-container ${containerClassName}`}>
+        {navigationComponent}
         <div className="govuk-footer__meta">
           <div className="govuk-footer__meta-item govuk-footer__meta-item--grow">
-            {meta}
+            {metaComponent}
             {/* The SVG needs `focusable="false"` so that Internet Explorer does not */}
             {/* treat it as an interactive element - without this it will be */}
             {/* 'focusable' when using the keyboard to navigate. */}
@@ -148,18 +165,6 @@ function Footer(props) {
       </div>
     </footer>
   )
-}
-
-Footer.defaultProps = {
-  classes: ''
-}
-
-Footer.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  containerClasses: PropTypes.string,
-  meta: PropTypes.object,
-  navigation: PropTypes.array
 }
 
 export { Footer }
