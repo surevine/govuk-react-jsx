@@ -12,14 +12,22 @@ const propReplacements = {
   // value: 'defaultValue',
   captionClasses: 'captionClassName',
   colspan: 'colSpan',
-  rowspan: 'rowSpan'
+  rowspan: 'rowSpan',
+  summaryText: 'summaryChildren',
+  summaryHtml: 'summaryChildren',
+  descriptionText: 'descriptionChildren',
+  descriptionHtml: 'descriptionChildren',
+  titleText: 'titleChildren',
+  titleHtml: 'titleChildren'
 }
 
 export default function processExampleData(data) {
   for (let { parent, value, key } of deepIterator(data)) {
+    // Replace html and text props with children
     // Turn any html strings into jsx
-    if (key === 'html' && value) {
-      parent[key] = ReactHtmlParser(value)
+    if ((key === 'html' || key === 'text') && value) {
+      parent['children'] = ReactHtmlParser(value)
+      delete parent[key]
     }
 
     // Various replacements of govuk specific params to react syntax. E.g. classes -> className

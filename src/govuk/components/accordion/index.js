@@ -24,7 +24,7 @@ function Accordion(props) {
             className="govuk-accordion__section-button"
             id={`${props.id}-heading-${index + 1}`}
           >
-            {item.heading.html || item.heading.text}
+            {item.heading.children}
           </span>
         </HeadingLevel>
         {item.summary ? (
@@ -32,7 +32,7 @@ function Accordion(props) {
             className="govuk-accordion__section-summary govuk-body"
             id={`${props.id}-summary-${index + 1}`}
           >
-            {item.summary.html || item.summary.text}
+            {item.summary.children}
           </div>
         ) : (
           ''
@@ -43,7 +43,7 @@ function Accordion(props) {
         className="govuk-accordion__section-content"
         aria-labelledby={`${props.id}-heading-${index + 1}`}
       >
-        {item.content.html || item.content.text}
+        {item.content.children}
       </div>
     </div>
   ))

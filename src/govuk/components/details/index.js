@@ -1,14 +1,7 @@
 import React from 'react'
 
 function Details(props) {
-  const {
-    className,
-    html,
-    text,
-    summaryHtml,
-    summaryText,
-    ...attributes
-  } = props
+  const { className, children, summaryChildren, ...attributes } = props
   return (
     <details
       className={`govuk-details ${className || ''}`}
@@ -16,11 +9,9 @@ function Details(props) {
       data-module="govuk-details"
     >
       <summary className="govuk-details__summary">
-        <span className="govuk-details__summary-text">
-          {summaryHtml || summaryText}
-        </span>
+        <span className="govuk-details__summary-text">{summaryChildren}</span>
       </summary>
-      <div className="govuk-details__text">{html || text}</div>
+      <div className="govuk-details__text">{children}</div>
     </details>
   )
 }

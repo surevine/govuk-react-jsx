@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from '../../../utils/Link'
 
 function BackLink(props) {
-  const { html, text, href, to, className, ...attributes } = props
-  const contents = html || text
+  const { children, href, to, className, ...attributes } = props
+  const contents = children
 
   return (
     <Link
@@ -19,7 +19,7 @@ function BackLink(props) {
 
 BackLink.defaultProps = {
   href: '/',
-  text: 'Back'
+  children: 'Back'
 }
 
 export { BackLink }

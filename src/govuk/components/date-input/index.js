@@ -61,7 +61,7 @@ function DateInput(props) {
       <Input
         {...item}
         label={{
-          text: item.label
+          children: item.label
             ? item.label.charAt(0).toUpperCase() + item.label.slice(1)
             : item.name.charAt(0).toUpperCase() + item.name.slice(1),
           className: 'govuk-date-input__label'

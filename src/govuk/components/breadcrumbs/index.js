@@ -4,7 +4,7 @@ import { Link } from '../../../utils/Link'
 function Breadcrumbs(props) {
   const { items, className, ...attributes } = props
   const breadcrumbs = items.map((item, index) => {
-    const { href, to, reactListKey, html, text, ...itemAttributes } = item
+    const { href, to, reactListKey, children, ...itemAttributes } = item
 
     return href || to ? (
       <li key={reactListKey || index} className="govuk-breadcrumbs__list-item">
@@ -14,7 +14,7 @@ function Breadcrumbs(props) {
           className="govuk-breadcrumbs__link"
           {...itemAttributes}
         >
-          {html || text}
+          {children}
         </Link>
       </li>
     ) : (
@@ -23,7 +23,7 @@ function Breadcrumbs(props) {
         className="govuk-breadcrumbs__list-item"
         aria-current="page"
       >
-        {html || text}
+        {children}
       </li>
     )
   })

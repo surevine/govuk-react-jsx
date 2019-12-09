@@ -36,20 +36,20 @@ function Footer(props) {
                   {nav.items.map((item, index) => {
                     const {
                       className: itemClassName,
-                      text: itemText,
+                      children: itemChildren,
                       reactListKey,
                       ...itemAttributes
                     } = item
                     return (
                       <React.Fragment key={reactListKey || index}>
-                        {(item.href || item.to) && item.text && (
+                        {(item.href || item.to) && itemChildren && (
                           <li className="govuk-footer__list-item">
                             <Link
                               className={`govuk-footer__link ${itemClassName ||
                                 ''}`}
                               {...itemAttributes}
                             >
-                              {itemText}
+                              {itemChildren}
                             </Link>
                           </li>
                         )}
@@ -81,7 +81,7 @@ function Footer(props) {
               {meta.items.map((item, index) => {
                 const {
                   className: itemClassName,
-                  text: itemText,
+                  children: itemChildren,
                   ...itemAttributes
                 } = item
 
@@ -94,7 +94,7 @@ function Footer(props) {
                       className={`govuk-footer__link ${itemClassName || ''}`}
                       {...itemAttributes}
                     >
-                      {itemText}
+                      {itemChildren}
                     </Link>
                   </li>
                 )
@@ -103,10 +103,8 @@ function Footer(props) {
           </>
         )}
 
-        {(meta.text || meta.html) && (
-          <div className="govuk-footer__meta-custom">
-            {meta.html || meta.text}
-          </div>
+        {meta.children && (
+          <div className="govuk-footer__meta-custom">{meta.children}</div>
         )}
       </>
     )

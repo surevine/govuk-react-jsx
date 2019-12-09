@@ -45,7 +45,7 @@ function Boolean(props) {
   }
 
   // Find out if we have any conditional items
-  const isConditional = !!items.find(item => item.conditional?.html)
+  const isConditional = !!items.find(item => item.conditional?.children)
   const hasFieldset = !!props.fieldset
 
   if (errorMessage) {
@@ -72,8 +72,7 @@ function Boolean(props) {
         {items.map((item, index) => {
           const {
             id,
-            text,
-            html,
+            children,
             hint: itemHint,
             conditional: itemConditional,
             ...itemAttributes
@@ -84,7 +83,7 @@ function Boolean(props) {
             ? id
             : `${idPrefixValue}${index === 0 ? '' : idSuffix}`
           const nameValue = item.name ? item.name : name
-          const conditionalId = itemConditional?.html
+          const conditionalId = itemConditional?.children
             ? `conditional-${idValue}`
             : null
           const itemHintId = `${idValue}-item-hint`
@@ -123,8 +122,7 @@ function Boolean(props) {
                   {...itemAttributes}
                 />
                 <Label
-                  text={text}
-                  html={html}
+                  children={children}
                   className={`govuk-${controlType}__label`}
                   htmlFor={idValue}
                 />
@@ -139,7 +137,7 @@ function Boolean(props) {
                 )}
               </div>
 
-              {itemConditional?.html ? (
+              {itemConditional?.children ? (
                 <div
                   className={`govuk-${controlType}__conditional ${
                     item.checked
@@ -148,7 +146,7 @@ function Boolean(props) {
                   }`}
                   id={conditionalId}
                 >
-                  {itemConditional.html}
+                  {itemConditional.children}
                 </div>
               ) : (
                 ''

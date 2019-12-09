@@ -30,7 +30,7 @@ function Table(props) {
               className: itemClassName,
               format: itemFormat,
               html: itemHtml,
-              text: itemText,
+              children: itemChildren,
               reactListKey,
               ...itemAttributes
             } = item
@@ -44,7 +44,7 @@ function Table(props) {
                 } ${itemClassName || ''}`}
                 {...itemAttributes}
               >
-                {itemHtml || itemText}
+                {itemChildren}
               </th>
             )
           })}
@@ -64,8 +64,7 @@ function Table(props) {
             {row.map((cell, cellIndex) => {
               const {
                 className: cellClassName,
-                html: cellHtml,
-                text: cellText,
+                children: cellChildren,
                 format: cellFormat,
                 ...cellAttributes
               } = cell
@@ -78,7 +77,7 @@ function Table(props) {
                     className={`govuk-table__header ${cellClassName || ''}`}
                     {...cellAttributes}
                   >
-                    {cellHtml || cellText}
+                    {cellChildren}
                   </th>
                 )
               }
@@ -90,7 +89,7 @@ function Table(props) {
                   }`}
                   {...cellAttributes}
                 >
-                  {cellHtml || cellText}
+                  {cellChildren}
                 </td>
               )
             })}

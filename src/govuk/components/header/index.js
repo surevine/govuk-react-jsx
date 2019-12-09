@@ -63,12 +63,12 @@ function Header(props) {
                   const {
                     active: itemActive,
                     className: itemClassName,
-                    text: itemText,
+                    children: itemChildren,
                     reactListKey,
                     ...itemAttributes
                   } = item
 
-                  return item.text && (item.href || item.to) ? (
+                  return itemChildren && (item.href || item.to) ? (
                     <li
                       key={reactListKey || index}
                       className={`govuk-header__navigation-item${
@@ -81,7 +81,7 @@ function Header(props) {
                         className={`govuk-header__link ${itemClassName || ''}`}
                         {...itemAttributes}
                       >
-                        {itemText}
+                        {itemChildren}
                       </Link>
                     </li>
                   ) : null

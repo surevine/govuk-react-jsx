@@ -41,7 +41,7 @@ function Select(props) {
       value={option.value}
       disabled={option.disabled}
     >
-      {option.text}
+      {option.children}
     </option>
   ))
 

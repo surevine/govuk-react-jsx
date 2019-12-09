@@ -13,8 +13,7 @@ function Button(props) {
     preventDoubleClick,
     name,
     type,
-    html,
-    text,
+    children,
     ...attributes
   } = props
 
@@ -89,7 +88,7 @@ function Button(props) {
 
     button = (
       <Link {...linkAttributes}>
-        {html || text}
+        {children}
         {iconHtml}
       </Link>
     )
@@ -102,7 +101,7 @@ function Button(props) {
       //
       // eslint-disable-next-line react/button-has-type
       <button {...buttonAttributes} {...commonAttributes}>
-        {html || text}
+        {children}
         {iconHtml}
       </button>
     )
@@ -110,7 +109,9 @@ function Button(props) {
     if (!type) {
       buttonAttributes.type = 'submit'
     }
-    button = <input value={text} {...buttonAttributes} {...commonAttributes} />
+    button = (
+      <input value={children} {...buttonAttributes} {...commonAttributes} />
+    )
   }
 
   return button

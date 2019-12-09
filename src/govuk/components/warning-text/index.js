@@ -1,7 +1,7 @@
 import React from 'react'
 
 function WarningText(props) {
-  const { className, iconFallbackText, html, text, ...attributes } = props
+  const { className, iconFallbackText, children, ...attributes } = props
 
   return (
     <div className={`govuk-warning-text ${className || ''}`} {...attributes}>
@@ -12,7 +12,7 @@ function WarningText(props) {
         <span className="govuk-warning-text__assistive">
           {iconFallbackText}
         </span>
-        {html || text}
+        {children}
       </strong>
     </div>
   )

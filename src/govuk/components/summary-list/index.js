@@ -3,8 +3,7 @@ import { Link } from '../../../utils/Link'
 
 function ActionLink(props) {
   const {
-    html,
-    text,
+    children,
     visuallyHiddenText,
     className,
     href,
@@ -14,7 +13,7 @@ function ActionLink(props) {
 
   const contents = (
     <>
-      {html || text}
+      {children}
       {visuallyHiddenText && (
         <span className="govuk-visually-hidden">{visuallyHiddenText}</span>
       )}
@@ -83,12 +82,12 @@ function SummaryList(props) {
           className={`govuk-summary-list__row ${row.className || ''}`}
         >
           <dt className={`govuk-summary-list__key ${row.key.className || ''}`}>
-            {row.key.html || row.key.text}
+            {row.key.children}
           </dt>
           <dd
             className={`govuk-summary-list__value ${row.value.className || ''}`}
           >
-            {row.value.html || row.value.text}
+            {row.value.children}
           </dd>
 
           {actions(row, anyRowHasActions)}

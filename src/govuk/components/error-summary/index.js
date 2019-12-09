@@ -4,11 +4,9 @@ import ErrorSummaryJS from 'govuk-frontend/govuk/components/error-summary/error-
 function ErrorSummary(props) {
   const {
     className,
-    descriptionHtml,
-    descriptionText,
+    descriptionChildren,
     errorList,
-    titleHtml,
-    titleText,
+    titleChildren,
     ...attributes
   } = props
   const errorSummaryRef = React.createRef()
@@ -17,8 +15,8 @@ function ErrorSummary(props) {
   }, [])
 
   let description
-  if (descriptionHtml || descriptionText) {
-    description = <p>{descriptionHtml || descriptionText}</p>
+  if (descriptionChildren) {
+    description = <p>{descriptionChildren}</p>
   }
 
   return (
@@ -32,7 +30,7 @@ function ErrorSummary(props) {
       ref={errorSummaryRef}
     >
       <h2 className="govuk-error-summary__title" id="error-summary-title">
-        {titleHtml || titleText}
+        {titleChildren}
       </h2>
       <div className="govuk-error-summary__body">
         {description}
@@ -41,10 +39,10 @@ function ErrorSummary(props) {
             <li key={error.reactListKey || index}>
               {error.href ? (
                 <a href={error.href} {...error.attributes}>
-                  {error.html || error.text}
+                  {error.children}
                 </a>
               ) : (
-                <>{error.html || error.text}</>
+                <>{error.children}</>
               )}
             </li>
           ))}

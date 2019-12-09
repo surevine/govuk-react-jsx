@@ -3,16 +3,14 @@ import React from 'react'
 function Panel(props) {
   const {
     headingLevel,
-    html,
-    text,
+    children,
     className,
-    titleHtml,
-    titleText,
+    titleChildren,
     ...attributes
   } = props
   const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h1'
 
-  const innerHtml = <div className="govuk-panel__body">{html || text}</div>
+  const innerHtml = <div className="govuk-panel__body">{children}</div>
 
   return (
     <div
@@ -20,7 +18,7 @@ function Panel(props) {
       {...attributes}
     >
       <HeadingLevel className="govuk-panel__title">
-        {titleHtml || titleText}
+        {titleChildren}
       </HeadingLevel>
       {innerHtml}
     </div>

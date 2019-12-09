@@ -45,7 +45,7 @@ function Tabs(props) {
         id={itemId}
         {...itemAttributes}
       >
-        {panel.html || panel.text}
+        {panel.children}
       </section>
     )
   })

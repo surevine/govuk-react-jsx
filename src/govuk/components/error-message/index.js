@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ErrorMessage(props) {
-  const { className, html, text, visuallyHiddenText, ...attributes } = props
+  const { className, children, visuallyHiddenText, ...attributes } = props
   let visuallyHiddenTextComponent
   if (props.visuallyHiddenText) {
     visuallyHiddenTextComponent = (
@@ -12,7 +12,7 @@ function ErrorMessage(props) {
   return (
     <span className={`govuk-error-message ${className || ''}`} {...attributes}>
       {visuallyHiddenTextComponent}
-      {html || text}
+      {children}
     </span>
   )
 }
