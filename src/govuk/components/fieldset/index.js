@@ -1,49 +1,26 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function Fieldset(props) {
-  let legend
-  if (props.legend.html || props.legend.text) {
-    legend = (
-      <legend
-        className={`govuk-fieldset__legend ${props.legend.classes || ''}`}
-      >
-        {props.legend.isPageHeading ? (
-          <h1 className="govuk-fieldset__heading">
-            {props.legend.html || props.legend.text}
-          </h1>
+  const { legend, className, children, ...attributes } = props
+  let legendComponent
+  if (legend.children) {
+    legendComponent = (
+      <legend className={`govuk-fieldset__legend ${legend.className || ''}`}>
+        {legend.isPageHeading ? (
+          <h1 className="govuk-fieldset__heading">{legend.children}</h1>
         ) : (
-          props.legend.html || props.legend.text
+          legend.children
         )}
       </legend>
     )
   }
 
   return (
-    <fieldset
-      className={`govuk-fieldset ${props.classes}`}
-      aria-describedby={props.describedBy ? props.describedBy : null}
-      role={props.role}
-      {...props.attributes}
-    >
-      {legend}
-      {props.children}
+    <fieldset className={`govuk-fieldset ${className || ''}`} {...attributes}>
+      {legendComponent}
+      {children}
     </fieldset>
   )
-}
-
-Fieldset.defaultProps = {
-  describedBy: '',
-  classes: ''
-}
-
-Fieldset.propTypes = {
-  legend: PropTypes.object,
-  classes: PropTypes.string,
-  describedBy: PropTypes.string,
-  role: PropTypes.string,
-  attributes: PropTypes.object,
-  children: PropTypes.node
 }
 
 export { Fieldset }

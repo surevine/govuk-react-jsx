@@ -1,49 +1,38 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from '../../../utils/Link'
 
 function Breadcrumbs(props) {
-  const breadcrumbs = props.items.map((item, index) =>
-    item.href || item.to ? (
-      <li
-        key={item.reactListKey || index}
-        className="govuk-breadcrumbs__list-item"
-      >
+  const { items, className, ...attributes } = props
+  const breadcrumbs = items.map((item, index) => {
+    const { href, to, reactListKey, children, ...itemAttributes } = item
+
+    return href || to ? (
+      <li key={reactListKey || index} className="govuk-breadcrumbs__list-item">
         <Link
-          classes="govuk-breadcrumbs__link"
-          attributes={item.attributes}
-          href={item.href}
-          to={item.to}
+          href={href}
+          to={to}
+          className="govuk-breadcrumbs__link"
+          {...itemAttributes}
         >
-          {item.html || item.text}
+          {children}
         </Link>
       </li>
     ) : (
       <li
-        key={item.reactListKey || index}
+        key={reactListKey || index}
         className="govuk-breadcrumbs__list-item"
         aria-current="page"
       >
-        {item.html || item.text}
+        {children}
       </li>
     )
-  )
+  })
 
   return (
-    <div className={`govuk-breadcrumbs ${props.classes}`} {...props.attributes}>
+    <div className={`govuk-breadcrumbs ${className || ''}`} {...attributes}>
       <ol className="govuk-breadcrumbs__list">{breadcrumbs}</ol>
     </div>
   )
-}
-
-Breadcrumbs.defaultProps = {
-  classes: ''
-}
-
-Breadcrumbs.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  items: PropTypes.array
 }
 
 export { Breadcrumbs }

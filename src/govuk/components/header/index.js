@@ -1,37 +1,48 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import HeaderJS from 'govuk-frontend/govuk/components/header/header'
 import logo from 'govuk-frontend/govuk/assets/images/govuk-logotype-crown.png'
 import { Link } from '../../../utils/Link'
 
 function Header(props) {
+  const {
+    className,
+    containerClassName,
+    homepageUrl,
+    navigation,
+    navigationClassName,
+    productName,
+    serviceName,
+    serviceUrl,
+    ...attributes
+  } = props
+
   const headerRef = React.createRef()
-  let productName
-  let navigation
+  let productNameComponent
+  let navigationComponent
 
   useEffect(() => {
     new HeaderJS(headerRef.current).init()
   }, [])
 
-  if (props.productName) {
-    productName = (
-      <span className="govuk-header__product-name">{props.productName}</span>
+  if (productName) {
+    productNameComponent = (
+      <span className="govuk-header__product-name">{productName}</span>
     )
   }
 
-  if (props.serviceName || props.navigation) {
-    navigation = (
+  if (serviceName || navigation) {
+    navigationComponent = (
       <div className="govuk-header__content">
-        {props.serviceName ? (
+        {serviceName ? (
           <a
-            href={props.serviceUrl}
+            href={serviceUrl}
             className="govuk-header__link govuk-header__link--service-name"
           >
-            {props.serviceName}
+            {serviceName}
           </a>
         ) : null}
 
-        {props.navigation ? (
+        {navigation ? (
           <>
             <button
               type="button"
@@ -44,32 +55,37 @@ function Header(props) {
             <nav>
               <ul
                 id="navigation"
-                className={`govuk-header__navigation${
-                  props.navigationClasses ? ` ${props.navigationClasses}` : ''
-                }`}
+                className={`govuk-header__navigation ${navigationClassName ||
+                  ''}`}
                 aria-label="Top Level Navigation"
               >
-                {props.navigation.map((item, index) =>
-                  item.text && (item.href || item.to) ? (
+                {navigation.map((item, index) => {
+                  const {
+                    active: itemActive,
+                    className: itemClassName,
+                    children: itemChildren,
+                    reactListKey,
+                    ...itemAttributes
+                  } = item
+
+                  return itemChildren && (item.href || item.to) ? (
                     <li
-                      key={item.reactListKey || index}
+                      key={reactListKey || index}
                       className={`govuk-header__navigation-item${
-                        item.active
+                        itemActive
                           ? ' govuk-header__navigation-item--active'
                           : ''
                       }`}
                     >
                       <Link
-                        classes={`govuk-header__link ${item.classes || ''}`}
-                        to={item.to}
-                        href={item.href}
-                        {...item.attributes}
+                        className={`govuk-header__link ${itemClassName || ''}`}
+                        {...itemAttributes}
                       >
-                        {item.text}
+                        {itemChildren}
                       </Link>
                     </li>
                   ) : null
-                )}
+                })}
               </ul>
             </nav>
           </>
@@ -80,19 +96,17 @@ function Header(props) {
 
   return (
     <header
-      className={`govuk-header ${props.classes || ''}`}
+      className={`govuk-header ${className || ''}`}
       role="banner"
       data-module="govuk-header"
-      {...props.attributes}
+      {...attributes}
       ref={headerRef}
     >
-      <div
-        className={`govuk-header__container ${props.containerClasses || ''}`}
-      >
+      <div className={`govuk-header__container ${containerClassName}`}>
         <div className="govuk-header__logo">
           <Link
-            to={props.homepageUrl}
-            classes="govuk-header__link govuk-header__link--homepage"
+            to={homepageUrl}
+            className="govuk-header__link govuk-header__link--homepage"
           >
             <span className="govuk-header__logotype">
               <svg
@@ -119,10 +133,10 @@ function Header(props) {
               </svg>{' '}
               <span className="govuk-header__logotype-text">GOV.UK</span>
             </span>
-            {productName}
+            {productNameComponent}
           </Link>
         </div>
-        {navigation}
+        {navigationComponent}
       </div>
     </header>
   )
@@ -130,20 +144,7 @@ function Header(props) {
 
 Header.defaultProps = {
   homepageUrl: '/',
-  classes: '',
-  containerClasses: 'govuk-width-container'
-}
-
-Header.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  containerClasses: PropTypes.string,
-  homepageUrl: PropTypes.string,
-  navigation: PropTypes.array,
-  navigationClasses: PropTypes.string,
-  productName: PropTypes.string,
-  serviceName: PropTypes.string,
-  serviceUrl: PropTypes.string
+  containerClassName: 'govuk-width-container'
 }
 
 export { Header }

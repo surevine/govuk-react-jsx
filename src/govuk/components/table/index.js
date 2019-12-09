@@ -1,76 +1,95 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 function Table(props) {
-  let caption
-  let head
-  if (props.caption) {
-    caption = (
-      <caption className={`govuk-table__caption ${props.captionClasses || ''}`}>
-        {props.caption}
+  const {
+    caption,
+    captionClassName,
+    className,
+    firstCellIsHeader,
+    head,
+    rows,
+    ...attributes
+  } = props
+
+  let captionComponent
+  let headComponent
+  if (caption) {
+    captionComponent = (
+      <caption className={`govuk-table__caption ${captionClassName || ''}`}>
+        {caption}
       </caption>
     )
   }
 
-  if (props.head) {
-    head = (
+  if (head) {
+    headComponent = (
       <thead className="govuk-table__head">
         <tr className="govuk-table__row">
-          {props.head.map((item, index) => (
-            <th
-              key={item.reactListKey || index}
-              scope="col"
-              className={`govuk-table__header ${
-                item.format ? `govuk-table__header--${item.format}` : ''
-              } ${item.classes || ''}`}
-              colSpan={item.colspan || null}
-              rowSpan={item.rowspan || null}
-              {...item.attributes}
-            >
-              {item.html || item.text}
-            </th>
-          ))}
+          {head.map((item, index) => {
+            const {
+              className: itemClassName,
+              format: itemFormat,
+              html: itemHtml,
+              children: itemChildren,
+              reactListKey,
+              ...itemAttributes
+            } = item
+
+            return (
+              <th
+                key={reactListKey || index}
+                scope="col"
+                className={`govuk-table__header ${
+                  itemFormat ? `govuk-table__header--${itemFormat}` : ''
+                } ${itemClassName || ''}`}
+                {...itemAttributes}
+              >
+                {itemChildren}
+              </th>
+            )
+          })}
         </tr>
       </thead>
     )
   }
 
   return (
-    <table className={`govuk-table ${props.classes}`} {...props.attributes}>
-      {caption}
-      {head}
+    <table className={`govuk-table ${className || ''}`} {...attributes}>
+      {captionComponent}
+      {headComponent}
 
       <tbody className="govuk-table__body">
-        {props.rows.map((row, rowIndex) => (
+        {rows.map((row, rowIndex) => (
           <tr key={row.reactListKey || rowIndex} className="govuk-table__row">
             {row.map((cell, cellIndex) => {
-              const commonAttributes = {
-                colSpan: cell.colspan,
-                rowSpan: cell.rowspan,
-                attributes: cell.attributes
-              }
+              const {
+                className: cellClassName,
+                children: cellChildren,
+                format: cellFormat,
+                ...cellAttributes
+              } = cell
 
-              if (cellIndex === 0 && props.firstCellIsHeader) {
+              if (cellIndex === 0 && firstCellIsHeader) {
                 return (
                   <th
                     key={cell.reactListKey || cellIndex}
                     scope="row"
-                    className={`govuk-table__header ${cell.classes || ''}`}
-                    {...commonAttributes}
+                    className={`govuk-table__header ${cellClassName || ''}`}
+                    {...cellAttributes}
                   >
-                    {cell.html || cell.text}
+                    {cellChildren}
                   </th>
                 )
               }
               return (
                 <td
                   key={cell.reactListKey || cellIndex}
-                  className={`govuk-table__cell ${cell.classes || ''} ${
-                    cell.format ? `govuk-table__cell--${cell.format}` : ''
+                  className={`govuk-table__cell ${cellClassName || ''} ${
+                    cellFormat ? `govuk-table__cell--${cellFormat}` : ''
                   }`}
-                  {...commonAttributes}
+                  {...cellAttributes}
                 >
-                  {cell.html || cell.text}
+                  {cellChildren}
                 </td>
               )
             })}
@@ -79,20 +98,6 @@ function Table(props) {
       </tbody>
     </table>
   )
-}
-
-Table.defaultProps = {
-  classes: ''
-}
-
-Table.propTypes = {
-  attributes: PropTypes.object,
-  caption: PropTypes.string,
-  captionClasses: PropTypes.string,
-  classes: PropTypes.string,
-  firstCellIsHeader: PropTypes.bool,
-  head: PropTypes.array,
-  rows: PropTypes.array
 }
 
 export { Table }

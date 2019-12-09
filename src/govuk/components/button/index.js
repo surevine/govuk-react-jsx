@@ -1,15 +1,28 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import ButtonJS from 'govuk-frontend/govuk/components/button/button'
 import { Link } from '../../../utils/Link'
 
 function Button(props) {
+  const {
+    element,
+    href,
+    to,
+    isStartButton,
+    disabled,
+    className,
+    preventDoubleClick,
+    name,
+    type,
+    children,
+    ...attributes
+  } = props
+
   const buttonRef = React.createRef()
-  let element = ''
+  let el = ''
   let buttonAttributes = {
-    name: props.name,
-    type: props.type,
-    ...props.attributes,
+    name: name,
+    type: type,
+    ...attributes,
     'data-module': 'govuk-button'
   }
   let button
@@ -18,16 +31,16 @@ function Button(props) {
     new ButtonJS(buttonRef.current).init()
   }, [])
 
-  if (props.element) {
-    element = props.element
-  } else if (props.href) {
-    element = 'a'
+  if (element) {
+    el = element
+  } else if (href) {
+    el = 'a'
   } else {
-    element = 'button'
+    el = 'button'
   }
 
   let iconHtml
-  if (props.isStartButton) {
+  if (isStartButton) {
     iconHtml = (
       <svg
         className="govuk-button__start-icon"
@@ -44,17 +57,17 @@ function Button(props) {
   }
 
   const commonAttributes = {
-    className: `govuk-button ${props.classes}${
-      props.disabled ? ' govuk-button--disabled' : ''
-    } ${props.isStartButton ? 'govuk-button--start' : ''}`,
+    className: `govuk-button ${className || ''}${
+      disabled ? ' govuk-button--disabled' : ''
+    } ${isStartButton ? 'govuk-button--start' : ''}`,
     ref: buttonRef
   }
 
-  if (props.preventDoubleClick) {
-    buttonAttributes['data-prevent-double-click'] = props.preventDoubleClick
+  if (preventDoubleClick) {
+    buttonAttributes['data-prevent-double-click'] = preventDoubleClick
   }
 
-  if (props.disabled) {
+  if (disabled) {
     buttonAttributes = {
       ...buttonAttributes,
       'aria-disabled': true,
@@ -62,27 +75,24 @@ function Button(props) {
     }
   }
 
-  if (element === 'a') {
+  if (el === 'a') {
     const linkAttributes = {
       ...commonAttributes,
-      classes: commonAttributes.className,
-      attributes: {
-        role: 'button',
-        draggable: 'false',
-        ...props.attributes,
-        'data-module': 'govuk-button'
-      },
-      href: props.href,
-      to: props.to
+      role: 'button',
+      draggable: 'false',
+      ...attributes,
+      'data-module': 'govuk-button',
+      href: href,
+      to: to
     }
 
     button = (
       <Link {...linkAttributes}>
-        {props.html || props.text}
+        {children}
         {iconHtml}
       </Link>
     )
-  } else if (element === 'button') {
+  } else if (el === 'button') {
     button = (
       // Disabling linting of button type, because the button _does_ have an explicit type
       // It is defined in the defaultProps of the component, which gets added
@@ -91,37 +101,20 @@ function Button(props) {
       //
       // eslint-disable-next-line react/button-has-type
       <button {...buttonAttributes} {...commonAttributes}>
-        {props.html || props.text}
+        {children}
         {iconHtml}
       </button>
     )
-  } else if (element === 'input') {
-    if (!props.type) {
+  } else if (el === 'input') {
+    if (!type) {
       buttonAttributes.type = 'submit'
     }
     button = (
-      <input value={props.text} {...buttonAttributes} {...commonAttributes} />
+      <input value={children} {...buttonAttributes} {...commonAttributes} />
     )
   }
 
   return button
-}
-
-Button.defaultProps = {
-  classes: ''
-}
-
-Button.propTypes = {
-  attributes: PropTypes.object,
-  disabled: PropTypes.bool,
-  element: PropTypes.string,
-  href: PropTypes.string,
-  html: PropTypes.node,
-  name: PropTypes.string,
-  preventDoubleClick: PropTypes.bool,
-  text: PropTypes.node,
-  to: PropTypes.string,
-  type: PropTypes.string
 }
 
 export { Button }

@@ -1,39 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Tag } from '../'
 
 function PhaseBanner(props) {
+  const { className, tag, children, ...attributes } = props
   return (
-    <div
-      className={`govuk-phase-banner ${props.classes}`}
-      {...props.attributes}
-    >
+    <div className={`govuk-phase-banner ${className || ''}`} {...attributes}>
       <p className="govuk-phase-banner__content">
         <Tag
-          {...props.tag}
-          classes={`govuk-phase-banner__content__tag${(props.tag &&
-            props.tag.classes) ||
-            ''}`}
+          {...tag}
+          className={`govuk-phase-banner__content__tag ${tag?.className || ''}`}
         />
 
-        <span className="govuk-phase-banner__text">
-          {props.html || props.text}
-        </span>
+        <span className="govuk-phase-banner__text">{children}</span>
       </p>
     </div>
   )
-}
-
-PhaseBanner.defaultProps = {
-  classes: ''
-}
-
-PhaseBanner.propTypes = {
-  attributes: PropTypes.object,
-  classes: PropTypes.string,
-  html: PropTypes.node,
-  tag: PropTypes.object,
-  text: PropTypes.node
 }
 
 export { PhaseBanner }
