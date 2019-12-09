@@ -39,12 +39,11 @@
     "url": "https://github.com/andymantell/govuk-react-jsx/issues"
   },
   "homepage": "https://github.com/andymantell/govuk-react-jsx#readme",
-  "dependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.7.5"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@markedjs/html-differ": "^3.0.0",
     "@starptech/prettyhtml": "^0.10.0",
     "@storybook/addon-actions": "^5.2.8",
@@ -66,12 +65,12 @@
     "mkdirp": "^0.5.1",
     "nunjucks": "^3.2.0",
     "prettier": "^1.19.1",
-    "react": "^16.12.0",
     "react-html-parser": "^2.0.2",
-    "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-    "sass": "^1.23.7",
+    "react-router": "^5.1.2",
+    "react": "^16.12.0",
     "sass-loader": "^8.0.0",
+    "sass": "^1.23.7",
     "storybook-addon-jsx": "^7.1.13",
     "style-loader": "^1.0.1",
     "webpack": "4.41.2"
