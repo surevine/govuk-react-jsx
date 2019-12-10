@@ -33,7 +33,7 @@ function Button(props) {
 
   if (element) {
     el = element
-  } else if (href) {
+  } else if (href || to) {
     el = 'a'
   } else {
     el = 'button'
