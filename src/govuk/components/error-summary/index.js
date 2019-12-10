@@ -52,4 +52,8 @@ function ErrorSummary(props) {
   )
 }
 
+ErrorSummary.defaultProps = {
+  titleChildren: 'There is a problem'
+}
+
 export { ErrorSummary }
