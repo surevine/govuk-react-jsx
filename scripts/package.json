@@ -8,7 +8,13 @@
     "type": "git",
     "url": "git+https://github.com/andymantell/govuk-react-jsx.git"
   },
-  "keywords": ["govuk", "react", "jsx", "components", "govuk-frontend"],
+  "keywords": [
+    "govuk",
+    "react",
+    "jsx",
+    "components",
+    "govuk-frontend"
+  ],
   "author": "Andy Mantell <andy.mantell@surevine.com>",
   "license": "MIT",
   "bugs": {
@@ -20,6 +26,7 @@
     "prop-types": "15",
     "react-router-dom": "5",
     "react-router": "5",
-    "react": "16"
+    "react": "16",
+    "react-helmet": "5"
   }
 }
