@@ -2,7 +2,7 @@
   "name": "@andymantell/govuk-react-jsx",
   "version": "PACKAGE_VERSION",
   "description": "",
-  "main": "govuk/components/index.js",
+  "main": "govuk/index.js",
   "scripts": {},
   "repository": {
     "type": "git",

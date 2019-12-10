@@ -2,7 +2,10 @@
 
 rm -rf dist
 mkdir -p build-temp
-copy src/**/index.js src/utils/*.js build-temp
+# Not sure why have to be this explicit, the glob should sort it :-/
+cd src
+copy govuk/index.js govuk/template/index.js govuk/components/**/index.js utils/*.js ../build-temp
+cd ..
 babel build-temp -d dist
 rm -rf build-temp
 

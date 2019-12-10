@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Label } from '../'
-import { Hint } from '../'
-import { ErrorMessage } from '../'
+import { Label } from '../../'
+import { Hint } from '../../'
+import { ErrorMessage } from '../../'
 
 function Textarea(props) {
   const {

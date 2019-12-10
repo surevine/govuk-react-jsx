@@ -1,8 +1,8 @@
 {
   "name": "@andymantell/govuk-react-jsx",
-  "version": "0.0.3-alpha",
+  "version": "0.0.8-alpha",
   "description": "",
-  "main": "src/govuk/components/index.js",
+  "main": "src/govuk/index.js",
   "scripts": {
     "test": "jest --notify --verbose",
     "storybook": "start-storybook -p 6006",

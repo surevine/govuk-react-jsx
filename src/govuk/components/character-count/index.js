@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import CharacterCountJS from 'govuk-frontend/govuk/components/character-count/character-count'
-import { Textarea } from '../'
+import { Textarea } from '../../'
 
 function CharacterCount(props) {
   const {

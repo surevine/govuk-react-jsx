@@ -8,13 +8,7 @@ import appleTouchIcon152 from 'govuk-frontend/govuk/assets/images/govuk-apple-to
 import appleTouchIcon from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png'
 import govukOpenGraphImage from 'govuk-frontend/govuk/assets/images/govuk-opengraph-image.png'
 
-import {
-  SkipLink,
-  Header,
-  Footer,
-  containerClassName,
-  mainLang
-} from '../components'
+import { SkipLink, Header, Footer, containerClassName, mainLang } from '../'
 
 function Template(props) {
   const {
@@ -26,11 +20,13 @@ function Template(props) {
     beforeContent,
     mainLang,
     containerClassName,
-    mainClassName
+    mainClassName,
+    themeColor
   } = props
 
   useEffect(() => {
-    document.body.classList.add('js-enabled')
+    document.documentElement.classList.add('govuk-template')
+    document.body.classList.add('js-enabled', 'govuk-template__body')
   }, [])
 
   return (
@@ -54,13 +50,9 @@ function Template(props) {
         <link
           rel="mask-icon"
           href={govukMaskIcon}
-          color="{{ themeColor | default('#0b0c0c') }}"
+          color={themeColor || '#0b0c0c'}
         />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="{{ assetPath | default('/assets') }}/images/"
-        />
+        <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon180} />
         <link rel="apple-touch-icon" sizes="167x167" href={appleTouchIcon167} />
         <link rel="apple-touch-icon" sizes="152x152" href={appleTouchIcon152} />
         <link rel="apple-touch-icon" href={appleTouchIcon} />

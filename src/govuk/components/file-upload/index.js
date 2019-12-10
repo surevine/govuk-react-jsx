@@ -1,7 +1,7 @@
 import React from 'react'
-import { ErrorMessage } from '../'
-import { Hint } from '../'
-import { Label } from '../'
+import { ErrorMessage } from '../../'
+import { Hint } from '../../'
+import { Label } from '../../'
 
 function FileUpload(props) {
   const {

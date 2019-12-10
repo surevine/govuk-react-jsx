@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import RadiosJS from 'govuk-frontend/govuk/components/radios/radios'
 import CheckboxesJS from 'govuk-frontend/govuk/components/checkboxes/checkboxes'
-import { ErrorMessage } from '../govuk/components'
-import { Fieldset } from '../govuk/components'
-import { Hint } from '../govuk/components'
-import { Label } from '../govuk/components'
+import { ErrorMessage } from '../govuk'
+import { Fieldset } from '../govuk'
+import { Hint } from '../govuk'
+import { Label } from '../govuk'
 
 function Boolean(props) {
   const {

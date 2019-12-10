@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag } from '../'
+import { Tag } from '../../'
 
 function PhaseBanner(props) {
   const { className, tag, children, ...attributes } = props
