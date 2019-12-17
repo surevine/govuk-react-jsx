@@ -13,6 +13,7 @@
     "build-storybook": "build-storybook",
     "start": "npm run storybook",
     "lint": "prettier --check '**/*.js'",
+    "lint:fix": "prettier --write '**/*.js'",
     "deploy-demo": "npm run build-storybook && gh-pages -d storybook-static",
     "build": "./scripts/build.sh",
     "publish-local": "./scripts/publish-local.sh"
@@ -46,7 +47,9 @@
     "url": "https://github.com/andymantell/govuk-react-jsx/issues"
   },
   "homepage": "https://github.com/andymantell/govuk-react-jsx#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@testing-library/react": "^9.4.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",

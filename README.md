@@ -3,7 +3,6 @@
 View demo at https://andymantell.github.io/govuk-react-jsx/
 
 - Documentation
-- Additional things like the base template?
 - Additional examples from local yaml files
 - Additional tests around interacting with components (Can we pull in from govuk-frontend somehow?)
 - Demos of buttons with click events, input elements with change events etc
@@ -14,4 +13,3 @@ View demo at https://andymantell.github.io/govuk-react-jsx/
 - Why does hot reloading sometimes break the data processing, such that html comes out as [object Object]?
 - lack of onChange handler is causing select element to throw warning because it is read only
 - Align eslint / prettier config etc with main repo
-- Test case for Radios top level value prop - being mapped correctly to checked status of items
