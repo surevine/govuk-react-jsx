@@ -13,3 +13,5 @@ View demo at https://andymantell.github.io/govuk-react-jsx/
 - Document that selected property of select items no longer exists (Since it's just value on the select element in React) (And add test for it)
 - Why does hot reloading sometimes break the data processing, such that html comes out as [object Object]?
 - lack of onChange handler is causing select element to throw warning because it is read only
+- Align eslint / prettier config etc with main repo
+- Test case for Radios top level value prop - being mapped correctly to checked status of items
