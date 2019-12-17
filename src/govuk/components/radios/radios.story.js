@@ -5,6 +5,24 @@ import { Radios } from '.'
 import examples from './examples'
 import processExampleData from '../../../../utils/processExampleData'
 
+examples.examples.push({
+  name: 'value as a top level prop (For use with React form libraries)',
+  data: {
+    value: 'no',
+    items: [
+      {
+        children: 'Yes',
+        value: 'yes'
+      },
+      {
+        children: 'No',
+        value: 'no'
+      }
+    ],
+    name: 'yesno'
+  }
+})
+
 const stories = storiesOf('radios', module)
 
 for (const [index, example] of Object.entries(
