@@ -17,6 +17,8 @@ function Boolean(props) {
     items,
     controlType,
     name,
+    onChange,
+    onBlur,
     ...attributes
   } = props
 
@@ -119,6 +121,8 @@ function Boolean(props) {
                   type={controlType === 'radios' ? 'radio' : 'checkbox'}
                   data-aria-controls={conditionalId}
                   aria-describedby={itemDescribedBy || null}
+                  onChange={onChange}
+                  onBlur={onBlur}
                   {...itemAttributes}
                 />
                 <Label
