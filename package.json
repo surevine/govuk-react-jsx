@@ -16,7 +16,8 @@
     "lint:fix": "prettier --write '**/*.js'",
     "deploy-demo": "npm run build-storybook && gh-pages -d storybook-static",
     "build": "./scripts/build.sh",
-    "publish-local": "./scripts/publish-local.sh"
+    "publish-local": "./scripts/publish-local.sh",
+    "publish-npm": "./scripts/publish-npm.sh"
   },
   "jest": {
     "moduleNameMapper": {
