@@ -15,4 +15,4 @@ addParameters({
 configure(require.context('../src', true, /.story\.js$/), module)
 
 // Simulate the js-enabled class that govuk frontend template adds to the page
-configure(() => document.body.classList.add('js-enabled'))
+configure(() => document.body.classList.add('js-enabled'), module)
