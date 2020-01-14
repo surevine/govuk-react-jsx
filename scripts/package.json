@@ -1,12 +1,12 @@
 {
-  "name": "@andymantell/govuk-react-jsx",
+  "name": "govuk-react-jsx",
   "version": "PACKAGE_VERSION",
   "description": "",
   "main": "govuk/index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andymantell/govuk-react-jsx.git"
+    "url": "git+https://github.com/surevine/govuk-react-jsx.git"
   },
   "keywords": [
     "govuk",
@@ -18,9 +18,9 @@
   "author": "Andy Mantell <andy.mantell@surevine.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andymantell/govuk-react-jsx/issues"
+    "url": "https://github.com/surevine/govuk-react-jsx/issues"
   },
-  "homepage": "https://github.com/andymantell/govuk-react-jsx#readme",
+  "homepage": "https://github.com/surevine/govuk-react-jsx#readme",
   "dependencies": {
     "govuk-frontend": "3.4.0",
     "prop-types": "15",

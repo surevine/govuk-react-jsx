@@ -14,7 +14,6 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
-
   # publish-npm:
   #   needs: prepublish-test
   #   runs-on: ubuntu-latest
@@ -28,18 +27,3 @@ jobs:
   #     - run: npm publish
   #       env:
   #         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-
-  publish-gpr:
-    needs: prepublish-test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: '@andymantell'
-      - run: npm ci
-      - run: npm run build-and-publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

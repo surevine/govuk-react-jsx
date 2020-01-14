@@ -32,6 +32,6 @@ export default create({
   inputBorderRadius: 0,
 
   brandTitle: 'govuk-react-jsx',
-  brandUrl: 'https://github.com/andymantell/govuk-react-jsx'
+  brandUrl: 'https://github.com/surevine/govuk-react-jsx'
   // brandImage: 'https://placehold.it/350x150'
 })

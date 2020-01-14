@@ -1,7 +1,7 @@
 {
-  "name": "@andymantell/govuk-react-jsx",
-  "version": "0.0.11-alpha",
-  "description": "",
+  "name": "govuk-react-jsx",
+  "version": "1.0.0",
+  "description": "React component ports of govuk-frontend nunjucks macros. Directly consuming govuk-frontend CSS & JS.",
   "main": "src/govuk/index.js",
   "scripts": {
     "test": "jest --notify --verbose",
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andymantell/govuk-react-jsx.git"
+    "url": "git+https://github.com/surevine/govuk-react-jsx.git"
   },
   "keywords": [
     "govuk",
@@ -44,9 +44,9 @@
   "author": "Andy Mantell <andy.mantell@surevine.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andymantell/govuk-react-jsx/issues"
+    "url": "https://github.com/surevine/govuk-react-jsx/issues"
   },
-  "homepage": "https://github.com/andymantell/govuk-react-jsx#readme",
+  "homepage": "https://github.com/surevine/govuk-react-jsx#readme",
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.7.5",
