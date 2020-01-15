@@ -21,7 +21,7 @@ const propReplacements = {
   titleHtml: 'titleChildren'
 }
 
-export default function processExampleData(data) {
+export default function processExampleData(data, componentName) {
   for (let { parent, value, key } of deepIterator(data)) {
     // Replace html and text props with children
     // Turn any html strings into jsx
@@ -42,5 +42,28 @@ export default function processExampleData(data) {
       delete parent['attributes']
     }
   }
+
+  // 2nd pass over for tweaks to radios data
+  if (componentName === 'radios') {
+    for (let { parent, value, key } of deepIterator(data)) {
+      // Replace 'checked' value on radio items with a top level 'value' prop for compatibility with react form libraries
+      if (key === 'items') {
+        // Work out which one is checked
+        let checked = value.find(item => item.checked)
+
+        // Remove the checked value from each item
+        parent.items = value.map(item => {
+          const modifiedItem = Object.assign({}, item)
+          delete modifiedItem['checked']
+          return modifiedItem
+        })
+
+        if (checked) {
+          parent.value = checked.value
+        }
+      }
+    }
+  }
+
   return data
 }
