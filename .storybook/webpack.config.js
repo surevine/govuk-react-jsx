@@ -18,7 +18,7 @@ module.exports = async ({ config, mode }) => {
 
   // Fonts and images
   config.module.rules.push({
-    test: /\.(png|jpg|gif|woff|svg|woff2)$/,
+    test: /\.(png|jpg|gif|svg)$/,
     use: [
       {
         loader: 'file-loader',
