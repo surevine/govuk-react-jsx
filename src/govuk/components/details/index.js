@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Details(props) {
-  const { className, children, summaryChildren, ...attributes } = props
+  const { className, children, summaryChildren, ...attributes } = props;
   return (
     <details
       className={`govuk-details ${className || ''}`}
@@ -13,7 +13,7 @@ function Details(props) {
       </summary>
       <div className="govuk-details__text">{children}</div>
     </details>
-  )
+  );
 }
 
-export { Details }
+export { Details };

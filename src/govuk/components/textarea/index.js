@@ -1,8 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { Label } from '../../'
-import { Hint } from '../../'
-import { ErrorMessage } from '../../'
+import { Label, Hint, ErrorMessage } from '../..';
 
 function Textarea(props) {
   const {
@@ -14,22 +12,22 @@ function Textarea(props) {
     label,
     id,
     ...attributes
-  } = props
+  } = props;
 
-  let describedByValue = describedBy
-  let hintComponent
-  let errorMessageComponent
+  let describedByValue = describedBy;
+  let hintComponent;
+  let errorMessageComponent;
 
   if (hint) {
-    const hintId = `${id}-hint`
-    describedByValue += ` ${hintId}`
-    hintComponent = <Hint id={hintId} {...hint} />
+    const hintId = `${id}-hint`;
+    describedByValue += ` ${hintId}`;
+    hintComponent = <Hint id={hintId} {...hint} />;
   }
 
   if (errorMessage) {
-    const errorId = id ? `${id}-error` : ''
-    describedByValue += ` ${errorId}`
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
+    const errorId = id ? `${id}-error` : '';
+    describedByValue += ` ${errorId}`;
+    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
   }
 
   return (
@@ -50,12 +48,12 @@ function Textarea(props) {
         {...attributes}
       />
     </div>
-  )
+  );
 }
 
 Textarea.defaultProps = {
   'aria-describedby': '',
-  rows: 5
-}
+  rows: 5,
+};
 
-export { Textarea }
+export { Textarea };

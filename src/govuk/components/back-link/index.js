@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link } from '../../../utils/Link'
+import React from 'react';
+import { Link } from '../../../utils/Link';
 
 function BackLink(props) {
-  const { children, href, to, className, ...attributes } = props
-  const contents = children
+  const { children, href, to, className, ...attributes } = props;
+  const contents = children;
 
   return (
     <Link
@@ -14,12 +14,12 @@ function BackLink(props) {
     >
       {contents}
     </Link>
-  )
+  );
 }
 
 BackLink.defaultProps = {
   href: '/',
-  children: 'Back'
-}
+  children: 'Back',
+};
 
-export { BackLink }
+export { BackLink };

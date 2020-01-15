@@ -1,5 +1,5 @@
-import examples from './examples'
-import { Breadcrumbs } from './'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { Breadcrumbs } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
 
-diffComponentAgainstReferenceNunjucks('breadcrumbs', Breadcrumbs, examples)
+diffComponentAgainstReferenceNunjucks('breadcrumbs', Breadcrumbs, examples);

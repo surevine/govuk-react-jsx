@@ -1,5 +1,5 @@
-import examples from './examples'
-import { SkipLink } from '.'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { SkipLink } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
 
-diffComponentAgainstReferenceNunjucks('skip-link', SkipLink, examples)
+diffComponentAgainstReferenceNunjucks('skip-link', SkipLink, examples);

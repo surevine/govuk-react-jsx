@@ -1,4 +1,4 @@
-import examples from '../../../../.cache/govuk-frontend-examples/checkboxes.json'
+import examples from '../../../../.cache/govuk-frontend-examples/checkboxes.json';
 
 // Insert additional examples here if desired
 
@@ -13,11 +13,11 @@ examples.examples.push({
         value: 'foo',
         text: 'Foo',
         conditional: {
-          html: false
-        }
-      }
-    ]
-  }
-})
+          html: false,
+        },
+      },
+    ],
+  },
+});
 
-export default examples
+export default examples;

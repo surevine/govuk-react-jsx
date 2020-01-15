@@ -1,5 +1,5 @@
-import examples from './examples'
-import { InsetText } from './'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { InsetText } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
 
-diffComponentAgainstReferenceNunjucks('inset-text', InsetText, examples)
+diffComponentAgainstReferenceNunjucks('inset-text', InsetText, examples);

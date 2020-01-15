@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Table(props) {
   const {
@@ -9,16 +9,16 @@ function Table(props) {
     head,
     rows,
     ...attributes
-  } = props
+  } = props;
 
-  let captionComponent
-  let headComponent
+  let captionComponent;
+  let headComponent;
   if (caption) {
     captionComponent = (
       <caption className={`govuk-table__caption ${captionClassName || ''}`}>
         {caption}
       </caption>
-    )
+    );
   }
 
   if (head) {
@@ -33,7 +33,7 @@ function Table(props) {
               children: itemChildren,
               reactListKey,
               ...itemAttributes
-            } = item
+            } = item;
 
             return (
               <th
@@ -46,11 +46,11 @@ function Table(props) {
               >
                 {itemChildren}
               </th>
-            )
+            );
           })}
         </tr>
       </thead>
-    )
+    );
   }
 
   return (
@@ -67,7 +67,7 @@ function Table(props) {
                 children: cellChildren,
                 format: cellFormat,
                 ...cellAttributes
-              } = cell
+              } = cell;
 
               if (cellIndex === 0 && firstCellIsHeader) {
                 return (
@@ -79,7 +79,7 @@ function Table(props) {
                   >
                     {cellChildren}
                   </th>
-                )
+                );
               }
               return (
                 <td
@@ -91,13 +91,13 @@ function Table(props) {
                 >
                   {cellChildren}
                 </td>
-              )
+              );
             })}
           </tr>
         ))}
       </tbody>
     </table>
-  )
+  );
 }
 
-export { Table }
+export { Table };

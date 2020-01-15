@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import CharacterCountJS from 'govuk-frontend/govuk/components/character-count/character-count'
-import { Textarea } from '../../'
+import React, { useEffect } from 'react';
+import CharacterCountJS from 'govuk-frontend/govuk/components/character-count/character-count';
+import { Textarea } from '../..';
 
 function CharacterCount(props) {
   const {
@@ -11,14 +11,14 @@ function CharacterCount(props) {
     maxwords,
     errorMessage,
     ...attributes
-  } = props
+  } = props;
 
-  const characterCountRef = React.createRef()
-  const characterCountInfoClass = `${id}-info`
+  const characterCountRef = React.createRef();
+  const characterCountInfoClass = `${id}-info`;
 
   useEffect(() => {
-    new CharacterCountJS(characterCountRef.current).init()
-  }, [])
+    new CharacterCountJS(characterCountRef.current).init();
+  }, [characterCountRef]);
 
   return (
     <div
@@ -47,7 +47,7 @@ function CharacterCount(props) {
         {maxwords ? 'words' : 'characters'}
       </span>
     </div>
-  )
+  );
 }
 
-export { CharacterCount }
+export { CharacterCount };

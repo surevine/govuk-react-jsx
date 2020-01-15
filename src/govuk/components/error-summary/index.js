@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import ErrorSummaryJS from 'govuk-frontend/govuk/components/error-summary/error-summary'
+import React, { useEffect } from 'react';
+import ErrorSummaryJS from 'govuk-frontend/govuk/components/error-summary/error-summary';
 
 function ErrorSummary(props) {
   const {
@@ -8,15 +8,15 @@ function ErrorSummary(props) {
     errorList,
     titleChildren,
     ...attributes
-  } = props
-  const errorSummaryRef = React.createRef()
+  } = props;
+  const errorSummaryRef = React.createRef();
   useEffect(() => {
-    new ErrorSummaryJS(errorSummaryRef.current).init()
-  }, [])
+    new ErrorSummaryJS(errorSummaryRef.current).init();
+  }, [errorSummaryRef]);
 
-  let description
+  let description;
   if (descriptionChildren) {
-    description = <p>{descriptionChildren}</p>
+    description = <p>{descriptionChildren}</p>;
   }
 
   return (
@@ -49,11 +49,11 @@ function ErrorSummary(props) {
         </ul>
       </div>
     </div>
-  )
+  );
 }
 
 ErrorSummary.defaultProps = {
-  titleChildren: 'There is a problem'
-}
+  titleChildren: 'There is a problem',
+};
 
-export { ErrorSummary }
+export { ErrorSummary };

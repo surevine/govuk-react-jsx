@@ -1,7 +1,5 @@
-import React from 'react'
-import { Label } from '../../'
-import { Hint } from '../../'
-import { ErrorMessage } from '../../'
+import React from 'react';
+import { Label, Hint, ErrorMessage } from '../..';
 
 function Input(props) {
   const {
@@ -13,24 +11,24 @@ function Input(props) {
     label,
     name,
     ...attributes
-  } = props
+  } = props;
 
-  let describedByValue = describedBy || ''
-  let hintComponent
-  let errorMessageComponent
+  let describedByValue = describedBy || '';
+  let hintComponent;
+  let errorMessageComponent;
 
   if (hint) {
-    const hintId = `${props.id}-hint`
-    describedByValue += ` ${hintId}`
-    hintComponent = <Hint id={hintId} {...props.hint} />
+    const hintId = `${props.id}-hint`;
+    describedByValue += ` ${hintId}`;
+    hintComponent = <Hint id={hintId} {...props.hint} />;
   }
 
   if (errorMessage) {
-    const errorId = props.id ? `${props.id}-error` : ''
-    describedByValue += ` ${errorId}`
+    const errorId = props.id ? `${props.id}-error` : '';
+    describedByValue += ` ${errorId}`;
     errorMessageComponent = (
       <ErrorMessage id={errorId} {...props.errorMessage} />
-    )
+    );
   }
 
   return (
@@ -51,11 +49,11 @@ function Input(props) {
         {...attributes}
       />
     </div>
-  )
+  );
 }
 
 Input.defaultProps = {
-  type: 'text'
-}
+  type: 'text',
+};
 
-export { Input }
+export { Input };

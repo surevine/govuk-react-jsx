@@ -1,8 +1,8 @@
-import React from 'react'
-import { Tag } from '../../'
+import React from 'react';
+import { Tag } from '../..';
 
 function PhaseBanner(props) {
-  const { className, tag, children, ...attributes } = props
+  const { className, tag, children, ...attributes } = props;
   return (
     <div className={`govuk-phase-banner ${className || ''}`} {...attributes}>
       <p className="govuk-phase-banner__content">
@@ -14,7 +14,7 @@ function PhaseBanner(props) {
         <span className="govuk-phase-banner__text">{children}</span>
       </p>
     </div>
-  )
+  );
 }
 
-export { PhaseBanner }
+export { PhaseBanner };

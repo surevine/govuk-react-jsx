@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from '../../../utils/Link'
+import React from 'react';
+import { Link } from '../../../utils/Link';
 
 function ActionLink(props) {
   const {
@@ -9,7 +9,7 @@ function ActionLink(props) {
     href,
     to,
     ...attributes
-  } = props
+  } = props;
 
   const contents = (
     <>
@@ -18,7 +18,7 @@ function ActionLink(props) {
         <span className="govuk-visually-hidden">{visuallyHiddenText}</span>
       )}
     </>
-  )
+  );
 
   return (
     <Link
@@ -29,13 +29,13 @@ function ActionLink(props) {
     >
       {contents}
     </Link>
-  )
+  );
 }
 
 function actions(row, anyRowHasActions) {
   const actionLinks = row.actions?.items.map((action, index) => (
     <ActionLink key={action.reactListKey || index} {...action} />
-  ))
+  ));
 
   if (row.actions?.items.length) {
     return (
@@ -57,22 +57,22 @@ function actions(row, anyRowHasActions) {
           </ul>
         )}
       </dd>
-    )
+    );
   }
 
   if (anyRowHasActions) {
     // Add dummy column to extend border
-    return <span className="govuk-summary-list__actions"></span>
+    return <span className="govuk-summary-list__actions"></span>;
   }
 
-  return null
+  return null;
 }
 
 function SummaryList(props) {
-  const { className, rows, ...attributes } = props
+  const { className, rows, ...attributes } = props;
   const anyRowHasActions = props.rows.some(
     item => (item.actions && 'items' in item.actions) === true
-  )
+  );
 
   return (
     <dl className={`govuk-summary-list ${className || ''}`} {...attributes}>
@@ -94,7 +94,7 @@ function SummaryList(props) {
         </div>
       ))}
     </dl>
-  )
+  );
 }
 
-export { SummaryList }
+export { SummaryList };

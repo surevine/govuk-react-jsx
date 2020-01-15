@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react'
-import TabsJS from 'govuk-frontend/govuk/components/tabs/tabs'
+import React, { useEffect } from 'react';
+import TabsJS from 'govuk-frontend/govuk/components/tabs/tabs';
 
 function Tabs(props) {
-  const { className, id, idPrefix, items, title, ...attributes } = props
+  const { className, id, idPrefix, items, title, ...attributes } = props;
 
-  const tabsRef = React.createRef()
+  const tabsRef = React.createRef();
 
   useEffect(() => {
-    new TabsJS(tabsRef.current).init()
-  }, [])
+    new TabsJS(tabsRef.current).init();
+  }, [tabsRef]);
 
   const tabContent = items.map((item, index) => {
-    const { id: itemId, label, panel, ...itemAttributes } = item
+    const { id: itemId, label, panel, ...itemAttributes } = item;
 
     return (
       <li
@@ -22,19 +22,19 @@ function Tabs(props) {
       >
         <a
           className="govuk-tabs__tab"
-          href={`#${itemId ? itemId : `${idPrefix}-${index}`}`}
+          href={`#${itemId || `${idPrefix}-${index}`}`}
           {...itemAttributes}
         >
           {label}
         </a>
       </li>
-    )
-  })
+    );
+  });
 
-  const tabs = <ul className="govuk-tabs__list">{tabContent}</ul>
+  const tabs = <ul className="govuk-tabs__list">{tabContent}</ul>;
 
   const panels = items.map((item, index) => {
-    const { id: itemId, panel, label, ...itemAttributes } = item
+    const { id: itemId, panel, label, ...itemAttributes } = item;
 
     return (
       <section
@@ -47,8 +47,8 @@ function Tabs(props) {
       >
         {panel.children}
       </section>
-    )
-  })
+    );
+  });
 
   return (
     <div
@@ -62,11 +62,11 @@ function Tabs(props) {
       {tabs}
       {panels}
     </div>
-  )
+  );
 }
 
 Tabs.defaultProps = {
-  title: 'Contents'
-}
+  title: 'Contents',
+};
 
-export { Tabs }
+export { Tabs };
