@@ -32,9 +32,6 @@ function Select(props) {
     errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
   }
 
-  const selectedItem = props.items.find(item => item.selected === true)
-  const value = selectedItem ? selectedItem.value : null
-
   const options = items.map((option, index) => (
     <option
       key={option.reactListKey || index}
@@ -59,7 +56,6 @@ function Select(props) {
           errorMessage ? ' govuk-select--error' : ''
         }`}
         id={id}
-        value={value}
         aria-describedby={describedByValue || null}
         {...attributes}
       >

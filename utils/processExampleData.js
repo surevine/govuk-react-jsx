@@ -43,7 +43,6 @@ export default function processExampleData(data, componentName) {
     }
   }
 
-  // 2nd pass over for tweaks to radios data
   if (componentName === 'radios') {
     for (let { parent, value, key } of deepIterator(data)) {
       // Replace 'checked' value on radio items with a top level 'value' prop for compatibility with react form libraries
@@ -60,6 +59,27 @@ export default function processExampleData(data, componentName) {
 
         if (checked) {
           parent.value = checked.value
+        }
+      }
+    }
+  }
+
+  if (componentName === 'select') {
+    for (let { parent, value, key } of deepIterator(data)) {
+      // Replace 'selected' value on select box items with a top level 'value' prop for compatibility with react
+      if (key === 'items') {
+        // Work out which one is checked
+        let selected = value.find(item => item.selected)
+
+        // Remove the checked value from each item
+        parent.items = value.map(item => {
+          const modifiedItem = Object.assign({}, item)
+          delete modifiedItem['selected']
+          return modifiedItem
+        })
+
+        if (selected) {
+          parent.value = selected.value
         }
       }
     }
