@@ -7,15 +7,17 @@ import processExampleData from '../../../../utils/processExampleData'
 
 const stories = storiesOf('select', module)
 
-const Select = (props) => {
+const Select = props => {
   const { value: initialValue, ...restProps } = props
   const [value, setValue] = useState(initialValue)
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = e => {
     setValue(e.target.value)
   }
 
-  return <SelectComponent onChange={onChangeHandler} value={value} {...restProps} />
+  return (
+    <SelectComponent onChange={onChangeHandler} value={value} {...restProps} />
+  )
 }
 
 for (const [index, example] of Object.entries(

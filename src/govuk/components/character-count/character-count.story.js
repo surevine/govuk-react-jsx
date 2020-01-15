@@ -7,15 +7,21 @@ import processExampleData from '../../../../utils/processExampleData'
 
 const stories = storiesOf('character-count', module)
 
-const CharacterCount = (props) => {
+const CharacterCount = props => {
   const { value: initialValue, ...restProps } = props
   const [value, setValue] = useState(initialValue)
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = e => {
     setValue(e.target.value)
   }
 
-  return <CharacterCountComponent onChange={onChangeHandler} value={value} {...restProps} />
+  return (
+    <CharacterCountComponent
+      onChange={onChangeHandler}
+      value={value}
+      {...restProps}
+    />
+  )
 }
 
 for (const [index, example] of Object.entries(

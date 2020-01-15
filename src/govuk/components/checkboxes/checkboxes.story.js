@@ -7,15 +7,15 @@ import processExampleData from '../../../../utils/processExampleData'
 
 const stories = storiesOf('checkboxes', module)
 
-const Checkboxes = (props) => {
+const Checkboxes = props => {
   const initialValue = props.items.reduce((accumulator, item) => {
-      accumulator[item.value] = !!item.checked
+    accumulator[item.value] = !!item.checked
     return accumulator
   }, {})
 
   const [values, setValue] = useState(initialValue)
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = e => {
     setValue({
       ...values,
       [e.target.value]: !values[e.target.value]
