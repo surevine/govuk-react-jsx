@@ -58,7 +58,7 @@ export function diffComponentAgainstReferenceNunjucks(
             ReactDOM.renderToStaticMarkup(
               React.createElement(
                 withRouter(component),
-                processExampleData(example.data)
+                processExampleData(example.data, name)
               )
             )
           )
