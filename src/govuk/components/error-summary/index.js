@@ -38,9 +38,7 @@ function ErrorSummary(props) {
           {errorList.map((error, index) => (
             <li key={error.reactListKey || index}>
               {error.href ? (
-                <a href={error.href} {...error.attributes}>
-                  {error.children}
-                </a>
+                <a {...error}>{error.children}</a>
               ) : (
                 <>{error.children}</>
               )}
