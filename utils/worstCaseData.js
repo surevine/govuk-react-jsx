@@ -11,7 +11,7 @@ function alternateBooleans(type) {
   return bools[type];
 }
 
-function dataFromParams(params) {
+function dataFromParams(params, componentName) {
   return params.reduce((accumulator, param) => {
     let data;
 
@@ -26,7 +26,7 @@ function dataFromParams(params) {
             data.push(dataFromParams(param.params));
           }
 
-          if (param.name === 'rows') {
+          if (componentName === 'table' && param.name === 'rows') {
             const rowData = Array(10);
             rowData.fill(data, 0, 10);
             data = rowData;
@@ -62,15 +62,18 @@ function dataFromParams(params) {
             )}`;
           }
 
-          if (param.name === 'divider') {
+          if (componentName === 'radios' && param.name === 'divider') {
             data = alternateBooleans(param.name) ? data : null;
           }
 
-          if (['maxlength', 'maxwords', 'threshold'].includes(param.name)) {
+          if (
+            componentName === 'character-count' &&
+            ['maxlength', 'maxwords', 'threshold'].includes(param.name)
+          ) {
             data = Math.round(Math.random() * 100);
           }
 
-          if (param.name === 'element') {
+          if (componentName === 'button' && param.name === 'element') {
             data = 'button';
           }
 
@@ -97,5 +100,5 @@ function dataFromParams(params) {
 }
 
 export default function worstCaseData(componentName) {
-  return dataFromParams(examples[componentName].params);
+  return dataFromParams(examples[componentName].params, componentName);
 }
