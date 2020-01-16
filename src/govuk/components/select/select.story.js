@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Select as SelectComponent } from '.';
 import examples from './examples';
 import processExampleData from '../../../../utils/processExampleData';
@@ -20,7 +19,7 @@ const Select = props => {
   );
 };
 
-for (const [index, example] of Object.entries(
+for (const example of Object.values(
   processExampleData(examples.examples, 'select')
 )) {
   stories.add(example.name, () => <Select {...example.data} />);

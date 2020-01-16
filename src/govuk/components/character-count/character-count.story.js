@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { CharacterCount as CharacterCountComponent } from '.';
 import examples from './examples';
 import processExampleData from '../../../../utils/processExampleData';
@@ -24,7 +23,7 @@ const CharacterCount = props => {
   );
 };
 
-for (const [index, example] of Object.entries(
+for (const example of Object.values(
   processExampleData(examples.examples, 'character-component')
 )) {
   stories.add(example.name, () => <CharacterCount {...example.data} />);

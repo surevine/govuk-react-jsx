@@ -11,7 +11,6 @@ function DateInput(props) {
     id,
     items,
     namePrefix,
-    name,
     ...attributes
   } = props;
 
@@ -65,7 +64,7 @@ function DateInput(props) {
         }}
         id={item.id ? item.id : `${id}-${item.name}`}
         className={`govuk-date-input__input ${item.className || ''}`}
-        name={props.namePrefix ? `${props.namePrefix}-${item.name}` : item.name}
+        name={namePrefix ? `${namePrefix}-${item.name}` : item.name}
         type="number"
         pattern={item.pattern ? item.pattern : '[0-9]*'}
       />
@@ -91,7 +90,7 @@ function DateInput(props) {
         errorMessage ? ' govuk-form-group--error' : ''
       } ${formGroup?.className || ''}`}
     >
-      {props.fieldset ? (
+      {fieldset ? (
         <Fieldset aria-describedby={describedBy} role="group" {...fieldset}>
           {innerHtml}
         </Fieldset>

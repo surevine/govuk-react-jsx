@@ -3,7 +3,7 @@ import React from 'react';
 function ErrorMessage(props) {
   const { className, children, visuallyHiddenText, ...attributes } = props;
   let visuallyHiddenTextComponent;
-  if (props.visuallyHiddenText) {
+  if (visuallyHiddenText) {
     visuallyHiddenTextComponent = (
       <span className="govuk-visually-hidden">{visuallyHiddenText}</span>
     );

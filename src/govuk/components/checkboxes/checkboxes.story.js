@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Checkboxes as CheckboxesComponent } from '.';
 import examples from './examples';
 import processExampleData from '../../../../utils/processExampleData';
@@ -8,7 +7,8 @@ import processExampleData from '../../../../utils/processExampleData';
 const stories = storiesOf('checkboxes', module);
 
 const Checkboxes = props => {
-  const initialValue = props.items.reduce((accumulator, item) => {
+  const { items } = props;
+  const initialValue = items.reduce((accumulator, item) => {
     accumulator[item.value] = !!item.checked;
     return accumulator;
   }, {});
@@ -22,7 +22,7 @@ const Checkboxes = props => {
     });
   };
 
-  props.items.forEach(item => {
+  items.forEach(item => {
     item.onChange = onChangeHandler;
     item.checked = values[item.value];
   });
@@ -30,7 +30,7 @@ const Checkboxes = props => {
   return <CheckboxesComponent {...props} />;
 };
 
-for (const [index, example] of Object.entries(
+for (const example of Object.values(
   processExampleData(examples.examples, 'checkboxes')
 )) {
   stories.add(example.name, () => <Checkboxes {...example.data} />);

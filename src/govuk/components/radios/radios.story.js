@@ -21,7 +21,7 @@ const Radios = props => {
   return <RadiosComponent value={value} items={modifiedItems} {...restProps} />;
 };
 
-for (const [index, example] of Object.entries(
+for (const example of Object.values(
   processExampleData(examples.examples, 'radios')
 )) {
   stories.add(example.name, () => <Radios {...example.data} />);

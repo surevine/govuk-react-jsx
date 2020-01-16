@@ -11,6 +11,7 @@ function Tabs(props) {
   }, [tabsRef]);
 
   const tabContent = items.map((item, index) => {
+    // eslint-disable-next-line no-unused-vars
     const { id: itemId, label, panel, ...itemAttributes } = item;
 
     return (
@@ -34,6 +35,7 @@ function Tabs(props) {
   const tabs = <ul className="govuk-tabs__list">{tabContent}</ul>;
 
   const panels = items.map((item, index) => {
+    // eslint-disable-next-line no-unused-vars
     const { id: itemId, panel, label, ...itemAttributes } = item;
 
     return (

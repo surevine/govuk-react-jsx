@@ -8,7 +8,7 @@ import { HtmlDiffer } from '@markedjs/html-differ';
 import processExampleData from '../../utils/processExampleData';
 
 const withRouter = function(WrappedComponent) {
-  return class extends React.Component {
+  const component = class extends React.Component {
     render() {
       return (
         <BrowserRouter>
@@ -17,6 +17,10 @@ const withRouter = function(WrappedComponent) {
       );
     }
   };
+
+  component.displayName = 'ComponentWithRouter';
+
+  return component;
 };
 
 const htmlDiffer = new HtmlDiffer({

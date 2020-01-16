@@ -10,6 +10,7 @@ function Input(props) {
     hint,
     label,
     name,
+    id,
     ...attributes
   } = props;
 
@@ -18,17 +19,15 @@ function Input(props) {
   let errorMessageComponent;
 
   if (hint) {
-    const hintId = `${props.id}-hint`;
+    const hintId = `${id}-hint`;
     describedByValue += ` ${hintId}`;
-    hintComponent = <Hint id={hintId} {...props.hint} />;
+    hintComponent = <Hint id={hintId} {...hint} />;
   }
 
   if (errorMessage) {
-    const errorId = props.id ? `${props.id}-error` : '';
+    const errorId = id ? `${id}-error` : '';
     describedByValue += ` ${errorId}`;
-    errorMessageComponent = (
-      <ErrorMessage id={errorId} {...props.errorMessage} />
-    );
+    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
   }
 
   return (
@@ -37,14 +36,15 @@ function Input(props) {
         errorMessage ? 'govuk-form-group--error' : ''
       } `}
     >
-      <Label {...label} htmlFor={props.id} />
+      <Label {...label} htmlFor={id} />
       {hintComponent}
       {errorMessageComponent}
       <input
+        id={id}
         className={`govuk-input ${className || ''} ${
           errorMessage ? ' govuk-input--error' : ''
         }`}
-        name={name || props.id}
+        name={name || id}
         aria-describedby={describedByValue || null}
         {...attributes}
       />

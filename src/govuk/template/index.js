@@ -8,7 +8,7 @@ import appleTouchIcon152 from 'govuk-frontend/govuk/assets/images/govuk-apple-to
 import appleTouchIcon from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png';
 import govukOpenGraphImage from 'govuk-frontend/govuk/assets/images/govuk-opengraph-image.png';
 
-import { SkipLink, Header, Footer, containerClassName, mainLang } from '..';
+import { SkipLink, Header, Footer } from '..';
 
 function Template(props) {
   const {

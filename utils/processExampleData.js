@@ -52,7 +52,7 @@ export default function processExampleData(data, componentName) {
 
         // Remove the checked value from each item
         parent.items = value.map(item => {
-          const modifiedItem = Object.assign({}, item);
+          const modifiedItem = { ...item };
           delete modifiedItem.checked;
           return modifiedItem;
         });
@@ -73,7 +73,7 @@ export default function processExampleData(data, componentName) {
 
         // Remove the checked value from each item
         parent.items = value.map(item => {
-          const modifiedItem = Object.assign({}, item);
+          const modifiedItem = { ...item };
           delete modifiedItem.selected;
           return modifiedItem;
         });

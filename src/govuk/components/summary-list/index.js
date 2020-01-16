@@ -62,7 +62,7 @@ function actions(row, anyRowHasActions) {
 
   if (anyRowHasActions) {
     // Add dummy column to extend border
-    return <span className="govuk-summary-list__actions"></span>;
+    return <span className="govuk-summary-list__actions" />;
   }
 
   return null;
@@ -70,7 +70,7 @@ function actions(row, anyRowHasActions) {
 
 function SummaryList(props) {
   const { className, rows, ...attributes } = props;
-  const anyRowHasActions = props.rows.some(
+  const anyRowHasActions = rows.some(
     item => (item.actions && 'items' in item.actions) === true
   );
 

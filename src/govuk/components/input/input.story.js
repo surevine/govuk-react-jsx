@@ -19,8 +19,6 @@ examples.examples.push({
   },
 });
 
-for (const [index, example] of Object.entries(
-  processExampleData(examples.examples)
-)) {
+for (const example of Object.values(processExampleData(examples.examples))) {
   stories.add(example.name, () => <Input {...example.data} />);
 }

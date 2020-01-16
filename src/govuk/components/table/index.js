@@ -29,7 +29,6 @@ function Table(props) {
             const {
               className: itemClassName,
               format: itemFormat,
-              html: itemHtml,
               children: itemChildren,
               reactListKey,
               ...itemAttributes

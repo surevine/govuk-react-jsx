@@ -6,8 +6,6 @@ import processExampleData from '../../../../utils/processExampleData';
 
 const stories = storiesOf('accordion', module);
 
-for (const [index, example] of Object.entries(
-  processExampleData(examples.examples)
-)) {
+for (const example of Object.values(processExampleData(examples.examples))) {
   stories.add(example.name, () => <Accordion {...example.data} />);
 }

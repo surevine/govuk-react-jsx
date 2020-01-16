@@ -5,6 +5,7 @@ const path = require('path');
 const glob = require('glob');
 const got = require('got');
 const cliProgress = require('cli-progress');
+const govukPackage = require('govuk-frontend/package.json');
 
 const fetchExamplesProgress = new cliProgress.SingleBar(
   {
@@ -16,9 +17,7 @@ const fetchExamplesProgress = new cliProgress.SingleBar(
 
 function fetchExample(name) {
   // Collect examples from govuk-frontend on github
-  const govukPackage = require('govuk-frontend/package.json');
   const cachePath = `.cache/govuk-frontend-examples/${name}.json`;
-  let govExamples;
 
   return got(
     `https://raw.githubusercontent.com/alphagov/govuk-frontend/v${govukPackage.version}/src/govuk/components/${name}/${name}.yaml`
@@ -44,7 +43,7 @@ function fetchExample(name) {
 }
 
 function fetchExamples() {
-  components = glob.sync('src/govuk/components/*/index.js');
+  const components = glob.sync('src/govuk/components/*/index.js');
 
   fetchExamplesProgress.start(components.length, 0);
 

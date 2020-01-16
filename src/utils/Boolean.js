@@ -33,10 +33,12 @@ function Boolean(props) {
       case 'checkboxes':
         new CheckboxesJS(controlRef.current).init();
         break;
+
+      default:
     }
   }, [controlRef, controlType]);
 
-  if (props.hint) {
+  if (hint) {
     const hintId = `${idPrefixValue}-hint`;
     describedBy += ` ${hintId}`;
 
@@ -45,7 +47,7 @@ function Boolean(props) {
 
   // Find out if we have any conditional items
   const isConditional = !!items.find(item => item.conditional?.children);
-  const hasFieldset = !!props.fieldset;
+  const hasFieldset = !!fieldset;
 
   if (errorMessage) {
     const errorId = `${idPrefixValue}-error`;
@@ -122,10 +124,11 @@ function Boolean(props) {
                   {...itemAttributes}
                 />
                 <Label
-                  children={children}
                   className={`govuk-${controlType}__label`}
                   htmlFor={idValue}
-                />
+                >
+                  {children}
+                </Label>
                 {itemHint ? (
                   <Hint
                     className={`govuk-${controlType}__hint`}

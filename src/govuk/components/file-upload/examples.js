@@ -2,7 +2,7 @@ import examples from '../../../../.cache/govuk-frontend-examples/file-upload.jso
 
 // Insert additional examples here if desired
 
-const modifiedExamples = Object.assign({}, examples);
+const modifiedExamples = { ...examples };
 
 modifiedExamples.examples.forEach(function(item, index) {
   // React gets upset if you try and set a value on a file input so we exclude this example
