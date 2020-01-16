@@ -1,6 +1,4 @@
 import examples from '../../../../.cache/govuk-frontend-examples/file-upload.json';
-import worstCaseData from '../../../../utils/worstCaseData';
-import omit from '../../../utils/omitKey';
 
 const modifiedExamples = { ...examples };
 
@@ -9,11 +7,6 @@ modifiedExamples.examples.forEach(function(item, index) {
   if (item.name === 'with value and attributes') {
     delete modifiedExamples.examples[index];
   }
-});
-
-examples.examples.push({
-  name: 'auto generated worst case',
-  data: omit(worstCaseData('file-upload'), 'value'),
 });
 
 export default modifiedExamples;
