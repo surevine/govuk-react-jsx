@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import RadiosJS from 'govuk-frontend/govuk/components/radios/radios';
 import CheckboxesJS from 'govuk-frontend/govuk/components/checkboxes/checkboxes';
 import { ErrorMessage, Fieldset, Hint, Label } from '../govuk';
+import omit from './omitKey';
 
 function Boolean(props) {
   const {
@@ -16,12 +17,17 @@ function Boolean(props) {
     name,
     onChange,
     onBlur,
+    'aria-describedby': describedByProp,
     ...attributes
   } = props;
 
   const controlRef = React.createRef();
   const idPrefixValue = idPrefix || name;
-  let describedBy = fieldset?.describedBy ? fieldset.describedBy : '';
+  let describedBy = describedByProp || '';
+  if (fieldset?.['aria-describedby']) {
+    describedBy = fieldset['aria-describedby'];
+  }
+
   let hintComponent;
   let errorMessageComponent;
 
@@ -42,7 +48,7 @@ function Boolean(props) {
     const hintId = `${idPrefixValue}-hint`;
     describedBy += ` ${hintId}`;
 
-    hintComponent = <Hint id={hintId} {...hint} />;
+    hintComponent = <Hint {...hint} id={hintId} />;
   }
 
   // Find out if we have any conditional items
@@ -52,7 +58,7 @@ function Boolean(props) {
   if (errorMessage) {
     const errorId = `${idPrefixValue}-error`;
     describedBy += ` ${errorId}`;
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
   const innerHtml = (
@@ -76,6 +82,7 @@ function Boolean(props) {
             children,
             hint: itemHint,
             conditional: itemConditional,
+            label,
             ...itemAttributes
           } = item;
 
@@ -124,15 +131,22 @@ function Boolean(props) {
                   {...itemAttributes}
                 />
                 <Label
-                  className={`govuk-${controlType}__label`}
-                  htmlFor={idValue}
+                  {...{
+                    ...label,
+                    className: `govuk-${controlType}__label ${label?.className ||
+                      ''}`,
+                    htmlFor: idValue,
+                    isPageHeading: false,
+                  }}
                 >
                   {children}
                 </Label>
                 {itemHint ? (
                   <Hint
-                    className={`govuk-${controlType}__hint`}
-                    {...itemHint}
+                    {...{
+                      ...itemHint,
+                      className: `govuk-${controlType}__hint`, // ${itemHint.className || ''}`, Include item hint classes when govuk release this
+                    }}
                     id={itemHintId}
                   />
                 ) : (
@@ -168,7 +182,10 @@ function Boolean(props) {
       } ${formGroup?.className || ''}`}
     >
       {hasFieldset ? (
-        <Fieldset aria-describedby={describedBy.trim() || null} {...fieldset}>
+        <Fieldset
+          {...omit(fieldset, 'role')}
+          aria-describedby={describedBy.trim() || null}
+        >
           {innerHtml}
         </Fieldset>
       ) : (

@@ -5,7 +5,7 @@ function ErrorMessage(props) {
   let visuallyHiddenTextComponent;
   if (visuallyHiddenText) {
     visuallyHiddenTextComponent = (
-      <span className="govuk-visually-hidden">{visuallyHiddenText}</span>
+      <span className="govuk-visually-hidden">{visuallyHiddenText}: </span>
     );
   }
 
@@ -18,7 +18,7 @@ function ErrorMessage(props) {
 }
 
 ErrorMessage.defaultProps = {
-  visuallyHiddenText: 'Error:',
+  visuallyHiddenText: 'Error',
 };
 
 export { ErrorMessage };
