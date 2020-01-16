@@ -22,8 +22,14 @@ function dataFromParams(params) {
         case 'array':
           data = [];
 
-          for (let i = 1; i < 10; i++) {
+          for (let i = 1; i < 10; i += 1) {
             data.push(dataFromParams(param.params));
+          }
+
+          if (param.name === 'rows') {
+            const rowData = Array(10);
+            rowData.fill(data, 0, 10);
+            data = rowData;
           }
 
           break;
@@ -45,6 +51,7 @@ function dataFromParams(params) {
           break;
 
         case 'string':
+        case 'html':
           if (param.name.indexOf('html') !== -1) {
             data = `<b>${param.name}</b>-<i>${
               param.type
@@ -55,6 +62,22 @@ function dataFromParams(params) {
             )}`;
           }
 
+          if (param.name === 'divider') {
+            data = alternateBooleans(param.name) ? data : null;
+          }
+
+          if (['maxlength', 'maxwords', 'threshold'].includes(param.name)) {
+            data = Math.round(Math.random() * 100);
+          }
+
+          if (param.name === 'element') {
+            data = 'button';
+          }
+
+          break;
+
+        case 'integer':
+          data = 1;
           break;
 
         case 'nunjucks-block':

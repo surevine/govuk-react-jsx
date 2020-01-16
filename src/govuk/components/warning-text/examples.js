@@ -1,5 +1,9 @@
 import examples from '../../../../.cache/govuk-frontend-examples/warning-text.json';
+import worstCaseData from '../../../../utils/worstCaseData';
 
-// Insert additional examples here if desired
+examples.examples.push({
+  name: 'auto generated worst case',
+  data: worstCaseData('warning-text'),
+});
 
 export default examples;

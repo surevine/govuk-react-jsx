@@ -1,6 +1,5 @@
 import examples from '../../../../.cache/govuk-frontend-examples/character-count.json';
-
-// Insert additional examples here if desired
+import worstCaseData from '../../../../utils/worstCaseData';
 
 // See https://github.com/alphagov/govuk-frontend/pull/1553
 examples.examples.push({
@@ -16,6 +15,11 @@ examples.examples.push({
       text: 'Can you provide more detail?',
     },
   },
+});
+
+examples.examples.push({
+  name: 'auto generated worst case',
+  data: worstCaseData('character-count'),
 });
 
 export default examples;

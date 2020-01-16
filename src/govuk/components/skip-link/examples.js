@@ -1,5 +1,9 @@
 import examples from '../../../../.cache/govuk-frontend-examples/skip-link.json';
+import worstCaseData from '../../../../utils/worstCaseData';
 
-// Insert additional examples here if desired
+examples.examples.push({
+  name: 'auto generated worst case',
+  data: worstCaseData('skip-link'),
+});
 
 export default examples;
