@@ -1,4 +1,5 @@
 import examples from '../../../../.cache/govuk-frontend-examples/checkboxes.json';
+import worstCaseData from '../../../../utils/worstCaseData';
 
 // Insert additional examples here if desired
 
@@ -18,6 +19,11 @@ examples.examples.push({
       },
     ],
   },
+});
+
+examples.examples.push({
+  name: 'auto generated worst case',
+  data: worstCaseData('checkboxes'),
 });
 
 export default examples;
