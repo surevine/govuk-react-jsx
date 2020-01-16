@@ -48,18 +48,18 @@ function dataFromParams(params, componentName) {
           } else {
             data = true;
           }
+
+          if (param.name === 'selected') {
+            data = null;
+          }
           break;
 
         case 'string':
         case 'html':
-          if (param.name.indexOf('html') !== -1) {
-            data = `<b>${param.name}</b>-<i>${
-              param.type
-            }</i>-<small>${Math.round(Math.random() * 10000000000)}</small>`;
-          } else {
-            data = `${param.name}-${param.type}-${Math.round(
-              Math.random() * 10000000000
-            )}`;
+          data = `${param.type}-${Math.round(Math.random() * 10000000000)}`;
+
+          if (['html', 'text'].includes(param.name)) {
+            data = 'Lorem ipsum dolor sit amet';
           }
 
           if (componentName === 'radios' && param.name === 'divider') {
@@ -75,6 +75,13 @@ function dataFromParams(params, componentName) {
 
           if (componentName === 'button' && param.name === 'element') {
             data = 'button';
+          }
+
+          if (
+            ['textarea', 'character-count'].includes(componentName) &&
+            param.name === 'rows'
+          ) {
+            data = 10;
           }
 
           break;

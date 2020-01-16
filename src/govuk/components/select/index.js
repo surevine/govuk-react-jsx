@@ -21,24 +21,23 @@ function Select(props) {
   if (hint) {
     const hintId = `${id}-hint`;
     describedByValue += ` ${hintId}`;
-    hintComponent = <Hint id={hintId} {...hint} />;
+    hintComponent = <Hint {...hint} id={hintId} />;
   }
 
   if (errorMessage) {
     const errorId = id ? `${id}-error` : '';
     describedByValue += ` ${errorId}`;
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
-  const options = items.map((option, index) => (
-    <option
-      key={option.reactListKey || index}
-      value={option.value}
-      disabled={option.disabled}
-    >
-      {option.children}
-    </option>
-  ));
+  const options = items.map((option, index) => {
+    const { reactListKey, children, ...optionAttributes } = option;
+    return (
+      <option {...optionAttributes} key={reactListKey || index}>
+        {children}
+      </option>
+    );
+  });
 
   return (
     <div

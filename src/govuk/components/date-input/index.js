@@ -14,7 +14,10 @@ function DateInput(props) {
     ...attributes
   } = props;
 
-  let describedBy = fieldset?.describedBy || '';
+  let describedBy = fieldset?.['aria-describedby']
+    ? fieldset['aria-describedby']
+    : '';
+
   let hintComponent;
   let errorMessageComponent;
   let dateInputItems = [];
@@ -22,13 +25,13 @@ function DateInput(props) {
   if (hint) {
     const hintId = `${id}-hint`;
     describedBy += ` ${hintId}`;
-    hintComponent = <Hint id={hintId} {...hint} />;
+    hintComponent = <Hint {...hint} id={hintId} />;
   }
 
   if (errorMessage) {
     const errorId = id ? `${id}-error` : '';
     describedBy += ` ${errorId}`;
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
   if (items) {
     dateInputItems = items;
@@ -91,7 +94,7 @@ function DateInput(props) {
       } ${formGroup?.className || ''}`}
     >
       {fieldset ? (
-        <Fieldset aria-describedby={describedBy} role="group" {...fieldset}>
+        <Fieldset {...fieldset} aria-describedby={describedBy} role="group">
           {innerHtml}
         </Fieldset>
       ) : (

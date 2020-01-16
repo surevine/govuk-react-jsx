@@ -21,13 +21,13 @@ function Input(props) {
   if (hint) {
     const hintId = `${id}-hint`;
     describedByValue += ` ${hintId}`;
-    hintComponent = <Hint id={hintId} {...hint} />;
+    hintComponent = <Hint {...hint} id={hintId} />;
   }
 
   if (errorMessage) {
     const errorId = id ? `${id}-error` : '';
     describedByValue += ` ${errorId}`;
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
   return (
