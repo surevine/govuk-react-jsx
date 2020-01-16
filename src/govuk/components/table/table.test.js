@@ -1,5 +1,5 @@
-import examples from './examples'
-import { Table } from '.'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { Table } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
 
-diffComponentAgainstReferenceNunjucks('table', Table, examples)
+diffComponentAgainstReferenceNunjucks('table', Table, examples);

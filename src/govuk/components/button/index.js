@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import ButtonJS from 'govuk-frontend/govuk/components/button/button'
-import { Link } from '../../../utils/Link'
+import React, { useEffect } from 'react';
+import ButtonJS from 'govuk-frontend/govuk/components/button/button';
+import { Link } from '../../../utils/Link';
 
 function Button(props) {
   const {
@@ -15,31 +15,31 @@ function Button(props) {
     type,
     children,
     ...attributes
-  } = props
+  } = props;
 
-  const buttonRef = React.createRef()
-  let el = ''
+  const buttonRef = React.createRef();
+  let el = '';
   let buttonAttributes = {
-    name: name,
-    type: type,
+    name,
+    type,
     ...attributes,
-    'data-module': 'govuk-button'
-  }
-  let button
+    'data-module': 'govuk-button',
+  };
+  let button;
 
   useEffect(() => {
-    new ButtonJS(buttonRef.current).init()
-  }, [])
+    new ButtonJS(buttonRef.current).init();
+  }, [buttonRef]);
 
   if (element) {
-    el = element
+    el = element;
   } else if (href || to) {
-    el = 'a'
+    el = 'a';
   } else {
-    el = 'button'
+    el = 'button';
   }
 
-  let iconHtml
+  let iconHtml;
   if (isStartButton) {
     iconHtml = (
       <svg
@@ -53,26 +53,26 @@ function Button(props) {
       >
         <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
       </svg>
-    )
+    );
   }
 
   const commonAttributes = {
     className: `govuk-button ${className || ''}${
       disabled ? ' govuk-button--disabled' : ''
     } ${isStartButton ? 'govuk-button--start' : ''}`,
-    ref: buttonRef
-  }
+    ref: buttonRef,
+  };
 
   if (preventDoubleClick) {
-    buttonAttributes['data-prevent-double-click'] = preventDoubleClick
+    buttonAttributes['data-prevent-double-click'] = preventDoubleClick;
   }
 
   if (disabled) {
     buttonAttributes = {
       ...buttonAttributes,
       'aria-disabled': true,
-      disabled: 'disabled'
-    }
+      disabled: 'disabled',
+    };
   }
 
   if (el === 'a') {
@@ -82,16 +82,16 @@ function Button(props) {
       draggable: 'false',
       ...attributes,
       'data-module': 'govuk-button',
-      href: href,
-      to: to
-    }
+      href,
+      to,
+    };
 
     button = (
       <Link {...linkAttributes}>
         {children}
         {iconHtml}
       </Link>
-    )
+    );
   } else if (el === 'button') {
     button = (
       // Disabling linting of button type, because the button _does_ have an explicit type
@@ -104,17 +104,17 @@ function Button(props) {
         {children}
         {iconHtml}
       </button>
-    )
+    );
   } else if (el === 'input') {
     if (!type) {
-      buttonAttributes.type = 'submit'
+      buttonAttributes.type = 'submit';
     }
     button = (
       <input value={children} {...buttonAttributes} {...commonAttributes} />
-    )
+    );
   }
 
-  return button
+  return button;
 }
 
-export { Button }
+export { Button };

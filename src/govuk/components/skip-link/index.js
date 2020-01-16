@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function SkipLink(props) {
-  const { href, className, children, ...attributes } = props
+  const { href, className, children, ...attributes } = props;
   return (
     <a
       href={href}
@@ -10,11 +10,11 @@ function SkipLink(props) {
     >
       {children}
     </a>
-  )
+  );
 }
 
 SkipLink.defaultProps = {
-  href: '#content'
-}
+  href: '#content',
+};
 
-export { SkipLink }
+export { SkipLink };

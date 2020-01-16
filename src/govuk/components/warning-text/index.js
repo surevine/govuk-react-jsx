@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function WarningText(props) {
-  const { className, iconFallbackText, children, ...attributes } = props
+  const { className, iconFallbackText, children, ...attributes } = props;
 
   return (
     <div className={`govuk-warning-text ${className || ''}`} {...attributes}>
@@ -15,7 +15,7 @@ function WarningText(props) {
         {children}
       </strong>
     </div>
-  )
+  );
 }
 
-export { WarningText }
+export { WarningText };

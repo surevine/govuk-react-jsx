@@ -1,4 +1,4 @@
-import examples from '../../../../.cache/govuk-frontend-examples/character-count.json'
+import examples from '../../../../.cache/govuk-frontend-examples/character-count.json';
 
 // Insert additional examples here if desired
 
@@ -10,12 +10,12 @@ examples.examples.push({
     id: 'more-detail',
     maxlength: 10,
     formGroup: {
-      classes: 'class-on-the-form-group'
+      classes: 'class-on-the-form-group',
     },
     label: {
-      text: 'Can you provide more detail?'
-    }
-  }
-})
+      text: 'Can you provide more detail?',
+    },
+  },
+});
 
-export default examples
+export default examples;

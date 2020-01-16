@@ -1,37 +1,41 @@
-import React from 'react'
-import ReactDOM from 'react-dom/server'
-import { BrowserRouter } from 'react-router-dom'
-import nunjucks from 'nunjucks'
-import ent from 'ent'
-import prettyhtml from '@starptech/prettyhtml'
-import { HtmlDiffer } from '@markedjs/html-differ'
-import processExampleData from '../../utils/processExampleData'
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import { BrowserRouter } from 'react-router-dom';
+import nunjucks from 'nunjucks';
+import ent from 'ent';
+import prettyhtml from '@starptech/prettyhtml';
+import { HtmlDiffer } from '@markedjs/html-differ';
+import processExampleData from '../../utils/processExampleData';
 
 const withRouter = function(WrappedComponent) {
-  return class extends React.Component {
+  const component = class extends React.Component {
     render() {
       return (
         <BrowserRouter>
           <WrappedComponent {...this.props} />
         </BrowserRouter>
-      )
+      );
     }
-  }
-}
+  };
+
+  component.displayName = 'ComponentWithRouter';
+
+  return component;
+};
 
 const htmlDiffer = new HtmlDiffer({
   ignoreAttributes: [
     'style', // TODO: Remove this
     'disabled', // Because React sets disabled as an empty attribute but the nunjucks does not
-    'src' // Because paths to images aren't something that need to be the same between react and nunjucks
+    'src', // Because paths to images aren't something that need to be the same between react and nunjucks
   ],
-  ignoreSelfClosingSlash: true
-})
+  ignoreSelfClosingSlash: true,
+});
 
 function cleanHtml(dirtyHtml) {
   return prettyhtml(ent.decode(dirtyHtml), {
-    sortAttributes: true
-  }).contents
+    sortAttributes: true,
+  }).contents;
 }
 
 export function diffComponentAgainstReferenceNunjucks(
@@ -49,19 +53,19 @@ export function diffComponentAgainstReferenceNunjucks(
                 `govuk-frontend/govuk/components/${name}/template.njk`
               ),
               {
-                params: example.data
+                params: example.data,
               }
             )
-          )
+          );
 
-          var actual = cleanHtml(
+          const actual = cleanHtml(
             ReactDOM.renderToStaticMarkup(
               React.createElement(
                 withRouter(component),
                 processExampleData(example.data, name)
               )
             )
-          )
+          );
 
           // Make the actual comparison
           htmlDiffer.isEqual(actual, expected).then(comparison => {
@@ -70,15 +74,15 @@ export function diffComponentAgainstReferenceNunjucks(
             if (!comparison) {
               // console.log('------------------------------------------')
               // console.log(htmlDiffer.diffHtml(expected, actual))
-              expect(actual).toBe(expected)
+              expect(actual).toBe(expected);
             }
 
-            expect(comparison).toBe(true)
+            expect(comparison).toBe(true);
 
-            done()
-          })
-        })
-      })
-    })
-  })
+            done();
+          });
+        });
+      });
+    });
+  });
 }

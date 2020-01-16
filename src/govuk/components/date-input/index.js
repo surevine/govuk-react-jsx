@@ -1,8 +1,5 @@
-import React from 'react'
-import { Hint } from '../../'
-import { ErrorMessage } from '../../'
-import { Fieldset } from '../../'
-import { Input } from '../../'
+import React from 'react';
+import { Hint, ErrorMessage, Fieldset, Input } from '../..';
 
 function DateInput(props) {
   const {
@@ -14,46 +11,45 @@ function DateInput(props) {
     id,
     items,
     namePrefix,
-    name,
     ...attributes
-  } = props
+  } = props;
 
-  let describedBy = fieldset?.describedBy || ''
-  let hintComponent
-  let errorMessageComponent
-  let dateInputItems = []
+  let describedBy = fieldset?.describedBy || '';
+  let hintComponent;
+  let errorMessageComponent;
+  let dateInputItems = [];
 
   if (hint) {
-    const hintId = `${id}-hint`
-    describedBy += ` ${hintId}`
-    hintComponent = <Hint id={hintId} {...hint} />
+    const hintId = `${id}-hint`;
+    describedBy += ` ${hintId}`;
+    hintComponent = <Hint id={hintId} {...hint} />;
   }
 
   if (errorMessage) {
-    const errorId = id ? `${id}-error` : ''
-    describedBy += ` ${errorId}`
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
+    const errorId = id ? `${id}-error` : '';
+    describedBy += ` ${errorId}`;
+    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
   }
   if (items) {
-    dateInputItems = items
+    dateInputItems = items;
   } else {
     dateInputItems = [
       {
         name: 'day',
         className: 'govuk-input--width-2',
-        type: 'text'
+        type: 'text',
       },
       {
         name: 'month',
         className: 'govuk-input--width-2',
-        type: 'text'
+        type: 'text',
       },
       {
         name: 'year',
         className: 'govuk-input--width-4',
-        type: 'text'
-      }
-    ]
+        type: 'text',
+      },
+    ];
   }
 
   const itemComponents = dateInputItems.map((item, index) => (
@@ -64,16 +60,16 @@ function DateInput(props) {
           children: item.label
             ? item.label.charAt(0).toUpperCase() + item.label.slice(1)
             : item.name.charAt(0).toUpperCase() + item.name.slice(1),
-          className: 'govuk-date-input__label'
+          className: 'govuk-date-input__label',
         }}
         id={item.id ? item.id : `${id}-${item.name}`}
         className={`govuk-date-input__input ${item.className || ''}`}
-        name={props.namePrefix ? `${props.namePrefix}-${item.name}` : item.name}
+        name={namePrefix ? `${namePrefix}-${item.name}` : item.name}
         type="number"
         pattern={item.pattern ? item.pattern : '[0-9]*'}
       />
     </div>
-  ))
+  ));
   const innerHtml = (
     <>
       {hintComponent}
@@ -86,7 +82,7 @@ function DateInput(props) {
         {itemComponents}
       </div>
     </>
-  )
+  );
 
   return (
     <div
@@ -94,7 +90,7 @@ function DateInput(props) {
         errorMessage ? ' govuk-form-group--error' : ''
       } ${formGroup?.className || ''}`}
     >
-      {props.fieldset ? (
+      {fieldset ? (
         <Fieldset aria-describedby={describedBy} role="group" {...fieldset}>
           {innerHtml}
         </Fieldset>
@@ -102,7 +98,7 @@ function DateInput(props) {
         <>{innerHtml}</>
       )}
     </div>
-  )
+  );
 }
 
-export { DateInput }
+export { DateInput };

@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 function Tag(props) {
-  const { children, className, ...attributes } = props
+  const { children, className, ...attributes } = props;
 
   return (
     <strong className={`govuk-tag ${className || ''}`} {...attributes}>
       {children}
     </strong>
-  )
+  );
 }
 
-export { Tag }
+export { Tag };

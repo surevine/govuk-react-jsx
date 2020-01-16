@@ -1,7 +1,5 @@
-import React from 'react'
-import { ErrorMessage } from '../../'
-import { Hint } from '../../'
-import { Label } from '../../'
+import React from 'react';
+import { ErrorMessage, Hint, Label } from '../..';
 
 function FileUpload(props) {
   const {
@@ -13,21 +11,21 @@ function FileUpload(props) {
     describedBy,
     id,
     ...attributes
-  } = props
-  let hintComponent
-  let errorMessageComponent
-  let describedByValue = describedBy || ''
+  } = props;
+  let hintComponent;
+  let errorMessageComponent;
+  let describedByValue = describedBy || '';
 
   if (hint) {
-    const hintId = `${props.id}-hint`
-    describedByValue += ` ${hintId}`
-    hintComponent = <Hint id={hintId} {...props.hint} />
+    const hintId = `${props.id}-hint`;
+    describedByValue += ` ${hintId}`;
+    hintComponent = <Hint id={hintId} {...props.hint} />;
   }
 
   if (errorMessage) {
-    const errorId = `${id}-error`
-    describedByValue += ` ${errorId}`
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
+    const errorId = `${id}-error`;
+    describedByValue += ` ${errorId}`;
+    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
   }
   return (
     <div
@@ -48,7 +46,7 @@ function FileUpload(props) {
         {...attributes}
       />
     </div>
-  )
+  );
 }
 
-export { FileUpload }
+export { FileUpload };

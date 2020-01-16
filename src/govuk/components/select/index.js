@@ -1,7 +1,5 @@
-import React from 'react'
-import { Label } from '../../'
-import { Hint } from '../../'
-import { ErrorMessage } from '../../'
+import React from 'react';
+import { Label, Hint, ErrorMessage } from '../..';
 
 function Select(props) {
   const {
@@ -14,22 +12,22 @@ function Select(props) {
     items,
     label,
     ...attributes
-  } = props
+  } = props;
 
-  let describedByValue = describedBy || ''
-  let hintComponent
-  let errorMessageComponent
+  let describedByValue = describedBy || '';
+  let hintComponent;
+  let errorMessageComponent;
 
   if (hint) {
-    const hintId = `${id}-hint`
-    describedByValue += ` ${hintId}`
-    hintComponent = <Hint id={hintId} {...hint} />
+    const hintId = `${id}-hint`;
+    describedByValue += ` ${hintId}`;
+    hintComponent = <Hint id={hintId} {...hint} />;
   }
 
   if (errorMessage) {
-    const errorId = id ? `${id}-error` : ''
-    describedByValue += ` ${errorId}`
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
+    const errorId = id ? `${id}-error` : '';
+    describedByValue += ` ${errorId}`;
+    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
   }
 
   const options = items.map((option, index) => (
@@ -40,7 +38,7 @@ function Select(props) {
     >
       {option.children}
     </option>
-  ))
+  ));
 
   return (
     <div
@@ -62,7 +60,7 @@ function Select(props) {
         {options}
       </select>
     </div>
-  )
+  );
 }
 
-export { Select }
+export { Select };

@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
-import AccordionJS from 'govuk-frontend/govuk/components/accordion/accordion'
+import React, { useEffect } from 'react';
+import AccordionJS from 'govuk-frontend/govuk/components/accordion/accordion';
 
 function Accordion(props) {
-  const accordionRef = React.createRef()
-  const { headingLevel, items, className, ...attributes } = props
+  const accordionRef = React.createRef();
+  const { headingLevel, items, className, ...attributes } = props;
 
   useEffect(() => {
-    new AccordionJS(accordionRef.current).init()
-  }, [])
+    new AccordionJS(accordionRef.current).init();
+  }, [accordionRef]);
 
-  const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h2'
+  const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h2';
 
   const innerHtml = items.map((item, index) => (
     <div
@@ -46,7 +46,7 @@ function Accordion(props) {
         {item.content.children}
       </div>
     </div>
-  ))
+  ));
   return (
     <div
       {...attributes}
@@ -56,7 +56,7 @@ function Accordion(props) {
     >
       {innerHtml}
     </div>
-  )
+  );
 }
 
-export { Accordion }
+export { Accordion };

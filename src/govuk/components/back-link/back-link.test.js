@@ -1,5 +1,5 @@
-import examples from './examples'
-import { BackLink } from './'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { BackLink } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
 
-diffComponentAgainstReferenceNunjucks('back-link', BackLink, examples)
+diffComponentAgainstReferenceNunjucks('back-link', BackLink, examples);

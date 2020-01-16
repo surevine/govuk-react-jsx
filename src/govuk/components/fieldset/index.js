@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 function Fieldset(props) {
-  const { legend, className, children, ...attributes } = props
-  let legendComponent
+  const { legend, className, children, ...attributes } = props;
+  let legendComponent;
   if (legend.children) {
     legendComponent = (
       <legend className={`govuk-fieldset__legend ${legend.className || ''}`}>
@@ -12,7 +12,7 @@ function Fieldset(props) {
           legend.children
         )}
       </legend>
-    )
+    );
   }
 
   return (
@@ -20,7 +20,7 @@ function Fieldset(props) {
       {legendComponent}
       {children}
     </fieldset>
-  )
+  );
 }
 
-export { Fieldset }
+export { Fieldset };
