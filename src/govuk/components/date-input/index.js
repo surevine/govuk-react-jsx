@@ -11,6 +11,7 @@ function DateInput(props) {
     id,
     items,
     namePrefix,
+    onChange,
     ...attributes
   } = props;
 
@@ -70,6 +71,7 @@ function DateInput(props) {
         name={namePrefix ? `${namePrefix}-${item.name}` : item.name}
         type="number"
         pattern={item.pattern ? item.pattern : '[0-9]*'}
+        onChange={onChange}
       />
     </div>
   ));
