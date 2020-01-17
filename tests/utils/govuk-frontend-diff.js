@@ -28,6 +28,7 @@ const htmlDiffer = new HtmlDiffer({
     'style', // TODO: Remove this
     'disabled', // Because React sets disabled as an empty attribute but the nunjucks does not
     'src', // Because paths to images aren't something that need to be the same between react and nunjucks
+    'href', // Temporarily ignored because passing a string through the `to` prop in the <Header> component causes erroneous diffs relative to the nunjucks
   ],
   ignoreSelfClosingSlash: true,
 });

@@ -21,13 +21,13 @@ function Textarea(props) {
   if (hint) {
     const hintId = `${id}-hint`;
     describedByValue += ` ${hintId}`;
-    hintComponent = <Hint id={hintId} {...hint} />;
+    hintComponent = <Hint {...hint} id={hintId} />;
   }
 
   if (errorMessage) {
     const errorId = id ? `${id}-error` : '';
     describedByValue += ` ${errorId}`;
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
   return (
@@ -40,12 +40,12 @@ function Textarea(props) {
       {hintComponent}
       {errorMessageComponent}
       <textarea
+        {...attributes}
         id={id}
         className={`govuk-textarea${
           errorMessage ? ' govuk-textarea--error' : ''
         } ${className || ''}`}
         aria-describedby={describedByValue.trim() || null}
-        {...attributes}
       />
     </div>
   );

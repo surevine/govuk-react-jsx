@@ -36,7 +36,7 @@ function fetchExample(name) {
 
             fetchExamplesProgress.increment();
 
-            resolve(govExamples);
+            resolve({ name, data: govExamples });
           });
         })
     );
@@ -56,6 +56,31 @@ function fetchExamples() {
       fetchExamplesProgress.stop();
       return examples;
     })
+    .then(
+      examples =>
+        new Promise(function(resolve, reject) {
+          const data = examples.reduce(
+            (accumulator, example) => ({
+              ...accumulator,
+              [example.name]: example.data,
+            }),
+            {}
+          );
+
+          fs.writeFile(
+            `.cache/govuk-frontend-examples/all.json`,
+            JSON.stringify(data),
+            err => {
+              if (err) {
+                console.error(err);
+                reject(err);
+              }
+
+              resolve(examples);
+            }
+          );
+        })
+    )
     .catch(err => console.log(err));
 }
 

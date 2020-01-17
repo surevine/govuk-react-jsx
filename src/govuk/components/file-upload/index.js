@@ -8,7 +8,7 @@ function FileUpload(props) {
     formGroup,
     hint,
     label,
-    describedBy,
+    'aria-describedby': describedBy,
     id,
     ...attributes
   } = props;
@@ -19,13 +19,13 @@ function FileUpload(props) {
   if (hint) {
     const hintId = `${props.id}-hint`;
     describedByValue += ` ${hintId}`;
-    hintComponent = <Hint id={hintId} {...props.hint} />;
+    hintComponent = <Hint {...props.hint} id={hintId} />;
   }
 
   if (errorMessage) {
     const errorId = `${id}-error`;
     describedByValue += ` ${errorId}`;
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
   return (
     <div
@@ -37,13 +37,13 @@ function FileUpload(props) {
       {hintComponent}
       {errorMessageComponent}
       <input
+        {...attributes}
         id={id}
         className={`govuk-file-upload ${className || ''}${
           errorMessage ? ' govuk-file-upload--error' : ''
         }`}
         type="file"
         aria-describedby={describedByValue || null}
-        {...attributes}
       />
     </div>
   );
