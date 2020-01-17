@@ -1,7 +1,5 @@
 import examples from '../../../../.cache/govuk-frontend-examples/character-count.json';
 
-// Insert additional examples here if desired
-
 // See https://github.com/alphagov/govuk-frontend/pull/1553
 examples.examples.push({
   name: 'with classes on the form group',

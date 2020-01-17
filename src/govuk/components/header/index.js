@@ -13,6 +13,8 @@ function Header(props) {
     productName,
     serviceName,
     serviceUrl,
+    // eslint-disable-next-line no-unused-vars
+    assetsPath, // We don't want this, but just in case someone passes it, we don't want it to arrive as an attribute on the header
     ...attributes
   } = props;
 
