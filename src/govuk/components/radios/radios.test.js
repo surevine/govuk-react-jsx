@@ -10,6 +10,10 @@ examples.examples.push({
   data: worstCaseData('radios'),
 });
 
+examples.examples.forEach(example => {
+  example.data.onChange = () => {}; // Dummy onChange handler. Doesn't need to do anything - is just there to suppress React warnings
+});
+
 diffComponentAgainstReferenceNunjucks('radios', Radios, examples);
 
 it('Radios top level value prop maps correctly to checked items', () => {
@@ -27,6 +31,7 @@ it('Radios top level value prop maps correctly to checked items', () => {
         },
       ]}
       name="yesno"
+      onChange={() => {}}
     />
   );
 

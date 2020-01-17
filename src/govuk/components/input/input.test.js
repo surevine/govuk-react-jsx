@@ -8,4 +8,8 @@ examples.examples.push({
   data: worstCaseData('input'),
 });
 
+examples.examples.forEach(example => {
+  example.data.onChange = () => {}; // Dummy onChange handler. Doesn't need to do anything - is just there to suppress React warnings
+});
+
 diffComponentAgainstReferenceNunjucks('input', Input, examples);

@@ -23,11 +23,10 @@ const Checkboxes = props => {
   };
 
   items.forEach(item => {
-    item.onChange = onChangeHandler;
     item.checked = values[item.value];
   });
 
-  return <CheckboxesComponent {...props} />;
+  return <CheckboxesComponent onChange={onChangeHandler} {...props} />;
 };
 
 for (const example of Object.values(

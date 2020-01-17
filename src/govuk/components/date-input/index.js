@@ -11,6 +11,7 @@ function DateInput(props) {
     id,
     items,
     namePrefix,
+    onChange,
     ...attributes
   } = props;
 
@@ -58,6 +59,7 @@ function DateInput(props) {
   const itemComponents = dateInputItems.map((item, index) => (
     <div key={item.reactListKey || index} className="govuk-date-input__item">
       <Input
+        onChange={onChange}
         {...item}
         label={{
           children: item.label
