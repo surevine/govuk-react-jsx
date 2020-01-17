@@ -25,7 +25,7 @@ const withRouter = function(WrappedComponent) {
 
 const htmlDiffer = new HtmlDiffer({
   ignoreAttributes: [
-    'style', // TODO: Remove this
+    'style', // Ignored because React outputs inline styles in a slightly different format. This only affects one edge case and so can be relatively safely ignored
     'disabled', // Because React sets disabled as an empty attribute but the nunjucks does not
     'src', // Because paths to images aren't something that need to be the same between react and nunjucks
     'href', // Temporarily ignored because passing a string through the `to` prop in the <Header> component causes erroneous diffs relative to the nunjucks
