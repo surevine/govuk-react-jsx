@@ -13,12 +13,14 @@ const Radios = props => {
     setValue(e.target.value);
   };
 
-  const modifiedItems = items.map(item => ({
-    ...item,
-    onChange: onChangeHandler,
-  }));
-
-  return <RadiosComponent value={value} items={modifiedItems} {...restProps} />;
+  return (
+    <RadiosComponent
+      onChange={onChangeHandler}
+      value={value}
+      items={items}
+      {...restProps}
+    />
+  );
 };
 
 for (const example of Object.values(
