@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import { Boolean } from '../../../utils/Boolean'
+import React from 'react';
+import { Boolean } from '../../../utils/Boolean';
 
 function Checkboxes(props) {
-  return <Boolean {...props} controlType="checkboxes" />
+  return <Boolean {...props} controlType="checkboxes" />;
 }
 
-export { Checkboxes }
+export { Checkboxes };

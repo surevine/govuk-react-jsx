@@ -1,5 +1,11 @@
-import examples from './examples'
-import { InsetText } from './'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { InsetText } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
+import worstCaseData from '../../../../utils/worstCaseData';
 
-diffComponentAgainstReferenceNunjucks('inset-text', InsetText, examples)
+examples.examples.push({
+  name: 'auto generated worst case',
+  data: worstCaseData('inset-text'),
+});
+
+diffComponentAgainstReferenceNunjucks('inset-text', InsetText, examples);

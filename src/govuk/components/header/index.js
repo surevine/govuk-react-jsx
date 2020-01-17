@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import HeaderJS from 'govuk-frontend/govuk/components/header/header'
-import logo from 'govuk-frontend/govuk/assets/images/govuk-logotype-crown.png'
-import { Link } from '../../../utils/Link'
+import React, { useEffect } from 'react';
+import HeaderJS from 'govuk-frontend/govuk/components/header/header';
+import logo from 'govuk-frontend/govuk/assets/images/govuk-logotype-crown.png';
+import { Link } from '../../../utils/Link';
 
 function Header(props) {
   const {
@@ -13,21 +13,23 @@ function Header(props) {
     productName,
     serviceName,
     serviceUrl,
+    // eslint-disable-next-line no-unused-vars
+    assetsPath, // We don't want this, but just in case someone passes it, we don't want it to arrive as an attribute on the header
     ...attributes
-  } = props
+  } = props;
 
-  const headerRef = React.createRef()
-  let productNameComponent
-  let navigationComponent
+  const headerRef = React.createRef();
+  let productNameComponent;
+  let navigationComponent;
 
   useEffect(() => {
-    new HeaderJS(headerRef.current).init()
-  }, [])
+    new HeaderJS(headerRef.current).init();
+  }, [headerRef]);
 
   if (productName) {
     productNameComponent = (
       <span className="govuk-header__product-name">{productName}</span>
-    )
+    );
   }
 
   if (serviceName || navigation) {
@@ -66,7 +68,7 @@ function Header(props) {
                     children: itemChildren,
                     reactListKey,
                     ...itemAttributes
-                  } = item
+                  } = item;
 
                   return itemChildren && (item.href || item.to) ? (
                     <li
@@ -84,14 +86,14 @@ function Header(props) {
                         {itemChildren}
                       </Link>
                     </li>
-                  ) : null
+                  ) : null;
                 })}
               </ul>
             </nav>
           </>
         ) : null}
       </div>
-    )
+    );
   }
 
   return (
@@ -139,12 +141,12 @@ function Header(props) {
         {navigationComponent}
       </div>
     </header>
-  )
+  );
 }
 
 Header.defaultProps = {
   homepageUrl: '/',
-  containerClassName: 'govuk-width-container'
-}
+  containerClassName: 'govuk-width-container',
+};
 
-export { Header }
+export { Header };

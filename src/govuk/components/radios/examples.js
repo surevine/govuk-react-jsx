@@ -1,4 +1,4 @@
-import examples from '../../../../.cache/govuk-frontend-examples/radios.json'
+import examples from '../../../../.cache/govuk-frontend-examples/radios.json';
 
 // See https://github.com/alphagov/govuk-frontend/pull/1595
 examples.examples.push({
@@ -11,11 +11,11 @@ examples.examples.push({
         value: 'foo',
         text: 'Foo',
         conditional: {
-          html: false
-        }
-      }
-    ]
-  }
-})
+          html: false,
+        },
+      },
+    ],
+  },
+});
 
-export default examples
+export default examples;

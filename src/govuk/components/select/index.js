@@ -1,7 +1,5 @@
-import React from 'react'
-import { Label } from '../../'
-import { Hint } from '../../'
-import { ErrorMessage } from '../../'
+import React from 'react';
+import { Label, Hint, ErrorMessage } from '../..';
 
 function Select(props) {
   const {
@@ -14,33 +12,32 @@ function Select(props) {
     items,
     label,
     ...attributes
-  } = props
+  } = props;
 
-  let describedByValue = describedBy || ''
-  let hintComponent
-  let errorMessageComponent
+  let describedByValue = describedBy || '';
+  let hintComponent;
+  let errorMessageComponent;
 
   if (hint) {
-    const hintId = `${id}-hint`
-    describedByValue += ` ${hintId}`
-    hintComponent = <Hint id={hintId} {...hint} />
+    const hintId = `${id}-hint`;
+    describedByValue += ` ${hintId}`;
+    hintComponent = <Hint {...hint} id={hintId} />;
   }
 
   if (errorMessage) {
-    const errorId = id ? `${id}-error` : ''
-    describedByValue += ` ${errorId}`
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
+    const errorId = id ? `${id}-error` : '';
+    describedByValue += ` ${errorId}`;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
-  const options = items.map((option, index) => (
-    <option
-      key={option.reactListKey || index}
-      value={option.value}
-      disabled={option.disabled}
-    >
-      {option.children}
-    </option>
-  ))
+  const options = items.map((option, index) => {
+    const { reactListKey, children, ...optionAttributes } = option;
+    return (
+      <option {...optionAttributes} key={reactListKey || index}>
+        {children}
+      </option>
+    );
+  });
 
   return (
     <div
@@ -62,7 +59,7 @@ function Select(props) {
         {options}
       </select>
     </div>
-  )
+  );
 }
 
-export { Select }
+export { Select };

@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import { Helmet } from 'react-helmet'
-import favicon from 'govuk-frontend/govuk/assets/images/favicon.ico'
-import govukMaskIcon from 'govuk-frontend/govuk/assets/images/govuk-mask-icon.svg'
-import appleTouchIcon180 from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-180x180.png'
-import appleTouchIcon167 from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-167x167.png'
-import appleTouchIcon152 from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-152x152.png'
-import appleTouchIcon from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png'
-import govukOpenGraphImage from 'govuk-frontend/govuk/assets/images/govuk-opengraph-image.png'
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import favicon from 'govuk-frontend/govuk/assets/images/favicon.ico';
+import govukMaskIcon from 'govuk-frontend/govuk/assets/images/govuk-mask-icon.svg';
+import appleTouchIcon180 from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-180x180.png';
+import appleTouchIcon167 from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-167x167.png';
+import appleTouchIcon152 from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-152x152.png';
+import appleTouchIcon from 'govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png';
+import govukOpenGraphImage from 'govuk-frontend/govuk/assets/images/govuk-opengraph-image.png';
 
-import { SkipLink, Header, Footer, containerClassName, mainLang } from '../'
+import { SkipLink, Header, Footer } from '..';
 
 function Template(props) {
   const {
@@ -21,13 +21,13 @@ function Template(props) {
     mainLang,
     containerClassName,
     mainClassName,
-    themeColor
-  } = props
+    themeColor,
+  } = props;
 
   useEffect(() => {
-    document.documentElement.classList.add('govuk-template')
-    document.body.classList.add('js-enabled', 'govuk-template__body')
-  }, [])
+    document.documentElement.classList.add('govuk-template');
+    document.body.classList.add('js-enabled', 'govuk-template__body');
+  }, []);
 
   return (
     <>
@@ -39,7 +39,7 @@ function Template(props) {
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
         <meta name="theme-color" content="#0b0c0c" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
         <link
           rel="shortcut icon"
@@ -78,18 +78,18 @@ function Template(props) {
 
       <Footer {...footer} />
     </>
-  )
+  );
 }
 
 Template.defaultProps = {
   title: 'GOV.UK - The best place to find government services and information',
   skipLink: {
     href: '#main-content',
-    text: 'Skip to main content'
+    text: 'Skip to main content',
   },
   header: {},
   footer: {},
-  beforeContent: ''
-}
+  beforeContent: '',
+};
 
-export { Template }
+export { Template };

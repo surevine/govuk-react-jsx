@@ -1,5 +1,11 @@
-import examples from './examples'
-import { SkipLink } from '.'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { SkipLink } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
+import worstCaseData from '../../../../utils/worstCaseData';
 
-diffComponentAgainstReferenceNunjucks('skip-link', SkipLink, examples)
+examples.examples.push({
+  name: 'auto generated worst case',
+  data: worstCaseData('skip-link'),
+});
+
+diffComponentAgainstReferenceNunjucks('skip-link', SkipLink, examples);

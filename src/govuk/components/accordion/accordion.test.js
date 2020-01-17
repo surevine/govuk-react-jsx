@@ -1,5 +1,11 @@
-import examples from './examples'
-import { Accordion } from './'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { Accordion } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
+import worstCaseData from '../../../../utils/worstCaseData';
 
-diffComponentAgainstReferenceNunjucks('accordion', Accordion, examples)
+examples.examples.push({
+  name: 'auto generated worst case',
+  data: worstCaseData('accordion'),
+});
+
+diffComponentAgainstReferenceNunjucks('accordion', Accordion, examples);

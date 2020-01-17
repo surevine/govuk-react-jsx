@@ -1,5 +1,11 @@
-import examples from './examples'
-import { DateInput } from './'
-import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff'
+import examples from './examples';
+import { DateInput } from '.';
+import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
+import worstCaseData from '../../../../utils/worstCaseData';
 
-diffComponentAgainstReferenceNunjucks('date-input', DateInput, examples)
+examples.examples.push({
+  name: 'auto generated worst case',
+  data: worstCaseData('date-input'),
+});
+
+diffComponentAgainstReferenceNunjucks('date-input', DateInput, examples);

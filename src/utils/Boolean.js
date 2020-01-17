@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
-import RadiosJS from 'govuk-frontend/govuk/components/radios/radios'
-import CheckboxesJS from 'govuk-frontend/govuk/components/checkboxes/checkboxes'
-import { ErrorMessage } from '../govuk'
-import { Fieldset } from '../govuk'
-import { Hint } from '../govuk'
-import { Label } from '../govuk'
+import React, { useEffect } from 'react';
+import RadiosJS from 'govuk-frontend/govuk/components/radios/radios';
+import CheckboxesJS from 'govuk-frontend/govuk/components/checkboxes/checkboxes';
+import { ErrorMessage, Fieldset, Hint, Label } from '../govuk';
+import omit from './omitKey';
 
 function Boolean(props) {
   const {
@@ -19,41 +17,48 @@ function Boolean(props) {
     name,
     onChange,
     onBlur,
+    'aria-describedby': describedByProp,
     ...attributes
-  } = props
+  } = props;
 
-  const controlRef = React.createRef()
-  const idPrefixValue = idPrefix ? idPrefix : name
-  let describedBy = fieldset?.describedBy ? fieldset.describedBy : ''
-  let hintComponent
-  let errorMessageComponent
+  const controlRef = React.createRef();
+  const idPrefixValue = idPrefix || name;
+  let describedBy = describedByProp || '';
+  if (fieldset?.['aria-describedby']) {
+    describedBy = fieldset['aria-describedby'];
+  }
+
+  let hintComponent;
+  let errorMessageComponent;
 
   useEffect(() => {
     switch (controlType) {
       case 'radios':
-        new RadiosJS(controlRef.current).init()
-        break
+        new RadiosJS(controlRef.current).init();
+        break;
       case 'checkboxes':
-        new CheckboxesJS(controlRef.current).init()
-        break
+        new CheckboxesJS(controlRef.current).init();
+        break;
+
+      default:
     }
-  }, [])
+  }, [controlRef, controlType]);
 
-  if (props.hint) {
-    const hintId = `${idPrefixValue}-hint`
-    describedBy += ` ${hintId}`
+  if (hint) {
+    const hintId = `${idPrefixValue}-hint`;
+    describedBy += ` ${hintId}`;
 
-    hintComponent = <Hint id={hintId} {...hint} />
+    hintComponent = <Hint {...hint} id={hintId} />;
   }
 
   // Find out if we have any conditional items
-  const isConditional = !!items.find(item => item.conditional?.children)
-  const hasFieldset = !!props.fieldset
+  const isConditional = !!items.find(item => item.conditional?.children);
+  const hasFieldset = !!fieldset;
 
   if (errorMessage) {
-    const errorId = `${idPrefixValue}-error`
-    describedBy += ` ${errorId}`
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
+    const errorId = `${idPrefixValue}-error`;
+    describedBy += ` ${errorId}`;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
   const innerHtml = (
@@ -77,27 +82,27 @@ function Boolean(props) {
             children,
             hint: itemHint,
             conditional: itemConditional,
+            label,
             ...itemAttributes
-          } = item
+          } = item;
 
-          const idSuffix = `-${index + 1}`
-          const idValue = id
-            ? id
-            : `${idPrefixValue}${index === 0 ? '' : idSuffix}`
-          const nameValue = item.name ? item.name : name
+          const idSuffix = `-${index + 1}`;
+          const idValue =
+            id || `${idPrefixValue}${index === 0 ? '' : idSuffix}`;
+          const nameValue = item.name ? item.name : name;
           const conditionalId = itemConditional?.children
             ? `conditional-${idValue}`
-            : null
-          const itemHintId = `${idValue}-item-hint`
+            : null;
+          const itemHintId = `${idValue}-item-hint`;
 
-          let itemDescribedBy = ''
+          let itemDescribedBy = '';
 
           if (!hasFieldset) {
-            itemDescribedBy = describedBy
+            itemDescribedBy = describedBy;
           }
 
           if (itemHint) {
-            itemDescribedBy += ` ${itemHintId}`
+            itemDescribedBy += ` ${itemHintId}`;
           }
 
           if (item.divider) {
@@ -108,7 +113,7 @@ function Boolean(props) {
               >
                 {item.divider}
               </div>
-            )
+            );
           }
 
           return (
@@ -126,14 +131,22 @@ function Boolean(props) {
                   {...itemAttributes}
                 />
                 <Label
-                  children={children}
-                  className={`govuk-${controlType}__label`}
-                  htmlFor={idValue}
-                />
+                  {...{
+                    ...label,
+                    className: `govuk-${controlType}__label ${label?.className ||
+                      ''}`,
+                    htmlFor: idValue,
+                    isPageHeading: false,
+                  }}
+                >
+                  {children}
+                </Label>
                 {itemHint ? (
                   <Hint
-                    className={`govuk-${controlType}__hint`}
-                    {...itemHint}
+                    {...{
+                      ...itemHint,
+                      className: `govuk-${controlType}__hint`, // ${itemHint.className || ''}`, Include item hint classes when govuk release this
+                    }}
                     id={itemHintId}
                   />
                 ) : (
@@ -156,11 +169,11 @@ function Boolean(props) {
                 ''
               )}
             </React.Fragment>
-          )
+          );
         })}
       </div>
     </>
-  )
+  );
 
   return (
     <div
@@ -169,14 +182,17 @@ function Boolean(props) {
       } ${formGroup?.className || ''}`}
     >
       {hasFieldset ? (
-        <Fieldset aria-describedby={describedBy.trim() || null} {...fieldset}>
+        <Fieldset
+          {...omit(fieldset, 'role')}
+          aria-describedby={describedBy.trim() || null}
+        >
           {innerHtml}
         </Fieldset>
       ) : (
         innerHtml
       )}
     </div>
-  )
+  );
 }
 
-export { Boolean }
+export { Boolean };

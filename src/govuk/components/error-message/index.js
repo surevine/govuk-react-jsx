@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 function ErrorMessage(props) {
-  const { className, children, visuallyHiddenText, ...attributes } = props
-  let visuallyHiddenTextComponent
-  if (props.visuallyHiddenText) {
+  const { className, children, visuallyHiddenText, ...attributes } = props;
+  let visuallyHiddenTextComponent;
+  if (visuallyHiddenText) {
     visuallyHiddenTextComponent = (
-      <span className="govuk-visually-hidden">{visuallyHiddenText}</span>
-    )
+      <span className="govuk-visually-hidden">{visuallyHiddenText}: </span>
+    );
   }
 
   return (
@@ -14,11 +14,11 @@ function ErrorMessage(props) {
       {visuallyHiddenTextComponent}
       {children}
     </span>
-  )
+  );
 }
 
 ErrorMessage.defaultProps = {
-  visuallyHiddenText: 'Error:'
-}
+  visuallyHiddenText: 'Error',
+};
 
-export { ErrorMessage }
+export { ErrorMessage };

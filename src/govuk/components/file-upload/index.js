@@ -1,7 +1,5 @@
-import React from 'react'
-import { ErrorMessage } from '../../'
-import { Hint } from '../../'
-import { Label } from '../../'
+import React from 'react';
+import { ErrorMessage, Hint, Label } from '../..';
 
 function FileUpload(props) {
   const {
@@ -10,24 +8,24 @@ function FileUpload(props) {
     formGroup,
     hint,
     label,
-    describedBy,
+    'aria-describedby': describedBy,
     id,
     ...attributes
-  } = props
-  let hintComponent
-  let errorMessageComponent
-  let describedByValue = describedBy || ''
+  } = props;
+  let hintComponent;
+  let errorMessageComponent;
+  let describedByValue = describedBy || '';
 
   if (hint) {
-    const hintId = `${props.id}-hint`
-    describedByValue += ` ${hintId}`
-    hintComponent = <Hint id={hintId} {...props.hint} />
+    const hintId = `${props.id}-hint`;
+    describedByValue += ` ${hintId}`;
+    hintComponent = <Hint {...props.hint} id={hintId} />;
   }
 
   if (errorMessage) {
-    const errorId = `${id}-error`
-    describedByValue += ` ${errorId}`
-    errorMessageComponent = <ErrorMessage id={errorId} {...errorMessage} />
+    const errorId = `${id}-error`;
+    describedByValue += ` ${errorId}`;
+    errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
   return (
     <div
@@ -39,16 +37,16 @@ function FileUpload(props) {
       {hintComponent}
       {errorMessageComponent}
       <input
+        {...attributes}
         id={id}
         className={`govuk-file-upload ${className || ''}${
           errorMessage ? ' govuk-file-upload--error' : ''
         }`}
         type="file"
         aria-describedby={describedByValue || null}
-        {...attributes}
       />
     </div>
-  )
+  );
 }
 
-export { FileUpload }
+export { FileUpload };

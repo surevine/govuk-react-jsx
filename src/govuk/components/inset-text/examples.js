@@ -1,5 +1,3 @@
-import examples from '../../../../.cache/govuk-frontend-examples/inset-text.json'
+import examples from '../../../../.cache/govuk-frontend-examples/inset-text.json';
 
-// Insert additional examples here if desired
-
-export default examples
+export default examples;

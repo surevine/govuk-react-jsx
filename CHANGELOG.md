@@ -1,0 +1,38 @@
+# Changelog
+
+## Unreleased
+
+#### Fixes
+
+More extensive test suite added, resulting in several minor fixes as follows
+
+- Fix date input, file upload, input, select, textarea, checkboxes & radios not receiving correct aria-describedby attribute
+- Fix date input, file upload, input, select, textarea, checkboxes & radios hints and error messages receiving incorrect ids
+- Fix incorrect casing of date input labels
+- Fix lack of colon after error message visually hidden text
+- Fix missing attributes from error summary links
+- Prevent assetPath prop making it through to header component in case someone passes it
+- Prevent tag attributes making it through from phase banner (behaviour now consistent with govuk-frontend)
+- Fix missing attributes from select options
+- Omit role attribute from checkboxes/radios fieldset to be consistent with govuk-frontend
+
+#### Features
+
+#### Breaking changes
+
+---
+
+## Releases
+
+### v1.0.1
+
+#### Fixes
+
+- Fix for uncontrolled -> controlled radio inputs caused by bug in value assignment
+- Slight tweak for Select component so that it accepts a top level value prop instead of individual selected booleans on each item to make it more React friendly
+
+---
+
+### v1.0.0
+
+Initial release

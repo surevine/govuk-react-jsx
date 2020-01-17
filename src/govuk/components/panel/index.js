@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Panel(props) {
   const {
@@ -7,10 +7,10 @@ function Panel(props) {
     className,
     titleChildren,
     ...attributes
-  } = props
-  const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h1'
+  } = props;
+  const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h1';
 
-  const innerHtml = <div className="govuk-panel__body">{children}</div>
+  const innerHtml = <div className="govuk-panel__body">{children}</div>;
 
   return (
     <div
@@ -22,7 +22,7 @@ function Panel(props) {
       </HeadingLevel>
       {innerHtml}
     </div>
-  )
+  );
 }
 
-export { Panel }
+export { Panel };

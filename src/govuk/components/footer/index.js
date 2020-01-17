@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from '../../../utils/Link'
+import React from 'react';
+import { Link } from '../../../utils/Link';
 
 function Footer(props) {
   const {
@@ -8,10 +8,10 @@ function Footer(props) {
     meta,
     navigation,
     ...attributes
-  } = props
+  } = props;
 
-  let navigationComponent
-  let metaComponent
+  let navigationComponent;
+  let metaComponent;
 
   if (navigation) {
     navigationComponent = (
@@ -39,7 +39,7 @@ function Footer(props) {
                       children: itemChildren,
                       reactListKey,
                       ...itemAttributes
-                    } = item
+                    } = item;
                     return (
                       <React.Fragment key={reactListKey || index}>
                         {(item.href || item.to) && itemChildren && (
@@ -54,7 +54,7 @@ function Footer(props) {
                           </li>
                         )}
                       </React.Fragment>
-                    )
+                    );
                   })}
                 </ul>
               )}
@@ -63,7 +63,7 @@ function Footer(props) {
         </div>
         <hr className="govuk-footer__section-break" />
       </>
-    )
+    );
   }
 
   if (meta) {
@@ -83,7 +83,7 @@ function Footer(props) {
                   className: itemClassName,
                   children: itemChildren,
                   ...itemAttributes
-                } = item
+                } = item;
 
                 return (
                   <li
@@ -97,7 +97,7 @@ function Footer(props) {
                       {itemChildren}
                     </Link>
                   </li>
-                )
+                );
               })}
             </ul>
           </>
@@ -107,7 +107,7 @@ function Footer(props) {
           <div className="govuk-footer__meta-custom">{meta.children}</div>
         )}
       </>
-    )
+    );
   }
 
   return (
@@ -161,7 +161,7 @@ function Footer(props) {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export { Footer }
+export { Footer };
