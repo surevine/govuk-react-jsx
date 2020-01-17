@@ -19,6 +19,7 @@ const propReplacements = {
   descriptionHtml: 'descriptionChildren',
   titleText: 'titleChildren',
   titleHtml: 'titleChildren',
+  inputmode: 'inputMode',
 };
 
 export default function processExampleData(data, componentName) {
