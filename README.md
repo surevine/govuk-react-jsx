@@ -33,7 +33,7 @@ Exceptions to the conformance with govuk-frontend nunjucks params are as follows
 - Anywhere that accepts an `html` or `text` param in Nunjucks will instead accept a `children` prop which should be passed either a string, or JSX. Params such as `summaryText` or `summaryHtml` become `summaryChildren`
 - `classes` becomes `className`
 - `describedBy` becomes `aria-describedby`
-- List keys - Anywhere that you specify an array of items such as a list of links, you may optionally specify a `reactListKey` for each item. This will be used instead of the index when doing `.map` over the items. React uses these keys internally to work out whether to re-render items. This is crucial for dynamic components where you might re-sort the list items for example. For static data it is less important and the key can be omitted. (See https://reactjs.org/docs/lists-and-keys.html#keys for more) 
+- List keys - Anywhere that you specify an array of items such as a list of links, you may optionally specify a `reactListKey` for each item. This will be used instead of the index when doing `.map` over the items. React uses these keys internally to work out whether to re-render items. This is crucial for dynamic components where you might re-sort the list items for example. For static data it is less important and the key can be omitted. (See https://reactjs.org/docs/lists-and-keys.html#keys for more)
   (_The only exception to this rule is the tab component, where the tabs are already sufficiently keyed by id_)
 - The `<Select>` component and `<Radios>` components take a top level `value` prop, instead of setting `checked` or `selected` on the individual items. This is more in line with React and React-based form libraries
 
@@ -45,7 +45,14 @@ See [utils/processExampleData.js](utils/processExampleData.js) for the complete 
 
 `npm i --save govuk-react-jsx`
 
-> NB: `govuk-react-jsx` has a dependency on `react-router`
+NB: `govuk-react-jsx` has a number package dependencies, including:
+
+- govuk-frontend
+- react-router
+- react
+- react-helmet
+
+A full list can be found in the `dependencies` section of [`/scripts/package.json`](https://github.com/surevine/govuk-react-jsx/blob/master/scripts/package.json)
 
 ### Using Styles
 
