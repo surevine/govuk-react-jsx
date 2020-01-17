@@ -59,6 +59,7 @@ function DateInput(props) {
   const itemComponents = dateInputItems.map((item, index) => (
     <div key={item.reactListKey || index} className="govuk-date-input__item">
       <Input
+        onChange={onChange}
         {...item}
         label={{
           children: item.label
@@ -71,7 +72,6 @@ function DateInput(props) {
         name={namePrefix ? `${namePrefix}-${item.name}` : item.name}
         type="number"
         pattern={item.pattern ? item.pattern : '[0-9]*'}
-        onChange={onChange}
       />
     </div>
   ));

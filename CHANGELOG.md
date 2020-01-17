@@ -15,6 +15,7 @@ More extensive test suite added, resulting in several minor fixes as follows
 - Prevent tag attributes making it through from phase banner (behaviour now consistent with govuk-frontend)
 - Fix missing attributes from select options
 - Omit role attribute from checkboxes/radios fieldset to be consistent with govuk-frontend
+- onChange prop assigned directly to <DateInput> will now get passed through to the individual inputs (No need to put change handlers individually in the items now). This mirrors the behaviour already seen on other compound fields such as Radios and Checkboxes
 
 #### Features
 
