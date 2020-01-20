@@ -4,6 +4,18 @@
 
 #### Fixes
 
+#### Features
+
+#### Breaking changes
+
+---
+
+## Releases
+
+### v1.1.0
+
+#### Fixes
+
 More extensive test suite added, resulting in several minor fixes as follows
 
 - Fix date input, file upload, input, select, textarea, checkboxes & radios not receiving correct aria-describedby attribute
@@ -17,13 +29,8 @@ More extensive test suite added, resulting in several minor fixes as follows
 - Omit role attribute from checkboxes/radios fieldset to be consistent with govuk-frontend
 
 #### Features
+
 - onChange prop assigned directly to `<DateInput>` will now get passed through to the individual inputs (No need to put change handlers individually in the items now). This mirrors the behaviour already seen on other compound fields such as Radios and Checkboxes
-
-#### Breaking changes
-
----
-
-## Releases
 
 ### v1.0.1
 

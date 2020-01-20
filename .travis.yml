@@ -10,7 +10,7 @@ script:
 jobs:
   include:
     - stage: deploy to gh-pages
-      if: branch = master
+      if: branch = master AND type = push AND fork = false
       script: npm run build-storybook
       deploy:
         provider: pages
@@ -20,3 +20,14 @@ jobs:
         local_dir: storybook-static
         on:
           branch: master
+
+    - stage: release to npm
+      if: tag IS present
+      script: npm run build
+      before_deploy: cd dist
+      deploy:
+        on:
+          tags: true
+        provider: npm
+        email: $NPM_EMAIL_ADDRESS
+        api_key: $NPM_AUTH_TOKEN
