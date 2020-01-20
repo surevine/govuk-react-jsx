@@ -96,3 +96,7 @@ This repository is versioned separately and follows standard semver procedures.
 The test suite renders the examples from the govuk-frontend repository through the Nunjucks macros as well as the JSX components and compares the output. Any differences here constitute a failure.
 
 Tests are currently running in TravisCI. See https://travis-ci.org/surevine/govuk-react-jsx
+
+## Credits
+
+Thanks to [Mick Jones](https://github.com/mick-jones) for help building some of the original components.
