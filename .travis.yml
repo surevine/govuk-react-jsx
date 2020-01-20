@@ -6,3 +6,17 @@ node_js:
 script:
   - npm run lint
   - npm test
+
+jobs:
+  include:
+    - stage: deploy to gh-pages
+      if: branch = master
+      script: npm run build-storybook
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        keep_history: true
+        local_dir: storybook-static
+        on:
+          branch: master
