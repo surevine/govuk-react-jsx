@@ -3,16 +3,12 @@ node_js:
   - 12
   - 13
 
-script: skip
+script:
+  - npm run lint
+  - npm test
 
 jobs:
   include:
-    - stage: checks
-      script: npm run lint
-
-    - stage: tests
-      script: npm test
-
     - stage: deploy to gh-pages
       if: branch = master
       script: npm run build-storybook
