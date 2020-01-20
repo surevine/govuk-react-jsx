@@ -3,6 +3,21 @@ node_js:
   - 12
   - 13
 
-script:
-  - npm run lint
-  - npm test
+jobs:
+  include:
+    - stage: linting
+      script: npm run lint
+
+    - stage: tests
+      script: npm test
+
+    - stage: deploy to gh-pages
+      script: npm run build-storybook
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        keep_history: true
+        local_dir: storybook-static
+        on:
+          branch: master
