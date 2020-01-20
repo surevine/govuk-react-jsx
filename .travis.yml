@@ -29,5 +29,6 @@ jobs:
         on:
           tags: true
         provider: npm
+        edge: true
         email: $NPM_EMAIL_ADDRESS
         api_key: $NPM_AUTH_TOKEN
