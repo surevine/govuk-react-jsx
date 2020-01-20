@@ -22,6 +22,7 @@ jobs:
           branch: master
 
     - stage: release to npm
+      if: tag IS present
       script: npm run build
       before_deploy: cd dist
       deploy:
