@@ -70,7 +70,8 @@ function DateInput(props) {
         id={item.id ? item.id : `${id}-${item.name}`}
         className={`govuk-date-input__input ${item.className || ''}`}
         name={namePrefix ? `${namePrefix}-${item.name}` : item.name}
-        type="number"
+        type="text"
+        inputmode="numeric"
         pattern={item.pattern ? item.pattern : '[0-9]*'}
       />
     </div>
