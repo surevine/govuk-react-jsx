@@ -1,7 +1,7 @@
 # GOV.UK React components (govuk-react-jsx)
 
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
-![govuk-frontend 3.4.0](https://img.shields.io/badge/govuk--frontend%20version-3.4.0-005EA5?logo=gov.uk&style=flat-square)
+![govuk-frontend 3.5.0](https://img.shields.io/badge/govuk--frontend%20version-3.5.0-005EA5?logo=gov.uk&style=flat-square)
 [![Build Status](https://img.shields.io/travis/surevine/govuk-react-jsx.svg?style=flat-square)](https://travis-ci.org/surevine/govuk-react-jsx)
 [![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/master/LICENSE)
 
@@ -63,7 +63,9 @@ A full list can be found in the `dependencies` section of [`/scripts/package.jso
 e.g. to use `govuk-frontend` [typography](https://design-system.service.gov.uk/styles/typography/) styles:
 
 ```html
-<p className="govuk-body-s">Use this design system to make your service consistent with GOV.UK.</p>
+<p className="govuk-body-s">
+  Use this design system to make your service consistent with GOV.UK.
+</p>
 ```
 
 An example of using govuk-frontend styles with `govuk-react-jsx` can be viewed at [https://codesandbox.io/s/govuk-react-jsx-hello-world-rurip](https://codesandbox.io/s/govuk-react-jsx-hello-world-rurip).
@@ -85,7 +87,6 @@ import { Panel } from 'govuk-react-jsx';
 ### Using with Formik
 
 An example of using `govuk-react-jsx` to create forms using Formik, complete with error validation can be viewed at [https://codesandbox.io/s/govuk-react-jsx-cra-formik-s833k](https://codesandbox.io/s/govuk-react-jsx-cra-formik-s833k).
-
 
 ## Versioning
 

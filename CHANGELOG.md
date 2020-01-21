@@ -12,6 +12,20 @@
 
 ## Releases
 
+### v1.2.0
+
+#### Fixes
+
+- Update the date input component to use input type=text inputmode=numeric.
+- Update checkboxes and radio buttons to include item hint classes on item hint.
+
+#### Features
+
+- Update to govuk-frontend@3.5.0. See https://github.com/alphagov/govuk-frontend/releases/tag/v3.5.0 for full notes.
+- Allow custom classes to be added to character count hint message
+
+#### Breaking changes
+
 ### v1.1.0
 
 #### Fixes
