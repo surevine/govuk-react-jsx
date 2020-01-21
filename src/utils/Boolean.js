@@ -145,7 +145,8 @@ function Boolean(props) {
                   <Hint
                     {...{
                       ...itemHint,
-                      className: `govuk-${controlType}__hint`, // ${itemHint.className || ''}`, Include item hint classes when govuk release this
+                      className: `govuk-${controlType}__hint ${itemHint.className ||
+                        ''}`,
                     }}
                     id={itemHintId}
                   />
