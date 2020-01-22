@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import CharacterCountJS from 'govuk-frontend/govuk/components/character-count/character-count';
-import { Textarea } from '../..';
+import { Textarea, Hint } from '../..';
 
 function CharacterCount(props) {
   const {
@@ -10,11 +10,12 @@ function CharacterCount(props) {
     threshold,
     maxwords,
     errorMessage,
+    countMessage,
     ...attributes
   } = props;
 
   const characterCountRef = React.createRef();
-  const characterCountInfoClass = `${id}-info`;
+  const characterCountInfoId = `${id}-info`;
 
   useEffect(() => {
     new CharacterCountJS(characterCountRef.current).init();
@@ -36,16 +37,17 @@ function CharacterCount(props) {
         className={`govuk-js-character-count ${className || ''}${
           errorMessage ? ' govuk-textarea--error' : ''
         }`}
-        aria-describedby={characterCountInfoClass}
+        aria-describedby={characterCountInfoId}
       />
-      <span
-        id={characterCountInfoClass}
-        className="govuk-hint govuk-character-count__message"
+      <Hint
+        id={characterCountInfoId}
+        className={`govuk-hint govuk-character-count__message ${countMessage?.className ||
+          ''}`}
         aria-live="polite"
       >
         You can enter up to {maxlength || maxwords}{' '}
         {maxwords ? 'words' : 'characters'}
-      </span>
+      </Hint>
     </div>
   );
 }
