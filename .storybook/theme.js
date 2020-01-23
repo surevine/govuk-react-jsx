@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming/create'
+import { create } from '@storybook/theming/create';
 
 export default create({
   base: 'light',
@@ -32,6 +32,6 @@ export default create({
   inputBorderRadius: 0,
 
   brandTitle: 'govuk-react-jsx',
-  brandUrl: 'https://github.com/surevine/govuk-react-jsx'
+  brandUrl: 'https://github.com/surevine/govuk-react-jsx',
   // brandImage: 'https://placehold.it/350x150'
-})
+});

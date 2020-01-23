@@ -1,5 +1,6 @@
-const path = require('path')
+const path = require('path');
 
+// eslint-disable-next-line no-unused-vars
 module.exports = async ({ config, mode }) => {
   // `mode` has a value of 'DEVELOPMENT' or 'PRODUCTION'
   // You can change the configuration based on that.
@@ -7,14 +8,14 @@ module.exports = async ({ config, mode }) => {
 
   config.module.rules = config.module.rules.filter(
     rule => !rule.test.test('.scss')
-  )
+  );
 
   // SCSS
   config.module.rules.push({
     test: /\.scss$/,
     loaders: ['style-loader', 'css-loader', 'sass-loader'],
-    include: path.resolve(__dirname, '../')
-  })
+    include: path.resolve(__dirname, '../'),
+  });
 
   // Fonts and images
   config.module.rules.push({
@@ -22,10 +23,10 @@ module.exports = async ({ config, mode }) => {
     use: [
       {
         loader: 'file-loader',
-        options: {}
-      }
-    ]
-  })
+        options: {},
+      },
+    ],
+  });
 
-  return config
-}
+  return config;
+};

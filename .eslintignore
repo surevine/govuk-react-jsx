@@ -3,3 +3,4 @@ dist
 build-temp
 node_modules
 storybook-static
+!.storybook

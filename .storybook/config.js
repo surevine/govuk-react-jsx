@@ -1,18 +1,22 @@
-import { configure, addDecorator, addParameters } from '@storybook/react'
-import { jsxDecorator } from 'storybook-addon-jsx'
-import theme from './theme'
-import './styles.scss'
+import { configure, addDecorator, addParameters } from '@storybook/react';
+import { jsxDecorator } from 'storybook-addon-jsx';
+import theme from './theme';
+import './styles.scss';
 
-addDecorator(jsxDecorator)
+addDecorator(jsxDecorator);
 
 addParameters({
   options: {
-    theme: theme
-  }
-})
+    theme,
+    storySort: (a, b) =>
+      a[1].kind === b[1].kind
+        ? 0
+        : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+  },
+});
 
 // automatically import all files called stories.js
-configure(require.context('../src', true, /.story\.js$/), module)
+configure(require.context('../src', true, /.story\.js$/), module);
 
 // Simulate the js-enabled class that govuk frontend template adds to the page
-configure(() => document.body.classList.add('js-enabled'), module)
+configure(() => document.body.classList.add('js-enabled'), module);
