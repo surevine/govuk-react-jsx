@@ -88,6 +88,31 @@ import { Panel } from 'govuk-react-jsx';
 
 An example of using `govuk-react-jsx` to create forms using Formik, complete with error validation can be viewed at [https://codesandbox.io/s/govuk-react-jsx-cra-formik-s833k](https://codesandbox.io/s/govuk-react-jsx-cra-formik-s833k).
 
+### Refs for form components
+
+In the case of form components `React.forwardRef` is used to forward any ref passed to a component onto the underlying DOM element. For example:
+
+```
+const ref = useRef();
+<Input
+  ref={ref}
+  id="input-example"
+  label={{
+    children: [
+      'National Insurance number'
+    ]
+  }}
+  name="test-name"
+  type="text"
+/>
+```
+
+In this code, `ref` will contain a reference to the actual DOM input element. You could use this to then call `.focus()` on the element.
+
+For components such as DateInput, Radios, Checkboxes and anywhere that uses an `items` prop to represent many form elements to be returned by the component, each object in the items array can accept a `ref` key which will then return a reference to the rendered form element for that item.
+
+Rather than adding them everywhere I have currently restricted it to form components where I can imagine a use case. Please open an issue if you need refs forwarded onto other types of elements - I may have missed a use case.
+
 ## Versioning
 
 This repository is versioned separately and follows standard semver procedures.

@@ -32,13 +32,13 @@ function WithRef(props) {
       <p className="govuk-body">
         <code>ref</code> will now contain a reference to the DOM element
         rendered by the component. See devtools console for an example.
+        Currently this only applies to form elements.
       </p>
       <p className="govuk-body">
         In simple cases such as the <code>Button</code> component, this will be
         the top level element. In more complex cases such as the{' '}
         <code>Input</code> component, the ref will refer to to the form element
-        rather than the wrapping div. (Or whatever the most pertinent DOM
-        element is)
+        rather than the wrapping div.
       </p>
       <p className="govuk-body">
         In situations where an element returns multiple elements such as the
@@ -50,4 +50,40 @@ function WithRef(props) {
   );
 }
 
-export default WithRef;
+function WithItemRefs(props) {
+  const refs = [];
+  const { Component, ...restProps } = props;
+
+  useEffect(() => {
+    console.log(refs);
+  });
+
+  const modifiedProps = { ...restProps };
+
+  modifiedProps.items = restProps.items.map(item => {
+    const ref = React.createRef();
+    refs.push(ref);
+    return {
+      ...item,
+      ref,
+    };
+  });
+
+  return (
+    <>
+      <Component {...modifiedProps} />
+      <p className="govuk-body">
+        In order to get a handle on the underlying DOM element, an additonal{' '}
+        <code>ref</code> prop can be assigned to individual items which will be
+        passed through onto the underlying element.
+      </p>
+      <p className="govuk-body">
+        Each individual <code>ref</code> will now contain a reference to the DOM
+        element rendered by the component. See devtools console for an example.
+        Currently this only applies to form elements.
+      </p>
+    </>
+  );
+}
+
+export { WithRef, WithItemRefs };
