@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ErrorSummaryJS from 'govuk-frontend/govuk/components/error-summary/error-summary';
 
 function ErrorSummary(props) {
@@ -10,7 +10,7 @@ function ErrorSummary(props) {
     ...attributes
   } = props;
 
-  const errorSummaryRef = React.createRef();
+  const errorSummaryRef = useRef();
 
   useEffect(() => {
     new ErrorSummaryJS(errorSummaryRef.current).init();

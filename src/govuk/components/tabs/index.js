@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import TabsJS from 'govuk-frontend/govuk/components/tabs/tabs';
 
 function Tabs(props) {
   const { className, id, idPrefix, items, title, ...attributes } = props;
 
-  const tabsRef = React.createRef();
+  const tabsRef = useRef();
 
   useEffect(() => {
     new TabsJS(tabsRef.current).init();
