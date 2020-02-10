@@ -9,7 +9,9 @@ function ErrorSummary(props) {
     titleChildren,
     ...attributes
   } = props;
+
   const errorSummaryRef = React.createRef();
+
   useEffect(() => {
     new ErrorSummaryJS(errorSummaryRef.current).init();
   }, [errorSummaryRef]);
