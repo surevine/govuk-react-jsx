@@ -12,7 +12,6 @@ function Input(props) {
     name,
     id,
     customRef,
-    autofocus,
     ...attributes
   } = props;
 
@@ -43,7 +42,6 @@ function Input(props) {
       {errorMessageComponent}
       <input
         id={id}
-        autoFocus={autofocus}
         className={`govuk-input ${className || ''} ${
           errorMessage ? ' govuk-input--error' : ''
         }`}
