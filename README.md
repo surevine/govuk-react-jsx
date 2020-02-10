@@ -19,6 +19,20 @@ This has the following benefits
 - Keeping up to date with upstream changes in govuk-frontend is as simple as updating the package.json version and mirroring any markup changes made. The test suite helps with this by comparing our output against the reference Nunjucks output - any differences constitute a test failure.
 - Anyone that knows the GOV.UK Nunjucks macros will quickly feel familiar with the structure of these components
 
+## Comparison with govuk-react
+
+[govuk-react](https://github.com/govuk-react/govuk-react) is the other main option in this space. Naturally the first thing people ask is why one might use this repository instead of govuk-react. Here's my take on the matter:
+
+<!-- prettier-ignore -->
+| govuk-react | govuk-react-jsx (This repository) |
+| ----------- | --------------------------------- |
+| An _implementation of_ the govuk design system.<br>CSS, JS and Markup patterns have all been rewritten from scratch.<br>Aria attributes missing.                                                              | Directly consumes the govuk-frontend CSS/JS and accurately mirrors their markup patterns, including Aria attributes                                                                                                                                                                                                                                                                                                                                                                            |
+| Upstream CSS/JS changes in govuk-frontend need to be manually transferred across and/or rebuilt                                                                                                               | Upstream CSS/JS changes are pulled in automatically. Only markup changes need to manually transferred (But are validated as correct by the test suite)                                                                                                                                                                                                                                                                                                                                         |
+| Relatively complex code                                                                                                                                                                                       | Simpler code - just plain JSX ports of the Nunjucks                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Uses StyledComponents<br>Great if you like them and use them. But if you prefer a different library then you would end up needing both in your toolchain.<br>Increased maintenance burden on govuk-react team | Uses plain Sass compilation of the govuk-frontend code.<br>You are free to use a CSSinJS library of your choice for your own styles if you wish                                                                                                                                                                                                                                                                                                                                                |
+| Cleaner component props since it has been designed from the ground up for React                                                                                                                               | Props mostly mirror the govuk-frontend Nunjucks params with some exceptions as below. This has been done in order to steer as closely to govuk-frontend as possible, and to facilitate the test suite checking the output against the original.<br><br>This is possibly the main argument against this repository and _for_ govuk-react. It's a tradeoff. One that is worth making _in my opinion_ but make your own call on that.                                                             |
+| More comprehensive set of components.<br>Includes components for headings, paragraphs, spacing etc                                                                                                            | Only includes components that are direct equivalents of the Nunjucks templates in govuk-frontend.<br>(Although a future release is planned that will include grid, headings and paragraphs etc.)<br>Spacing classes will likely never be a component in this repository - some things like that I feel are already sufficiently well served by just using the CSS classes directly. This repository does not attempt to abstract you away from the fact that you are using govuk-frontend CSS. |
+
 ## Assumptions
 
 These components assume you:
@@ -63,7 +77,7 @@ A full list can be found in the `dependencies` section of [`/scripts/package.jso
 e.g. to use `govuk-frontend` [typography](https://design-system.service.gov.uk/styles/typography/) styles:
 
 ```html
-<p className="govuk-body-s">
+<p className="govuk-body">
   Use this design system to make your service consistent with GOV.UK.
 </p>
 ```
