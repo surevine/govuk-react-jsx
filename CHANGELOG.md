@@ -6,6 +6,8 @@
 
 #### Features
 
+- `React.forwardRef` now added to all singular form components. Components that return multiple form elements now accept a `ref` key for each item in the `items` array prop.
+
 #### Breaking changes
 
 ---

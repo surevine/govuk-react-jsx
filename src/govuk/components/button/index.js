@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ButtonJS from 'govuk-frontend/govuk/components/button/button';
 import { Link } from '../../../utils/Link';
 
-function Button(props) {
+const Button = React.forwardRef((props, ref) => {
   const {
     element,
     href,
@@ -17,7 +17,8 @@ function Button(props) {
     ...attributes
   } = props;
 
-  const buttonRef = React.createRef();
+  const buttonRef = ref || useRef();
+
   let el = '';
   let buttonAttributes = {
     name,
@@ -115,6 +116,8 @@ function Button(props) {
   }
 
   return button;
-}
+});
+
+Button.displayName = 'Button';
 
 export { Button };

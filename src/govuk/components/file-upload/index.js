@@ -1,7 +1,7 @@
 import React from 'react';
 import { ErrorMessage, Hint, Label } from '../..';
 
-function FileUpload(props) {
+const FileUpload = React.forwardRef((props, ref) => {
   const {
     className,
     errorMessage,
@@ -39,6 +39,7 @@ function FileUpload(props) {
       <input
         {...attributes}
         id={id}
+        ref={ref}
         className={`govuk-file-upload ${className || ''}${
           errorMessage ? ' govuk-file-upload--error' : ''
         }`}
@@ -47,6 +48,8 @@ function FileUpload(props) {
       />
     </div>
   );
-}
+});
+
+FileUpload.displayName = 'FileUpload';
 
 export { FileUpload };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import HeaderJS from 'govuk-frontend/govuk/components/header/header';
 import logo from 'govuk-frontend/govuk/assets/images/govuk-logotype-crown.png';
 import { Link } from '../../../utils/Link';
@@ -18,7 +18,7 @@ function Header(props) {
     ...attributes
   } = props;
 
-  const headerRef = React.createRef();
+  const headerRef = useRef();
   let productNameComponent;
   let navigationComponent;
 

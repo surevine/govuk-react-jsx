@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Checkboxes as CheckboxesComponent } from '.';
 import examples from './examples';
 import processExampleData from '../../../../utils/processExampleData';
+import { WithItemRefs } from '../../../../utils/WithRef';
 
 const stories = storiesOf('checkboxes', module);
 
@@ -34,3 +35,7 @@ for (const example of Object.values(
 )) {
   stories.add(example.name, () => <Checkboxes {...example.data} />);
 }
+
+stories.add('with ref', () => (
+  <WithItemRefs Component={Checkboxes} {...examples.examples[0].data} />
+));

@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { Input } from '.';
 import examples from './examples';
 import processExampleData from '../../../../utils/processExampleData';
+import { WithRef } from '../../../../utils/WithRef';
 
 const stories = storiesOf('input', module);
 
@@ -22,3 +23,7 @@ examples.examples.push({
 for (const example of Object.values(processExampleData(examples.examples))) {
   stories.add(example.name, () => <Input {...example.data} />);
 }
+
+stories.add('with ref', () => (
+  <WithRef Component={Input} {...examples.examples[0].data} />
+));
