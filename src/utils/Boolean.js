@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import RadiosJS from 'govuk-frontend/govuk/components/radios/radios';
 import CheckboxesJS from 'govuk-frontend/govuk/components/checkboxes/checkboxes';
 import { ErrorMessage, Fieldset, Hint, Label } from '../govuk';
@@ -21,7 +21,7 @@ function Boolean(props) {
     ...attributes
   } = props;
 
-  const controlRef = React.createRef();
+  const controlRef = useRef();
   const idPrefixValue = idPrefix || name;
   let describedBy = describedByProp || '';
   if (fieldset?.['aria-describedby']) {

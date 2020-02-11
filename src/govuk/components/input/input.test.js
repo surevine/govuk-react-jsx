@@ -1,3 +1,5 @@
+import React from 'react';
+import { render } from '@testing-library/react';
 import examples from './examples';
 import { Input } from '.';
 import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
@@ -13,3 +15,14 @@ examples.examples.forEach(example => {
 });
 
 diffComponentAgainstReferenceNunjucks('input', Input, examples);
+
+describe('input', () => {
+  it('correctly assigns a ref', () => {
+    const ref = React.createRef();
+    const { container } = render(
+      <Input {...examples.examples[0].data} ref={ref} />
+    );
+
+    expect(ref.current).toEqual(container.querySelector('input'));
+  });
+});

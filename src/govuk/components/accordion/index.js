@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import AccordionJS from 'govuk-frontend/govuk/components/accordion/accordion';
 
 function Accordion(props) {
-  const accordionRef = React.createRef();
+  const accordionRef = useRef();
   const { headingLevel, items, className, ...attributes } = props;
 
   useEffect(() => {

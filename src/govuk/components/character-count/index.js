@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import CharacterCountJS from 'govuk-frontend/govuk/components/character-count/character-count';
 import { Textarea, Hint } from '../..';
 
-function CharacterCount(props) {
+const CharacterCount = React.forwardRef((props, ref) => {
   const {
     id,
     className,
@@ -14,7 +14,7 @@ function CharacterCount(props) {
     ...attributes
   } = props;
 
-  const characterCountRef = React.createRef();
+  const characterCountRef = useRef();
   const characterCountInfoId = `${id}-info`;
 
   useEffect(() => {
@@ -38,6 +38,7 @@ function CharacterCount(props) {
           errorMessage ? ' govuk-textarea--error' : ''
         }`}
         aria-describedby={characterCountInfoId}
+        ref={ref}
       />
       <Hint
         id={characterCountInfoId}
@@ -50,6 +51,8 @@ function CharacterCount(props) {
       </Hint>
     </div>
   );
-}
+});
+
+CharacterCount.displayName = 'CharacterCount';
 
 export { CharacterCount };

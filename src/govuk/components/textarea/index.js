@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Label, Hint, ErrorMessage } from '../..';
 
-function Textarea(props) {
+const Textarea = React.forwardRef((props, ref) => {
   const {
     className,
     'aria-describedby': describedBy,
@@ -42,6 +42,7 @@ function Textarea(props) {
       <textarea
         {...attributes}
         id={id}
+        ref={ref}
         className={`govuk-textarea${
           errorMessage ? ' govuk-textarea--error' : ''
         } ${className || ''}`}
@@ -49,7 +50,9 @@ function Textarea(props) {
       />
     </div>
   );
-}
+});
+
+Textarea.displayName = 'Textarea';
 
 Textarea.defaultProps = {
   'aria-describedby': '',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Label, Hint, ErrorMessage } from '../..';
 
-function Input(props) {
+const Input = React.forwardRef((props, ref) => {
   const {
     className,
     'aria-describedby': describedBy,
@@ -40,6 +40,7 @@ function Input(props) {
       {hintComponent}
       {errorMessageComponent}
       <input
+        ref={ref}
         id={id}
         className={`govuk-input ${className || ''} ${
           errorMessage ? ' govuk-input--error' : ''
@@ -50,7 +51,9 @@ function Input(props) {
       />
     </div>
   );
-}
+});
+
+Input.displayName = 'Input';
 
 Input.defaultProps = {
   type: 'text',

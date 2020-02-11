@@ -1,7 +1,7 @@
 import React from 'react';
 import { Label, Hint, ErrorMessage } from '../..';
 
-function Select(props) {
+const Select = React.forwardRef((props, ref) => {
   const {
     className,
     'aria-describedby': describedBy,
@@ -53,6 +53,7 @@ function Select(props) {
           errorMessage ? ' govuk-select--error' : ''
         }`}
         id={id}
+        ref={ref}
         aria-describedby={describedByValue || null}
         {...attributes}
       >
@@ -60,6 +61,8 @@ function Select(props) {
       </select>
     </div>
   );
-}
+});
+
+Select.displayName = 'Select';
 
 export { Select };
