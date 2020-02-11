@@ -1,3 +1,5 @@
+import React from 'react';
+import { render } from '@testing-library/react';
 import examples from './examples';
 import { Textarea } from '.';
 import { diffComponentAgainstReferenceNunjucks } from '../../../../tests/utils/govuk-frontend-diff';
@@ -13,3 +15,14 @@ examples.examples.forEach(example => {
 });
 
 diffComponentAgainstReferenceNunjucks('textarea', Textarea, examples);
+
+describe('textarea', () => {
+  it('correctly assigns a ref', () => {
+    const ref = React.createRef();
+    const { container } = render(
+      <Textarea {...examples.examples[0].data} ref={ref} />
+    );
+
+    expect(ref.current).toEqual(container.querySelector('textarea'));
+  });
+});
