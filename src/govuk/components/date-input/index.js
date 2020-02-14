@@ -74,7 +74,7 @@ function DateInput(props) {
         type="text"
         inputMode="numeric"
         pattern={item.pattern ? item.pattern : '[0-9]*'}
-        defaultValue={defaultValue ? defaultValue[item.name] : ''}
+        defaultValue={defaultValue ? defaultValue[item.name] : null}
       />
     </div>
   ));
