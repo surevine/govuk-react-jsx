@@ -72,6 +72,8 @@ NB: `govuk-react-jsx` has a number package dependencies, including:
 
 A full list can be found in the `dependencies` section of [`/scripts/package.json`](https://github.com/surevine/govuk-react-jsx/blob/master/scripts/package.json)
 
+An example of setting up create-react-app to use govuk-react-jsx can be viewed in [this commit over on govuk-react-jsx-examples](https://github.com/surevine/govuk-react-jsx-examples/commit/2bcdfb4ccfd6597eb9b5a410ae76322b64b9dcfa). 
+
 ### Using Styles
 
 `govuk-react-jsx` uses the same styles as `govuk-frontend`, the only difference being styles need to be applied using `className` rather than `class` as it's React.
