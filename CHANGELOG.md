@@ -12,6 +12,12 @@
 
 ## Releases
 
+### v1.4.1
+
+#### Fixes
+
+- Fix bug when using controlled inputs whereby Radios would switch from uncontrolled to controlled and throw a console warning. Caused by the new features added in v1.4.0
+
 ### v1.4.0
 
 #### Features
