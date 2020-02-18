@@ -12,6 +12,12 @@
 
 ## Releases
 
+### v1.4.0
+
+#### Features
+
+- `defaultValue` top level prop added to radios component to complement the `value` prop and facilitate compatibility with form libraries dealing with uncontrolled form inputs (Such as react-hook-form)
+
 ### v1.3.0
 
 #### Features
