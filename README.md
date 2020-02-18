@@ -7,7 +7,7 @@
 
 View demo at https://surevine.github.io/govuk-react-jsx/
 
-View example app at [https://codesandbox.io/s/govuk-react-jsx-cra-jeiku](https://codesandbox.io/s/govuk-react-jsx-cra-jeiku)
+View example app at https://surevine.github.io/govuk-react-jsx-examples/ (for which the source code is at https://github.com/surevine/govuk-react-jsx-examples)
 
 ## Motivation
 
@@ -86,7 +86,7 @@ e.g. to use `govuk-frontend` [typography](https://design-system.service.gov.uk/s
 </p>
 ```
 
-An example of using govuk-frontend styles with `govuk-react-jsx` can be viewed at [https://codesandbox.io/s/govuk-react-jsx-hello-world-rurip](https://codesandbox.io/s/govuk-react-jsx-hello-world-rurip).
+An example of using govuk-frontend styles with `govuk-react-jsx` can be viewed at https://surevine.github.io/govuk-react-jsx-examples/.
 
 ### Using Components
 
@@ -102,9 +102,9 @@ import { Panel } from 'govuk-react-jsx';
 </Panel>
 ```
 
-### Using with Formik
+### Using with form libraries
 
-An example of using `govuk-react-jsx` to create forms using Formik, complete with error validation can be viewed at [https://codesandbox.io/s/govuk-react-jsx-cra-formik-s833k](https://codesandbox.io/s/govuk-react-jsx-cra-formik-s833k).
+An example of using `govuk-react-jsx` to create forms using Formik and react-hook-form, complete with error validation can be viewed at https://surevine.github.io/govuk-react-jsx-examples/.
 
 ### Refs for form components
 
