@@ -12,6 +12,12 @@
 
 ## Releases
 
+### v1.4.2
+
+#### Fixes
+
+- Fix error summary not focusing after first form submission. Now correctly focuses every time submit is pressed
+
 ### v1.4.1
 
 #### Fixes
