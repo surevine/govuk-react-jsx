@@ -49,7 +49,7 @@ const Button = React.forwardRef((props, ref) => {
         width="17.5"
         height="19"
         viewBox="0 0 33 40"
-        role="presentation"
+        aria-hidden="true"
         focusable="false"
       >
         <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
