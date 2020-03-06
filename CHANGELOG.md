@@ -4,6 +4,8 @@
 
 #### Fixes
 
+- Use generic div element for tabspanel. See https://github.com/alphagov/govuk-frontend/pull/1746
+
 #### Features
 
 #### Breaking changes
