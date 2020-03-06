@@ -12,6 +12,17 @@
 
 ## Releases
 
+### v1.5.0
+
+#### Fixes
+
+- Use generic div element for tabspanel. See https://github.com/alphagov/govuk-frontend/pull/1746
+- Fix fallback logo being detected by chromes image description feature. See https://github.com/alphagov/govuk-frontend/pull/1724
+
+#### Features
+
+- Updated to govuk-frontend@3.6.0. See https://github.com/alphagov/govuk-frontend/releases/tag/v3.6.0
+
 ### v1.4.2
 
 #### Fixes

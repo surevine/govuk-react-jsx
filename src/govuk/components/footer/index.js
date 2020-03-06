@@ -125,7 +125,7 @@ function Footer(props) {
             {/* treat it as an interactive element - without this it will be */}
             {/* 'focusable' when using the keyboard to navigate. */}
             <svg
-              role="presentation"
+              aria-hidden="true"
               focusable="false"
               className="govuk-footer__licence-logo"
               xmlns="http://www.w3.org/2000/svg"

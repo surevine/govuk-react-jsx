@@ -39,7 +39,7 @@ function Tabs(props) {
     const { id: itemId, panel, label, ...itemAttributes } = item;
 
     return (
-      <section
+      <div
         key={itemId}
         className={`govuk-tabs__panel${
           index > 0 ? ' govuk-tabs__panel--hidden' : ''
@@ -48,7 +48,7 @@ function Tabs(props) {
         {...itemAttributes}
       >
         {panel.children}
-      </section>
+      </div>
     );
   });
 
