@@ -141,6 +141,20 @@ The test suite renders the examples from the govuk-frontend repository through t
 
 Tests are currently running in TravisCI. See https://travis-ci.org/surevine/govuk-react-jsx
 
-## Credits
+## Currently used by
 
-Thanks to [Mick Jones](https://github.com/mick-jones) for help building some of the original components.
+- Public Health England (See https://github.com/PublicHealthEngland/coronavirus-dashboard)
+
+## Contributors
+
+[Andy Mantell](https://github.com/andymantell) (Primary maintainer)
+
+[Dave Hudson](https://github.com/DaveHudson)
+
+[Mick Jones](https://github.com/mick-jones) (Helped to build the original JSX ports)
+
+## Development sponsored by
+
+[Surevine](https://www.surevine.com)
+
+[HM Land Registry](https://www.gov.uk/government/organisations/land-registry)
