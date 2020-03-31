@@ -9,6 +9,14 @@ View demo at https://surevine.github.io/govuk-react-jsx/
 
 View example app at https://surevine.github.io/govuk-react-jsx-examples/ (for which the source code is at https://github.com/surevine/govuk-react-jsx-examples)
 
+## Quick install
+
+```
+$ npm install govuk-react-jsx
+```
+(See [installation and usage](#installation--usage) for more details)
+
+
 ## Motivation
 
 This repository contains govuk-frontend compatible React components. The aim of this package is to steer closely to govuk-frontend by consuming the CSS directly from the govuk-frontend npm package. And to strike a balance between mirroring the GOV.UK Nunjucks params vs ideomatic React props.
@@ -61,7 +69,7 @@ See [utils/processExampleData.js](utils/processExampleData.js) for the complete 
 
 ### Installation
 
-`npm i --save govuk-react-jsx`
+`npm install govuk-react-jsx`
 
 NB: `govuk-react-jsx` has a number package dependencies, including:
 
