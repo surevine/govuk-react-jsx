@@ -36,12 +36,13 @@ function Header(props) {
     navigationComponent = (
       <div className="govuk-header__content">
         {serviceName ? (
-          <a
-            href={serviceUrl}
+          <Link
+            href={serviceUrl.startsWith('http') ? serviceUrl : null}
+            to={serviceUrl.startsWith('http') ? null : serviceUrl}
             className="govuk-header__link govuk-header__link--service-name"
           >
             {serviceName}
-          </a>
+          </Link>
         ) : null}
 
         {navigation ? (
@@ -107,7 +108,8 @@ function Header(props) {
       <div className={`govuk-header__container ${containerClassName}`}>
         <div className="govuk-header__logo">
           <Link
-            to={homepageUrl}
+            href={homepageUrl.startsWith('http') ? homepageUrl : null}
+            to={homepageUrl.startsWith('http') ? null : homepageUrl}
             className="govuk-header__link govuk-header__link--homepage"
           >
             <span className="govuk-header__logotype">
