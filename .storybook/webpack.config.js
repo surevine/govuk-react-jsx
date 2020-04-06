@@ -17,16 +17,5 @@ module.exports = async ({ config, mode }) => {
     include: path.resolve(__dirname, '../'),
   });
 
-  // Fonts and images
-  config.module.rules.push({
-    test: /\.(png|jpg|gif|svg)$/,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {},
-      },
-    ],
-  });
-
   return config;
 };
