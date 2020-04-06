@@ -16,7 +16,7 @@
 
 #### Fixes
 
-- Remove erroneous space after comma in footer OGL statement
+- Remove erroneous space before comma in footer OGL statement
 
 ### v2.0.0
 
