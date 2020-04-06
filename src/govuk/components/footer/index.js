@@ -146,7 +146,7 @@ function Footer(props) {
                 rel="license"
               >
                 Open Government Licence v3.0
-              </a>{' '}
+              </a>
               , except where otherwise stated
             </span>
           </div>
