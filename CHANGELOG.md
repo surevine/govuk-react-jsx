@@ -12,6 +12,12 @@
 
 ## Releases
 
+### v2.0.1
+
+#### Fixes
+
+- Remove erroneous space after comma in footer OGL statement
+
 ### v2.0.0
 
 #### Breaking changes
