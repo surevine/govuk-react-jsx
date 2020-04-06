@@ -7,12 +7,14 @@ function Header(props) {
   const {
     className,
     containerClassName,
-    homepageUrl,
+    homepageUrlHref,
+    homepageUrlTo,
     navigation,
     navigationClassName,
     productName,
     serviceName,
-    serviceUrl,
+    serviceUrlHref,
+    serviceUrlTo,
     // eslint-disable-next-line no-unused-vars
     assetsPath, // We don't want this, but just in case someone passes it, we don't want it to arrive as an attribute on the header
     ...attributes
@@ -36,12 +38,13 @@ function Header(props) {
     navigationComponent = (
       <div className="govuk-header__content">
         {serviceName ? (
-          <a
-            href={serviceUrl}
+          <Link
+            href={serviceUrlHref}
+            to={serviceUrlTo}
             className="govuk-header__link govuk-header__link--service-name"
           >
             {serviceName}
-          </a>
+          </Link>
         ) : null}
 
         {navigation ? (
@@ -107,7 +110,8 @@ function Header(props) {
       <div className={`govuk-header__container ${containerClassName}`}>
         <div className="govuk-header__logo">
           <Link
-            to={homepageUrl}
+            to={homepageUrlTo}
+            href={homepageUrlHref}
             className="govuk-header__link govuk-header__link--homepage"
           >
             <span className="govuk-header__logotype">
@@ -145,7 +149,7 @@ function Header(props) {
 }
 
 Header.defaultProps = {
-  homepageUrl: '/',
+  homepageUrlHref: '/',
   containerClassName: 'govuk-width-container',
 };
 
