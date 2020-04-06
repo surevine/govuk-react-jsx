@@ -20,6 +20,8 @@ const propReplacements = {
   titleText: 'titleChildren',
   titleHtml: 'titleChildren',
   inputmode: 'inputMode',
+  serviceUrl: 'serviceUrlHref',
+  homepageUrl: 'homepageUrlHref',
 };
 
 export default function processExampleData(data, componentName) {

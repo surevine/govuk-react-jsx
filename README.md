@@ -14,8 +14,8 @@ View example app at https://surevine.github.io/govuk-react-jsx-examples/ (for wh
 ```
 $ npm install govuk-react-jsx
 ```
-(See [installation and usage](#installation--usage) for more details)
 
+(See [installation and usage](#installation--usage) for more details)
 
 ## Motivation
 
@@ -56,6 +56,7 @@ These components assume you:
 Exceptions to the conformance with govuk-frontend nunjucks params are as follows:
 
 - Links - Anywhere that accepts an `href` / `text` combo of params to create a hyperlink, will also accept a `to` prop instead of `href`, which will be used in a react-router `<Link>` element.
+- Header links - `homepageUrl` and `serviceUrl` become `homepageUrlHref` / `homepageUrlTo` and `serviceUrlHref` / `serviceUrlTo`, with the `To` variants being passed to a react-router `<Link>` the `Href` variants being a plain html `<a>` tag
 - Anywhere that accepts an `html` or `text` param in Nunjucks will instead accept a `children` prop which should be passed either a string, or JSX. Params such as `summaryText` or `summaryHtml` become `summaryChildren`
 - `classes` becomes `className`
 - `describedBy` becomes `aria-describedby`
@@ -80,7 +81,7 @@ NB: `govuk-react-jsx` has a number package dependencies, including:
 
 A full list can be found in the `dependencies` section of [`/scripts/package.json`](https://github.com/surevine/govuk-react-jsx/blob/master/scripts/package.json)
 
-An example of setting up create-react-app to use govuk-react-jsx can be viewed in [this commit over on govuk-react-jsx-examples](https://github.com/surevine/govuk-react-jsx-examples/commit/2bcdfb4ccfd6597eb9b5a410ae76322b64b9dcfa). 
+An example of setting up create-react-app to use govuk-react-jsx can be viewed in [this commit over on govuk-react-jsx-examples](https://github.com/surevine/govuk-react-jsx-examples/commit/2bcdfb4ccfd6597eb9b5a410ae76322b64b9dcfa).
 
 ### Using Styles
 

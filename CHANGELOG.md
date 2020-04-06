@@ -8,6 +8,8 @@
 
 #### Breaking changes
 
+- Header links - `homepageUrl` and `serviceUrl` have become `homepageUrlHref` / `homepageUrlTo` and `serviceUrlHref` / `serviceUrlTo`, with the `To` variants being passed to a react-router `<Link>` the `Href` variants being a plain html `<a>` tag
+
 ---
 
 ## Releases
