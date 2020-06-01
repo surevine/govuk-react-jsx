@@ -51,10 +51,10 @@
   "homepage": "https://github.com/surevine/govuk-react-jsx#readme",
   "dependencies": {
     "govuk-frontend": "3.6.0",
+    "react": "^16.13.1",
     "react-helmet": "^6.0.0",
-    "react-router-dom": "^5.2.0",
     "react-router": "^5.2.0",
-    "react": "^16.13.1"
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
@@ -98,6 +98,7 @@
     "react-html-parser": "^2.0.2",
     "sass-loader": "^8.0.2",
     "sass": "^1.26.7",
+    "semver": "^7.3.2",
     "storybook-addon-jsx": "^7.2.3",
     "style-loader": "^1.2.1",
     "webpack": "4.43.0"
