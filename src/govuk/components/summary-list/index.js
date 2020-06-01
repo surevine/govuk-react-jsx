@@ -46,7 +46,7 @@ function actions(row, anyRowHasActions) {
           actionLinks
         ) : (
           <ul className="govuk-summary-list__actions-list">
-            {actionLinks.map(actionLink => (
+            {actionLinks.map((actionLink) => (
               <li
                 key={actionLink.key}
                 className="govuk-summary-list__actions-list-item"
@@ -71,7 +71,7 @@ function actions(row, anyRowHasActions) {
 function SummaryList(props) {
   const { className, rows, ...attributes } = props;
   const anyRowHasActions = rows.some(
-    item => (item.actions && 'items' in item.actions) === true
+    (item) => (item.actions && 'items' in item.actions) === true
   );
 
   return (

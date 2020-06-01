@@ -42,8 +42,9 @@ const CharacterCount = React.forwardRef((props, ref) => {
       />
       <Hint
         id={characterCountInfoId}
-        className={`govuk-hint govuk-character-count__message ${countMessage?.className ||
-          ''}`}
+        className={`govuk-hint govuk-character-count__message ${
+          countMessage?.className || ''
+        }`}
         aria-live="polite"
       >
         You can enter up to {maxlength || maxwords}{' '}

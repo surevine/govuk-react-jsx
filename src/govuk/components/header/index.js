@@ -60,8 +60,9 @@ function Header(props) {
             <nav>
               <ul
                 id="navigation"
-                className={`govuk-header__navigation ${navigationClassName ||
-                  ''}`}
+                className={`govuk-header__navigation ${
+                  navigationClassName || ''
+                }`}
                 aria-label="Top Level Navigation"
               >
                 {navigation.map((item, index) => {

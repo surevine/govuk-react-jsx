@@ -60,7 +60,7 @@ function WithItemRefs(props) {
 
   const modifiedProps = { ...restProps };
 
-  modifiedProps.items = restProps.items.map(item => {
+  modifiedProps.items = restProps.items.map((item) => {
     const ref = React.createRef();
     refs.push(ref);
     return {

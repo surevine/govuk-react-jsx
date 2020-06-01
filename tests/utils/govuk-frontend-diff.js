@@ -7,7 +7,7 @@ import prettyhtml from '@starptech/prettyhtml';
 import { HtmlDiffer } from '@markedjs/html-differ';
 import processExampleData from '../../utils/processExampleData';
 
-const withRouter = function(WrappedComponent) {
+const withRouter = function (WrappedComponent) {
   const component = class extends React.Component {
     render() {
       return (
@@ -44,9 +44,9 @@ export function diffComponentAgainstReferenceNunjucks(
   examples
 ) {
   describe(name, () => {
-    examples.examples.forEach(example => {
+    examples.examples.forEach((example) => {
       describe(`${example.name}`, () => {
-        it('React output matches Nunjucks output', done => {
+        it('React output matches Nunjucks output', (done) => {
           const expected = cleanHtml(
             nunjucks.render(
               require.resolve(
@@ -68,7 +68,7 @@ export function diffComponentAgainstReferenceNunjucks(
           );
 
           // Make the actual comparison
-          htmlDiffer.isEqual(actual, expected).then(comparison => {
+          htmlDiffer.isEqual(actual, expected).then((comparison) => {
             // If the comparison is false, then compare the strings so
             // that the person can eyeball the diff
             if (!comparison) {

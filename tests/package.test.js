@@ -30,7 +30,7 @@ describe('distributable package', () => {
     'react-helmet',
   ])(
     'peer dependency version of %s matches that in the base package-lock.json',
-    dependency => {
+    (dependency) => {
       expect(
         semver.satisfies(
           packageLockJson.dependencies[dependency].version,

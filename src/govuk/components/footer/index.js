@@ -45,8 +45,9 @@ function Footer(props) {
                         {(item.href || item.to) && itemChildren && (
                           <li className="govuk-footer__list-item">
                             <Link
-                              className={`govuk-footer__link ${itemClassName ||
-                                ''}`}
+                              className={`govuk-footer__link ${
+                                itemClassName || ''
+                              }`}
                               {...itemAttributes}
                             >
                               {itemChildren}
