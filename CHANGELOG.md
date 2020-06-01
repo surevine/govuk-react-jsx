@@ -22,6 +22,10 @@
 
 - Updated the package's govuk-frontend dependency to 3.6.0 - it was incorrectly pinned to an older version
 
+#### Features
+
+- Updated dependency on react-helmet to 6
+
 ### v2.0.1
 
 #### Fixes
