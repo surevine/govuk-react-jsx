@@ -26,6 +26,6 @@
     "react-router-dom": "5",
     "react-router": "5",
     "react": "16",
-    "react-helmet": "5"
+    "react-helmet": "6"
   }
 }
