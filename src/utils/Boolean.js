@@ -52,7 +52,7 @@ function Boolean(props) {
   }
 
   // Find out if we have any conditional items
-  const isConditional = !!items.find(item => item.conditional?.children);
+  const isConditional = !!items.find((item) => item.conditional?.children);
   const hasFieldset = !!fieldset;
 
   if (errorMessage) {
@@ -133,8 +133,9 @@ function Boolean(props) {
                 <Label
                   {...{
                     ...label,
-                    className: `govuk-${controlType}__label ${label?.className ||
-                      ''}`,
+                    className: `govuk-${controlType}__label ${
+                      label?.className || ''
+                    }`,
                     htmlFor: idValue,
                     isPageHeading: false,
                   }}
@@ -145,8 +146,9 @@ function Boolean(props) {
                   <Hint
                     {...{
                       ...itemHint,
-                      className: `govuk-${controlType}__hint ${itemHint.className ||
-                        ''}`,
+                      className: `govuk-${controlType}__hint ${
+                        itemHint.className || ''
+                      }`,
                     }}
                     id={itemHintId}
                   />

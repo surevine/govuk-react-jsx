@@ -7,7 +7,7 @@ import processExampleData from '../../../../utils/processExampleData';
 
 const stories = storiesOf('header', module);
 
-const Header = function(props) {
+const Header = function (props) {
   return (
     <BrowserRouter>
       <BaseHeader {...props} />

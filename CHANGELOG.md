@@ -12,6 +12,20 @@
 
 ## Releases
 
+### v3.0.0
+
+#### Breaking changes
+
+- Moved the published package's dependencies to peerDependencies, to avoid strange issues with multiple copies of React etc being installed
+
+#### Fixes
+
+- Updated the package's govuk-frontend dependency to 3.6.0 - it was incorrectly pinned to an older version
+
+#### Features
+
+- Updated dependency on react-helmet to 6
+
 ### v2.0.1
 
 #### Fixes

@@ -7,10 +7,10 @@ import { WithItemRefs } from '../../../../utils/WithRef';
 
 const stories = storiesOf('radios', module);
 
-const Radios = props => {
+const Radios = (props) => {
   const { items, value: initialValue, ...restProps } = props;
   const [value, setValue] = useState(initialValue);
-  const onChangeHandler = e => {
+  const onChangeHandler = (e) => {
     setValue(e.target.value);
   };
 

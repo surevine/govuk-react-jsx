@@ -11,7 +11,7 @@ const Textarea = React.forwardRef((props, ref) => {
   const { value: initialValue, ...restProps } = props;
   const [value, setValue] = useState(initialValue);
 
-  const onChangeHandler = e => {
+  const onChangeHandler = (e) => {
     setValue(e.target.value);
   };
 

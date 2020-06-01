@@ -72,11 +72,12 @@ See [utils/processExampleData.js](utils/processExampleData.js) for the complete 
 
 `npm install govuk-react-jsx`
 
-NB: `govuk-react-jsx` has a number package dependencies, including:
+NB: `govuk-react-jsx` has a number of peer dependencies that you will need to install yourself:
 
 - govuk-frontend
 - react-router
 - react
+- react-router-dom
 - react-helmet
 
 A full list can be found in the `dependencies` section of [`/scripts/package.json`](https://github.com/surevine/govuk-react-jsx/blob/master/scripts/package.json)

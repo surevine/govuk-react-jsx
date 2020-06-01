@@ -22,13 +22,13 @@ function fetchExample(name) {
   return got(
     `https://raw.githubusercontent.com/alphagov/govuk-frontend/v${govukPackage.version}/src/govuk/components/${name}/${name}.yaml`
   )
-    .then(response => response.body)
-    .then(data => yaml.safeLoad(data))
+    .then((response) => response.body)
+    .then((data) => yaml.safeLoad(data))
     .then(
-      govExamples =>
-        new Promise(function(resolve, reject) {
+      (govExamples) =>
+        new Promise(function (resolve, reject) {
           mkdirp.sync(path.dirname(cachePath));
-          fs.writeFile(cachePath, JSON.stringify(govExamples), err => {
+          fs.writeFile(cachePath, JSON.stringify(govExamples), (err) => {
             if (err) {
               console.error(err);
               reject(err);
@@ -48,17 +48,17 @@ function fetchExamples() {
   fetchExamplesProgress.start(components.length, 0);
 
   const promises = components
-    .map(value => path.dirname(path.relative('src/govuk/components', value)))
+    .map((value) => path.dirname(path.relative('src/govuk/components', value)))
     .map(fetchExample);
 
   return Promise.all(promises)
-    .then(function(examples) {
+    .then(function (examples) {
       fetchExamplesProgress.stop();
       return examples;
     })
     .then(
-      examples =>
-        new Promise(function(resolve, reject) {
+      (examples) =>
+        new Promise(function (resolve, reject) {
           const data = examples.reduce(
             (accumulator, example) => ({
               ...accumulator,
@@ -70,7 +70,7 @@ function fetchExamples() {
           fs.writeFile(
             `.cache/govuk-frontend-examples/all.json`,
             JSON.stringify(data),
-            err => {
+            (err) => {
               if (err) {
                 console.error(err);
                 reject(err);
@@ -81,7 +81,7 @@ function fetchExamples() {
           );
         })
     )
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 }
 
 fetchExamples();

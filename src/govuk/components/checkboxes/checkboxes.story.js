@@ -7,7 +7,7 @@ import { WithItemRefs } from '../../../../utils/WithRef';
 
 const stories = storiesOf('checkboxes', module);
 
-const Checkboxes = props => {
+const Checkboxes = (props) => {
   const { items } = props;
   const initialValue = items.reduce((accumulator, item) => {
     accumulator[item.value] = !!item.checked;
@@ -16,14 +16,14 @@ const Checkboxes = props => {
 
   const [values, setValue] = useState(initialValue);
 
-  const onChangeHandler = e => {
+  const onChangeHandler = (e) => {
     setValue({
       ...values,
       [e.target.value]: !values[e.target.value],
     });
   };
 
-  items.forEach(item => {
+  items.forEach((item) => {
     item.checked = values[item.value];
   });
 

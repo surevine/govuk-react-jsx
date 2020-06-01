@@ -21,11 +21,11 @@
     "url": "https://github.com/surevine/govuk-react-jsx/issues"
   },
   "homepage": "https://github.com/surevine/govuk-react-jsx#readme",
-  "dependencies": {
-    "govuk-frontend": "3.4.0",
+  "peerDependencies": {
+    "govuk-frontend": "3.6.0",
     "react-router-dom": "5",
     "react-router": "5",
     "react": "16",
-    "react-helmet": "5"
+    "react-helmet": "6"
   }
 }

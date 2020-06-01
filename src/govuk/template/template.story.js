@@ -7,7 +7,7 @@ import footerExamples from '../components/footer/examples';
 
 const stories = storiesOf('template', module);
 
-const Template = function(props) {
+const Template = function (props) {
   return (
     <BrowserRouter>
       <BaseTemplate {...props} />
