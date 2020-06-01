@@ -16,7 +16,8 @@
 
 #### Breaking changes
 
-- Moved the published package's dependencies to peerDependencies, to avoid strange issues with multiple copies of React etc being installed
+- Moved the published package's dependencies to peerDependencies, to avoid issues with multiple copies of React etc being installed (Such as https://reactjs.org/warnings/invalid-hook-call-warning.html#duplicate-react).  
+  **If you aren't already, you will need to install compatible versions of govuk-frontend, react-router, react, react-router-dom, react-helmet since these are no longer installed as dependencies of this package**
 
 #### Fixes
 
