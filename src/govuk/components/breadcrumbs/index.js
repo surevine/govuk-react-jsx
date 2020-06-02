@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '../../../utils/Link';
 
 function Breadcrumbs(props) {
-  const { items, className, ...attributes } = props;
+  const { items, className, collapseOnMobile, ...attributes } = props;
   const breadcrumbs = items.map((item, index) => {
     const { href, to, reactListKey, children, ...itemAttributes } = item;
 
@@ -29,7 +29,12 @@ function Breadcrumbs(props) {
   });
 
   return (
-    <div className={`govuk-breadcrumbs ${className || ''}`} {...attributes}>
+    <div
+      className={`govuk-breadcrumbs ${className || ''} ${
+        collapseOnMobile ? 'govuk-breadcrumbs--collapse-on-mobile' : ''
+      }`}
+      {...attributes}
+    >
       <ol className="govuk-breadcrumbs__list">{breadcrumbs}</ol>
     </div>
   );
