@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/surevine/govuk-react-jsx#readme",
   "peerDependencies": {
-    "govuk-frontend": "3.6.0",
+    "govuk-frontend": "3.7.0",
     "react-router-dom": "5",
     "react-router": "5",
     "react": "16",
