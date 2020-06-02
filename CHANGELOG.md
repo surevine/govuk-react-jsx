@@ -10,6 +10,7 @@
   See https://github.com/alphagov/govuk-frontend/releases/tag/v3.7.0 for full release notes.  
   Only changes to the components are explicitly listed here.
 - Nunjucks implementation now allows html in each navigation item in the header component. This is already satisifed by the replacement of `text` and `html` params with a single `children` prop catering for both eventualities. See https://github.com/alphagov/govuk-frontend/pull/1819
+- You can now collapse the breadcrumb component on mobile using the new collapseOnMobile option. See https://github.com/alphagov/govuk-frontend/pull/1754
 
 #### Breaking changes
 
