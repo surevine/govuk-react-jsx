@@ -70,7 +70,7 @@
     "babel-loader": "^8.1.0",
     "cli-progress": "^3.8.2",
     "copy": "^0.3.2",
-    "css-loader": "^3.5.3",
+    "css-loader": "^3.6.0",
     "deep-iterator": "^1.1.0",
     "ent": "^2.2.0",
     "eslint-config-airbnb": "^18.1.0",
