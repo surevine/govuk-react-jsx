@@ -3,9 +3,9 @@ import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import 'regenerator-runtime/runtime';
+// import Helmet from 'react-helmet';
 import processExampleData from '../../utils/processExampleData';
 import * as components from '../../src/govuk';
-
 
 process.on('unhandledRejection', (err) => {
   throw err;
@@ -18,20 +18,46 @@ app.use(bodyParser.json());
 app.post('/component/:component', async (req, res) => {
   const data = req.body;
 
-  // component.__set__('logo', 'foo');
   const Component = components[data.macro_name];
 
-  const props = processExampleData(data.params);
+  const props = processExampleData(data.params, req.params.component);
 
   res.send(ReactDOMServer.renderToStaticMarkup(<Component {...props} />));
 });
 
-app.post('/template', (req, res) => {
-  const data = req.body;
+// app.post('/template', (req, res) => {
+//   const data = req.body;
 
-  const template = `asd`;
+//   const { Template } = components;
+//   console.log(data);
+//   const props = processExampleData(data);
+//   console.log(props);
 
-  res.send(template);
-});
+//   const body = ReactDOMServer.renderToStaticMarkup(<Template {...props} />);
+//   const helmet = Helmet.renderStatic();
+
+//   // Simulate the component being embedded in a proper html page
+//   let html = `
+//     <!doctype html>
+//     <html ${helmet.htmlAttributes.toString()}>
+//         <head>
+//             ${helmet.title.toString()}
+//             ${helmet.meta.toString()}
+//             ${helmet.link.toString()}
+//         </head>
+//         <body ${helmet.bodyAttributes.toString()}>
+//             ${body}
+//         </body>
+//     </html>
+//   `;
+
+//   // Remove data-react-helmet attribute - no configurable way to do this so has to be a string replace
+//   // See https://github.com/nfl/react-helmet/issues/79
+//   html = html.replace(/data-react-helmet="true"/g, '');
+
+//   console.log(html);
+
+//   res.send(html);
+// });
 
 app.listen(3000, () => console.log(`Ready`));
