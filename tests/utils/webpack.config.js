@@ -1,4 +1,5 @@
 const path = require('path');
+const babelPresetEnv = require('@babel/preset-env');
 
 module.exports = {
   entry: './tests/utils/test-server.js',
@@ -24,7 +25,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: [require('@babel/preset-env').default],
+              presets: [babelPresetEnv.default],
             },
           },
         ],
