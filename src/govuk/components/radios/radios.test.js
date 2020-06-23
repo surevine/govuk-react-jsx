@@ -33,7 +33,7 @@ describe('radios', () => {
 
     data.items[0].ref = ref;
 
-    const { container } = render(<Radios {...data} />);
+    const { container } = render(<Radios {...data} onChange={() => {}} />);
 
     expect(ref.current).toEqual(container.querySelector('input'));
   });
