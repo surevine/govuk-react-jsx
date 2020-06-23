@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import ErrorSummaryJS from 'govuk-frontend/govuk/components/error-summary/error-summary';
 
 function ErrorSummary(props) {
   const {
@@ -13,7 +12,15 @@ function ErrorSummary(props) {
   const errorSummaryRef = useRef();
 
   useEffect(() => {
-    new ErrorSummaryJS(errorSummaryRef.current).init();
+    (async () => {
+      if (typeof document !== 'undefined') {
+        const { default: ErrorSummaryJS } = await import(
+          'govuk-frontend/govuk/components/error-summary/error-summary'
+        );
+
+        new ErrorSummaryJS(errorSummaryRef.current).init();
+      }
+    })();
   }, [errorSummaryRef]);
 
   useEffect(() => {

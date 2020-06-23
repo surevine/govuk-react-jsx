@@ -88,5 +88,16 @@ export default function processExampleData(data, componentName) {
     }
   }
 
+  // Header examples specify serviceName but not serviceUrl, causing rendering differences
+  // Temporarily tweak the examples until fix is in place upstream
+  // See https://github.com/alphagov/govuk-frontend/pull/1825
+  if (componentName === 'header') {
+    examples.examples.forEach((example) => {
+      if ('serviceName' in example.data) {
+        example.data.serviceUrl = '/foo';
+      }
+    });
+  }
+
   return data;
 }
