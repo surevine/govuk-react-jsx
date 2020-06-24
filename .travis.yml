@@ -19,7 +19,7 @@ jobs:
         keep_history: true
         local_dir: storybook-static
         on:
-          branch: master
+          branch: main
 
     - stage: release to npm
       if: tag IS present
