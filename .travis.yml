@@ -15,7 +15,7 @@ script:
 jobs:
   include:
     - stage: deploy to gh-pages
-      if: branch = master AND type = push AND fork = false
+      if: branch = main AND type = push AND fork = false
       script: npm run build-storybook
       deploy:
         provider: pages
@@ -24,7 +24,7 @@ jobs:
         keep_history: true
         local_dir: storybook-static
         on:
-          branch: master
+          branch: main
 
     - stage: release to npm
       if: tag IS present

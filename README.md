@@ -3,7 +3,7 @@
 ![govuk-frontend 3.7.0](https://img.shields.io/badge/govuk--frontend%20version-3.7.0-005EA5?logo=gov.uk&style=flat-square)
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
 [![Build Status](https://img.shields.io/travis/surevine/govuk-react-jsx.svg?style=flat-square)](https://travis-ci.org/surevine/govuk-react-jsx)
-[![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/main/LICENSE)
 
 _Please note - the version number of govuk-react-jsx is independent of the govuk-frontend version number._
 
@@ -82,7 +82,7 @@ NB: `govuk-react-jsx` has a number of peer dependencies that you will need to in
 - react-router-dom
 - react-helmet
 
-A full list can be found in the `dependencies` section of [`/scripts/package.json`](https://github.com/surevine/govuk-react-jsx/blob/master/scripts/package.json)
+A full list can be found in the `dependencies` section of [`/scripts/package.json`](https://github.com/surevine/govuk-react-jsx/blob/main/scripts/package.json)
 
 An example of setting up create-react-app to use govuk-react-jsx can be viewed in [this commit over on govuk-react-jsx-examples](https://github.com/surevine/govuk-react-jsx-examples/commit/2bcdfb4ccfd6597eb9b5a410ae76322b64b9dcfa).
 
