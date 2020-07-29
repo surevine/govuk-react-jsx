@@ -1,12 +1,19 @@
 import React, { useEffect, useRef } from 'react';
-import AccordionJS from 'govuk-frontend/govuk/components/accordion/accordion';
 
 function Accordion(props) {
   const accordionRef = useRef();
   const { headingLevel, items, className, ...attributes } = props;
 
   useEffect(() => {
-    new AccordionJS(accordionRef.current).init();
+    (async () => {
+      if (typeof document !== 'undefined') {
+        const { default: AccordionJS } = await import(
+          'govuk-frontend/govuk/components/accordion/accordion'
+        );
+
+        new AccordionJS(accordionRef.current).init();
+      }
+    })();
   }, [accordionRef]);
 
   const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h2';

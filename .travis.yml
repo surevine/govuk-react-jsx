@@ -1,4 +1,5 @@
 language: node_js
+dist: focal
 node_js:
   - 12
   - 13
@@ -6,6 +7,10 @@ node_js:
 script:
   - npm run lint
   - npm test
+  - sudo apt-get install wait-for-it
+  - nohup npm run run-test-server &
+  - wait-for-it localhost:3000
+  - npm run govuk-frontend-diff
 
 jobs:
   include:

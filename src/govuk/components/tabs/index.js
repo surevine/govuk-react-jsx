@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import TabsJS from 'govuk-frontend/govuk/components/tabs/tabs';
 
 function Tabs(props) {
   const { className, id, idPrefix, items, title, ...attributes } = props;
@@ -7,7 +6,15 @@ function Tabs(props) {
   const tabsRef = useRef();
 
   useEffect(() => {
-    new TabsJS(tabsRef.current).init();
+    (async () => {
+      if (typeof document !== 'undefined') {
+        const { default: TabsJS } = await import(
+          'govuk-frontend/govuk/components/tabs/tabs'
+        );
+
+        new TabsJS(tabsRef.current).init();
+      }
+    })();
   }, [tabsRef]);
 
   const tabContent = items.map((item, index) => {

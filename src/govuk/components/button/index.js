@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import ButtonJS from 'govuk-frontend/govuk/components/button/button';
 import { Link } from '../../../utils/Link';
 
 const Button = React.forwardRef((props, ref) => {
@@ -29,7 +28,15 @@ const Button = React.forwardRef((props, ref) => {
   let button;
 
   useEffect(() => {
-    new ButtonJS(buttonRef.current).init();
+    (async () => {
+      if (typeof document !== 'undefined') {
+        const { default: ButtonJS } = await import(
+          'govuk-frontend/govuk/components/button/button'
+        );
+
+        new ButtonJS(buttonRef.current).init();
+      }
+    })();
   }, [buttonRef]);
 
   if (element) {

@@ -12,6 +12,18 @@
 
 ## Releases
 
+### v4.0.0
+
+#### Features
+
+- Switched to using [govuk-frontend-diff](https://github.com/surevine/govuk-frontend-diff) for testing duties
+
+#### Breaking changes
+
+- Upshot of the above was that it became necessary to dynamically import the GOVUK components which interact with the DOM, in order to enable Server Side Rendering for the tests.  
+  This is therefore marked up as a breaking change since it _may_ require changes to your Webpack config (Although create-react-app supports this out the box, in which case you don't need to do anything).  
+  See https://reactjs.org/docs/code-splitting.html#import for more details.
+
 ### v3.1.0
 
 #### Features

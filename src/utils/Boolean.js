@@ -1,6 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import RadiosJS from 'govuk-frontend/govuk/components/radios/radios';
-import CheckboxesJS from 'govuk-frontend/govuk/components/checkboxes/checkboxes';
 import { ErrorMessage, Fieldset, Hint, Label } from '../govuk';
 import omit from './omitKey';
 
@@ -32,16 +30,30 @@ function Boolean(props) {
   let errorMessageComponent;
 
   useEffect(() => {
-    switch (controlType) {
-      case 'radios':
-        new RadiosJS(controlRef.current).init();
-        break;
-      case 'checkboxes':
-        new CheckboxesJS(controlRef.current).init();
-        break;
+    (async () => {
+      switch (controlType) {
+        case 'radios':
+          if (typeof document !== 'undefined') {
+            const { default: RadiosJS } = await import(
+              'govuk-frontend/govuk/components/radios/radios'
+            );
 
-      default:
-    }
+            new RadiosJS(controlRef.current).init();
+          }
+          break;
+        case 'checkboxes':
+          if (typeof document !== 'undefined') {
+            const { default: CheckboxesJS } = await import(
+              'govuk-frontend/govuk/components/checkboxes/checkboxes'
+            );
+
+            new CheckboxesJS(controlRef.current).init();
+          }
+          break;
+
+        default:
+      }
+    })();
   }, [controlRef, controlType]);
 
   if (hint) {

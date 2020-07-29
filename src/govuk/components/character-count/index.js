@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import CharacterCountJS from 'govuk-frontend/govuk/components/character-count/character-count';
 import { Textarea, Hint } from '../..';
 
 const CharacterCount = React.forwardRef((props, ref) => {
@@ -18,7 +17,15 @@ const CharacterCount = React.forwardRef((props, ref) => {
   const characterCountInfoId = `${id}-info`;
 
   useEffect(() => {
-    new CharacterCountJS(characterCountRef.current).init();
+    (async () => {
+      if (typeof document !== 'undefined') {
+        const { default: CharacterCountJS } = await import(
+          'govuk-frontend/govuk/components/character-count/character-count'
+        );
+
+        new CharacterCountJS(characterCountRef.current).init();
+      }
+    })();
   }, [characterCountRef]);
 
   return (

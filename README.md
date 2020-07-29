@@ -5,7 +5,7 @@
 [![Build Status](https://img.shields.io/travis/surevine/govuk-react-jsx.svg?style=flat-square)](https://travis-ci.org/surevine/govuk-react-jsx)
 [![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/main/LICENSE)
 
-_Please note - the version number of govuk-react-jsx is independent of the govuk-frontend version number. They just both happen to be around 3 right now..._
+_Please note - the version number of govuk-react-jsx is independent of the govuk-frontend version number._
 
 View demo at https://surevine.github.io/govuk-react-jsx/
 

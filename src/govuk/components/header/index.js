@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import HeaderJS from 'govuk-frontend/govuk/components/header/header';
+
 import logo from 'govuk-frontend/govuk/assets/images/govuk-logotype-crown.png';
 import { Link } from '../../../utils/Link';
 
@@ -25,7 +25,15 @@ function Header(props) {
   let navigationComponent;
 
   useEffect(() => {
-    new HeaderJS(headerRef.current).init();
+    (async () => {
+      if (typeof document !== 'undefined') {
+        const { default: HeaderJS } = await import(
+          'govuk-frontend/govuk/components/header/header'
+        );
+
+        new HeaderJS(headerRef.current).init();
+      }
+    })();
   }, [headerRef]);
 
   if (productName) {
