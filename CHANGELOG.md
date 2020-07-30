@@ -19,14 +19,15 @@
 - Updated to govuk-frontend@3.8.0  
   See https://github.com/alphagov/govuk-frontend/releases/tag/v3.8.0 for full release notes
 - Switch hint from span to div so that it can render block-level elements as valid HTML. See https://github.com/alphagov/govuk-frontend/pull/1855
-- Document spellcheck -> spellCheck mapping to cater for new spellcheck param in upstream nunjucks. In reality no actual code changes for this one, just a documentation update. https://github.com/alphagov/govuk-frontend/pull/1859
+- Document spellcheck -> spellCheck mapping to cater for new spellcheck param in upstream nunjucks.  
+  In reality no actual code changes for this one, just a documentation update. See https://github.com/alphagov/govuk-frontend/pull/1859
 - Switched to using [govuk-frontend-diff](https://github.com/surevine/govuk-frontend-diff) for testing duties
 
 #### Breaking changes
 
 - Upshot of the switch to govuk-frontend-diff was that it became necessary to dynamically import the GOVUK components which interact with the DOM, in order to enable Server Side Rendering for the tests.  
-  This is therefore marked up as a breaking change since it _may_ require changes to your Webpack config (Although create-react-app supports this out the box, in which case you don't need to do anything).  
-  See https://reactjs.org/docs/code-splitting.html#import for more details.
+  This is therefore marked up as a breaking change since it _may_ require changes to your Webpack config to support code splitting (Although create-react-app supports this out the box, in which case you don't need to do anything).  
+  See https://reactjs.org/docs/code-splitting.html#import for more details.  
   This should pave the way for serverside rendering of the components although this isn't tested or formally supported yet (But may well work just fine...)
 
 ### v3.1.0
