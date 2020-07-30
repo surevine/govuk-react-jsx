@@ -1,6 +1,6 @@
 # GOV.UK React components (govuk-react-jsx)
 
-![govuk-frontend 3.7.0](https://img.shields.io/badge/govuk--frontend%20version-3.7.0-005EA5?logo=gov.uk&style=flat-square)
+![govuk-frontend 3.8.0](https://img.shields.io/badge/govuk--frontend%20version-3.8.0-005EA5?logo=gov.uk&style=flat-square)
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
 [![Build Status](https://img.shields.io/travis/surevine/govuk-react-jsx.svg?style=flat-square)](https://travis-ci.org/surevine/govuk-react-jsx)
 [![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/main/LICENSE)
@@ -61,6 +61,7 @@ Exceptions to the conformance with govuk-frontend nunjucks params are as follows
 - Header links - `homepageUrl` and `serviceUrl` become `homepageUrlHref` / `homepageUrlTo` and `serviceUrlHref` / `serviceUrlTo`, with the `To` variants being passed to a react-router `<Link>` the `Href` variants being a plain html `<a>` tag
 - Anywhere that accepts an `html` or `text` param in Nunjucks will instead accept a `children` prop which should be passed either a string, or JSX. Params such as `summaryText` or `summaryHtml` become `summaryChildren`
 - `classes` becomes `className`
+- `spellcheck` becomes `spellCheck`
 - `describedBy` becomes `aria-describedby`
 - List keys - Anywhere that you specify an array of items such as a list of links, you may optionally specify a `reactListKey` for each item. This will be used instead of the index when doing `.map` over the items. React uses these keys internally to work out whether to re-render items. This is crucial for dynamic components where you might re-sort the list items for example. For static data it is less important and the key can be omitted. (See https://reactjs.org/docs/lists-and-keys.html#keys for more)
   (_The only exception to this rule is the tab component, where the tabs are already sufficiently keyed by id_)
