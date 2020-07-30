@@ -22,6 +22,7 @@ const propReplacements = {
   inputmode: 'inputMode',
   serviceUrl: 'serviceUrlHref',
   homepageUrl: 'homepageUrlHref',
+  spellcheck: 'spellCheck',
 };
 
 export default function processExampleData(data, componentName) {
