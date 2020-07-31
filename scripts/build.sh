@@ -6,7 +6,7 @@ mkdir -p build-temp
 cd src
 copy govuk/index.js govuk/template/index.js govuk/components/**/index.js utils/*.js ../build-temp
 cd ..
-babel build-temp -d dist
+babel --config-file ./scripts/babel.config.json build-temp -d dist
 rm -rf build-temp
 
 PACKAGE_VERSION=$(node -p "require('./package.json').version")
