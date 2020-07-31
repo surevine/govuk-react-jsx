@@ -92,7 +92,6 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
-    "gh-pages": "^3.1.0",
     "glob": "^7.1.6",
     "got": "^11.5.1",
     "govuk-frontend-diff": "^1.0.1",
