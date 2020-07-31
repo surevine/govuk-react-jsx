@@ -35,6 +35,9 @@ function Boolean(props) {
         case 'radios':
           if (typeof document !== 'undefined') {
             const { default: RadiosJS } = await import(
+              /* webpackChunkName: "govuk-frontend-radios" */
+              /* webpackMode: "lazy-once" */
+              /* webpackPrefetch: true */
               'govuk-frontend/govuk/components/radios/radios'
             );
 
@@ -44,6 +47,9 @@ function Boolean(props) {
         case 'checkboxes':
           if (typeof document !== 'undefined') {
             const { default: CheckboxesJS } = await import(
+              /* webpackChunkName: "govuk-frontend-checkboxes" */
+              /* webpackMode: "lazy-once" */
+              /* webpackPrefetch: true */
               'govuk-frontend/govuk/components/checkboxes/checkboxes'
             );
 

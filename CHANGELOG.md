@@ -12,6 +12,10 @@
 
 ## Releases
 
+### v4.0.2
+
+- Add webpack magic comments to checkboxes and radios (accidentally missed from previous release, sorry)
+
 ### v4.0.1
 
 - Add webpack magic comments to optimize the dynamically imported govuk-frontend js
