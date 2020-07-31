@@ -6,6 +6,8 @@
 
 #### Features
 
+- Add webpack magic comments to optimize the dynamically imported govuk-frontend js
+
 #### Breaking changes
 
 ---
