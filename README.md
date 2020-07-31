@@ -7,7 +7,7 @@
 
 _Please note - the version number of govuk-react-jsx is independent of the govuk-frontend version number._
 
-View demo at https://surevine.github.io/govuk-react-jsx/
+View demo at https://govuk-react-jsx.netlify.app/
 
 View example app at https://surevine.github.io/govuk-react-jsx-examples/ (for which the source code is at https://github.com/surevine/govuk-react-jsx-examples)
 
