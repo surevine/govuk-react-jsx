@@ -32,7 +32,7 @@ const Button = React.forwardRef((props, ref) => {
       if (typeof document !== 'undefined') {
         const { default: ButtonJS } = await import(
           /* webpackChunkName: "govuk-frontend-button" */
-          /* webpackMode: "lazy-once" */
+          /* webpackMode: "lazy" */
           /* webpackPrefetch: true */
           'govuk-frontend/govuk/components/button/button'
         );

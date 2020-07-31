@@ -14,7 +14,8 @@
 
 ### v4.0.2
 
-- Add webpack magic comments to checkboxes and radios (accidentally missed from previous release, sorry)
+- Add webpack magic comments to checkboxes and radios (accidentally missed from previous release)
+- Tweak babel to allow dynamic imports through to the final package. Previously they were being resolved before being published.
 
 ### v4.0.1
 

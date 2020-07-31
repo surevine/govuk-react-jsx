@@ -29,7 +29,7 @@ function Header(props) {
       if (typeof document !== 'undefined') {
         const { default: HeaderJS } = await import(
           /* webpackChunkName: "govuk-frontend-header" */
-          /* webpackMode: "lazy-once" */
+          /* webpackMode: "lazy" */
           /* webpackPrefetch: true */
           'govuk-frontend/govuk/components/header/header'
         );

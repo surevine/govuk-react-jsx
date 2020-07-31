@@ -9,7 +9,7 @@ function Accordion(props) {
       if (typeof document !== 'undefined') {
         const { default: AccordionJS } = await import(
           /* webpackChunkName: "govuk-frontend-accordion" */
-          /* webpackMode: "lazy-once" */
+          /* webpackMode: "lazy" */
           /* webpackPrefetch: true */
           'govuk-frontend/govuk/components/accordion/accordion'
         );

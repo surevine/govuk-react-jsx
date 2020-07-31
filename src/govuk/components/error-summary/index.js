@@ -16,7 +16,7 @@ function ErrorSummary(props) {
       if (typeof document !== 'undefined') {
         const { default: ErrorSummaryJS } = await import(
           /* webpackChunkName: "govuk-frontend-error-summary" */
-          /* webpackMode: "lazy-once" */
+          /* webpackMode: "lazy" */
           /* webpackPrefetch: true */
           'govuk-frontend/govuk/components/error-summary/error-summary'
         );
