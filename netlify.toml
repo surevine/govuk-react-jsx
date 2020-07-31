@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    x-clacks-overhead = "GNU Terry Pratchett"
