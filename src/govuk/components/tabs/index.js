@@ -9,6 +9,9 @@ function Tabs(props) {
     (async () => {
       if (typeof document !== 'undefined') {
         const { default: TabsJS } = await import(
+          /* webpackChunkName: "govuk-frontend-tabs" */
+          /* webpackMode: "lazy-once" */
+          /* webpackPrefetch: true */
           'govuk-frontend/govuk/components/tabs/tabs'
         );
 

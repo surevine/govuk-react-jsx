@@ -20,6 +20,9 @@ const CharacterCount = React.forwardRef((props, ref) => {
     (async () => {
       if (typeof document !== 'undefined') {
         const { default: CharacterCountJS } = await import(
+          /* webpackChunkName: "govuk-frontend-character-count" */
+          /* webpackMode: "lazy-once" */
+          /* webpackPrefetch: true */
           'govuk-frontend/govuk/components/character-count/character-count'
         );
 
