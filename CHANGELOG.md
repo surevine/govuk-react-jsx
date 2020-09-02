@@ -14,15 +14,21 @@
 
 ### v4.0.3
 
+#### Fixes
+
 - Updated to govuk-frontend@3.8.1  
   See https://github.com/alphagov/govuk-frontend/releases/tag/v3.8.1 for full release notes
 
 ### v4.0.2
 
+#### Fixes
+
 - Add webpack magic comments to checkboxes and radios (accidentally missed from previous release)
 - Tweak babel to allow dynamic imports through to the final package. Previously they were being resolved before being published.
 
 ### v4.0.1
+
+#### Fixes
 
 - Add webpack magic comments to optimize the dynamically imported govuk-frontend js
 
