@@ -12,6 +12,11 @@
 
 ## Releases
 
+### v4.0.3
+
+- Updated to govuk-frontend@3.8.1  
+  See https://github.com/alphagov/govuk-frontend/releases/tag/v3.8.1 for full release notes
+
 ### v4.0.2
 
 - Add webpack magic comments to checkboxes and radios (accidentally missed from previous release)

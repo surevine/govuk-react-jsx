@@ -1,6 +1,6 @@
 {
   "name": "govuk-react-jsx",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "React component ports of govuk-frontend nunjucks macros. Directly consuming govuk-frontend CSS & JS.",
   "main": "src/govuk/index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "publish-local": "./scripts/publish-local.sh",
     "publish-npm": "./scripts/publish-npm.sh",
     "run-test-server": "webpack --config tests/utils/webpack.config.js && node tests/dist/bundled-server.js",
-    "govuk-frontend-diff": "govuk-frontend-diff http://localhost:3000 --ignore-attributes=style src disabled --exclude=page-template textarea --govuk-frontend-version=v3.8.0"
+    "govuk-frontend-diff": "govuk-frontend-diff http://localhost:3000 --ignore-attributes=style src disabled --exclude=page-template textarea --govuk-frontend-version=v3.8.1"
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom-fourteen",
@@ -52,7 +52,7 @@
   },
   "homepage": "https://github.com/surevine/govuk-react-jsx#readme",
   "dependencies": {
-    "govuk-frontend": "3.8.0",
+    "govuk-frontend": "3.8.1",
     "react": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-router": "^5.2.0",
