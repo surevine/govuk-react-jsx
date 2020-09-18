@@ -5,7 +5,7 @@ import { DateInput } from '.';
 
 describe('date input', () => {
   it('correctly assigns a ref', () => {
-    const data = { ...examples.examples[0].data };
+    const data = { ...examples.examples[1].data };
     const ref = React.createRef();
 
     data.items[0].ref = ref;
