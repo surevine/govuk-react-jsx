@@ -51,15 +51,17 @@ function ErrorSummary(props) {
       <div className="govuk-error-summary__body">
         {description}
         <ul className="govuk-list govuk-error-summary__list">
-          {errorList.map((error, index) => (
-            <li key={error.reactListKey || index}>
-              {error.href ? (
-                <a {...error}>{error.children}</a>
-              ) : (
-                <>{error.children}</>
-              )}
-            </li>
-          ))}
+          {errorList
+            ? errorList.map((error, index) => (
+                <li key={error.reactListKey || index}>
+                  {error.href ? (
+                    <a {...error}>{error.children}</a>
+                  ) : (
+                    <>{error.children}</>
+                  )}
+                </li>
+              ))
+            : null}
         </ul>
       </div>
     </div>

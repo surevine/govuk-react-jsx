@@ -52,13 +52,19 @@ export default function processExampleData(data, componentName) {
       // Replace 'checked' value on radio items with a top level 'value' prop for compatibility with react form libraries
       if (key === 'items') {
         // Work out which one is checked
-        const checked = value.find((item) => item.checked);
+        const checked = value
+          .filter((item) => item)
+          .find((item) => item.checked);
 
         // Remove the checked value from each item
         parent.items = value.map((item) => {
-          const modifiedItem = { ...item };
-          delete modifiedItem.checked;
-          return modifiedItem;
+          if (item) {
+            const modifiedItem = { ...item };
+            delete modifiedItem.checked;
+            return modifiedItem;
+          }
+
+          return item;
         });
 
         if (checked) {

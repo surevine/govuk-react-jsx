@@ -9,7 +9,7 @@ function PhaseBanner(props) {
         <Tag
           className={`govuk-phase-banner__content__tag ${tag?.className || ''}`}
         >
-          {tag.children}
+          {tag?.children}
         </Tag>
 
         <span className="govuk-phase-banner__text">{children}</span>
