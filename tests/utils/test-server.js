@@ -19,10 +19,25 @@ app.post('/component/:component', async (req, res) => {
   const data = req.body;
 
   const Component = components[data.macro_name];
+  let props;
 
-  const props = processExampleData(data.params, req.params.component);
+  try {
+    props = processExampleData(data.params, req.params.component);
+  } catch (error) {
+    throw new Error(
+      `Error processing example data for ${data.macro_name} -> ${error}`
+    );
+  }
 
-  res.send(ReactDOMServer.renderToStaticMarkup(<Component {...props} />));
+  try {
+    res.send(ReactDOMServer.renderToStaticMarkup(<Component {...props} />));
+  } catch (error) {
+    throw new Error(
+      `Error rendering ${
+        data.macro_name
+      } -> ${error}\n\nData provided was:\n${JSON.stringify(props, null, 2)}`
+    );
+  }
 });
 
 // app.post('/template', (req, res) => {
