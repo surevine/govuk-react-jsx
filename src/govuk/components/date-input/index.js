@@ -58,26 +58,33 @@ function DateInput(props) {
 
   const itemComponents = dateInputItems
     .filter((item) => item)
-    .map((item, index) => (
-      <div key={item.reactListKey || index} className="govuk-date-input__item">
-        <Input
-          onChange={onChange}
-          {...item}
-          label={{
-            children: item.label
-              ? item.label
-              : item.name.charAt(0).toUpperCase() + item.name.slice(1),
-            className: 'govuk-date-input__label',
-          }}
-          id={item.id ? item.id : `${id}-${item.name}`}
-          className={`govuk-date-input__input ${item.className || ''}`}
-          name={namePrefix ? `${namePrefix}-${item.name}` : item.name}
-          type="text"
-          inputMode="numeric"
-          pattern={item.pattern ? item.pattern : '[0-9]*'}
-        />
-      </div>
-    ));
+    .map((item, index) => {
+      const name = item.name ? item.name : '';
+
+      return (
+        <div
+          key={item.reactListKey || index}
+          className="govuk-date-input__item"
+        >
+          <Input
+            onChange={onChange}
+            {...item}
+            label={{
+              children: item.label
+                ? item.label
+                : name.charAt(0).toUpperCase() + name.slice(1),
+              className: 'govuk-date-input__label',
+            }}
+            id={item.id ? item.id : `${id}-${name}`}
+            className={`govuk-date-input__input ${item.className || ''}`}
+            name={namePrefix ? `${namePrefix}-${name}` : name}
+            type="text"
+            inputMode="numeric"
+            pattern={item.pattern ? item.pattern : '[0-9]*'}
+          />
+        </div>
+      );
+    });
   const innerHtml = (
     <>
       {hintComponent}
