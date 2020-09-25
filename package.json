@@ -19,7 +19,7 @@
     "publish-local": "./scripts/publish-local.sh",
     "publish-npm": "./scripts/publish-npm.sh",
     "run-test-server": "webpack --config tests/utils/webpack.config.js && node tests/dist/bundled-server.js",
-    "govuk-frontend-diff": "govuk-frontend-diff http://localhost:3000 --ignore-attributes=style src disabled --exclude=page-template --govuk-frontend-version=v3.8.1"
+    "govuk-frontend-diff": "govuk-frontend-diff http://localhost:3000 --ignore-attributes=style src disabled --exclude=page-template --govuk-frontend-version=v3.9.1 --skip-hidden"
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom-fourteen",
@@ -52,7 +52,7 @@
   },
   "homepage": "https://github.com/surevine/govuk-react-jsx#readme",
   "dependencies": {
-    "govuk-frontend": "3.8.1",
+    "govuk-frontend": "3.9.1",
     "react": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-router": "^5.2.0",
@@ -94,7 +94,7 @@
     "file-loader": "^6.0.0",
     "glob": "^7.1.6",
     "got": "^11.5.1",
-    "govuk-frontend-diff": "^1.0.1",
+    "govuk-frontend-diff": "^1.1.0",
     "jest": "^26.2.0",
     "jest-environment-jsdom-fourteen": "^1.0.1",
     "js-yaml": "^3.14.0",
