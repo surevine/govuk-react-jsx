@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../../../utils/Link';
+import { Link } from './../../../utils/Link';
 
 function Breadcrumbs(props) {
   const { items, className, collapseOnMobile, ...attributes } = props;

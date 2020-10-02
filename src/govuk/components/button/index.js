@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from '../../../utils/Link';
+import { Link } from './../../../utils/Link';
 
 const Button = React.forwardRef((props, ref) => {
   const {

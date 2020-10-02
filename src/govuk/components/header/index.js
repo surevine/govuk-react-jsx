@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 import logo from 'govuk-frontend/govuk/assets/images/govuk-logotype-crown.png';
-import { Link } from '../../../utils/Link';
+import { Link } from './../../../utils/Link';
 
 function Header(props) {
   const {
