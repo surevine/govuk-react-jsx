@@ -1,5 +1,7 @@
 import React from 'react';
-import { Label, Hint, ErrorMessage } from '../..';
+import { Label } from '../label';
+import { Hint } from '../Hint';
+import { ErrorMessage } from '../error-message';
 
 const Select = React.forwardRef((props, ref) => {
   const {

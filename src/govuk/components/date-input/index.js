@@ -1,5 +1,8 @@
 import React from 'react';
-import { Hint, ErrorMessage, Fieldset, Input } from '../..';
+import { Fieldset } from '../fieldset';
+import { Input } from '../input';
+import { Hint } from '../Hint';
+import { ErrorMessage } from '../error-message';
 
 function DateInput(props) {
   const {

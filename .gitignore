@@ -4,3 +4,5 @@ storybook-static
 dist
 build-temp
 .DS_Store
+.idea
+module

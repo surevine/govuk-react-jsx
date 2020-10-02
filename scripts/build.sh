@@ -8,6 +8,7 @@ copy govuk/index.js govuk/template/index.js govuk/components/**/index.js utils/*
 cd ..
 babel --config-file ./scripts/babel.config.json build-temp -d dist
 rm -rf build-temp
+npm run build-module
 
 PACKAGE_VERSION=$(node -p "require('./package.json').version")
 sed "s/PACKAGE_VERSION/${PACKAGE_VERSION}/g" scripts/package.json > dist/package.json

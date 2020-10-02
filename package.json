@@ -3,6 +3,7 @@
   "version": "4.0.3",
   "description": "React component ports of govuk-frontend nunjucks macros. Directly consuming govuk-frontend CSS & JS.",
   "main": "src/govuk/index.js",
+  "module": "module/index.js",
   "scripts": {
     "test": "jest --notify --verbose",
     "storybook": "start-storybook -p 6006",
@@ -14,6 +15,7 @@
     "start": "npm run storybook",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "build-module": "BABEL_ENV=module babel --ignore **/**/*.story.js,**/**/examples.js ./src --out-dir ./module --source-maps inline",
     "deploy-demo": "npm run build-storybook && gh-pages -d storybook-static",
     "build": "./scripts/build.sh",
     "publish-local": "./scripts/publish-local.sh",

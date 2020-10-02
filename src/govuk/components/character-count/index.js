@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Textarea, Hint } from '../..';
+import { Textarea } from '../textarea';
+import { Hint } from '../hint';
 
 const CharacterCount = React.forwardRef((props, ref) => {
   const {
