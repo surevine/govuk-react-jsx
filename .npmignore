@@ -1,0 +1,9 @@
+scripts
+src/*/**
+tests
+utils
+.editorconfig
+.eslintignore
+.eslintrc
+.storybook
+.idea
