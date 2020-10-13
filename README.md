@@ -103,7 +103,7 @@ An example of using govuk-frontend styles with `govuk-react-jsx` can be viewed a
 
 ### Using Components
 
-All components are documented in [Storybook](https://surevine.github.io/govuk-react-jsx/) with example usage code.
+All components are documented in [Storybook](https://govuk-react-jsx.netlify.app/) with example usage code.
 
 e.g. to render a panel component
 
