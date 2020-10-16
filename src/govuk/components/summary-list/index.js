@@ -70,24 +70,23 @@ function actions(row, anyRowHasActions) {
 
 function SummaryList(props) {
   const { className, rows, ...attributes } = props;
-  const anyRowHasActions = rows.some(
+  const filteredRows = rows ? rows.filter((row) => row) : [];
+  const anyRowHasActions = filteredRows.some(
     (item) => (item.actions && 'items' in item.actions) === true
   );
 
   return (
     <dl className={`govuk-summary-list ${className || ''}`} {...attributes}>
-      {rows.map((row, index) => (
+      {filteredRows.map((row, index) => (
         <div
           key={row.reactListKey || index}
           className={`govuk-summary-list__row ${row.className || ''}`}
         >
-          <dt className={`govuk-summary-list__key ${row.key.className || ''}`}>
-            {row.key.children}
+          <dt className={`govuk-summary-list__key ${row.key?.className || ''}`}>
+            {row.key?.children}
           </dt>
-          <dd
-            className={`govuk-summary-list__value ${row.value.className || ''}`}
-          >
-            {row.value.children}
+          <dd className={`govuk-summary-list__value ${row.value?.className}`}>
+            {row.value?.children}
           </dd>
 
           {actions(row, anyRowHasActions)}

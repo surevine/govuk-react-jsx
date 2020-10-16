@@ -20,7 +20,9 @@ function Tabs(props) {
     })();
   }, [tabsRef]);
 
-  const tabContent = items.map((item, index) => {
+  const filteredItems = items ? items.filter((item) => item) : [];
+
+  const tabContent = filteredItems.map((item, index) => {
     // eslint-disable-next-line no-unused-vars
     const { id: itemId, label, panel, ...itemAttributes } = item;
 
@@ -44,7 +46,7 @@ function Tabs(props) {
 
   const tabs = <ul className="govuk-tabs__list">{tabContent}</ul>;
 
-  const panels = items.map((item, index) => {
+  const panels = filteredItems.map((item, index) => {
     // eslint-disable-next-line no-unused-vars
     const { id: itemId, panel, label, ...itemAttributes } = item;
 
@@ -57,7 +59,7 @@ function Tabs(props) {
         id={itemId}
         {...itemAttributes}
       >
-        {panel.children}
+        {panel?.children}
       </div>
     );
   });
