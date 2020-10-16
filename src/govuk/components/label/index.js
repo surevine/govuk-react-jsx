@@ -2,6 +2,12 @@ import React from 'react';
 
 function Label(props) {
   const { className, htmlFor, children, isPageHeading, ...attributes } = props;
+
+  // If no children, just don't output anything
+  if (!children) {
+    return null;
+  }
+
   const label = (
     // Stop eslint flagging the for/id combination as an error. It is failing due to the way the
     // input and label are located in different components and so it cannot track the association
