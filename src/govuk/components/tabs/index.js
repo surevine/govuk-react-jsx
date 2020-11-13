@@ -81,6 +81,7 @@ function Tabs(props) {
 
 Tabs.defaultProps = {
   title: 'Contents',
+  idPrefix: '',
 };
 
 export { Tabs };
