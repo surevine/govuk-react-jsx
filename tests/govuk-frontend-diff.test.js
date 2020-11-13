@@ -51,7 +51,10 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
 
     it.each(
       fixtures.fixtures
-        .filter((fixture) => fixture.html.indexOf('undefined') === -1) // Temporarily filter out tests that contain the word "undefined" until govuk-frontend@3.10.x lands
+        .filter((fixture) =>
+          // Temporarily filter out tests that contain the word "undefined" until govuk-frontend@3.10.x lands
+          fixture.html ? fixture.html.indexOf('undefined') === -1 : true
+        )
         .map((fixture) => [fixture.name, fixture.options, fixture.html])
     )('Example: %s', async (name, options, govukFrontendOutput) => {
       const props = processExampleData(options, component);

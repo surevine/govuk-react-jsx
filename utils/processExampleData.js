@@ -29,8 +29,13 @@ export default function processExampleData(data, componentName) {
   for (const { parent, value, key } of deepIterator(data)) {
     // Replace html and text props with children
     // Turn any html strings into jsx
-    if ((key === 'html' || key === 'text') && value) {
+    if (key === 'html' && value) {
       parent.children = ReactHtmlParser(value);
+      delete parent[key];
+    }
+
+    if (key === 'text' && value) {
+      parent.children = value;
       delete parent[key];
     }
 
