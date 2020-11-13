@@ -44,7 +44,10 @@ function Tabs(props) {
     );
   });
 
-  const tabs = <ul className="govuk-tabs__list">{tabContent}</ul>;
+  const tabs =
+    filteredItems.length > 0 ? (
+      <ul className="govuk-tabs__list">{tabContent}</ul>
+    ) : null;
 
   const panels = filteredItems.map((item, index) => {
     // eslint-disable-next-line no-unused-vars
