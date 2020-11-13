@@ -52,7 +52,6 @@ function Tabs(props) {
   const panels = filteredItems.map((item, index) => {
     // eslint-disable-next-line no-unused-vars
     const { id: itemId, panel, label, ...itemAttributes } = item;
-
     return (
       <div
         key={itemId}
@@ -60,10 +59,8 @@ function Tabs(props) {
           index > 0 ? ' govuk-tabs__panel--hidden' : ''
         }`}
         id={`${itemId || `${idPrefix}-${index + 1}`}`}
-        {...itemAttributes}
-      >
-        {panel?.children}
-      </div>
+        {...panel}
+      />
     );
   });
 
