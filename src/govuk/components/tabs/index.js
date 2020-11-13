@@ -35,7 +35,7 @@ function Tabs(props) {
       >
         <a
           className="govuk-tabs__tab"
-          href={`#${itemId || `${idPrefix}-${index}`}`}
+          href={`#${itemId || `${idPrefix}-${index + 1}`}`}
           {...itemAttributes}
         >
           {label}
@@ -56,7 +56,7 @@ function Tabs(props) {
         className={`govuk-tabs__panel${
           index > 0 ? ' govuk-tabs__panel--hidden' : ''
         }`}
-        id={itemId}
+        id={`${itemId || `${idPrefix}-${index + 1}`}`}
         {...itemAttributes}
       >
         {panel?.children}
