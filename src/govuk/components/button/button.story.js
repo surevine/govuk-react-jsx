@@ -1,16 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from '.';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/button/fixtures.json';
 import processExampleData from '../../../../utils/processExampleData';
 import { WithRef } from '../../../../utils/WithRef';
 
 const stories = storiesOf('button', module);
 
-for (const example of Object.values(processExampleData(examples.examples))) {
-  stories.add(example.name, () => <Button {...example.data} />);
+for (const example of Object.values(processExampleData(fixtures.fixtures))) {
+  stories.add(example.name, () => <Button {...example.options} />);
 }
 
 stories.add('with ref', () => (
-  <WithRef Component={Button} {...examples.examples[0].data} />
+  <WithRef Component={Button} {...fixtures.fixtures[0].options} />
 ));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/character-count/fixtures.json';
 import { CharacterCount } from '.';
 
 describe('character count', () => {
@@ -8,7 +8,7 @@ describe('character count', () => {
     const ref = React.createRef();
     const { container } = render(
       <CharacterCount
-        {...examples.examples[0].data}
+        {...fixtures.fixtures[0].options}
         ref={ref}
         onChange={() => {}}
       />

@@ -2,13 +2,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { ErrorSummary } from '.';
 import { Input } from '../input';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/error-summary/fixtures.json';
 import processExampleData from '../../../../utils/processExampleData';
 
 const stories = storiesOf('error-summary', module);
 
-for (const example of Object.values(processExampleData(examples.examples))) {
-  stories.add(example.name, () => <ErrorSummary {...example.data} />);
+for (const example of Object.values(processExampleData(fixtures.fixtures))) {
+  stories.add(example.name, () => <ErrorSummary {...example.options} />);
 }
 
 stories.add('Error summary linking to input', () => (

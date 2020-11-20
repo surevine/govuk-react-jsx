@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Input } from '.';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/input/fixtures.json';
 import processExampleData from '../../../../utils/processExampleData';
 import { WithRef } from '../../../../utils/WithRef';
 
@@ -20,10 +20,10 @@ examples.examples.push({
   },
 });
 
-for (const example of Object.values(processExampleData(examples.examples))) {
-  stories.add(example.name, () => <Input {...example.data} />);
+for (const example of Object.values(processExampleData(fixtures.fixtures))) {
+  stories.add(example.name, () => <Input {...example.options} />);
 }
 
 stories.add('with ref', () => (
-  <WithRef Component={Input} {...examples.examples[0].data} />
+  <WithRef Component={Input} {...fixtures.fixtures[0].options} />
 ));

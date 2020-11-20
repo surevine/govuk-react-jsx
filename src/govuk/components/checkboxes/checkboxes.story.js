@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Checkboxes as CheckboxesComponent } from '.';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/checkboxes/fixtures.json';
 import processExampleData from '../../../../utils/processExampleData';
 import { WithItemRefs } from '../../../../utils/WithRef';
 
@@ -31,11 +31,11 @@ const Checkboxes = (props) => {
 };
 
 for (const example of Object.values(
-  processExampleData(examples.examples, 'checkboxes')
+  processExampleData(fixtures.fixtures, 'checkboxes')
 )) {
-  stories.add(example.name, () => <Checkboxes {...example.data} />);
+  stories.add(example.name, () => <Checkboxes {...example.options} />);
 }
 
 stories.add('with ref', () => (
-  <WithItemRefs Component={Checkboxes} {...examples.examples[0].data} />
+  <WithItemRefs Component={Checkboxes} {...fixtures.fixtures[0].options} />
 ));

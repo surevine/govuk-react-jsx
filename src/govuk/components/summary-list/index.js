@@ -85,7 +85,7 @@ function SummaryList(props) {
           <dt className={`govuk-summary-list__key ${row.key?.className || ''}`}>
             {row.key?.children}
           </dt>
-          <dd className={`govuk-summary-list__value ${row.value?.className}`}>
+          <dd className={`govuk-summary-list__value ${row.value?.className || ''}`}>
             {row.value?.children}
           </dd>
 

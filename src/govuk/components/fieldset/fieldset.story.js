@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Fieldset } from '.';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/fieldset/fixtures.json';
 import processExampleData from '../../../../utils/processExampleData';
 
 const stories = storiesOf('fieldset', module);
 
-for (const example of Object.values(processExampleData(examples.examples))) {
-  stories.add(example.name, () => <Fieldset {...example.data} />);
+for (const example of Object.values(processExampleData(fixtures.fixtures))) {
+  stories.add(example.name, () => <Fieldset {...example.options} />);
 }

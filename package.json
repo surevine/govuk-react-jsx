@@ -6,9 +6,6 @@
   "scripts": {
     "test": "jest --verbose",
     "storybook": "start-storybook -p 6006",
-    "fetch-examples": "node scripts/fetch-govuk-frontend-examples.js",
-    "prestorybook": "npm run fetch-examples",
-    "prebuild-storybook": "npm run fetch-examples",
     "build-storybook": "build-storybook",
     "start": "npm run storybook",
     "lint": "eslint .",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/select/fixtures.json';
 import processExampleData from '../../../../utils/processExampleData';
 import { Select } from '.';
 
@@ -9,7 +9,7 @@ describe('select', () => {
     const ref = React.createRef();
     const { container } = render(
       <Select
-        {...processExampleData(examples.examples[0].data, 'select')}
+        {...processExampleData(fixtures.fixtures[0].options, 'select')}
         onChange={() => {}}
         ref={ref}
       />

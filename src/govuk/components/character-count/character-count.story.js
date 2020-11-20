@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { CharacterCount as CharacterCountComponent } from '.';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/character-count/fixtures.json';
 import processExampleData from '../../../../utils/processExampleData';
 import { WithRef } from '../../../../utils/WithRef';
 
@@ -28,11 +28,11 @@ const CharacterCount = React.forwardRef((props, ref) => {
 CharacterCount.displayName = 'CharacterCount';
 
 for (const example of Object.values(
-  processExampleData(examples.examples, 'character-component')
+  processExampleData(fixtures.fixtures, 'character-component')
 )) {
-  stories.add(example.name, () => <CharacterCount {...example.data} />);
+  stories.add(example.name, () => <CharacterCount {...example.options} />);
 }
 
 stories.add('with ref', () => (
-  <WithRef Component={CharacterCount} {...examples.examples[0].data} />
+  <WithRef Component={CharacterCount} {...fixtures.fixtures[0].options} />
 ));

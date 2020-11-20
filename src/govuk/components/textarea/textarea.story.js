@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Textarea as TextareaComponent } from '.';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/textarea/fixtures.json';
 import processExampleData from '../../../../utils/processExampleData';
 import { WithRef } from '../../../../utils/WithRef';
 
@@ -28,11 +28,11 @@ const Textarea = React.forwardRef((props, ref) => {
 Textarea.displayName = 'Textarea';
 
 for (const example of Object.values(
-  processExampleData(examples.examples, 'textarea')
+  processExampleData(fixtures.fixtures, 'textarea')
 )) {
-  stories.add(example.name, () => <Textarea {...example.data} />);
+  stories.add(example.name, () => <Textarea {...example.options} />);
 }
 
 stories.add('with ref', () => (
-  <WithRef Component={Textarea} {...examples.examples[0].data} />
+  <WithRef Component={Textarea} {...fixtures.fixtures[0].options} />
 ));
