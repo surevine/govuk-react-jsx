@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import { CharacterCount as CharacterCountComponent } from '.';
-import fixtures from 'govuk-frontend/govuk/components/character-count/fixtures.json';
-import processExampleData from '../../../../utils/processExampleData';
-import { WithRef } from '../../../../utils/WithRef';
+import React, { useState } from "react";
+import { storiesOf } from "@storybook/react";
+import { CharacterCount as CharacterCountComponent } from ".";
+import fixtures from "govuk-frontend/govuk/components/character-count/fixtures.json";
+import processExampleData from "../../../../utils/processExampleData";
+import { WithRef } from "../../../../utils/WithRef";
 
-const stories = storiesOf('character-count', module);
+const stories = storiesOf("character-count", module);
 
 const CharacterCount = React.forwardRef((props, ref) => {
   const { value: initialValue, ...restProps } = props;
@@ -25,14 +25,17 @@ const CharacterCount = React.forwardRef((props, ref) => {
   );
 });
 
-CharacterCount.displayName = 'CharacterCount';
+CharacterCount.displayName = "CharacterCount";
 
 for (const example of Object.values(
-  processExampleData(fixtures.fixtures, 'character-component')
+  processExampleData(
+    fixtures.fixtures.filter((fixture) => !fixture.hidden),
+    "character-component"
+  )
 )) {
   stories.add(example.name, () => <CharacterCount {...example.options} />);
 }
 
-stories.add('with ref', () => (
+stories.add("with ref", () => (
   <WithRef Component={CharacterCount} {...fixtures.fixtures[0].options} />
 ));

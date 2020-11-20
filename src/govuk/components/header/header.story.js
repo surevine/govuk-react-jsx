@@ -1,11 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
-import { Header as BaseHeader } from '.';
-import fixtures from 'govuk-frontend/govuk/components/header/fixtures.json';
-import processExampleData from '../../../../utils/processExampleData';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { BrowserRouter } from "react-router-dom";
+import { Header as BaseHeader } from ".";
+import fixtures from "govuk-frontend/govuk/components/header/fixtures.json";
+import processExampleData from "../../../../utils/processExampleData";
 
-const stories = storiesOf('header', module);
+const stories = storiesOf("header", module);
 
 const Header = function (props) {
   return (
@@ -15,6 +15,8 @@ const Header = function (props) {
   );
 };
 
-for (const example of Object.values(processExampleData(fixtures.fixtures))) {
+for (const example of Object.values(
+  processExampleData(fixtures.fixtures.filter((fixture) => !fixture.hidden))
+)) {
   stories.add(example.name, () => <Header {...example.options} />);
 }

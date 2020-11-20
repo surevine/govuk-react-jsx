@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import { Checkboxes as CheckboxesComponent } from '.';
-import fixtures from 'govuk-frontend/govuk/components/checkboxes/fixtures.json';
-import processExampleData from '../../../../utils/processExampleData';
-import { WithItemRefs } from '../../../../utils/WithRef';
+import React, { useState } from "react";
+import { storiesOf } from "@storybook/react";
+import { Checkboxes as CheckboxesComponent } from ".";
+import fixtures from "govuk-frontend/govuk/components/checkboxes/fixtures.json";
+import processExampleData from "../../../../utils/processExampleData";
+import { WithItemRefs } from "../../../../utils/WithRef";
 
-const stories = storiesOf('checkboxes', module);
+const stories = storiesOf("checkboxes", module);
 
 const Checkboxes = (props) => {
   const { items } = props;
@@ -31,11 +31,14 @@ const Checkboxes = (props) => {
 };
 
 for (const example of Object.values(
-  processExampleData(fixtures.fixtures, 'checkboxes')
+  processExampleData(
+    fixtures.fixtures.filter((fixture) => !fixture.hidden),
+    "checkboxes"
+  )
 )) {
   stories.add(example.name, () => <Checkboxes {...example.options} />);
 }
 
-stories.add('with ref', () => (
+stories.add("with ref", () => (
   <WithItemRefs Component={Checkboxes} {...fixtures.fixtures[0].options} />
 ));

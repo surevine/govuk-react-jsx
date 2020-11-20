@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import { Textarea as TextareaComponent } from '.';
-import fixtures from 'govuk-frontend/govuk/components/textarea/fixtures.json';
-import processExampleData from '../../../../utils/processExampleData';
-import { WithRef } from '../../../../utils/WithRef';
+import React, { useState } from "react";
+import { storiesOf } from "@storybook/react";
+import { Textarea as TextareaComponent } from ".";
+import fixtures from "govuk-frontend/govuk/components/textarea/fixtures.json";
+import processExampleData from "../../../../utils/processExampleData";
+import { WithRef } from "../../../../utils/WithRef";
 
-const stories = storiesOf('textarea', module);
+const stories = storiesOf("textarea", module);
 
 const Textarea = React.forwardRef((props, ref) => {
   const { value: initialValue, ...restProps } = props;
@@ -25,14 +25,17 @@ const Textarea = React.forwardRef((props, ref) => {
   );
 });
 
-Textarea.displayName = 'Textarea';
+Textarea.displayName = "Textarea";
 
 for (const example of Object.values(
-  processExampleData(fixtures.fixtures, 'textarea')
+  processExampleData(
+    fixtures.fixtures.filter((fixture) => !fixture.hidden),
+    "textarea"
+  )
 )) {
   stories.add(example.name, () => <Textarea {...example.options} />);
 }
 
-stories.add('with ref', () => (
+stories.add("with ref", () => (
   <WithRef Component={Textarea} {...fixtures.fixtures[0].options} />
 ));
