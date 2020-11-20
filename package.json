@@ -4,12 +4,11 @@
   "description": "React component ports of govuk-frontend nunjucks macros. Directly consuming govuk-frontend CSS & JS.",
   "main": "src/govuk/index.js",
   "scripts": {
-    "test": "jest --notify --verbose",
+    "test": "jest --verbose",
     "storybook": "start-storybook -p 6006",
     "fetch-examples": "node scripts/fetch-govuk-frontend-examples.js",
     "prestorybook": "npm run fetch-examples",
     "prebuild-storybook": "npm run fetch-examples",
-    "pretest": "npm run fetch-examples",
     "build-storybook": "build-storybook",
     "start": "npm run storybook",
     "lint": "eslint .",
