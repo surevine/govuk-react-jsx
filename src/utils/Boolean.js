@@ -119,6 +119,10 @@ function Boolean(props) {
 
               let itemDescribedBy = '';
 
+              if (controlType === 'checkboxes' && !hasFieldset) {
+                itemDescribedBy = describedBy;
+              }
+
               if (itemHint) {
                 itemDescribedBy += ` ${itemHintId}`;
               }
