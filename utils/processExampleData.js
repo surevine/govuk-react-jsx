@@ -86,7 +86,7 @@ export default function processExampleData(data, componentName) {
         // Work out which one is checked
         const selected = value.find((item) => (item ? item.selected : null));
 
-        // Remove the checked value from each item
+        // Remove the selected value from each item
         parent.items = value.map((item) => {
           if (item && Object.keys(item).length > 0) {
             const modifiedItem = { ...item };
