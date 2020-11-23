@@ -72,7 +72,7 @@ function SummaryList(props) {
   const { className, rows, ...attributes } = props;
   const filteredRows = rows ? rows.filter((row) => row) : [];
   const anyRowHasActions = filteredRows.some(
-    (item) => item.actions?.length > 0 === true
+    (item) => item.actions?.items.length > 0 === true
   );
 
   return (
