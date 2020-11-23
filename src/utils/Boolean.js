@@ -119,10 +119,6 @@ function Boolean(props) {
 
               let itemDescribedBy = '';
 
-              if (!hasFieldset) {
-                itemDescribedBy = describedBy;
-              }
-
               if (itemHint) {
                 itemDescribedBy += ` ${itemHintId}`;
               }
