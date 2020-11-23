@@ -60,6 +60,7 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
       // Ideally follow up anything in here with a pull request to govuk-frontend resolving the issue
       switch (`${component}:${name}`) {
         case 'select:with falsey values':
+        case 'select:attributes on items':
           // Value missing, and should actually be marked as required in govuk-frontend since it is treated as such. (Omitting value in params just outputs empty values)
           options.items.forEach((item, index) => {
             if (item) {
