@@ -31,14 +31,16 @@ const Select = React.forwardRef((props, ref) => {
   }
 
   const options = items
-    ? items.map((option, index) => {
-        const { reactListKey, children, ...optionAttributes } = option;
-        return (
-          <option {...optionAttributes} key={reactListKey || index}>
-            {children}
-          </option>
-        );
-      })
+    ? items
+        .filter((item) => item)
+        .map((option, index) => {
+          const { reactListKey, children, ...optionAttributes } = option;
+          return (
+            <option {...optionAttributes} key={reactListKey || index}>
+              {children}
+            </option>
+          );
+        })
     : null;
 
   return (
