@@ -50,25 +50,22 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
     const ReactComponent = components[hyphenatedToCamel(component)];
 
     it.each(
-      fixtures.fixtures
-        .filter((fixture) =>
-          // Temporarily filter out tests that contain the word "undefined" until govuk-frontend@3.10.x lands
-          fixture.html ? fixture.html.indexOf('undefined') === -1 : true
-        )
-        .map((fixture) => [fixture.name, fixture.options, fixture.html])
+      fixtures.fixtures.map((fixture) => [
+        fixture.name,
+        fixture.options,
+        fixture.html,
+      ])
     )('Example: %s', async (name, options, govukFrontendOutput) => {
       // Override values in specific fixtures to avoid issues
       // Ideally follow up anything in here with a pull request to govuk-frontend resolving the issue
       switch (`${component}:${name}`) {
-        // Fix href on a summary list actions example - href is required and should not be missing
-        case 'summary-list:actions with classes':
-        case 'summary-list:actions with html':
-          options.rows[0].actions.items[0].href = 'hack';
-          // eslint-disable-next-line no-param-reassign
-          govukFrontendOutput = govukFrontendOutput.replace(
-            'href=""',
-            'href="hack"'
-          );
+        case 'select:with falsey values':
+          // Value missing, and should actually be marked as required in govuk-frontend since it is treated as such. (Omitting value in params just outputs empty values)
+          options.items.forEach((item, index) => {
+            if (item) {
+              options.items[index].value = '';
+            }
+          });
           break;
 
         default:
