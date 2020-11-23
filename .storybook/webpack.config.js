@@ -17,5 +17,9 @@ module.exports = async ({ config, mode }) => {
     include: path.resolve(__dirname, '../'),
   });
 
+  config.watchOptions = {
+    poll: 1000, // Because I have to run on windows at the moment :-(
+  };
+
   return config;
 };
