@@ -7,7 +7,11 @@ describe('textarea', () => {
   it('correctly assigns a ref', () => {
     const ref = React.createRef();
     const { container } = render(
-      <Textarea {...fixtures.fixtures[0].options} ref={ref} onChange={() => {}} />
+      <Textarea
+        {...fixtures.fixtures[0].options}
+        ref={ref}
+        onChange={() => {}}
+      />
     );
 
     expect(ref.current).toEqual(container.querySelector('textarea'));

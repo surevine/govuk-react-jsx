@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
-import { Template as BaseTemplate } from '.';
 import headerFixtures from 'govuk-frontend/govuk/components/header/fixtures.json';
 import footerFixtures from 'govuk-frontend/govuk/components/footer/fixtures.json';
+import { Template as BaseTemplate } from '.';
 
 const stories = storiesOf('template', module);
 

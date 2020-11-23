@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
-import { Select as SelectComponent } from ".";
-import fixtures from "govuk-frontend/govuk/components/select/fixtures.json";
-import processExampleData from "../../../../utils/processExampleData";
-import { WithRef } from "../../../../utils/WithRef";
+import React, { useState } from 'react';
+import { storiesOf } from '@storybook/react';
+import fixtures from 'govuk-frontend/govuk/components/select/fixtures.json';
+import { Select as SelectComponent } from '.';
+import processExampleData from '../../../../utils/processExampleData';
+import { WithRef } from '../../../../utils/WithRef';
 
-const stories = storiesOf("select", module);
+const stories = storiesOf('select', module);
 
 const Select = React.forwardRef((props, ref) => {
   const { value: initialValue, ...restProps } = props;
@@ -25,17 +25,17 @@ const Select = React.forwardRef((props, ref) => {
   );
 });
 
-Select.displayName = "Select";
+Select.displayName = 'Select';
 
 for (const example of Object.values(
   processExampleData(
     fixtures.fixtures.filter((fixture) => !fixture.hidden),
-    "select"
+    'select'
   )
 )) {
   stories.add(example.name, () => <Select {...example.options} />);
 }
 
-stories.add("with ref", () => (
+stories.add('with ref', () => (
   <WithRef Component={Select} {...fixtures.fixtures[0].options} />
 ));

@@ -1,11 +1,11 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { BrowserRouter } from "react-router-dom";
-import { Header as BaseHeader } from ".";
-import fixtures from "govuk-frontend/govuk/components/header/fixtures.json";
-import processExampleData from "../../../../utils/processExampleData";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
+import fixtures from 'govuk-frontend/govuk/components/header/fixtures.json';
+import { Header as BaseHeader } from '.';
+import processExampleData from '../../../../utils/processExampleData';
 
-const stories = storiesOf("header", module);
+const stories = storiesOf('header', module);
 
 const Header = function (props) {
   return (

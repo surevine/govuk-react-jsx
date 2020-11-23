@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "../../../utils/Link";
+import React from 'react';
+import { Link } from '../../../utils/Link';
 
 function ActionLink(props) {
   const {
@@ -22,7 +22,7 @@ function ActionLink(props) {
 
   return (
     <Link
-      className={`govuk-link ${className || ""}`}
+      className={`govuk-link ${className || ''}`}
       to={to}
       href={href}
       {...attributes}
@@ -40,7 +40,7 @@ function actions(row, anyRowHasActions) {
   if (row.actions?.items.length) {
     return (
       <dd
-        className={`govuk-summary-list__actions ${row.actions.className || ""}`}
+        className={`govuk-summary-list__actions ${row.actions.className || ''}`}
       >
         {row.actions.items.length === 1 ? (
           actionLinks
@@ -76,18 +76,18 @@ function SummaryList(props) {
   );
 
   return (
-    <dl className={`govuk-summary-list ${className || ""}`} {...attributes}>
+    <dl className={`govuk-summary-list ${className || ''}`} {...attributes}>
       {filteredRows.map((row, index) => (
         <div
           key={row.reactListKey || index}
-          className={`govuk-summary-list__row ${row.className || ""}`}
+          className={`govuk-summary-list__row ${row.className || ''}`}
         >
-          <dt className={`govuk-summary-list__key ${row.key?.className || ""}`}>
+          <dt className={`govuk-summary-list__key ${row.key?.className || ''}`}>
             {row.key?.children}
           </dt>
           <dd
             className={`govuk-summary-list__value ${
-              row.value?.className || ""
+              row.value?.className || ''
             }`}
           >
             {row.value?.children}
