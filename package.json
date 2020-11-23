@@ -48,7 +48,7 @@
   },
   "homepage": "https://github.com/surevine/govuk-react-jsx#readme",
   "dependencies": {
-    "govuk-frontend": "3.9.0",
+    "govuk-frontend": "3.10.0",
     "react": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-router": "^5.2.0",

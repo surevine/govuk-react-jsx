@@ -6,6 +6,10 @@
 
 #### Features
 
+- Updated to govuk-frontend@3.10.0  
+  See https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.0 for full release notes
+- Updated to govuk-frontend@3.9.1  
+  See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.1 for full release notes
 - Updated to govuk-frontend@3.9.0  
   See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.0 for full release notes
 
