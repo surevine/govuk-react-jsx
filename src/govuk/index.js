@@ -16,6 +16,7 @@ export * from './components/hint';
 export * from './components/input';
 export * from './components/inset-text';
 export * from './components/label';
+export * from './components/notification-banner';
 export * from './components/panel';
 export * from './components/phase-banner';
 export * from './components/radios';
