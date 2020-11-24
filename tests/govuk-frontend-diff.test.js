@@ -56,6 +56,8 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
         fixture.html,
       ])
     )('Example: %s', async (name, options, govukFrontendOutput) => {
+      expect(ReactComponent).toBeDefined();
+
       // Override values in specific fixtures to avoid issues
       // Ideally follow up anything in here with a pull request to govuk-frontend resolving the issue
       switch (`${component}:${name}`) {
