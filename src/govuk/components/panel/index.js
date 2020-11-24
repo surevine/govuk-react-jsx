@@ -10,7 +10,9 @@ function Panel(props) {
   } = props;
   const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h1';
 
-  const innerHtml = <div className="govuk-panel__body">{children}</div>;
+  const innerHtml = children ? (
+    <div className="govuk-panel__body">{children}</div>
+  ) : null;
 
   return (
     <div
