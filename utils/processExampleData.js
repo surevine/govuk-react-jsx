@@ -47,7 +47,10 @@ export default function processExampleData(data, componentName) {
 
     // Spread attributes out into the object above them in a more React-like fashion
     if (key === 'attributes') {
-      Object.assign(parent, value.toString());
+      Object.keys(value).forEach((attributeName) => {
+        parent[attributeName] = value[attributeName].toString();
+      });
+
       delete parent.attributes;
     }
   }
