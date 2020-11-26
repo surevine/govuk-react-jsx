@@ -21,9 +21,12 @@ function Accordion(props) {
 
   const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h2';
 
-  const innerHtml = items
-    .filter((item) => item)
-    .map((item, index) => (
+  const innerHtml = items.map((item, index) => {
+    if (!item) {
+      return;
+    }
+
+    return (
       <div
         key={item.reactListKey || index}
         className={`govuk-accordion__section ${
@@ -58,7 +61,8 @@ function Accordion(props) {
           {item.content.children}
         </div>
       </div>
-    ));
+    );
+  });
   return (
     <div
       {...attributes}
