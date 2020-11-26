@@ -76,6 +76,10 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
           return; // Example is just broken - Remove once https://github.com/alphagov/govuk-frontend/pull/2043 is merged
           break;
 
+        case 'checkboxes:multiple hints':
+          options.items[2].value = ''; // Example is missing a value - Remove once https://github.com/alphagov/govuk-frontend/pull/2043 is merged
+          break;
+
         default:
       }
       // END overrides
