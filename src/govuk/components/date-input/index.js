@@ -35,7 +35,7 @@ function DateInput(props) {
     errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
-  if (items) {
+  if (items && items.length > 0) {
     dateInputItems = items;
   } else {
     dateInputItems = [
@@ -60,28 +60,34 @@ function DateInput(props) {
   const itemComponents = dateInputItems
     .filter((item) => item)
     .map((item, index) => {
-      const name = item.name ? item.name : '';
+      const {
+        name: itemName,
+        inputMode: itemInputMode,
+        label: itemLabel,
+        reactListKey: itemReactListKey,
+        id: itemId,
+        className: itemClassName,
+        pattern: itemPattern,
+        ...itemAttributes
+      } = item;
 
       return (
-        <div
-          key={item.reactListKey || index}
-          className="govuk-date-input__item"
-        >
+        <div key={itemReactListKey || index} className="govuk-date-input__item">
           <Input
             onChange={onChange}
-            {...item}
+            {...itemAttributes}
             label={{
-              children: item.label
-                ? item.label
-                : name.charAt(0).toUpperCase() + name.slice(1),
+              children: itemLabel
+                ? itemLabel
+                : itemName.charAt(0).toUpperCase() + itemName.slice(1),
               className: 'govuk-date-input__label',
             }}
-            id={item.id ? item.id : `${id}-${name}`}
-            className={`govuk-date-input__input ${item.className || ''}`}
-            name={namePrefix ? `${namePrefix}-${name}` : name}
+            id={itemId ? itemId : `${id}-${itemName}`}
+            className={`govuk-date-input__input ${itemClassName || ''}`}
+            name={namePrefix ? `${namePrefix}-${itemName}` : itemName}
             type="text"
-            inputMode="numeric"
-            pattern={item.pattern ? item.pattern : '[0-9]*'}
+            inputMode={itemInputMode ? itemInputMode : 'numeric'}
+            pattern={itemPattern ? itemPattern : '[0-9]*'}
           />
         </div>
       );

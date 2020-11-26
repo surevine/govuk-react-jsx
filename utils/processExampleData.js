@@ -8,8 +8,6 @@ const propReplacements = {
   navigationClasses: 'navigationClassName',
   autocomplete: 'autoComplete',
   for: 'htmlFor',
-  // checked: 'defaultChecked',
-  // value: 'defaultValue',
   captionClasses: 'captionClassName',
   colspan: 'colSpan',
   rowspan: 'rowSpan',
