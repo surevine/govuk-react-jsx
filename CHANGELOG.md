@@ -15,6 +15,7 @@
 
 - New notification banner component added
 - Add input prefix and suffix.
+- Customise aria-label text in the header component - added `navigationLabel` and `menuButtonLabel` props
 
 #### Breaking changes
 
