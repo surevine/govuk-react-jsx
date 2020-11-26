@@ -13,8 +13,7 @@
     "deploy-demo": "npm run build-storybook && gh-pages -d storybook-static",
     "build": "./scripts/build.sh",
     "publish-local": "./scripts/publish-local.sh",
-    "publish-npm": "./scripts/publish-npm.sh",
-    "run-test-server": "webpack --config tests/utils/webpack.config.js && node tests/dist/bundled-server.js"
+    "publish-npm": "./scripts/publish-npm.sh"
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom-fourteen",
