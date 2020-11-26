@@ -34,6 +34,7 @@ function DateInput(props) {
     describedBy += ` ${errorId}`;
     errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
+
   if (items) {
     dateInputItems = items;
   } else {
@@ -85,6 +86,7 @@ function DateInput(props) {
         </div>
       );
     });
+
   const innerHtml = (
     <>
       {hintComponent}
@@ -106,7 +108,11 @@ function DateInput(props) {
       } ${formGroup?.className || ''}`}
     >
       {fieldset ? (
-        <Fieldset {...fieldset} aria-describedby={describedBy} role="group">
+        <Fieldset
+          {...fieldset}
+          aria-describedby={describedBy ? describedBy : null}
+          role="group"
+        >
           {innerHtml}
         </Fieldset>
       ) : (

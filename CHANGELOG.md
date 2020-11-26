@@ -15,10 +15,10 @@
   - Updated to govuk-frontend@3.9.0  
     See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.0 for full release notes
 
-  - New notification banner component added
-  - Add input prefix and suffix.
-  - Customise aria-label text in the header component - added `navigationLabel` and `menuButtonLabel` props
-  - Ability to add navigation items without links
+    - New notification banner component added
+    - Add input prefix and suffix.
+    - Customise aria-label text in the header component - added `navigationLabel` and `menuButtonLabel` props
+    - Ability to add navigation items without links
 
 - Switched test suite away from govuk-frontend-diff in favour of the fixtures now baked into govuk-frontend since 3.9.0
 - And as a result - have made many small fixes to pass the new test suite - nothing noteworthy, just small changes in edge case situations found in the new fixtures
