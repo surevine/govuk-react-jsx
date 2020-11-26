@@ -85,8 +85,25 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
       // END overrides
 
       const props = processExampleData(options, component);
+      const formComponents = [
+        'select',
+        'input',
+        'textarea',
+        'checkboxes',
+        'radios',
+        'date-input',
+        'file-upload',
+        'character-count',
+      ];
       const govukReactJsxOutput = ReactDOMServer.renderToStaticMarkup(
-        <ReactComponent {...props} />
+        <ReactComponent
+          {...{
+            ...props,
+            ...(formComponents.includes(component) // Make sure form components all get an onChange handler to stop React getting upset
+              ? { onChange: () => {} }
+              : null),
+          }}
+        />
       );
 
       const actual = cleanHtml(govukReactJsxOutput);
