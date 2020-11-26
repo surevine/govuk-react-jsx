@@ -64,11 +64,16 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
         case 'select:with falsey values':
         case 'select:attributes on items':
           // Value missing, and should actually be marked as required in govuk-frontend since it is treated as such. (Omitting value in params just outputs empty values)
+          // Remove once https://github.com/alphagov/govuk-frontend/pull/2043 is merged
           options.items.forEach((item, index) => {
             if (item) {
               options.items[index].value = '';
             }
           });
+          break;
+
+        case 'checkboxes:fieldset params':
+          return; // Example is just broken - Remove once https://github.com/alphagov/govuk-frontend/pull/2043 is merged
           break;
 
         default:
