@@ -87,7 +87,7 @@ function Header(props) {
                     ...itemAttributes
                   } = item;
 
-                  return itemChildren && (item.href || item.to) ? (
+                  return itemChildren ? (
                     <li
                       key={reactListKey || index}
                       className={`govuk-header__navigation-item${
@@ -96,12 +96,18 @@ function Header(props) {
                           : ''
                       }`}
                     >
-                      <Link
-                        className={`govuk-header__link ${itemClassName || ''}`}
-                        {...itemAttributes}
-                      >
-                        {itemChildren}
-                      </Link>
+                      {item.href || item.to ? (
+                        <Link
+                          className={`govuk-header__link ${
+                            itemClassName || ''
+                          }`}
+                          {...itemAttributes}
+                        >
+                          {itemChildren}
+                        </Link>
+                      ) : (
+                        itemChildren
+                      )}
                     </li>
                   ) : null;
                 })}

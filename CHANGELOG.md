@@ -6,16 +6,19 @@
 
 #### Features
 
-- Updated to govuk-frontend@3.10.0  
-  See https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.0 for full release notes
-- Updated to govuk-frontend@3.9.1  
-  See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.1 for full release notes
-- Updated to govuk-frontend@3.9.0  
-  See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.0 for full release notes
+- Larger release than usual since the 3.9.x update caused a few issues with testing. Therefore have jumped straight to 3.10.0
 
-- New notification banner component added
-- Add input prefix and suffix.
-- Customise aria-label text in the header component - added `navigationLabel` and `menuButtonLabel` props
+  - Updated to govuk-frontend@3.10.0  
+    See https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.0 for full release notes
+  - Updated to govuk-frontend@3.9.1  
+    See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.1 for full release notes
+  - Updated to govuk-frontend@3.9.0  
+    See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.0 for full release notes
+
+  - New notification banner component added
+  - Add input prefix and suffix.
+  - Customise aria-label text in the header component - added `navigationLabel` and `menuButtonLabel` props
+  - Ability to add navigation items without links
 
 #### Breaking changes
 
