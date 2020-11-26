@@ -27,7 +27,10 @@
       "govuk/assets/images/govuk-apple-touch-icon-152x152": "<rootDir>/tests/mocks/image.js",
       "govuk/assets/images/govuk-apple-touch-icon": "<rootDir>/tests/mocks/image.js",
       "govuk/assets/images/govuk-opengraph-image": "<rootDir>/tests/mocks/image.js"
-    }
+    },
+    "setupFiles": [
+      "./tests/utils/jest.overrides.js"
+    ]
   },
   "repository": {
     "type": "git",
