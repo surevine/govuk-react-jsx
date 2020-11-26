@@ -21,6 +21,7 @@ const propReplacements = {
   serviceUrl: 'serviceUrlHref',
   homepageUrl: 'homepageUrlHref',
   spellcheck: 'spellCheck',
+  tabindex: 'tabIndex',
 };
 
 export default function processExampleData(data, componentName) {
@@ -46,7 +47,13 @@ export default function processExampleData(data, componentName) {
     // Spread attributes out into the object above them in a more React-like fashion
     if (key === 'attributes') {
       Object.keys(value).forEach((attributeName) => {
-        parent[attributeName] = value[attributeName].toString();
+        if (Object.keys(propReplacements).includes(attributeName)) {
+          parent[propReplacements[attributeName]] = value[
+            attributeName
+          ].toString();
+        } else {
+          parent[attributeName] = value[attributeName].toString();
+        }
       });
 
       delete parent.attributes;
