@@ -14,6 +14,7 @@
   See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.0 for full release notes
 
 - New notification banner component added
+- Add input prefix and suffix.
 
 #### Breaking changes
 
