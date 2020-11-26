@@ -13,7 +13,7 @@ function Footer(props) {
   let navigationComponent;
   let metaComponent;
 
-  if (navigation) {
+  if (navigation && navigation.length > 0) {
     navigationComponent = (
       <>
         <div className="govuk-footer__navigation">
@@ -25,7 +25,7 @@ function Footer(props) {
               <h2 className="govuk-footer__heading govuk-heading-m">
                 {nav.title}
               </h2>
-              {nav.items && (
+              {nav.items && nav.items.length > 0 ? (
                 <ul
                   className={`govuk-footer__list ${
                     nav.columns
@@ -58,7 +58,7 @@ function Footer(props) {
                     );
                   })}
                 </ul>
-              )}
+              ) : null}
             </div>
           ))}
         </div>
@@ -76,7 +76,7 @@ function Footer(props) {
             : 'Support links'}
         </h2>
 
-        {meta.items && (
+        {meta.items && meta.items.length > 0 ? (
           <>
             <ul className="govuk-footer__inline-list">
               {meta.items.map((item, index) => {
@@ -102,11 +102,11 @@ function Footer(props) {
               })}
             </ul>
           </>
-        )}
+        ) : null}
 
-        {meta.children && (
+        {meta.children ? (
           <div className="govuk-footer__meta-custom">{meta.children}</div>
-        )}
+        ) : null}
       </>
     );
   }

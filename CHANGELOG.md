@@ -20,6 +20,9 @@
   - Customise aria-label text in the header component - added `navigationLabel` and `menuButtonLabel` props
   - Ability to add navigation items without links
 
+- Switched test suite away from govuk-frontend-diff in favour of the fixtures now baked into govuk-frontend since 3.9.0
+- And as a result - have made many small fixes to pass the new test suite - nothing noteworthy, just small changes in edge case situations found in the new fixtures
+
 #### Breaking changes
 
 ---
