@@ -6,6 +6,16 @@
 
 #### Features
 
+#### Breaking changes
+
+---
+
+## Releases
+
+### v4.1.0
+
+#### Features
+
 - Larger release than usual since the 3.9.x update caused a few issues with testing. Therefore have jumped straight to 3.10.0
 
   - Updated to govuk-frontend@3.10.0  
@@ -21,12 +31,6 @@
     - Ability to add navigation items without links
   - Switched test suite away from govuk-frontend-diff in favour of the fixtures now baked into govuk-frontend since 3.9.0
   - And as a result - have made many small fixes to pass the new test suite - nothing noteworthy, just small changes in edge case situations found in the new fixtures
-
-#### Breaking changes
-
----
-
-## Releases
 
 ### v4.0.3
 
