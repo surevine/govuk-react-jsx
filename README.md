@@ -153,7 +153,7 @@ This repository is versioned separately and follows standard semver procedures.
 
 ## Tests
 
-The test suite renders the examples from the govuk-frontend repository through the Nunjucks macros as well as the JSX components and compares the output. Any differences here constitute a failure.
+The test suite passes the example data from the govuk-frontend repository through the JSX components compares the output with the reference output provided in govuk-frontend. Any differences here constitute a failure.
 
 Tests are currently running in TravisCI. See https://travis-ci.org/surevine/govuk-react-jsx
 
