@@ -12,7 +12,7 @@ function Link(props) {
     );
   }
   return (
-    <a ref={forwardedRef} href={href ? href : '#'} {...attributes}>
+    <a ref={forwardedRef} href={href || '#'} {...attributes}>
       {children}
     </a>
   );

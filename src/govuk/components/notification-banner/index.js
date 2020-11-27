@@ -61,9 +61,7 @@ function NotificationBanner(props) {
 
   return (
     <div
-      className={`govuk-notification-banner ${typeClass} ${
-        className ? className : ''
-      }`}
+      className={`govuk-notification-banner ${typeClass} ${className || ''}`}
       role={roleAttribute}
       aria-labelledby={titleId}
       data-module="govuk-notification-banner"

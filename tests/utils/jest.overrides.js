@@ -1,6 +1,6 @@
-let error = console.error;
+const { error } = console;
 
-console.error = function (message) {
-  error.apply(console, arguments); // keep default behaviour
+console.error = function (message, ...args) {
+  error.apply(console, args); // keep default behaviour
   throw message instanceof Error ? message : new Error(message);
 };

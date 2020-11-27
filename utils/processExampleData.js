@@ -100,9 +100,9 @@ export default function processExampleData(data, componentName) {
             const modifiedItem = { ...item };
             delete modifiedItem.selected;
             return modifiedItem;
-          } else {
-            return item;
           }
+
+          return item;
         });
 
         if (selected) {

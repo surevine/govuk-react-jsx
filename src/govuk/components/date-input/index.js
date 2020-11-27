@@ -77,17 +77,17 @@ function DateInput(props) {
             onChange={onChange}
             {...itemAttributes}
             label={{
-              children: itemLabel
-                ? itemLabel
-                : itemName.charAt(0).toUpperCase() + itemName.slice(1),
+              children:
+                itemLabel ||
+                itemName.charAt(0).toUpperCase() + itemName.slice(1),
               className: 'govuk-date-input__label',
             }}
-            id={itemId ? itemId : `${id}-${itemName}`}
+            id={itemId || `${id}-${itemName}`}
             className={`govuk-date-input__input ${itemClassName || ''}`}
             name={namePrefix ? `${namePrefix}-${itemName}` : itemName}
             type="text"
-            inputMode={itemInputMode ? itemInputMode : 'numeric'}
-            pattern={itemPattern ? itemPattern : '[0-9]*'}
+            inputMode={itemInputMode || 'numeric'}
+            pattern={itemPattern || '[0-9]*'}
           />
         </div>
       );
@@ -116,7 +116,7 @@ function DateInput(props) {
       {fieldset ? (
         <Fieldset
           {...fieldset}
-          aria-describedby={describedBy ? describedBy : null}
+          aria-describedby={describedBy || null}
           role="group"
         >
           {innerHtml}

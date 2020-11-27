@@ -15,9 +15,8 @@ function Radios(props) {
               defaultChecked: item.value === defaultValue,
             }),
           };
-        } else {
-          return item;
         }
+        return item;
       })
     : null;
 
