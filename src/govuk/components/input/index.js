@@ -11,6 +11,8 @@ const Input = React.forwardRef((props, ref) => {
     label,
     name,
     id,
+    prefix,
+    suffix,
     ...attributes
   } = props;
 
@@ -30,6 +32,19 @@ const Input = React.forwardRef((props, ref) => {
     errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
+  const input = (
+    <input
+      ref={ref}
+      id={id}
+      className={`govuk-input ${className || ''} ${
+        errorMessage ? ' govuk-input--error' : ''
+      }`}
+      name={name || id}
+      aria-describedby={describedByValue || null}
+      {...attributes}
+    />
+  );
+
   return (
     <div
       className={`govuk-form-group ${formGroup?.className || ''} ${
@@ -39,16 +54,37 @@ const Input = React.forwardRef((props, ref) => {
       <Label {...label} htmlFor={id} />
       {hintComponent}
       {errorMessageComponent}
-      <input
-        ref={ref}
-        id={id}
-        className={`govuk-input ${className || ''} ${
-          errorMessage ? ' govuk-input--error' : ''
-        }`}
-        name={name || id}
-        aria-describedby={describedByValue || null}
-        {...attributes}
-      />
+      {prefix || suffix ? (
+        <div className="govuk-input__wrapper">
+          {prefix ? (
+            <div
+              aria-hidden="true"
+              {...{
+                ...prefix,
+                className: `govuk-input__prefix ${
+                  prefix.className ? prefix.className : ''
+                }`,
+              }}
+            />
+          ) : null}
+
+          {input}
+
+          {suffix ? (
+            <div
+              aria-hidden="true"
+              {...{
+                ...suffix,
+                className: `govuk-input__suffix ${
+                  suffix.className ? suffix.className : ''
+                }`,
+              }}
+            />
+          ) : null}
+        </div>
+      ) : (
+        input
+      )}
     </div>
   );
 });

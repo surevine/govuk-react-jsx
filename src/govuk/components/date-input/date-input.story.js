@@ -1,16 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import fixtures from 'govuk-frontend/govuk/components/date-input/fixtures.json';
 import { DateInput } from '.';
-import examples from './examples';
 import processExampleData from '../../../../utils/processExampleData';
 import { WithItemRefs } from '../../../../utils/WithRef';
 
 const stories = storiesOf('date-input', module);
 
-for (const example of Object.values(processExampleData(examples.examples))) {
-  stories.add(example.name, () => <DateInput {...example.data} />);
+for (const example of Object.values(
+  processExampleData(fixtures.fixtures.filter((fixture) => !fixture.hidden))
+)) {
+  stories.add(example.name, () => <DateInput {...example.options} />);
 }
 
 stories.add('with ref', () => (
-  <WithItemRefs Component={DateInput} {...examples.examples[0].data} />
+  <WithItemRefs Component={DateInput} {...fixtures.fixtures[0].options} />
 ));

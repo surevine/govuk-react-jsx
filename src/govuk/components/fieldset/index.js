@@ -3,7 +3,7 @@ import React from 'react';
 function Fieldset(props) {
   const { legend, className, children, ...attributes } = props;
   let legendComponent;
-  if (legend.children) {
+  if (legend && legend.children) {
     legendComponent = (
       <legend className={`govuk-fieldset__legend ${legend.className || ''}`}>
         {legend.isPageHeading ? (

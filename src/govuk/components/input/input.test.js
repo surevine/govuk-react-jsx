@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import examples from './examples';
+import fixtures from 'govuk-frontend/govuk/components/input/fixtures.json';
 import { Input } from '.';
 
 describe('input', () => {
   it('correctly assigns a ref', () => {
     const ref = React.createRef();
     const { container } = render(
-      <Input {...examples.examples[0].data} ref={ref} onChange={() => {}} />
+      <Input {...fixtures.fixtures[0].options} ref={ref} onChange={() => {}} />
     );
 
     expect(ref.current).toEqual(container.querySelector('input'));

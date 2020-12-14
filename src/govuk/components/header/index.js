@@ -15,6 +15,8 @@ function Header(props) {
     serviceName,
     serviceUrlHref,
     serviceUrlTo,
+    navigationLabel,
+    menuButtonLabel,
     // eslint-disable-next-line no-unused-vars
     assetsPath, // We don't want this, but just in case someone passes it, we don't want it to arrive as an attribute on the header
     ...attributes
@@ -64,7 +66,7 @@ function Header(props) {
               type="button"
               className="govuk-header__menu-button govuk-js-header-toggle"
               aria-controls="navigation"
-              aria-label="Show or hide Top Level Navigation"
+              aria-label={menuButtonLabel}
             >
               Menu
             </button>
@@ -74,7 +76,7 @@ function Header(props) {
                 className={`govuk-header__navigation ${
                   navigationClassName || ''
                 }`}
-                aria-label="Top Level Navigation"
+                aria-label={navigationLabel}
               >
                 {navigation.map((item, index) => {
                   const {
@@ -85,7 +87,7 @@ function Header(props) {
                     ...itemAttributes
                   } = item;
 
-                  return itemChildren && (item.href || item.to) ? (
+                  return itemChildren ? (
                     <li
                       key={reactListKey || index}
                       className={`govuk-header__navigation-item${
@@ -94,12 +96,18 @@ function Header(props) {
                           : ''
                       }`}
                     >
-                      <Link
-                        className={`govuk-header__link ${itemClassName || ''}`}
-                        {...itemAttributes}
-                      >
-                        {itemChildren}
-                      </Link>
+                      {item.href || item.to ? (
+                        <Link
+                          className={`govuk-header__link ${
+                            itemClassName || ''
+                          }`}
+                          {...itemAttributes}
+                        >
+                          {itemChildren}
+                        </Link>
+                      ) : (
+                        itemChildren
+                      )}
                     </li>
                   ) : null;
                 })}
@@ -163,6 +171,8 @@ function Header(props) {
 Header.defaultProps = {
   homepageUrlHref: '/',
   containerClassName: 'govuk-width-container',
+  navigationLabel: 'Navigation menu',
+  menuButtonLabel: 'Show or hide navigation menu',
 };
 
 export { Header };

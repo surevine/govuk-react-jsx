@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
+import headerFixtures from 'govuk-frontend/govuk/components/header/fixtures.json';
+import footerFixtures from 'govuk-frontend/govuk/components/footer/fixtures.json';
 import { Template as BaseTemplate } from '.';
-import headerExamples from '../components/header/examples';
-import footerExamples from '../components/footer/examples';
 
 const stories = storiesOf('template', module);
 
@@ -35,8 +35,8 @@ stories.add('Customised header and footer', () => (
     containerClassName="custom-container-class-name"
     mainClassName="custom-main-class-name"
     title="Custom title here"
-    header={headerExamples.examples[3].data}
-    footer={footerExamples.examples[6].data}
+    header={headerFixtures.fixtures[3].data}
+    footer={footerFixtures.fixtures[6].data}
   >
     <p className="govuk-body">
       Header and footer props can be passed directly through the

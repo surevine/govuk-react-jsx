@@ -12,6 +12,26 @@
 
 ## Releases
 
+### v4.1.0
+
+#### Features
+
+- Larger release than usual since the 3.9.x update caused a few issues with testing. Therefore have jumped straight to 3.10.0
+
+  - Updated to govuk-frontend@3.10.0  
+    See https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.0 for full release notes
+    - Customise input mode in the date component
+    - New notification banner component added
+  - Updated to govuk-frontend@3.9.1  
+    See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.1 for full release notes
+  - Updated to govuk-frontend@3.9.0  
+    See https://github.com/alphagov/govuk-frontend/releases/tag/v3.9.0 for full release notes
+    - Add input prefix and suffix.
+    - Customise aria-label text in the header component - added `navigationLabel` and `menuButtonLabel` props
+    - Ability to add navigation items without links
+  - Switched test suite away from govuk-frontend-diff in favour of the fixtures now baked into govuk-frontend since 3.9.0
+  - And as a result - have made many small fixes to pass the new test suite - nothing noteworthy, just small changes in edge case situations found in the new fixtures
+
 ### v4.0.3
 
 #### Fixes

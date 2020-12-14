@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import fixtures from 'govuk-frontend/govuk/components/radios/fixtures.json';
 import { Radios as RadiosComponent } from '.';
-import examples from './examples';
 import processExampleData from '../../../../utils/processExampleData';
 import { WithItemRefs } from '../../../../utils/WithRef';
 
@@ -25,11 +25,14 @@ const Radios = (props) => {
 };
 
 for (const example of Object.values(
-  processExampleData(examples.examples, 'radios')
+  processExampleData(
+    fixtures.fixtures.filter((fixture) => !fixture.hidden),
+    'radios'
+  )
 )) {
-  stories.add(example.name, () => <Radios {...example.data} />);
+  stories.add(example.name, () => <Radios {...example.options} />);
 }
 
 stories.add('with ref', () => (
-  <WithItemRefs Component={Radios} {...examples.examples[0].data} />
+  <WithItemRefs Component={Radios} {...fixtures.fixtures[0].options} />
 ));

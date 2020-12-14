@@ -20,45 +20,46 @@ function Tabs(props) {
     })();
   }, [tabsRef]);
 
-  const tabContent = items.map((item, index) => {
+  const filteredItems = items ? items.filter((item) => item) : [];
+
+  const tabContent = filteredItems.map((item, index) => {
     // eslint-disable-next-line no-unused-vars
     const { id: itemId, label, panel, ...itemAttributes } = item;
+    const tabId = `${itemId || `${idPrefix}-${index + 1}`}`;
 
     return (
       <li
-        key={itemId}
+        key={tabId}
         className={`govuk-tabs__list-item${
           index === 0 ? ' govuk-tabs__list-item--selected' : ''
         }`}
       >
-        <a
-          className="govuk-tabs__tab"
-          href={`#${itemId || `${idPrefix}-${index}`}`}
-          {...itemAttributes}
-        >
+        <a className="govuk-tabs__tab" href={`#${tabId}`} {...itemAttributes}>
           {label}
         </a>
       </li>
     );
   });
 
-  const tabs = <ul className="govuk-tabs__list">{tabContent}</ul>;
+  const tabs =
+    filteredItems.length > 0 ? (
+      <ul className="govuk-tabs__list">{tabContent}</ul>
+    ) : null;
 
-  const panels = items.map((item, index) => {
+  const panels = filteredItems.map((item, index) => {
     // eslint-disable-next-line no-unused-vars
     const { id: itemId, panel, label, ...itemAttributes } = item;
+    const panelId = `${itemId || `${idPrefix}-${index + 1}`}`;
 
     return (
       <div
-        key={itemId}
+        key={panelId}
         className={`govuk-tabs__panel${
           index > 0 ? ' govuk-tabs__panel--hidden' : ''
         }`}
-        id={itemId}
-        {...itemAttributes}
-      >
-        {panel.children}
-      </div>
+        id={panelId}
+        {...panel}
+      />
     );
   });
 
@@ -79,6 +80,7 @@ function Tabs(props) {
 
 Tabs.defaultProps = {
   title: 'Contents',
+  idPrefix: '',
 };
 
 export { Tabs };

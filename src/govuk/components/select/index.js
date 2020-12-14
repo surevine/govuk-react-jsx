@@ -30,14 +30,18 @@ const Select = React.forwardRef((props, ref) => {
     errorMessageComponent = <ErrorMessage {...errorMessage} id={errorId} />;
   }
 
-  const options = items.map((option, index) => {
-    const { reactListKey, children, ...optionAttributes } = option;
-    return (
-      <option {...optionAttributes} key={reactListKey || index}>
-        {children}
-      </option>
-    );
-  });
+  const options = items
+    ? items
+        .filter((item) => item)
+        .map((option, index) => {
+          const { reactListKey, children, ...optionAttributes } = option;
+          return (
+            <option {...optionAttributes} key={reactListKey || index}>
+              {children}
+            </option>
+          );
+        })
+    : null;
 
   return (
     <div

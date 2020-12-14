@@ -57,6 +57,8 @@ Textarea.displayName = 'Textarea';
 Textarea.defaultProps = {
   'aria-describedby': '',
   rows: 5,
+  id: '',
+  name: '',
 };
 
 export { Textarea };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import fixtures from 'govuk-frontend/govuk/components/select/fixtures.json';
 import { Select as SelectComponent } from '.';
-import examples from './examples';
 import processExampleData from '../../../../utils/processExampleData';
 import { WithRef } from '../../../../utils/WithRef';
 
@@ -28,11 +28,14 @@ const Select = React.forwardRef((props, ref) => {
 Select.displayName = 'Select';
 
 for (const example of Object.values(
-  processExampleData(examples.examples, 'select')
+  processExampleData(
+    fixtures.fixtures.filter((fixture) => !fixture.hidden),
+    'select'
+  )
 )) {
-  stories.add(example.name, () => <Select {...example.data} />);
+  stories.add(example.name, () => <Select {...example.options} />);
 }
 
 stories.add('with ref', () => (
-  <WithRef Component={Select} {...examples.examples[0].data} />
+  <WithRef Component={Select} {...fixtures.fixtures[0].options} />
 ));

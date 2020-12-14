@@ -1,6 +1,6 @@
 # GOV.UK React components (govuk-react-jsx)
 
-[![govuk-frontend 3.8.1](https://img.shields.io/badge/govuk--frontend%20version-3.8.1-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v3.8.1)
+[![govuk-frontend 3.10.0](https://img.shields.io/badge/govuk--frontend%20version-3.10.0-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.0)
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
 [![Build Status](https://img.shields.io/travis/surevine/govuk-react-jsx.svg?style=flat-square)](https://travis-ci.org/surevine/govuk-react-jsx)
 [![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/main/LICENSE)
@@ -62,7 +62,10 @@ Exceptions to the conformance with govuk-frontend nunjucks params are as follows
 - Anywhere that accepts an `html` or `text` param in Nunjucks will instead accept a `children` prop which should be passed either a string, or JSX. Params such as `summaryText` or `summaryHtml` become `summaryChildren`
 - `classes` becomes `className`
 - `spellcheck` becomes `spellCheck`
+- `inputmode` becomes `inputMode`
 - `describedBy` becomes `aria-describedby`
+- `colspan` and `rowspan` become `colSpan` and `rowSpan`
+- `autocomplete` becomes `autoComplete`
 - List keys - Anywhere that you specify an array of items such as a list of links, you may optionally specify a `reactListKey` for each item. This will be used instead of the index when doing `.map` over the items. React uses these keys internally to work out whether to re-render items. This is crucial for dynamic components where you might re-sort the list items for example. For static data it is less important and the key can be omitted. (See https://reactjs.org/docs/lists-and-keys.html#keys for more)
   (_The only exception to this rule is the tab component, where the tabs are already sufficiently keyed by id_)
 - The `<Select>` component and `<Radios>` components take a top level `value` prop, instead of setting `checked` or `selected` on the individual items. This is more in line with React and React-based form libraries
@@ -150,7 +153,7 @@ This repository is versioned separately and follows standard semver procedures.
 
 ## Tests
 
-The test suite renders the examples from the govuk-frontend repository through the Nunjucks macros as well as the JSX components and compares the output. Any differences here constitute a failure.
+The test suite passes the example data from the govuk-frontend repository through the JSX components compares the output with the reference output provided in govuk-frontend. Any differences here constitute a failure.
 
 Tests are currently running in TravisCI. See https://travis-ci.org/surevine/govuk-react-jsx
 

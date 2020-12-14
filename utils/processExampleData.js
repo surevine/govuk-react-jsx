@@ -8,8 +8,6 @@ const propReplacements = {
   navigationClasses: 'navigationClassName',
   autocomplete: 'autoComplete',
   for: 'htmlFor',
-  // checked: 'defaultChecked',
-  // value: 'defaultValue',
   captionClasses: 'captionClassName',
   colspan: 'colSpan',
   rowspan: 'rowSpan',
@@ -23,14 +21,20 @@ const propReplacements = {
   serviceUrl: 'serviceUrlHref',
   homepageUrl: 'homepageUrlHref',
   spellcheck: 'spellCheck',
+  tabindex: 'tabIndex',
 };
 
 export default function processExampleData(data, componentName) {
   for (const { parent, value, key } of deepIterator(data)) {
     // Replace html and text props with children
     // Turn any html strings into jsx
-    if ((key === 'html' || key === 'text') && value) {
+    if (key === 'html' && value) {
       parent.children = ReactHtmlParser(value);
+      delete parent[key];
+    }
+
+    if (key === 'text' && value) {
+      parent.children = value;
       delete parent[key];
     }
 
@@ -42,7 +46,16 @@ export default function processExampleData(data, componentName) {
 
     // Spread attributes out into the object above them in a more React-like fashion
     if (key === 'attributes') {
-      Object.assign(parent, value);
+      Object.keys(value).forEach((attributeName) => {
+        if (Object.keys(propReplacements).includes(attributeName)) {
+          parent[propReplacements[attributeName]] = value[
+            attributeName
+          ].toString();
+        } else {
+          parent[attributeName] = value[attributeName].toString();
+        }
+      });
+
       delete parent.attributes;
     }
   }
@@ -52,13 +65,19 @@ export default function processExampleData(data, componentName) {
       // Replace 'checked' value on radio items with a top level 'value' prop for compatibility with react form libraries
       if (key === 'items') {
         // Work out which one is checked
-        const checked = value.find((item) => item.checked);
+        const checked = value
+          .filter((item) => item)
+          .find((item) => item.checked);
 
         // Remove the checked value from each item
         parent.items = value.map((item) => {
-          const modifiedItem = { ...item };
-          delete modifiedItem.checked;
-          return modifiedItem;
+          if (item && Object.keys(item).length > 0) {
+            const modifiedItem = { ...item };
+            delete modifiedItem.checked;
+            return modifiedItem;
+          }
+
+          return item;
         });
 
         if (checked) {
@@ -73,13 +92,17 @@ export default function processExampleData(data, componentName) {
       // Replace 'selected' value on select box items with a top level 'value' prop for compatibility with react
       if (key === 'items') {
         // Work out which one is checked
-        const selected = value.find((item) => item.selected);
+        const selected = value.find((item) => (item ? item.selected : null));
 
-        // Remove the checked value from each item
+        // Remove the selected value from each item
         parent.items = value.map((item) => {
-          const modifiedItem = { ...item };
-          delete modifiedItem.selected;
-          return modifiedItem;
+          if (item && Object.keys(item).length > 0) {
+            const modifiedItem = { ...item };
+            delete modifiedItem.selected;
+            return modifiedItem;
+          }
+
+          return item;
         });
 
         if (selected) {

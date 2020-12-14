@@ -52,13 +52,15 @@ function Table(props) {
     );
   }
 
+  const filteredRows = rows ? rows.filter((row) => row) : [];
+
   return (
     <table className={`govuk-table ${className || ''}`} {...attributes}>
       {captionComponent}
       {headComponent}
 
       <tbody className="govuk-table__body">
-        {rows.map((row, rowIndex) => (
+        {filteredRows.map((row, rowIndex) => (
           <tr key={row.reactListKey || rowIndex} className="govuk-table__row">
             {row.map((cell, cellIndex) => {
               const {
