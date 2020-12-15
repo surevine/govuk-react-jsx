@@ -18,9 +18,8 @@ jobs:
         run: npm run test
 
   build:
-    name: Build OS specific binaries
+    name: Build package
     runs-on: ubuntu-latest
-    needs: test
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.2
@@ -36,7 +35,6 @@ jobs:
 
   pre-release:
     name: Pre release checks
-    needs: test
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
@@ -50,7 +48,7 @@ jobs:
 
   release:
     name: Release
-    needs: pre-release
+    needs: [test, build, pre-release]
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
@@ -72,7 +70,7 @@ jobs:
 
   publish-npm:
     name: Publish to npm
-    needs: pre-release
+    needs: release
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
