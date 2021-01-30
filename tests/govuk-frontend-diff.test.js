@@ -64,7 +64,6 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
         case 'select:attributes on items':
           // Value is set, but nothing is selected - is a little bit broken - need to PR and fix but ignoring for now
           return;
-          break;
         default:
       }
       // END overrides
