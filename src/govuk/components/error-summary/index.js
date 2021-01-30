@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 const defaultRef = React.createRef();
 
@@ -69,5 +69,7 @@ const ErrorSummary = React.forwardRef((props, ref) => {
 ErrorSummary.defaultProps = {
   titleChildren: 'There is a problem',
 };
+
+ErrorSummary.displayName = 'ErrorSummary';
 
 export { ErrorSummary };
