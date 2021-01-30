@@ -4,6 +4,10 @@
 
 #### Fixes
 
+- Remove overzealous focusing of ErrorSummary when list of errors changes.
+  Component now accepts a ref which you can manually focus when appropriate (Such as when a form is submitted).
+  A demo of this is available in [https://github.com/surevine/govuk-react-jsx-examples](govuk-react-jsx-examples)
+
 #### Features
 
 #### Breaking changes
