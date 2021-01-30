@@ -4,12 +4,6 @@
 
 #### Fixes
 
-- Remove overzealous focusing of ErrorSummary when list of errors changes.
-  Component now accepts a ref which you can manually focus when appropriate (Such as when a form is submitted).
-  A demo of this is available in [https://github.com/surevine/govuk-react-jsx-examples](govuk-react-jsx-examples)
-- Update govuk-frontend to 3.10.2
-  See https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.1 and https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.2 fox full release notes
-
 #### Features
 
 #### Breaking changes
@@ -17,6 +11,17 @@
 ---
 
 ## Releases
+
+### v4.1.1
+
+#### Fixes
+
+- Remove overzealous focusing of ErrorSummary when list of errors changes.
+  Component now accepts a ref which you can manually focus when appropriate (Such as when a form is submitted).
+  A demo of this is available in [https://github.com/surevine/govuk-react-jsx-examples](govuk-react-jsx-examples)
+- Update govuk-frontend to 3.10.2
+  See https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.1 and https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.2 fox full release notes
+
 
 ### v4.1.0
 
