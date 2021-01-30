@@ -61,24 +61,10 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
       // Override values in specific fixtures to avoid issues
       // Ideally follow up anything in here with a pull request to govuk-frontend resolving the issue
       switch (`${component}:${name}`) {
-        case 'select:with falsey values':
         case 'select:attributes on items':
-          // Value missing, and should actually be marked as required in govuk-frontend since it is treated as such. (Omitting value in params just outputs empty values)
-          // Remove once https://github.com/alphagov/govuk-frontend/pull/2043 is merged
-          options.items.forEach((item, index) => {
-            if (item) {
-              options.items[index].value = '';
-            }
-          });
+          // Value is set, but nothing is selected - is a little bit broken - need to PR and fix but ignoring for now
+          return;
           break;
-
-        case 'checkboxes:fieldset params':
-          return; // Example is just broken - Remove once https://github.com/alphagov/govuk-frontend/pull/2043 is merged
-
-        case 'checkboxes:multiple hints':
-          options.items[2].value = ''; // Example is missing a value - Remove once https://github.com/alphagov/govuk-frontend/pull/2043 is merged
-          break;
-
         default:
       }
       // END overrides
