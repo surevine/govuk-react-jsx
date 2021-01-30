@@ -12,6 +12,13 @@
 
 ## Releases
 
+### v5.0.0
+
+- Further ErrorSummary focusing fixes
+  The error summary no longer focuses itself at all when it is rendered - it is now fully up to the calling app to focus the error summary when appropriate.
+  The ErrorSummary component accepts a ref which you can use to achieve this.
+  A formik based demo of this is available in [https://github.com/surevine/govuk-react-jsx-examples/blob/master/src/forms/Formik.js](govuk-react-jsx-examples)
+
 ### v4.1.1
 
 #### Fixes
@@ -21,7 +28,6 @@
   A demo of this is available in [https://github.com/surevine/govuk-react-jsx-examples](govuk-react-jsx-examples)
 - Update govuk-frontend to 3.10.2
   See https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.1 and https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.2 fox full release notes
-
 
 ### v4.1.0
 
