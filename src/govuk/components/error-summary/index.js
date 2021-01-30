@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
-function ErrorSummary(props) {
+const defaultRef = React.createRef();
+
+const ErrorSummary = React.forwardRef((props, ref) => {
   const {
     className,
     descriptionChildren,
@@ -9,7 +11,7 @@ function ErrorSummary(props) {
     ...attributes
   } = props;
 
-  const errorSummaryRef = useRef();
+  const errorSummaryRef = ref || defaultRef;
 
   useEffect(() => {
     (async () => {
@@ -25,10 +27,6 @@ function ErrorSummary(props) {
       }
     })();
   }, [errorSummaryRef]);
-
-  useEffect(() => {
-    errorSummaryRef.current.focus();
-  }, [errorList]);
 
   let description;
   if (descriptionChildren) {
@@ -66,10 +64,12 @@ function ErrorSummary(props) {
       </div>
     </div>
   );
-}
+});
 
 ErrorSummary.defaultProps = {
   titleChildren: 'There is a problem',
 };
+
+ErrorSummary.displayName = 'ErrorSummary';
 
 export { ErrorSummary };
