@@ -14,5 +14,5 @@ for (const example of Object.values(
 }
 
 stories.add('with ref', () => (
-  <WithItemRefs Component={DateInput} {...fixtures.fixtures[0].options} />
+  <WithItemRefs Component={DateInput} {...fixtures.fixtures[1].options} />
 ));

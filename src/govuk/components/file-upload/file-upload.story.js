@@ -10,7 +10,7 @@ const stories = storiesOf('file-upload', module);
 for (const example of Object.values(
   processExampleData(fixtures.fixtures.filter((fixture) => !fixture.hidden))
 )) {
-  if (example.name !== 'with value and attributes') {
+  if (example.name !== 'with value') {
     // React gets upset if you try and set a value on a file input so we exclude this example
     stories.add(example.name, () => <FileUpload {...example.options} />);
   }
