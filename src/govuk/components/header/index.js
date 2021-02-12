@@ -152,7 +152,8 @@ function Header(props) {
                 <image
                   src={logo}
                   className="govuk-header__logotype-crown-fallback-image"
-                  xlinkHref=""
+                  xlinkHref="data:,"
+                  display="none"
                   height="32"
                   width="36"
                 />
