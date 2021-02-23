@@ -127,12 +127,10 @@ export default function processExampleData(data, componentName) {
     for (const { parent, value, key } of deepIterator(data)) {
       if (key === 'messages') {
         if (value.length > 0) {
-          parent[key] = value.map((item, index) => {
-            return {
-              ...item,
-              key: index,
-            };
-          });
+          parent[key] = value.map((item, index) => ({
+            ...item,
+            key: index,
+          }));
         }
       }
     }
@@ -140,12 +138,10 @@ export default function processExampleData(data, componentName) {
     for (const { parent, value, key } of deepIterator(data)) {
       if (key === 'actions') {
         if (value.length > 0) {
-          parent[key] = value.map((item, index) => {
-            return {
-              ...item,
-              key: index,
-            };
-          });
+          parent[key] = value.map((item, index) => ({
+            ...item,
+            key: index,
+          }));
         }
       }
     }
