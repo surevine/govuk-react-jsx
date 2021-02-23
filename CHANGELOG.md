@@ -8,6 +8,7 @@
 
 - Updated to govuk-frontend@3.11.0
   - See https://github.com/alphagov/govuk-frontend/releases/tag/v3.11.0 for full release notes
+  - Cookie banner component added
 
 #### Breaking changes
 
