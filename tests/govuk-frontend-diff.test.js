@@ -64,6 +64,15 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
         case 'select:attributes on items':
           // Value is set, but nothing is selected - is a little bit broken - need to PR and fix but ignoring for now
           return;
+
+        case 'cookie-banner:link with button options':
+          // Ignore this test entirely. In the nunjucks implementation and attributes key is used to house all attributes.
+          // The govuk-frontend test is here to assert that button-like value and name params do not accidentally
+          // end up on the element as attributes due to some imagined future mistake in the nunjucks code.
+          // This doesn't really work in govuk-react-jsx, where any additional prop that's not part of the base set
+          // will end up as an attribute on the underlying element. In govuk-react-jsx this is by design and it would
+          // simply be up to the developer using the component to only pass the appropriate props.
+          return;
         default:
       }
       // END overrides

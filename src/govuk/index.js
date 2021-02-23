@@ -4,6 +4,7 @@ export * from './components/breadcrumbs';
 export * from './components/button';
 export * from './components/character-count';
 export * from './components/checkboxes';
+export * from './components/cookie-banner';
 export * from './components/date-input';
 export * from './components/details';
 export * from './components/error-message';
