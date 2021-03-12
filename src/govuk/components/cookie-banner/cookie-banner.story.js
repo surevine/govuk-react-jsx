@@ -7,8 +7,7 @@ import processExampleData from '../../../../utils/processExampleData';
 const stories = storiesOf('cookie-banner', module);
 
 for (const example of Object.values(
-  // processExampleData(fixtures.fixtures.filter((fixture) => !fixture.hidden))
-  processExampleData(fixtures.fixtures, 'cookie-banner')
+  processExampleData(fixtures.fixtures.filter((fixture) => !fixture.hidden))
 )) {
   stories.add(example.name, () => <CookieBanner {...example.options} />);
 }
