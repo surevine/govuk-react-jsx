@@ -23,12 +23,14 @@ const ErrorSummary = React.forwardRef((props, ref) => {
           'govuk-frontend/govuk/components/error-summary/error-summary'
         );
 
-        // Just bind the click event handlers from the gov error summary
-        // This is because we don't want to focus by default - that's up to the calling app
-        errorSummaryRef.current.addEventListener(
-          'click',
-          ErrorSummaryJS.prototype.handleClick.bind(ErrorSummaryJS.prototype)
-        );
+        if (errorSummaryRef.current) {
+          // Just bind the click event handlers from the gov error summary
+          // This is because we don't want to focus by default - that's up to the calling app
+          errorSummaryRef.current.addEventListener(
+            'click',
+            ErrorSummaryJS.prototype.handleClick.bind(ErrorSummaryJS.prototype)
+          );
+        }
       }
     })();
   }, [errorSummaryRef]);

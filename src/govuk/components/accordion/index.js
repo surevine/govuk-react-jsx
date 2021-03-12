@@ -14,7 +14,9 @@ function Accordion(props) {
           'govuk-frontend/govuk/components/accordion/accordion'
         );
 
-        new AccordionJS(accordionRef.current).init();
+        if (accordionRef.current) {
+          new AccordionJS(accordionRef.current).init();
+        }
       }
     })();
   }, [accordionRef]);

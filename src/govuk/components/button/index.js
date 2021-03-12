@@ -37,7 +37,9 @@ const Button = React.forwardRef((props, ref) => {
           'govuk-frontend/govuk/components/button/button'
         );
 
-        new ButtonJS(buttonRef.current).init();
+        if (buttonRef.current) {
+          new ButtonJS(buttonRef.current).init();
+        }
       }
     })();
   }, [buttonRef]);

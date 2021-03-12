@@ -26,7 +26,9 @@ const CharacterCount = React.forwardRef((props, ref) => {
           'govuk-frontend/govuk/components/character-count/character-count'
         );
 
-        new CharacterCountJS(characterCountRef.current).init();
+        if (characterCountRef.current) {
+          new CharacterCountJS(characterCountRef.current).init();
+        }
       }
     })();
   }, [characterCountRef]);

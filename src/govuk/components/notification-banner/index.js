@@ -25,7 +25,9 @@ function NotificationBanner(props) {
           'govuk-frontend/govuk/components/notification-banner/notification-banner'
         );
 
-        new NotificationBannerJS(notificationBannerRef.current).init();
+        if (notificationBannerRef.current) {
+          new NotificationBannerJS(notificationBannerRef.current).init();
+        }
       }
     })();
   }, [notificationBannerRef]);
