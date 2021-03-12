@@ -1,6 +1,6 @@
 # GOV.UK React components (govuk-react-jsx)
 
-[![govuk-frontend 3.10.2](https://img.shields.io/badge/govuk--frontend%20version-3.10.2-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v3.10.2)
+[![govuk-frontend 3.11.0](https://img.shields.io/badge/govuk--frontend%20version-3.11.0-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v3.11.0)
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
 ![(Pipeline)](https://github.com/surevine/govuk-react-jsx/workflows/Pipeline/badge.svg)
 [![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/main/LICENSE)
@@ -66,6 +66,7 @@ Exceptions to the conformance with govuk-frontend nunjucks params are as follows
 - `describedBy` becomes `aria-describedby`
 - `colspan` and `rowspan` become `colSpan` and `rowSpan`
 - `autocomplete` becomes `autoComplete`
+- `ariaLabel` becomes `aria-label`
 - List keys - Anywhere that you specify an array of items such as a list of links, you may optionally specify a `reactListKey` for each item. This will be used instead of the index when doing `.map` over the items. React uses these keys internally to work out whether to re-render items. This is crucial for dynamic components where you might re-sort the list items for example. For static data it is less important and the key can be omitted. (See https://reactjs.org/docs/lists-and-keys.html#keys for more)
   (_The only exception to this rule is the tab component, where the tabs are already sufficiently keyed by id_)
 - The `<Select>` component and `<Radios>` components take a top level `value` prop, instead of setting `checked` or `selected` on the individual items. This is more in line with React and React-based form libraries
@@ -168,7 +169,7 @@ Tests are currently running in TravisCI. See https://travis-ci.org/surevine/govu
 
 [Dave Hudson](https://github.com/DaveHudson)
 
-[Mick Jones](https://github.com/mick-jones) (Helped to build the original JSX ports)
+[Mick Jones](https://github.com/mick-jones) (Helped to build the original JSX ports found at https://github.com/LandRegistry/govuk-react-components)
 
 ## Development sponsored by
 

@@ -22,14 +22,25 @@ const propReplacements = {
   homepageUrl: 'homepageUrlHref',
   spellcheck: 'spellCheck',
   tabindex: 'tabIndex',
+  ariaLabel: 'aria-label',
+  headingText: 'headingChildren',
 };
 
 export default function processExampleData(data, componentName) {
   for (const { parent, value, key } of deepIterator(data)) {
     // Replace html and text props with children
     // Turn any html strings into jsx
-    if (key === 'html' && value) {
-      parent.children = ReactHtmlParser(value);
+    if (key && key.toString().toLowerCase().slice(-4) === 'html' && value) {
+      let replacementKey;
+
+      if (key === 'html') {
+        replacementKey = 'children';
+      } else {
+        // Replacements like headingHtml becomes headingChildren
+        replacementKey = key.replace('Html', 'Children');
+      }
+
+      parent[replacementKey] = ReactHtmlParser(value);
       delete parent[key];
     }
 
@@ -107,6 +118,30 @@ export default function processExampleData(data, componentName) {
 
         if (selected) {
           parent.value = selected.value;
+        }
+      }
+    }
+  }
+
+  if (componentName === 'cookie-banner') {
+    for (const { parent, value, key } of deepIterator(data)) {
+      if (key === 'messages') {
+        if (value.length > 0) {
+          parent[key] = value.map((item, index) => ({
+            ...item,
+            key: index,
+          }));
+        }
+      }
+    }
+
+    for (const { parent, value, key } of deepIterator(data)) {
+      if (key === 'actions') {
+        if (value.length > 0) {
+          parent[key] = value.map((item, index) => ({
+            ...item,
+            key: index,
+          }));
         }
       }
     }
