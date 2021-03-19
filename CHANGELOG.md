@@ -4,7 +4,19 @@
 
 #### Fixes
 
-- Fix overeager instantiation of govuk JS(https://github.com/surevine/govuk-react-jsx/pull/110)
+#### Features
+
+#### Breaking changes
+
+---
+
+## Releases
+
+### v5.1.0
+
+#### Fixes
+
+- Fix overeager instantiation of govuk JS (https://github.com/surevine/govuk-react-jsx/pull/110)
   - Fixes https://github.com/surevine/govuk-react-jsx/issues/99
 
 #### Features
@@ -12,12 +24,6 @@
 - Updated to govuk-frontend@3.11.0
   - See https://github.com/alphagov/govuk-frontend/releases/tag/v3.11.0 for full release notes
   - Cookie banner component added
-
-#### Breaking changes
-
----
-
-## Releases
 
 ### v5.0.0
 
