@@ -4,6 +4,9 @@
 
 #### Fixes
 
+- Fix overeager instantiation of govuk JS(https://github.com/surevine/govuk-react-jsx/pull/110)
+  - Fixes https://github.com/surevine/govuk-react-jsx/issues/99
+
 #### Features
 
 - Updated to govuk-frontend@3.11.0
