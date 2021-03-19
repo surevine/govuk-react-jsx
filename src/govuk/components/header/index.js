@@ -36,7 +36,9 @@ function Header(props) {
           'govuk-frontend/govuk/components/header/header'
         );
 
-        new HeaderJS(headerRef.current).init();
+        if (headerRef.current) {
+          new HeaderJS(headerRef.current).init();
+        }
       }
     })();
   }, [headerRef]);

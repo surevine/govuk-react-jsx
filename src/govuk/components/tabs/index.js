@@ -15,7 +15,9 @@ function Tabs(props) {
           'govuk-frontend/govuk/components/tabs/tabs'
         );
 
-        new TabsJS(tabsRef.current).init();
+        if (tabsRef.current) {
+          new TabsJS(tabsRef.current).init();
+        }
       }
     })();
   }, [tabsRef]);
