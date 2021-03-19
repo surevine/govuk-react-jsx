@@ -16,10 +16,3 @@ for (const example of Object.values(
 stories.add('with ref', () => (
   <WithRef Component={Button} {...fixtures.fixtures[0].options} />
 ));
-
-stories.add('with click event handler', () => (
-  <Button
-    {...fixtures.fixtures[0].options}
-    onClick={() => console.log('hello')}
-  />
-));
