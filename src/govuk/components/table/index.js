@@ -62,18 +62,19 @@ function Table(props) {
       <tbody className="govuk-table__body">
         {filteredRows.map((row, rowIndex) => (
           <tr key={row.reactListKey || rowIndex} className="govuk-table__row">
-            {row.map((cell, cellIndex) => {
+            {row.cells.map((cell, cellIndex) => {
               const {
                 className: cellClassName,
                 children: cellChildren,
                 format: cellFormat,
+                reactListKey,
                 ...cellAttributes
               } = cell;
 
               if (cellIndex === 0 && firstCellIsHeader) {
                 return (
                   <th
-                    key={cell.reactListKey || cellIndex}
+                    key={reactListKey || cellIndex}
                     scope="row"
                     className={`govuk-table__header ${cellClassName || ''}`}
                     {...cellAttributes}

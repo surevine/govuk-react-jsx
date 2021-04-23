@@ -13,13 +13,11 @@ for (const example of Object.values(
 }
 
 stories.add('with reactListKey specified', () => {
-  const props = fixtures.fixtures[0].options;
+  const props = { ...fixtures.fixtures[0].options };
 
-  props.items = props.items.map((item, index) => {
-    return {
-      reactListKey: `your-stable-key-here-${index}`,
-      ...item,
-    };
-  });
+  props.items = props.items.map((item, index) => ({
+    reactListKey: `your-stable-key-here-${index}`,
+    ...item,
+  }));
   return <Accordion {...props} />;
 });
