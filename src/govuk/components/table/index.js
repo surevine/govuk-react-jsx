@@ -52,7 +52,7 @@ function Table(props) {
     );
   }
 
-  const filteredRows = rows ? rows.filter((row) => row) : [];
+  const filteredRows = rows ? rows.filter((row) => row.cells) : [];
 
   return (
     <table className={`govuk-table ${className || ''}`} {...attributes}>

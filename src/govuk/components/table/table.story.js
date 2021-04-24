@@ -16,7 +16,12 @@ for (const example of Object.values(
 }
 
 stories.add('with reactListKey specified', () => {
-  const props = { ...fixtures.fixtures[0].options };
+  const props = { ...fixtures.fixtures[1].options };
+
+  props.head = props.head.map((head, headIndex) => ({
+    ...head,
+    reactListKey: `your-stable-row-key-here-${headIndex}`,
+  }));
 
   props.rows = props.rows.map((row, rowIndex) => ({
     ...row,
@@ -26,5 +31,6 @@ stories.add('with reactListKey specified', () => {
     })),
     reactListKey: `your-stable-row-key-here-${rowIndex}`,
   }));
+
   return <Table {...props} />;
 });

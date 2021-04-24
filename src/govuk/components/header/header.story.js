@@ -20,3 +20,14 @@ for (const example of Object.values(
 )) {
   stories.add(example.name, () => <Header {...example.options} />);
 }
+
+stories.add('with reactListKey specified', () => {
+  const props = { ...fixtures.fixtures[2].options };
+
+  props.navigation = props.navigation.map((item, index) => ({
+    reactListKey: `your-stable-key-here-${index}`,
+    ...item,
+  }));
+
+  return <Header {...props} />;
+});

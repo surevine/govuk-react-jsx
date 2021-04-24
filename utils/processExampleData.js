@@ -71,7 +71,7 @@ export default function processExampleData(data, componentName) {
     }
 
     if (componentName === 'table') {
-      if (key === 'rows') {
+      if (key === 'rows' && !('cells' in parent[key][0])) {
         parent[key] = parent[key].map((row) => ({
           cells: row,
         }));
