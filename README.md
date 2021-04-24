@@ -71,6 +71,7 @@ Exceptions to the conformance with govuk-frontend nunjucks params are as follows
   (_The only exception to this rule is the tab component, where the tabs are already sufficiently keyed by id_)
 - The `<Select>` component and `<Radios>` components take a top level `value` prop, instead of setting `checked` or `selected` on the individual items. This is more in line with React and React-based form libraries
 - The `<ErrorSummary>` component does not automatically focus itself when errors occur - it is up to the calling app to focus it when appropriate, such as when a submit button is pressed.
+- The `<Table>` component data structure is changed slightly to accomodate react list keys on table rows. Note the addition of a `cells` key inside each row, rather than a simple nested array of rows / cells.
 
 See [utils/processExampleData.js](utils/processExampleData.js) for the complete list of transformations.
 
