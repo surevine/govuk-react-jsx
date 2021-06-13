@@ -11,3 +11,13 @@ for (const example of Object.values(
 )) {
   stories.add(example.name, () => <Breadcrumbs {...example.options} />);
 }
+
+stories.add('with reactListKey specified', () => {
+  const props = { ...fixtures.fixtures[0].options };
+
+  props.items = props.items.map((item, index) => ({
+    reactListKey: `your-stable-key-here-${index}`,
+    ...item,
+  }));
+  return <Breadcrumbs {...props} />;
+});
