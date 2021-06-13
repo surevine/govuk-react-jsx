@@ -14,7 +14,7 @@ function Template(props) {
   const {
     children,
     title,
-    skiplink,
+    skipLink,
     header,
     footer,
     beforeContent,
@@ -60,7 +60,7 @@ function Template(props) {
         <meta property="og:image" content={govukOpenGraphImage} />
       </Helmet>
 
-      <SkipLink {...skiplink} />
+      <SkipLink {...skipLink} />
 
       <Header {...header} />
 
@@ -85,7 +85,7 @@ Template.defaultProps = {
   title: 'GOV.UK - The best place to find government services and information',
   skipLink: {
     href: '#main-content',
-    text: 'Skip to main content',
+    children: 'Skip to main content',
   },
   header: {},
   footer: {},
