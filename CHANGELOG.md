@@ -4,6 +4,9 @@
 
 #### Fixes
 
+- Fix Template not passing text correctly to SkipLink component (https://github.com/surevine/govuk-react-jsx/pull/116)
+  - Fixes https://github.com/surevine/govuk-react-jsx/issues/115
+
 #### Features
 
 #### Breaking changes
