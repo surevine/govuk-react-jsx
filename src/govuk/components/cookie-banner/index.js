@@ -57,10 +57,14 @@ function CookieBanner(props) {
                   } = action;
 
                   return action.href || action.to ? (
-                    <Link
-                      {...actionAttributes}
-                      className={`govuk-link ${actionClassName || ''}`}
-                    />
+                    action.type === 'button' ? (
+                      <Button {...action} />
+                    ) : (
+                      <Link
+                        {...actionAttributes}
+                        className={`govuk-link ${actionClassName || ''}`}
+                      />
+                    )
                   ) : (
                     <Button {...action} />
                   );
