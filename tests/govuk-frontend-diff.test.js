@@ -28,7 +28,12 @@ function hyphenatedToCamel(string) {
 }
 
 const htmlDiffer = new HtmlDiffer({
-  ignoreAttributes: ['style', 'src', 'disabled'],
+  ignoreAttributes: [
+    'style',
+    'src',
+    'disabled', // Ignored because react adds ="true" to the end, making the comparison fail
+    'data-nosnippet', // Ignored because react adds ="true" to the end, making the comparison fail
+  ],
   ignoreSelfClosingSlash: true,
 });
 
@@ -65,7 +70,7 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
           // Value is set, but nothing is selected - is a little bit broken - need to PR and fix but ignoring for now
           return;
 
-        case 'cookie-banner:link with button options':
+        case 'cookie-banner:link with false button options':
           // Ignore this test entirely. In the nunjucks implementation and attributes key is used to house all attributes.
           // The govuk-frontend test is here to assert that button-like value and name params do not accidentally
           // end up on the element as attributes due to some imagined future mistake in the nunjucks code.
