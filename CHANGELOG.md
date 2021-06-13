@@ -4,9 +4,6 @@
 
 #### Fixes
 
-- Fix Template not passing text correctly to SkipLink component (https://github.com/surevine/govuk-react-jsx/pull/116)
-  - Fixes https://github.com/surevine/govuk-react-jsx/issues/115
-
 #### Features
 
 #### Breaking changes
@@ -21,14 +18,24 @@
 
 - Fix badly destructured react list keys on some components (https://github.com/surevine/govuk-react-jsx/pull/114)
   - Fixes https://github.com/surevine/govuk-react-jsx/issues/113
+- Fix Template not passing text correctly to SkipLink component (https://github.com/surevine/govuk-react-jsx/pull/116)
+  - Fixes https://github.com/surevine/govuk-react-jsx/issues/115
 
 #### Breaking changes
 
-- Table data structure changed in order to accomodate react list keys. Each row in the `rows` array now has a `cells` key instead of simply being a nested array of rows / cells.
-
-  See the updated demos on the storybook.
-
+- Table data structure changed in order to accomodate react list keys. Each row in the `rows` array now has a `cells` key instead of simply being a nested array of rows / cells.  
+  See the updated demos on the storybook.  
   This breaking change was necessary in order to accomodate react list keys on table rows.
+
+#### Features
+
+- Updated to govuk-frontend@3.12.0  
+  Markup changes:
+
+  - Add links styled as buttons to cookie banners
+  - Add data-nosnippet to prevent cookie banner text appearing in Google Search snippets
+
+- See https://github.com/alphagov/govuk-frontend/releases/tag/v3.12.0 for full release notes
 
 ### v5.1.0
 

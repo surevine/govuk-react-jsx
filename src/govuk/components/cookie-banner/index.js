@@ -9,6 +9,7 @@ function CookieBanner(props) {
     <div
       className={`govuk-cookie-banner ${className || ''}`}
       role="region"
+      data-nosnippet
       {...attributes}
     >
       {messages.map((message) => {
@@ -56,10 +57,14 @@ function CookieBanner(props) {
                   } = action;
 
                   return action.href || action.to ? (
-                    <Link
-                      {...actionAttributes}
-                      className={`govuk-link ${actionClassName || ''}`}
-                    />
+                    action.type === 'button' ? (
+                      <Button {...action} />
+                    ) : (
+                      <Link
+                        {...actionAttributes}
+                        className={`govuk-link ${actionClassName || ''}`}
+                      />
+                    )
                   ) : (
                     <Button {...action} />
                   );
