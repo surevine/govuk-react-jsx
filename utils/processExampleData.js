@@ -69,6 +69,14 @@ export default function processExampleData(data, componentName) {
 
       delete parent.attributes;
     }
+
+    if (componentName === 'table') {
+      if (key === 'rows' && !('cells' in parent[key][0])) {
+        parent[key] = parent[key].map((row) => ({
+          cells: row,
+        }));
+      }
+    }
   }
 
   if (componentName === 'radios') {

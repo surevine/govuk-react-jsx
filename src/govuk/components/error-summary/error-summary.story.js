@@ -32,3 +32,13 @@ stories.add('Error summary linking to input', () => (
     />
   </>
 ));
+
+stories.add('with reactListKey specified', () => {
+  const props = { ...fixtures.fixtures[0].options };
+
+  props.errorList = props.errorList.map((item, index) => ({
+    reactListKey: `your-stable-key-here-${index}`,
+    ...item,
+  }));
+  return <ErrorSummary {...props} />;
+});

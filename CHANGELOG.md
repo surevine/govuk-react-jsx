@@ -15,6 +15,21 @@
 
 ## Releases
 
+### v6.0.0
+
+#### Fixes
+
+- Fix badly destructured react list keys on some components (https://github.com/surevine/govuk-react-jsx/pull/114)
+  - Fixes https://github.com/surevine/govuk-react-jsx/issues/113
+
+#### Breaking changes
+
+- Table data structure changed in order to accomodate react list keys. Each row in the `rows` array now has a `cells` key instead of simply being a nested array of rows / cells.
+
+  See the updated demos on the storybook.
+
+  This breaking change was necessary in order to accomodate react list keys on table rows.
+
 ### v5.1.0
 
 #### Fixes

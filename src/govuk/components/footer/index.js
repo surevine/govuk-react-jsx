@@ -83,13 +83,14 @@ function Footer(props) {
                 const {
                   className: itemClassName,
                   children: itemChildren,
+                  reactListKey,
                   ...itemAttributes
                 } = item;
 
                 return (
                   <li
                     className="govuk-footer__inline-list-item"
-                    key={item.reactListKey || index}
+                    key={reactListKey || index}
                   >
                     <Link
                       className={`govuk-footer__link ${itemClassName || ''}`}

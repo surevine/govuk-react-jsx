@@ -33,9 +33,10 @@ function ActionLink(props) {
 }
 
 function actions(row, anyRowHasActions) {
-  const actionLinks = row.actions?.items.map((action, index) => (
-    <ActionLink key={action.reactListKey || index} {...action} />
-  ));
+  const actionLinks = row.actions?.items.map((action, index) => {
+    const { reactListKey, ...actionAttributes } = action;
+    return <ActionLink key={reactListKey || index} {...actionAttributes} />;
+  });
 
   if (row.actions?.items.length) {
     return (

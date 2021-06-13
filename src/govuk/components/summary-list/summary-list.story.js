@@ -11,3 +11,21 @@ for (const example of Object.values(
 )) {
   stories.add(example.name, () => <SummaryList {...example.options} />);
 }
+
+stories.add('with reactListKey specified', () => {
+  const props = { ...fixtures.fixtures[1].options };
+
+  props.rows = props.rows.map((row, index) => ({
+    reactListKey: `your-stable-key-here-${index}`,
+    ...row,
+    actions: {
+      ...row.actions,
+      items: row.actions.items.map((action, actionIndex) => ({
+        reactListKey: `your-stable-key-here-${actionIndex}`,
+        ...action,
+      })),
+    },
+  }));
+
+  return <SummaryList {...props} />;
+});

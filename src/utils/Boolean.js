@@ -107,6 +107,7 @@ function Boolean(props) {
               hint: itemHint,
               conditional: itemConditional,
               label,
+              reactListKey,
               ...itemAttributes
             } = item;
 
@@ -132,7 +133,7 @@ function Boolean(props) {
             if (item.divider) {
               return (
                 <div
-                  key={item.reactListKey || index}
+                  key={reactListKey || index}
                   className={`govuk-${controlType}__divider`}
                 >
                   {item.divider}
@@ -141,7 +142,7 @@ function Boolean(props) {
             }
 
             return (
-              <React.Fragment key={item.reactListKey || index}>
+              <React.Fragment key={reactListKey || index}>
                 <div className={`govuk-${controlType}__item`}>
                   <input
                     className={`govuk-${controlType}__input`}
