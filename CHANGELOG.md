@@ -27,6 +27,16 @@
   See the updated demos on the storybook.  
   This breaking change was necessary in order to accomodate react list keys on table rows.
 
+#### Features
+
+- Updated to govuk-frontend@3.12.0  
+  Markup changes:
+
+  - Add links styled as buttons to cookie banners
+  - Add data-nosnippet to prevent cookie banner text appearing in Google Search snippets
+
+- See https://github.com/alphagov/govuk-frontend/releases/tag/v3.12.0 for full release notes
+
 ### v5.1.0
 
 #### Fixes
