@@ -15,6 +15,7 @@
 ### v6.1.0
 
 - Update to govuk-frontend@3.13.0 (https://github.com/surevine/govuk-react-jsx/pull/118)
+  - Change approach to fallback PNG in the header to fix blank data URI from triggering CSP error
   - See https://github.com/alphagov/govuk-frontend/releases/tag/v3.13.0 for full release notes
 
 ### v6.0.0
