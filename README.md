@@ -53,6 +53,10 @@ These components assume you:
 - Are using react-router
 - **Have read the exceptions below**
 
+## Known issues
+
+- The "None of these" JavaScript initialised as part of govuk-frontend does not currently function with these components. The behaviour is initialised, but the upstream GovUK JS does not work since React controls the input's checked state - the GovUK JS cannot influence it.
+
 ## Exceptions
 
 Exceptions to the conformance with govuk-frontend nunjucks params are as follows:

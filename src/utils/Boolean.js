@@ -71,7 +71,8 @@ function Boolean(props) {
 
   // Find out if we have any conditional items
   const isConditional =
-    items && items.find((item) => item?.conditional?.children);
+    controlType === 'checkboxes' || // Short circuit this for checkboxes - isConditional has been removed for this component and the JS is always initialised via the data-module attribute
+    (items && items.find((item) => item?.conditional?.children));
   const hasFieldset = !!fieldset;
 
   if (errorMessage) {
@@ -106,6 +107,7 @@ function Boolean(props) {
               children,
               hint: itemHint,
               conditional: itemConditional,
+              behaviour,
               label,
               reactListKey,
               ...itemAttributes
@@ -153,6 +155,7 @@ function Boolean(props) {
                     aria-describedby={itemDescribedBy || null}
                     onChange={onChange}
                     onBlur={onBlur}
+                    data-behaviour={behaviour}
                     {...itemAttributes}
                   />
                   <Label
