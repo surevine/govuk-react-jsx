@@ -78,6 +78,14 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
           // will end up as an attribute on the underlying element. In govuk-react-jsx this is by design and it would
           // simply be up to the developer using the component to only pass the appropriate props.
           return;
+
+        case 'checkboxes:with divider and None':
+        case 'checkboxes:with divider, None and conditional items':
+          // The "None of these" JavaScript initialised as part of govuk-frontend does not currently function with these components.
+          // Because external JS cannot influence the checked state of controlled components in React, the govuk-frontend approach does not work here.
+          // Therefore these tests which enable the data-behaviour="exclusive" attribute are disabled
+          return;
+
         default:
       }
       // END overrides

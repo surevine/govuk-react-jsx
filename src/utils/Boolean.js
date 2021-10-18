@@ -102,6 +102,13 @@ function Boolean(props) {
               return null;
             }
 
+            if (item.behaviour === 'exclusive') {
+              // Forcibly disable the "exclusive" behaviour introduced in https://github.com/alphagov/govuk-frontend/pull/2151 since it cannot work in React
+              // The upstream JS cannot manipulate the checked state of controls without it causing problems
+              // At the moment, if a service needs this behaviour they should implement it themselves in the application code
+              delete item.behaviour;
+            }
+
             const {
               id,
               children,

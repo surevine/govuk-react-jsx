@@ -55,7 +55,7 @@ These components assume you:
 
 ## Known issues
 
-- The "None of these" JavaScript initialised as part of govuk-frontend does not currently function with these components. The behaviour is initialised, but the upstream GovUK JS does not work since React controls the input's checked state - the GovUK JS cannot influence it.
+- The "None of these" JavaScript initialised as part of govuk-frontend does not currently function with these components. Because external JS cannot influence the checked state of controlled components in React, the govuk-frontend approach does not work here. If you need this functionality in your service it would be best to implement it within the form framework you are using (E.g. Formik and the like).
 
 ## Exceptions
 
