@@ -12,6 +12,13 @@
 
 ## Releases
 
+### v6.1.0
+
+- Update to govuk-frontend@3.13.0 (https://github.com/surevine/govuk-react-jsx/pull/118)
+  - Add a 'none' option and 'or' divider to checkboxes (See [known issues in readme](https://github.com/surevine/govuk-react-jsx#known-issues) - this is somewhat of a non functional "stub" at the moment)
+  - Change approach to fallback PNG in the header to fix blank data URI from triggering CSP error
+  - See https://github.com/alphagov/govuk-frontend/releases/tag/v3.13.0 for full release notes
+
 ### v6.0.0
 
 #### Fixes

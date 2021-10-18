@@ -71,7 +71,8 @@ function Boolean(props) {
 
   // Find out if we have any conditional items
   const isConditional =
-    items && items.find((item) => item?.conditional?.children);
+    controlType === 'checkboxes' || // Short circuit this for checkboxes - isConditional has been removed for this component and the JS is always initialised via the data-module attribute
+    (items && items.find((item) => item?.conditional?.children));
   const hasFieldset = !!fieldset;
 
   if (errorMessage) {
@@ -101,11 +102,19 @@ function Boolean(props) {
               return null;
             }
 
+            if (item.behaviour === 'exclusive') {
+              // Forcibly disable the "exclusive" behaviour introduced in https://github.com/alphagov/govuk-frontend/pull/2151 since it cannot work in React
+              // The upstream JS cannot manipulate the checked state of controls without it causing problems
+              // At the moment, if a service needs this behaviour they should implement it themselves in the application code
+              delete item.behaviour;
+            }
+
             const {
               id,
               children,
               hint: itemHint,
               conditional: itemConditional,
+              behaviour,
               label,
               reactListKey,
               ...itemAttributes
@@ -153,6 +162,7 @@ function Boolean(props) {
                     aria-describedby={itemDescribedBy || null}
                     onChange={onChange}
                     onBlur={onBlur}
+                    data-behaviour={behaviour}
                     {...itemAttributes}
                   />
                   <Label

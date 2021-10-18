@@ -1,6 +1,6 @@
 # GOV.UK React components (govuk-react-jsx)
 
-[![govuk-frontend 3.12.0](https://img.shields.io/badge/govuk--frontend%20version-3.12.0-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v3.12.0)
+[![govuk-frontend 3.13.0](https://img.shields.io/badge/govuk--frontend%20version-3.13.0-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v3.13.0)
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
 ![(Pipeline)](https://github.com/surevine/govuk-react-jsx/workflows/Pipeline/badge.svg)
 [![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/main/LICENSE)
@@ -52,6 +52,10 @@ These components assume you:
 - Have compiled the govuk-frontend scss and have included it in your page (create-react-app is able to compile the gov.uk Sass files)
 - Are using react-router
 - **Have read the exceptions below**
+
+## Known issues
+
+- The "None of these" JavaScript initialised as part of govuk-frontend does not currently function with these components. Because external JS cannot influence the checked state of controlled components in React, the govuk-frontend approach does not work here. If you need this functionality in your service it would be best to implement it within the form framework you are using (E.g. Formik and the like).
 
 ## Exceptions
 
