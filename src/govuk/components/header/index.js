@@ -161,7 +161,7 @@ function Header(props) {
                   <!--[if IE 8]>
                     <img src="${logo}" class="govuk-header__logotype-crown-fallback-image" width="36" height="32" />
                   <![endif]-->
-                  <span className="govuk-header__logotype-text">GOV.UK</span>
+                  <span class="govuk-header__logotype-text">GOV.UK</span>
               `,
               }}
             />
