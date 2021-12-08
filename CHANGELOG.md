@@ -12,7 +12,21 @@
 
 ## Releases
 
+### v6.2.0
+
+#### Features
+
+- Update to govuk-frontend@3.14.0 (https://github.com/surevine/govuk-react-jsx/pull/127)
+  - See https://github.com/alphagov/govuk-frontend/releases/tag/v3.14.0 for full release notes
+
+#### Fixes
+
+- Fix misaligned govuk crown in header (https://github.com/surevine/govuk-react-jsx/pull/127)
+  - Fixes https://github.com/surevine/govuk-react-jsx/issues/125
+
 ### v6.1.0
+
+#### Features
 
 - Update to govuk-frontend@3.13.0 (https://github.com/surevine/govuk-react-jsx/pull/118)
   - Add a 'none' option and 'or' divider to checkboxes (See [known issues in readme](https://github.com/surevine/govuk-react-jsx#known-issues) - this is somewhat of a non functional "stub" at the moment)
