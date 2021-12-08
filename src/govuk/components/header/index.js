@@ -145,7 +145,7 @@ function Header(props) {
                     <svg
                       aria-hidden="true"
                       focusable="false"
-                      className="govuk-header__logotype-crown"
+                      class="govuk-header__logotype-crown"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 132 97"
                       height="30"
