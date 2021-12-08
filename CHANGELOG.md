@@ -12,6 +12,13 @@
 
 ## Releases
 
+### v6.2.1
+
+#### Fixes
+
+- Fix misaligned govuk crown in header. (Missed an instance in the previous release) (https://github.com/surevine/govuk-react-jsx/pull/128)
+  - Fixes https://github.com/surevine/govuk-react-jsx/issues/125
+
 ### v6.2.0
 
 #### Features
