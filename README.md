@@ -160,13 +160,15 @@ This repository is versioned separately and follows standard semver procedures.
 
 ## Tests
 
-The test suite passes the example data from the govuk-frontend repository through the JSX components compares the output with the reference output provided in govuk-frontend. Any differences here constitute a failure.
+The test suite passes the example data from the govuk-frontend repository through the JSX components and compares the output with the reference output provided in govuk-frontend. Any differences here constitute a failure.
 
-Tests are currently running in TravisCI. See https://travis-ci.org/surevine/govuk-react-jsx
+Tests run in Github actions.
 
 ## Currently used by
 
 - Public Health England (See https://github.com/PublicHealthEngland/coronavirus-dashboard)
+- UKRI
+- Cabinet Office
 
 ## Contributors
 
