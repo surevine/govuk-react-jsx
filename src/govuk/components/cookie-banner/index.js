@@ -8,6 +8,7 @@ function CookieBanner(props) {
   return (
     <div
       className={`govuk-cookie-banner ${className || ''}`}
+      data-nosnippet
       role="region"
       data-nosnippet
       {...attributes}
