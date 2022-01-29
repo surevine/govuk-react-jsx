@@ -8,6 +8,9 @@
 
 #### Breaking changes
 
+- Update to govuk-frontend@4.0.0 (https://github.com/surevine/govuk-react-jsx/pull/137)
+  - See https://github.com/alphagov/govuk-frontend/releases/tag/v4.0.0 for full release notes
+
 ---
 
 ## Releases
