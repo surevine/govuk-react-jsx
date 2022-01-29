@@ -8,8 +8,8 @@ function CookieBanner(props) {
   return (
     <div
       className={`govuk-cookie-banner ${className || ''}`}
-      role="region"
       data-nosnippet
+      role="region"
       {...attributes}
     >
       {messages.map((message) => {
@@ -51,10 +51,8 @@ function CookieBanner(props) {
             {actions ? (
               <div className="govuk-button-group">
                 {actions.map((action) => {
-                  const {
-                    className: actionClassName,
-                    ...actionAttributes
-                  } = action;
+                  const { className: actionClassName, ...actionAttributes } =
+                    action;
 
                   return action.href || action.to ? (
                     action.type === 'button' ? (

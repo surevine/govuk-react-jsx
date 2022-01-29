@@ -59,9 +59,8 @@ export default function processExampleData(data, componentName) {
     if (key === 'attributes') {
       Object.keys(value).forEach((attributeName) => {
         if (Object.keys(propReplacements).includes(attributeName)) {
-          parent[propReplacements[attributeName]] = value[
-            attributeName
-          ].toString();
+          parent[propReplacements[attributeName]] =
+            value[attributeName].toString();
         } else {
           parent[attributeName] = value[attributeName].toString();
         }

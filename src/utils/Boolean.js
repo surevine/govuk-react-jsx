@@ -41,7 +41,9 @@ function Boolean(props) {
               'govuk-frontend/govuk/components/radios/radios'
             );
 
-            new RadiosJS(controlRef.current).init();
+            if (controlRef.current) {
+              new RadiosJS(controlRef.current).init();
+            }
           }
           break;
         case 'checkboxes':
@@ -53,7 +55,9 @@ function Boolean(props) {
               'govuk-frontend/govuk/components/checkboxes/checkboxes'
             );
 
-            new CheckboxesJS(controlRef.current).init();
+            if (controlRef.current) {
+              new CheckboxesJS(controlRef.current).init();
+            }
           }
           break;
 
@@ -69,10 +73,6 @@ function Boolean(props) {
     hintComponent = <Hint {...hint} id={hintId} />;
   }
 
-  // Find out if we have any conditional items
-  const isConditional =
-    controlType === 'checkboxes' || // Short circuit this for checkboxes - isConditional has been removed for this component and the JS is always initialised via the data-module attribute
-    (items && items.find((item) => item?.conditional?.children));
   const hasFieldset = !!fieldset;
 
   if (errorMessage) {
@@ -87,14 +87,10 @@ function Boolean(props) {
       {errorMessageComponent}
 
       <div
-        className={`govuk-${controlType} ${
-          controlType === 'radios' && isConditional
-            ? `govuk-${controlType}--conditional`
-            : ''
-        } ${className || ''}`}
+        className={`govuk-${controlType} ${className || ''}`}
         {...attributes}
         ref={controlRef}
-        data-module={isConditional ? `govuk-${controlType}` : null}
+        data-module={`govuk-${controlType}`}
       >
         {items &&
           items.map((item, index) => {

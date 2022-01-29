@@ -2,13 +2,8 @@ import React from 'react';
 import { Link } from '../../../utils/Link';
 
 function Footer(props) {
-  const {
-    className,
-    containerClassName,
-    meta,
-    navigation,
-    ...attributes
-  } = props;
+  const { className, containerClassName, meta, navigation, ...attributes } =
+    props;
 
   let navigationComponent;
   let metaComponent;
@@ -19,7 +14,9 @@ function Footer(props) {
         <div className="govuk-footer__navigation">
           {navigation.map((nav, navIndex) => (
             <div
-              className="govuk-footer__section"
+              className={`govuk-footer__section govuk-grid-column-${
+                nav.width ? nav.width : 'full'
+              }`}
               key={nav.reactListKey || navIndex}
             >
               <h2 className="govuk-footer__heading govuk-heading-m">
