@@ -68,6 +68,7 @@ function Accordion(props) {
   return (
     <div
       {...attributes}
+      id={id}
       className={`govuk-accordion ${className || ''}`}
       data-module="govuk-accordion"
       ref={accordionRef}
