@@ -41,7 +41,9 @@ function Boolean(props) {
               'govuk-frontend/govuk/components/radios/radios'
             );
 
-            new RadiosJS(controlRef.current).init();
+            if (controlRef.current) {
+              new RadiosJS(controlRef.current).init();
+            }
           }
           break;
         case 'checkboxes':
@@ -53,7 +55,9 @@ function Boolean(props) {
               'govuk-frontend/govuk/components/checkboxes/checkboxes'
             );
 
-            new CheckboxesJS(controlRef.current).init();
+            if (controlRef.current) {
+              new CheckboxesJS(controlRef.current).init();
+            }
           }
           break;
 
