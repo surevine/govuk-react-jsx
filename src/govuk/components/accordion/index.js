@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 function Accordion(props) {
   const accordionRef = useRef();
-  const { headingLevel, items, className, ...attributes } = props;
+  const { headingLevel, items, className, id, ...attributes } = props;
 
   useEffect(() => {
     (async () => {
@@ -39,7 +39,7 @@ function Accordion(props) {
           <HeadingLevel className="govuk-accordion__section-heading">
             <span
               className="govuk-accordion__section-button"
-              id={`${props.id}-heading-${index + 1}`}
+              id={`${id}-heading-${index + 1}`}
             >
               {item.heading.children}
             </span>
@@ -47,7 +47,7 @@ function Accordion(props) {
           {item.summary ? (
             <div
               className="govuk-accordion__section-summary govuk-body"
-              id={`${props.id}-summary-${index + 1}`}
+              id={`${id}-summary-${index + 1}`}
             >
               {item.summary.children}
             </div>
@@ -56,9 +56,9 @@ function Accordion(props) {
           )}
         </div>
         <div
-          id={`${props.id}-content-${index + 1}`}
+          id={`${id}-content-${index + 1}`}
           className="govuk-accordion__section-content"
-          aria-labelledby={`${props.id}-heading-${index + 1}`}
+          aria-labelledby={`${id}-heading-${index + 1}`}
         >
           {item.content.children}
         </div>

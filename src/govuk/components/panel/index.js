@@ -1,13 +1,8 @@
 import React from 'react';
 
 function Panel(props) {
-  const {
-    headingLevel,
-    children,
-    className,
-    titleChildren,
-    ...attributes
-  } = props;
+  const { headingLevel, children, className, titleChildren, ...attributes } =
+    props;
   const HeadingLevel = headingLevel ? `h${headingLevel}` : 'h1';
 
   const innerHtml = children ? (

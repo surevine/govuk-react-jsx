@@ -2,14 +2,8 @@ import React from 'react';
 import { Link } from '../../../utils/Link';
 
 function ActionLink(props) {
-  const {
-    children,
-    visuallyHiddenText,
-    className,
-    href,
-    to,
-    ...attributes
-  } = props;
+  const { children, visuallyHiddenText, className, href, to, ...attributes } =
+    props;
 
   const contents = (
     <>

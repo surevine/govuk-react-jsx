@@ -2,13 +2,8 @@ import React from 'react';
 import { Link } from '../../../utils/Link';
 
 function Footer(props) {
-  const {
-    className,
-    containerClassName,
-    meta,
-    navigation,
-    ...attributes
-  } = props;
+  const { className, containerClassName, meta, navigation, ...attributes } =
+    props;
 
   let navigationComponent;
   let metaComponent;

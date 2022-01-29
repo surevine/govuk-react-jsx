@@ -58,12 +58,8 @@ const ErrorSummary = React.forwardRef((props, ref) => {
         <ul className="govuk-list govuk-error-summary__list">
           {errorList
             ? errorList.map((error, index) => {
-                const {
-                  reactListKey,
-                  children,
-                  href,
-                  ...errorAttributes
-                } = error;
+                const { reactListKey, children, href, ...errorAttributes } =
+                  error;
 
                 return (
                   <li key={reactListKey || index}>
