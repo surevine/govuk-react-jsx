@@ -32,7 +32,7 @@ function ActionLink(props) {
   );
 }
 
-function actions(row, anyRowHasActions) {
+function actions(row) {
   const actionLinks = row.actions?.items.map((action, index) => {
     const { reactListKey, ...actionAttributes } = action;
     return <ActionLink key={reactListKey || index} {...actionAttributes} />;
@@ -61,11 +61,6 @@ function actions(row, anyRowHasActions) {
     );
   }
 
-  if (anyRowHasActions) {
-    // Add dummy column to extend border
-    return <span className="govuk-summary-list__actions" />;
-  }
-
   return null;
 }
 
@@ -81,7 +76,11 @@ function SummaryList(props) {
       {filteredRows.map((row, index) => (
         <div
           key={row.reactListKey || index}
-          className={`govuk-summary-list__row ${row.className || ''}`}
+          className={`govuk-summary-list__row ${
+            anyRowHasActions && !row.actions?.items
+              ? 'govuk-summary-list__row--no-actions'
+              : ''
+          } ${row.className || ''}`}
         >
           <dt className={`govuk-summary-list__key ${row.key?.className || ''}`}>
             {row.key?.children}
@@ -94,7 +93,7 @@ function SummaryList(props) {
             {row.value?.children}
           </dd>
 
-          {actions(row, anyRowHasActions)}
+          {actions(row)}
         </div>
       ))}
     </dl>
