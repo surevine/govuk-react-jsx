@@ -13,7 +13,7 @@ for (const example of Object.values(
 }
 
 stories.add('with reactListKey specified', () => {
-  const props = { ...fixtures.fixtures[6].options };
+  const props = { ...fixtures.fixtures[8].options };
 
   props.navigation = props.navigation.map((navigation, navIndex) => ({
     reactListKey: `your-stable-key-here-${navIndex}`,
