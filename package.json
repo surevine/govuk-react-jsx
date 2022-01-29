@@ -1,6 +1,6 @@
 {
   "name": "govuk-react-jsx",
-  "version": "6.2.1",
+  "version": "7.0.0",
   "description": "React component ports of govuk-frontend nunjucks macros. Directly consuming govuk-frontend CSS & JS.",
   "main": "src/govuk/index.js",
   "scripts": {

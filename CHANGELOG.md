@@ -4,19 +4,25 @@
 
 #### Fixes
 
+#### Features
+
+#### Breaking changes
+
+---
+
+## Releases
+
+### v7.0.0
+
+#### Fixes
+
 - Add null check to ref before calling govuk-frontend radios or checkboxes JS (https://github.com/surevine/govuk-react-jsx/pull/137/commits/4e7cd8421678adeb28c94812a1bc18051b9d1ab3)
   - Fixes https://github.com/surevine/govuk-react-jsx/issues/132
-
-#### Features
 
 #### Breaking changes
 
 - Update to govuk-frontend@4.0.0 (https://github.com/surevine/govuk-react-jsx/pull/137)
   - See https://github.com/alphagov/govuk-frontend/releases/tag/v4.0.0 for full release notes
-
----
-
-## Releases
 
 ### v6.2.1
 
