@@ -64,22 +64,21 @@ function Header(props) {
 
         {navigation ? (
           <>
-            <button
-              type="button"
-              className="govuk-header__menu-button govuk-js-header-toggle"
-              aria-controls="navigation"
-              aria-label={menuButtonLabel}
+            <nav
+              className={`govuk-header__navigation ${
+                navigationClassName || ''
+              }`}
+              aria-label={navigationLabel}
             >
-              Menu
-            </button>
-            <nav>
-              <ul
-                id="navigation"
-                className={`govuk-header__navigation ${
-                  navigationClassName || ''
-                }`}
-                aria-label={navigationLabel}
+              <button
+                type="button"
+                className="govuk-header__menu-button govuk-js-header-toggle"
+                aria-controls="navigation"
+                aria-label={menuButtonLabel}
               >
+                Menu
+              </button>
+              <ul id="navigation" className="govuk-header__navigation-list">
                 {navigation.map((item, index) => {
                   const {
                     active: itemActive,
@@ -177,8 +176,8 @@ function Header(props) {
 Header.defaultProps = {
   homepageUrlHref: '/',
   containerClassName: 'govuk-width-container',
-  navigationLabel: 'Navigation menu',
-  menuButtonLabel: 'Show or hide navigation menu',
+  navigationLabel: 'Menu',
+  menuButtonLabel: 'Show or hide menu',
 };
 
 export { Header };
