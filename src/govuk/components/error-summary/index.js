@@ -45,7 +45,6 @@ const ErrorSummary = React.forwardRef((props, ref) => {
       className={`govuk-error-summary ${className || ''}`}
       aria-labelledby="error-summary-title"
       role="alert"
-      tabIndex="-1"
       {...attributes}
       data-module="govuk-error-summary"
       ref={errorSummaryRef}
