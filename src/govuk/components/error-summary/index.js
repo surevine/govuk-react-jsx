@@ -8,6 +8,7 @@ const ErrorSummary = React.forwardRef((props, ref) => {
     descriptionChildren,
     errorList,
     titleChildren,
+    disableAutoFocus,
     ...attributes
   } = props;
 
@@ -45,6 +46,7 @@ const ErrorSummary = React.forwardRef((props, ref) => {
       className={`govuk-error-summary ${className || ''}`}
       aria-labelledby="error-summary-title"
       role="alert"
+      data-disable-auto-focus={disableAutoFocus ? 'true' : null}
       {...attributes}
       data-module="govuk-error-summary"
       ref={errorSummaryRef}
