@@ -6,6 +6,8 @@
 
 #### Features
 
+- React 18 support (Simply by loosening the peer dependency requirement).
+
 #### Breaking changes
 
 ---
