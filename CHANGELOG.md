@@ -6,13 +6,17 @@
 
 #### Features
 
-- React 18 support (Simply by loosening the peer dependency requirement).
-
 #### Breaking changes
 
 ---
 
 ## Releases
+
+### v7.1.0
+
+#### Features
+
+- React 18 support (Simply by loosening the peer dependency requirement).
 
 ### v7.0.1
 
