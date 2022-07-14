@@ -6,6 +6,9 @@
 
 #### Features
 
+- Update to govuk-frontend@4.2.0 (https://github.com/surevine/govuk-react-jsx/pull/149)
+  - See https://github.com/alphagov/govuk-frontend/releases/tag/v4.2.0 for full release notes
+
 #### Breaking changes
 
 ---
