@@ -86,6 +86,10 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
           // Therefore these tests which enable the data-behaviour="exclusive" attribute are disabled
           return;
 
+        case 'character-count:with textarea maxlength attribute':
+          // This fixture contains the maxlength attribute in the html but our tests run with JS enabled, so the test fails
+          return;
+
         default:
       }
       // END overrides
