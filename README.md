@@ -1,6 +1,6 @@
 # GOV.UK React components (govuk-react-jsx)
 
-[![govuk-frontend 4.1.0](https://img.shields.io/badge/govuk--frontend%20version-4.1.0-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v4.1.0)
+[![govuk-frontend 4.2.0](https://img.shields.io/badge/govuk--frontend%20version-4.2.0-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v4.2.0)
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
 ![(Pipeline)](https://github.com/surevine/govuk-react-jsx/workflows/Pipeline/badge.svg)
 [![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/main/LICENSE)
