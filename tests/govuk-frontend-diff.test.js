@@ -70,6 +70,12 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
           // Value is set, but nothing is selected - is a little bit broken - need to PR and fix but ignoring for now
           return;
 
+        case 'select:item selected overrides value':
+        case 'select:with selected value':
+        case 'radios:item checked overrides value':
+          // Ignoring - don't need react based forms to replicate this behaviour
+          return;
+
         case 'cookie-banner:link with false button options':
           // Ignore this test entirely. In the nunjucks implementation and attributes key is used to house all attributes.
           // The govuk-frontend test is here to assert that button-like value and name params do not accidentally
@@ -84,6 +90,10 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
           // The "None of these" JavaScript initialised as part of govuk-frontend does not currently function with these components.
           // Because external JS cannot influence the checked state of controlled components in React, the govuk-frontend approach does not work here.
           // Therefore these tests which enable the data-behaviour="exclusive" attribute are disabled
+          return;
+
+        case 'character-count:with textarea maxlength attribute':
+          // This fixture contains the maxlength attribute in the html but our tests run with JS enabled, so the test fails
           return;
 
         default:

@@ -53,13 +53,17 @@ function Header(props) {
     navigationComponent = (
       <div className="govuk-header__content">
         {serviceName ? (
-          <Link
-            href={serviceUrlHref}
-            to={serviceUrlTo}
-            className="govuk-header__link govuk-header__link--service-name"
-          >
-            {serviceName}
-          </Link>
+          serviceUrlTo || serviceUrlHref ? (
+            <Link
+              href={serviceUrlHref}
+              to={serviceUrlTo}
+              className="govuk-header__link govuk-header__service-name"
+            >
+              {serviceName}
+            </Link>
+          ) : (
+            <span className="govuk-header__service-name">{serviceName}</span>
+          )
         ) : null}
 
         {navigation ? (

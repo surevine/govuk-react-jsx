@@ -87,7 +87,7 @@ function DateInput(props) {
             name={namePrefix ? `${namePrefix}-${itemName}` : itemName}
             type="text"
             inputMode={itemInputMode || 'numeric'}
-            pattern={itemPattern || '[0-9]*'}
+            pattern={itemPattern}
           />
         </div>
       );
