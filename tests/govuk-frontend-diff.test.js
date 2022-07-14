@@ -70,6 +70,12 @@ describe('govuk-react-jsx output matches govuk-frontend', () => {
           // Value is set, but nothing is selected - is a little bit broken - need to PR and fix but ignoring for now
           return;
 
+        case 'select:item selected overrides value':
+        case 'select:with selected value':
+        case 'radios:item checked overrides value':
+          // Ignoring - don't need react based forms to replicate this behaviour
+          return;
+
         case 'cookie-banner:link with false button options':
           // Ignore this test entirely. In the nunjucks implementation and attributes key is used to house all attributes.
           // The govuk-frontend test is here to assert that button-like value and name params do not accidentally
