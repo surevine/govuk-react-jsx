@@ -15,6 +15,7 @@ function Boolean(props) {
     name,
     onChange,
     onBlur,
+    values,
     'aria-describedby': describedByProp,
     ...attributes
   } = props;
@@ -113,6 +114,7 @@ function Boolean(props) {
               behaviour,
               label,
               reactListKey,
+              checked,
               ...itemAttributes
             } = item;
 
@@ -124,6 +126,8 @@ function Boolean(props) {
               ? `conditional-${idValue}`
               : null;
             const itemHintId = `${idValue}-item-hint`;
+
+            const isChecked = checked | (values && values.includes(item.value));
 
             let itemDescribedBy = '';
 
@@ -159,6 +163,7 @@ function Boolean(props) {
                     onChange={onChange}
                     onBlur={onBlur}
                     data-behaviour={behaviour}
+                    checked={isChecked}
                     {...itemAttributes}
                   />
                   <Label
