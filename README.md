@@ -1,6 +1,6 @@
 # GOV.UK React components (govuk-react-jsx)
 
-[![govuk-frontend 4.0.1](https://img.shields.io/badge/govuk--frontend%20version-4.0.1-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v4.0.1)
+[![govuk-frontend 4.1.0](https://img.shields.io/badge/govuk--frontend%20version-4.1.0-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v4.1.0)
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
 ![(Pipeline)](https://github.com/surevine/govuk-react-jsx/workflows/Pipeline/badge.svg)
 [![MIT License](https://img.shields.io/npm/l/govuk-react-jsx.svg?style=flat-square)](https://github.com/surevine/govuk-react-jsx/blob/main/LICENSE)
@@ -12,8 +12,9 @@ View demo at https://govuk-react-jsx.netlify.app/
 View example app at https://surevine.github.io/govuk-react-jsx-examples/ (for which the source code is at https://github.com/surevine/govuk-react-jsx-examples)
 
 ## WARNING
+
 > **If you do not need the characteristics of a Single Page App framework like React, please consider using something else**. [Government services should be progressively enhanced](https://www.gov.uk/service-manual/technology/using-progressive-enhancement), and [should function without JavaScript enabled](https://kryogenix.org/code/browser/everyonehasjs.html).
-> 
+>
 > If you have an explicit requirement that cannot be delivered effectively in a progressively enhanced manner then you might have a case for using React. If you have plans to build your React app in a progressively enhanced way, you might be fine. Whatever you do, be prepared to defend it at a service assessment.
 
 ## Quick install
