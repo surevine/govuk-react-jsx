@@ -1,5 +1,10 @@
 # GOV.UK React components (govuk-react-jsx)
 
+> This package is no longer maintained and will not receive updates bringing it beyond govuk-frontend 4.0.1. If you are using this in your project the simplest way forward is to copy and paste the components from here into your project allowing you to keep them up to date with govuk-frontend yourselves.
+
+<details>
+<summary>View the readme</summary>
+
 [![govuk-frontend 4.0.1](https://img.shields.io/badge/govuk--frontend%20version-4.0.1-005EA5?logo=gov.uk&style=flat-square)](https://github.com/alphagov/govuk-frontend/releases/tag/v4.0.1)
 [![version](https://img.shields.io/npm/v/govuk-react-jsx.svg?style=flat-square)](https://www.npmjs.com/package/govuk-react-jsx)
 ![(Pipeline)](https://github.com/surevine/govuk-react-jsx/workflows/Pipeline/badge.svg)
@@ -188,3 +193,5 @@ Tests run in Github actions.
 [Surevine](https://www.surevine.com)
 
 [HM Land Registry](https://www.gov.uk/government/organisations/land-registry)
+
+</details>
